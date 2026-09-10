@@ -319,11 +319,11 @@ html {
     transform: translateY(-2px);
 }
 
-/* NOVO DUGME ZA AUTOMATSKI PREGLED */
+/* DUGME ZA AUTOMATSKI PREGLED */
 #bc-home .bc-button-tour {
     color: #fff;
-    background: rgba(210, 31, 43, 0.35);
-    border: 1px solid rgba(210, 31, 43, 0.7);
+    background: rgba(210, 31, 43, 0.45);
+    border: 1px solid rgba(210, 31, 43, 0.8);
     cursor: pointer;
 }
 
@@ -333,14 +333,14 @@ html {
     transform: translateY(-2px);
 }
 
-/* PLUTAJUĆI KONTROLER TOURA (PAUZA) */
+/* KONTROLER TOURA (PAUZA) */
 #bcTourFloatingStop {
     display: none;
     position: fixed;
     bottom: 24px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 9999;
+    z-index: 99999;
     background: #d21f2b;
     color: #fff;
     border: 1px solid rgba(255,255,255,0.4);
@@ -352,12 +352,6 @@ html {
     text-transform: uppercase;
     box-shadow: 0 8px 25px rgba(0,0,0,0.5);
     cursor: pointer;
-    animation: bcPulse 1.5s infinite;
-}
-
-@keyframes bcPulse {
-    0%, 100% { transform: translateX(-50%) scale(1); }
-    50% { transform: translateX(-50%) scale(1.05); }
 }
 
 #bc-home .bc-hero-credo-card {
@@ -621,6 +615,9 @@ html {
     #bc-home .bc-content { width: 75%; }
 }
 
+/* =========================================================
+   POPRAVKA MOBILNOG PRIKAZA (HERO SLIKA I TEKST)
+========================================================= */
 @media (max-width: 700px) {
     #bc-home .bc-header-inner { width: calc(100% - 24px); min-height: 68px; }
     #bc-home .bc-monogram { font-size: 29px; padding-right: 11px; }
@@ -628,9 +625,57 @@ html {
     #bc-home .bc-brand-subtitle, #bc-home .bc-header-button { display: none; }
     #bc-home .bc-nav.bc-open { top: 68px; padding: 6px 18px 14px; }
     #bc-home .bc-content-inner { width: calc(100% - 28px); }
-    #bc-home .bc-content-wrap { padding-top: 100px; padding-bottom: 50px; }
-    #bc-home .bc-content { width: 100%; max-width: 480px; }
-    #bc-home .bc-title { font-size: clamp(38px, 10.5vw, 48px); }
+
+    /* HERO SLIKA MOBILNI FIX */
+    #bc-home .bc-hero {
+        min-height: 920px;
+    }
+
+    #bc-home .bc-banner-image {
+        object-position: center top !important;
+        opacity: 0.85;
+    }
+
+    #bc-home .bc-hero-overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(4,18,36,.82) 0%,
+                rgba(4,18,36,.75) 45%,
+                rgba(4,18,36,.92) 80%,
+                rgba(4,18,36,.98) 100%
+            ) !important;
+    }
+
+    #bc-home .bc-content-wrap {
+        padding-top: 115px;
+        padding-bottom: 60px;
+    }
+
+    #bc-home .bc-content {
+        width: 100%;
+        max-width: 480px;
+    }
+
+    #bc-home .bc-title {
+        font-size: clamp(34px, 9.5vw, 44px);
+    }
+
+    #bc-home .bc-actions {
+        width: 100%;
+    }
+
+    #bc-home .bc-button {
+        width: 100%;
+    }
+
+    #bc-home .bc-hero-credo-card {
+        padding: 16px 18px;
+    }
+
+    #bc-home .bc-credo-title {
+        font-size: 16px;
+    }
 }
 </style>
 
@@ -672,7 +717,7 @@ html {
                     <div class="bc-actions">
                         <a href="#bc-principles" class="bc-button bc-button-primary">Pogledaj program <span>→</span></a>
                         <a href="#bc-about" class="bc-button bc-button-secondary">O Blagoju</a>
-                        <!-- DUGME ZA AUTOMATSKI OBILAZAK -->
+                        <!-- DUGME ZA AUTOMATSKI PREGLED -->
                         <button type="button" class="bc-button bc-button-tour" id="bcStartTourBtn">
                             Automatski pregled sajta ↓
                         </button>
@@ -690,7 +735,7 @@ html {
     </div>
 </section>
 
-<!-- PLUTAJUĆE DUGME ZA PREKID OBILASKA -->
+<!-- PLUTAJUĆI TASTER ZA PREKID TOURA -->
 <button type="button" id="bcTourFloatingStop">Zaustavi pregled ⏹</button>
 
 <!-- MODAL NAČELA -->
@@ -877,6 +922,10 @@ html {
 #bc-policy-index .bc-index-intro-side small{ display:block; margin-bottom:13px; color:rgba(7,24,45,.34); font-size:8px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
 #bc-policy-index .bc-index-intro-text{ margin:0; color:var(--muted); font-size:13px; line-height:1.78; }
 #bc-policy-index .bc-index-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); border-bottom:1px solid var(--line-strong); }
+#bc-index-item{
+    position:relative; min-height:285px; display:flex; flex-direction:column; justify-content:space-between;
+    padding:38px 44px 34px 0; overflow:hidden; border-bottom:1px solid var(--line); transition:all .28s ease;
+}
 #bc-policy-index .bc-index-item{
     position:relative; min-height:285px; display:flex; flex-direction:column; justify-content:space-between;
     padding:38px 44px 34px 0; overflow:hidden; border-bottom:1px solid var(--line); transition:all .28s ease;
@@ -924,7 +973,6 @@ html {
         </div>
 
         <div class="bc-index-grid">
-            <!-- 01 -->
             <article class="bc-index-item">
                 <span class="bc-index-bg-number">01</span>
                 <div>
@@ -940,7 +988,6 @@ html {
                 <a class="bc-index-link" href="domaca-proizvodnja.html">Otvori stranicu <span>→</span></a>
             </article>
 
-            <!-- 02 -->
             <article class="bc-index-item">
                 <span class="bc-index-bg-number">02</span>
                 <div>
@@ -956,7 +1003,6 @@ html {
                 <a class="bc-index-link" href="vocarstvo.html">Otvori stranicu <span>→</span></a>
             </article>
 
-            <!-- 03 -->
             <article class="bc-index-item">
                 <span class="bc-index-bg-number">03</span>
                 <div>
@@ -972,7 +1018,6 @@ html {
                 <a class="bc-index-link" href="stocarstvo.html">Otvori stranicu <span>→</span></a>
             </article>
 
-            <!-- 04 -->
             <article class="bc-index-item">
                 <span class="bc-index-bg-number">04</span>
                 <div>
@@ -988,7 +1033,6 @@ html {
                 <a class="bc-index-link" href="solarna-energija.html">Otvori stranicu <span>→</span></a>
             </article>
 
-            <!-- 05 -->
             <article class="bc-index-item">
                 <span class="bc-index-bg-number">05</span>
                 <div>
@@ -1004,7 +1048,6 @@ html {
                 <a class="bc-index-link" href="institucije.html">Otvori stranicu <span>→</span></a>
             </article>
 
-            <!-- 06 -->
             <article class="bc-index-item">
                 <span class="bc-index-bg-number">06</span>
                 <div>
@@ -1038,7 +1081,10 @@ html {
 }
 #bc-about *, #bc-about *::before, #bc-about *::after { box-sizing:border-box; }
 #bc-about .bc-about-hero { position:relative; width:100%; min-height:650px; overflow:hidden; }
-#bc-about .bc-about-image { position:absolute; inset:0; z-index:1; width:100%; height:100%; display:block; object-fit:cover; object-position:center center; }
+#bc-about .bc-about-image {
+    position:absolute; inset:0; z-index:1; width:100%; height:100%; display:block;
+    object-fit:cover; object-position:center top;
+}
 #bc-about .bc-about-overlay {
     position:absolute; inset:0; z-index:2; pointer-events:none;
     background:linear-gradient(90deg, rgba(4,18,36,.95) 0%, rgba(4,18,36,.85) 20%, rgba(4,18,36,.63) 38%, rgba(4,18,36,.30) 55%, rgba(4,18,36,.07) 72%, rgba(4,18,36,0) 84%);
@@ -1064,14 +1110,56 @@ html {
 }
 #bc-about .bc-about-btn:hover { background: #1763ad; transform: translateY(-2px); }
 
+/* POPRAVKA ZA SLIKU O MENI NA TELEFONU */
 @media(max-width:767px) {
-    #bc-about .bc-about-hero { min-height:760px; height:auto; }
-    #bc-about .bc-content-wrap { position: relative; min-height: 760px; align-items: flex-end; }
-    #bc-about .bc-content-inner { width:100%; padding: 120px max(18px, env(safe-area-inset-right)) 34px max(18px, env(safe-area-inset-left)); }
-    #bc-about .bc-content { width:100%; }
-    #bc-about .bc-title { font-size: clamp(42px, 12vw, 54px); }
-    #bc-about .bc-about-actions { width: 100%; max-width: 300px; }
-    #bc-about .bc-about-btn { width: 100%; }
+    #bc-about .bc-about-hero {
+        min-height:850px;
+        height:auto;
+    }
+
+    #bc-about .bc-about-image {
+        object-position: center 20% !important;
+        opacity: 0.85;
+    }
+
+    #bc-about .bc-about-overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(3,15,30,.25) 0%,
+                rgba(3,15,30,.40) 35%,
+                rgba(3,15,30,.88) 65%,
+                rgba(3,15,30,.98) 100%
+            ) !important;
+    }
+
+    #bc-about .bc-content-wrap {
+        position: relative;
+        min-height: 850px;
+        align-items: flex-end;
+    }
+
+    #bc-about .bc-content-inner {
+        width:100%;
+        padding: 120px max(18px, env(safe-area-inset-right)) 40px max(18px, env(safe-area-inset-left));
+    }
+
+    #bc-about .bc-content {
+        width:100%;
+    }
+
+    #bc-about .bc-title {
+        font-size: clamp(40px, 11vw, 50px);
+    }
+
+    #bc-about .bc-about-actions {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    #bc-about .bc-about-btn {
+        width: 100%;
+    }
 }
 </style>
 
@@ -1105,7 +1193,7 @@ html {
 
 <!-- =========================================================
      FOOTER
-========================================================= */ -->
+========================================================= -->
 <style>
 #bc-footer {
     --navy:#07182d;
@@ -1505,7 +1593,7 @@ html {
     }
 
     /* =========================================================
-       AUTOMATSKI OBILAZAK SAJTA (SMOOTH AUTO-TOUR)
+       AUTOMATSKI OBILAZAK SAJTA (PUNA MOBILNA I DESKTOP PODRŠKA)
     ========================================================= */
     const startTourBtn = document.getElementById("bcStartTourBtn");
     const stopTourBtn = document.getElementById("bcTourFloatingStop");
@@ -1517,24 +1605,30 @@ html {
         isAutoTourActive = false;
         cancelAnimationFrame(tourAnimationId);
         if (stopTourBtn) stopTourBtn.style.display = "none";
-        document.removeEventListener("wheel", stopTour);
-        document.removeEventListener("touchmove", stopTour);
+        window.removeEventListener("wheel", stopTour);
+        window.removeEventListener("touchstart", stopTour);
+        window.removeEventListener("touchmove", stopTour);
     }
 
-    function startTour() {
+    function startTour(e) {
+        if (e) e.preventDefault();
         if (isAutoTourActive) return;
+
         isAutoTourActive = true;
         if (stopTourBtn) stopTourBtn.style.display = "block";
 
-        // Brzina: 1.8 piksela po frejmu daje smiren, pregledan tempo
-        const speed = 1.8; 
+        // Brzina prilagođena za telefone (1.5 px po frejmu daje stabilan, pregledan tok)
+        const speed = window.innerWidth <= 700 ? 1.4 : 1.8;
 
         function step() {
             if (!isAutoTourActive) return;
-            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
             
-            if (window.scrollY < maxScroll - 5) {
-                window.scrollBy(0, speed);
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            const maxScroll = (document.documentElement.scrollHeight || document.body.scrollHeight) - window.innerHeight;
+
+            if (currentScroll < maxScroll - 4) {
+                // Univerzalno pomeranje koje prolazi na svim mobilnim pretraživačima
+                window.scrollTo(0, currentScroll + speed);
                 tourAnimationId = requestAnimationFrame(step);
             } else {
                 stopTour();
@@ -1543,15 +1637,21 @@ html {
 
         tourAnimationId = requestAnimationFrame(step);
 
-        // Ako korisnik sam dodirne ekran ili mrdne točkić, odmah se zaustavlja
         setTimeout(function() {
-            document.addEventListener("wheel", stopTour, { passive: true });
-            document.addEventListener("touchmove", stopTour, { passive: true });
-        }, 300);
+            window.addEventListener("wheel", stopTour, { passive: true });
+            window.addEventListener("touchstart", stopTour, { passive: true });
+            window.addEventListener("touchmove", stopTour, { passive: true });
+        }, 400);
     }
 
-    if (startTourBtn) startTourBtn.addEventListener("click", startTour);
-    if (stopTourBtn) stopTourBtn.addEventListener("click", stopTour);
+    if (startTourBtn) {
+        startTourBtn.addEventListener("click", startTour);
+        startTourBtn.addEventListener("touchstart", startTour, { passive: false });
+    }
+    if (stopTourBtn) {
+        stopTourBtn.addEventListener("click", stopTour);
+        stopTourBtn.addEventListener("touchstart", stopTour, { passive: false });
+    }
 
 })();
 </script>
