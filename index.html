@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#07182d">
 <title>Blagoje Ćurčić — Za pravedniju Srbiju</title>
 <meta name="description" content="Blagoje Ćurčić — Za pravedniju Srbiju">
+<link rel="stylesheet" href="bc-core.css">
 <style>
 html,body{margin:0;padding:0;width:100%;min-height:100%;overflow-x:hidden;}
 body{background:#f8fafc;}
@@ -44,11 +45,6 @@ html {
     box-sizing: border-box;
 }
 
-
-/* =========================================================
-   HERO WRAPPER
-========================================================= */
-
 #bc-home .bc-hero {
     position: relative;
     width: 100%;
@@ -56,37 +52,22 @@ html {
     min-height: 860px;
 }
 
-
-/* =========================================================
-   BANNER IMAGE
-========================================================= */
-
 #bc-home .bc-banner-image {
     position: absolute;
     inset: 0;
     z-index: 1;
-
     width: 100%;
     height: 100%;
-
     display: block;
-
     object-fit: cover;
     object-position: right center;
 }
-
-
-/* =========================================================
-   OVERLAY
-========================================================= */
 
 #bc-home .bc-hero-overlay {
     position: absolute;
     inset: 0;
     z-index: 2;
-
     pointer-events: none;
-
     background:
         linear-gradient(
             90deg,
@@ -98,136 +79,86 @@ html {
         );
 }
 
-
-/* =========================================================
-   HEADER
-========================================================= */
-
 #bc-home .bc-header {
     position: absolute;
-
     top: 0;
     left: 0;
     right: 0;
-
     z-index: 30;
-
     border-bottom: 1px solid rgba(255,255,255,.12);
-
     background:
         linear-gradient(
             to bottom,
             rgba(3,15,30,.60),
             rgba(3,15,30,.18)
         );
-
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
 }
 
 #bc-home .bc-header-inner {
     width: min(1320px, calc(100% - 60px));
-
     min-height: 84px;
-
     margin: 0 auto;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 32px;
 }
-
-
-/* =========================================================
-   LOGO
-========================================================= */
 
 #bc-home .bc-brand {
     display: flex;
     align-items: center;
-
     gap: 16px;
-
     color: #fff;
     text-decoration: none;
-
     flex-shrink: 0;
 }
 
 #bc-home .bc-monogram {
     font-family: Georgia, "Times New Roman", serif;
-
     font-size: 38px;
     line-height: 1;
-
     color: #fff;
-
     padding-right: 17px;
-
     border-right: 1px solid rgba(255,255,255,.3);
 }
 
 #bc-home .bc-brand-name {
     font-family: Georgia, "Times New Roman", serif;
-
     font-size: 17px;
     font-weight: 600;
-
     letter-spacing: .04em;
-
     color: #fff;
 }
 
 #bc-home .bc-brand-subtitle {
     margin-top: 5px;
-
     font-size: 8px;
     font-weight: 700;
-
     text-transform: uppercase;
-
     letter-spacing: .27em;
-
     color: rgba(255,255,255,.55);
 }
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
 
 #bc-home .bc-nav {
     display: flex;
     align-items: center;
-
     gap: 31px;
-
     margin-left: auto;
 }
 
 #bc-home .bc-nav a {
     position: relative;
-
     padding: 32px 0;
-
     color: #fff;
-
     font-size: 11px;
     font-weight: 700;
-
     letter-spacing: .08em;
-
     text-transform: uppercase;
-
     text-decoration: none;
-
     opacity: .82;
-
-    transition:
-        opacity .25s ease,
-        color .25s ease;
+    transition: opacity .25s ease, color .25s ease;
 }
 
 #bc-home .bc-nav a:hover {
@@ -236,17 +167,12 @@ html {
 
 #bc-home .bc-nav a::after {
     content: "";
-
     position: absolute;
-
     left: 0;
     bottom: 21px;
-
     width: 0;
     height: 2px;
-
     background: #1c67ad;
-
     transition: width .25s ease;
 }
 
@@ -259,39 +185,22 @@ html {
     opacity: 1;
 }
 
-
-/* =========================================================
-   HEADER CTA
-========================================================= */
-
 #bc-home .bc-header-button {
     min-height: 42px;
-
     padding: 0 20px;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     gap: 11px;
-
     color: #fff;
-
     background: #124d8b;
-
     border: 1px solid #2466a3;
-
     text-decoration: none;
-
     font-size: 11px;
     font-weight: 800;
-
     letter-spacing: .07em;
-
     text-transform: uppercase;
-
     transition: .25s ease;
-
     flex-shrink: 0;
 }
 
@@ -300,24 +209,16 @@ html {
     transform: translateY(-1px);
 }
 
-
-/* =========================================================
-   HERO CONTENT
-========================================================= */
-
 #bc-home .bc-content-wrap {
     position: relative;
     z-index: 10;
-
     display: flex;
     align-items: center;
-
     padding: 130px 0 80px;
 }
 
 #bc-home .bc-content-inner {
     width: min(1320px, calc(100% - 60px));
-
     margin: 0 auto;
 }
 
@@ -326,17 +227,10 @@ html {
     max-width: 720px;
 }
 
-
-/* =========================================================
-   TROBOJKA
-========================================================= */
-
 #bc-home .bc-line {
     width: 84px;
     height: 3px;
-
     margin-bottom: 25px;
-
     background:
         linear-gradient(
             90deg,
@@ -349,135 +243,122 @@ html {
         );
 }
 
-
-/* =========================================================
-   HERO TEXT
-========================================================= */
-
 #bc-home .bc-kicker {
     margin-bottom: 13px;
-
     color: rgba(255,255,255,.65);
-
     font-size: 10px;
     font-weight: 700;
-
     letter-spacing: .2em;
-
     text-transform: uppercase;
 }
 
-
 #bc-home .bc-title {
     max-width: 620px;
-
     margin: 0;
-
     color: #fff;
-
     font-family: Georgia, "Times New Roman", serif;
-
     font-size: clamp(44px, 4.3vw, 66px);
-
     font-weight: 400;
-
     line-height: 1.05;
-
     letter-spacing: -.035em;
-
-    text-shadow:
-        0 3px 20px
-        rgba(0,0,0,.25);
+    text-shadow: 0 3px 20px rgba(0,0,0,.25);
 }
-
 
 #bc-home .bc-description {
     max-width: 600px;
-
     margin: 22px 0 0;
-
     color: rgba(255,255,255,.82);
-
     font-size: 15.5px;
-
     line-height: 1.7;
 }
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
 
 #bc-home .bc-actions {
     display: flex;
     flex-wrap: wrap;
-
     gap: 12px;
-
     margin-top: 28px;
 }
 
 #bc-home .bc-button {
     min-height: 48px;
-
     padding: 0 24px;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     gap: 13px;
-
     text-decoration: none;
-
     font-size: 11px;
     font-weight: 800;
-
     letter-spacing: .08em;
-
     text-transform: uppercase;
-
     transition: all .25s ease;
 }
 
 #bc-home .bc-button-primary {
     color: #fff;
-
     background: #124d8b;
-
     border: 1px solid #124d8b;
 }
 
 #bc-home .bc-button-primary:hover {
     background: #1763ad;
-
     border-color: #1763ad;
-
     transform: translateY(-2px);
 }
 
 #bc-home .bc-button-secondary {
     color: #fff;
-
     background: rgba(5,25,47,.35);
-
     border: 1px solid rgba(255,255,255,.5);
-
     backdrop-filter: blur(5px);
 }
 
 #bc-home .bc-button-secondary:hover {
     background: #124d8b;
-
     border-color: #124d8b;
-
     transform: translateY(-2px);
 }
 
+/* NOVO DUGME ZA AUTOMATSKI PREGLED */
+#bc-home .bc-button-tour {
+    color: #fff;
+    background: rgba(210, 31, 43, 0.35);
+    border: 1px solid rgba(210, 31, 43, 0.7);
+    cursor: pointer;
+}
 
-/* =========================================================
-   NOVI POPUP BANER U HERO SEKCIJI (NAČELA)
-========================================================= */
+#bc-home .bc-button-tour:hover {
+    background: #d21f2b;
+    border-color: #d21f2b;
+    transform: translateY(-2px);
+}
+
+/* PLUTAJUĆI KONTROLER TOURA (PAUZA) */
+#bcTourFloatingStop {
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: #d21f2b;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    cursor: pointer;
+    animation: bcPulse 1.5s infinite;
+}
+
+@keyframes bcPulse {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.05); }
+}
 
 #bc-home .bc-hero-credo-card {
     margin-top: 30px;
@@ -560,11 +441,7 @@ html {
     transform: translateX(5px);
 }
 
-
-/* =========================================================
-   MODAL (POPUP) STILOVI
-========================================================= */
-
+/* MODAL STILOVI */
 .bc-modal-overlay {
     position: fixed;
     inset: 0;
@@ -633,7 +510,6 @@ html {
     cursor: pointer;
     border-radius: 4px;
     transition: background .2s ease;
-    flex-shrink: 0;
 }
 
 .bc-modal-close:hover {
@@ -661,10 +537,6 @@ html {
     margin-top: 0;
 }
 
-.bc-modal-body p {
-    margin: 0 0 16px;
-}
-
 .bc-credo-quote-box {
     background: rgba(18, 77, 139, 0.2);
     border-left: 3px solid #1c67ad;
@@ -675,611 +547,918 @@ html {
     border-radius: 0 4px 4px 0;
 }
 
-
-/* =========================================================
-   HAMBURGER
-========================================================= */
-
 #bc-home .bc-menu-button {
     display: none;
-
     position: relative;
-
     width: 44px;
     height: 44px;
-
     padding: 0;
-
     align-items: center;
     justify-content: center;
-
     border: 1px solid rgba(255,255,255,.25);
-
     background: rgba(7,24,45,.18);
-
     color: #fff;
-
     cursor: pointer;
-
-    transition:
-        background .25s ease,
-        border-color .25s ease;
-}
-
-#bc-home .bc-menu-button:hover,
-#bc-home .bc-menu-button.bc-active {
-    background: #124d8b;
-
-    border-color: #3474ad;
 }
 
 #bc-home .bc-menu-icon {
     position: relative;
-
     display: block;
-
     width: 19px;
     height: 14px;
 }
 
 #bc-home .bc-menu-icon span {
     position: absolute;
-
     left: 0;
-
     width: 19px;
     height: 1.5px;
-
     background: #fff;
-
-    transition:
-        transform .28s ease,
-        opacity .2s ease,
-        top .28s ease;
+    transition: transform .28s ease, opacity .2s ease, top .28s ease;
 }
 
-#bc-home .bc-menu-icon span:nth-child(1) {
-    top: 0;
-}
+#bc-home .bc-menu-icon span:nth-child(1) { top: 0; }
+#bc-home .bc-menu-icon span:nth-child(2) { top: 6px; }
+#bc-home .bc-menu-icon span:nth-child(3) { top: 12px; }
 
-#bc-home .bc-menu-icon span:nth-child(2) {
-    top: 6px;
-}
-
-#bc-home .bc-menu-icon span:nth-child(3) {
-    top: 12px;
-}
-
-#bc-home .bc-menu-button.bc-active
-.bc-menu-icon span:nth-child(1) {
-    top: 6px;
-    transform: rotate(45deg);
-}
-
-#bc-home .bc-menu-button.bc-active
-.bc-menu-icon span:nth-child(2) {
-    opacity: 0;
-}
-
-#bc-home .bc-menu-button.bc-active
-.bc-menu-icon span:nth-child(3) {
-    top: 6px;
-    transform: rotate(-45deg);
-}
-
-
-/* =========================================================
-   TABLET & MOBILE
-========================================================= */
+#bc-home .bc-menu-button.bc-active .bc-menu-icon span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+#bc-home .bc-menu-button.bc-active .bc-menu-icon span:nth-child(2) { opacity: 0; }
+#bc-home .bc-menu-button.bc-active .bc-menu-icon span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
 
 @media (max-width: 1050px) {
-
-    #bc-home .bc-nav {
-        display: none;
-    }
-
-    #bc-home .bc-header-button {
-        margin-left: auto;
-    }
-
-    #bc-home .bc-menu-button {
-        display: flex;
-    }
-
+    #bc-home .bc-nav { display: none; }
+    #bc-home .bc-header-button { margin-left: auto; }
+    #bc-home .bc-menu-button { display: flex; }
     #bc-home .bc-nav.bc-open {
         display: flex;
-
         position: absolute;
-
         top: 84px;
         left: 0;
         right: 0;
-
         margin: 0;
-
         padding: 8px 30px 18px;
-
         flex-direction: column;
         align-items: stretch;
-
         gap: 0;
-
         background: rgba(5,21,40,.985);
-
         border-top: 1px solid rgba(255,255,255,.05);
         border-bottom: 1px solid rgba(255,255,255,.12);
-
-        box-shadow:
-            0 18px 40px
-            rgba(0,0,0,.18);
-
-        animation: bcMenuIn .24s ease both;
     }
-
     #bc-home .bc-nav.bc-open a {
         position: relative;
-
         width: 100%;
         min-height: 54px;
-
         padding: 0;
-
         display: flex;
         align-items: center;
-
-        border-bottom:
-            1px solid rgba(255,255,255,.08);
-
-        font-family:
-            Georgia,
-            "Times New Roman",
-            serif;
-
+        border-bottom: 1px solid rgba(255,255,255,.08);
+        font-family: Georgia, serif;
         font-size: 16px;
         font-weight: 400;
-
-        letter-spacing: 0;
-        text-transform: none;
-
         opacity: .82;
     }
-
-    #bc-home .bc-nav.bc-open a:last-child {
-        border-bottom: 0;
-    }
-
-    #bc-home .bc-nav.bc-open a::before {
-        content: "";
-
-        width: 0;
-        height: 1px;
-
-        margin-right: 0;
-
-        background: #4d8bc2;
-
-        transition:
-            width .2s ease,
-            margin-right .2s ease;
-    }
-
-    #bc-home .bc-nav.bc-open a:hover::before {
-        width: 20px;
-
-        margin-right: 10px;
-    }
-
-    #bc-home .bc-nav.bc-open a::after {
-        display: none;
-    }
-
-    #bc-home .bc-content {
-        width: 75%;
-    }
-
+    #bc-home .bc-nav.bc-open a:last-child { border-bottom: 0; }
+    #bc-home .bc-content { width: 75%; }
 }
-
-
-@keyframes bcMenuIn {
-    from {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 
 @media (max-width: 700px) {
+    #bc-home .bc-header-inner { width: calc(100% - 24px); min-height: 68px; }
+    #bc-home .bc-monogram { font-size: 29px; padding-right: 11px; }
+    #bc-home .bc-brand-name { font-size: 13px; }
+    #bc-home .bc-brand-subtitle, #bc-home .bc-header-button { display: none; }
+    #bc-home .bc-nav.bc-open { top: 68px; padding: 6px 18px 14px; }
+    #bc-home .bc-content-inner { width: calc(100% - 28px); }
+    #bc-home .bc-content-wrap { padding-top: 100px; padding-bottom: 50px; }
+    #bc-home .bc-content { width: 100%; max-width: 480px; }
+    #bc-home .bc-title { font-size: clamp(38px, 10.5vw, 48px); }
+}
+</style>
 
-    #bc-home .bc-header-inner {
-        width: calc(100% - 24px);
-        min-height: 68px;
-        gap: 10px;
-    }
+<section id="bc-home">
+    <div class="bc-hero">
+        <img class="bc-banner-image" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-04_25_46-AM.png" alt="Blagoje Ćurčić">
+        <div class="bc-hero-overlay"></div>
+        <header class="bc-header">
+            <div class="bc-header-inner">
+                <a class="bc-brand" href="index.html">
+                    <div class="bc-monogram">BĆ</div>
+                    <div>
+                        <div class="bc-brand-name">BLAGOJE ĆURČIĆ</div>
+                        <div class="bc-brand-subtitle">Za pravedniju Srbiju</div>
+                    </div>
+                </a>
+                <nav class="bc-nav" id="bcNav" aria-label="Glavna navigacija">
+                    <a href="index.html" class="bc-current">Početak</a>
+                    <a href="#bc-about">O meni</a>
+                    <a href="#bc-principles">Program</a>
+                    <a href="nekretnine.html">Nekretnine</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </nav>
+                <a class="bc-header-button" href="kontakt.html">Kontakt <span>→</span></a>
+                <button id="bcMenuButton" class="bc-menu-button" type="button" aria-label="Otvori navigaciju" aria-expanded="false" aria-controls="bcNav">
+                    <span class="bc-menu-icon"><span></span><span></span><span></span></span>
+                </button>
+            </div>
+        </header>
 
-    #bc-home .bc-monogram {
-        font-size: 29px;
-        padding-right: 11px;
-    }
+        <div class="bc-content-wrap">
+            <div class="bc-content-inner">
+                <div class="bc-content">
+                    <div class="bc-line"></div>
+                    <div class="bc-kicker">Za pravedniju Srbiju</div>
+                    <h1 class="bc-title">Država u kojoj se<br>pitaju građani.</h1>
+                    <p class="bc-description">Odgovorna država. Snažnija domaća proizvodnja. Institucije koje rade u interesu građana i naroda.</p>
+                    
+                    <div class="bc-actions">
+                        <a href="#bc-principles" class="bc-button bc-button-primary">Pogledaj program <span>→</span></a>
+                        <a href="#bc-about" class="bc-button bc-button-secondary">O Blagoju</a>
+                        <!-- DUGME ZA AUTOMATSKI OBILAZAK -->
+                        <button type="button" class="bc-button bc-button-tour" id="bcStartTourBtn">
+                            Automatski pregled sajta ↓
+                        </button>
+                    </div>
 
-    #bc-home .bc-brand-name {
-        font-size: 13px;
-    }
+                    <div class="bc-hero-credo-card" id="bcCredoOpenCard">
+                        <div class="bc-credo-badge">Za šta se zalažemo · Politička načela</div>
+                        <h3 class="bc-credo-title">Savez sa Rusijom i BRIKS-om · Prelazna vlada spasa · Narodna vlast i socijalna pravda</h3>
+                        <p class="bc-credo-excerpt">Promena sistema iz korena po švajcarskom modelu, bez političara koji žive na račun naroda. Zbrinjavanje najugroženijih i vlast struke umesto partijske podobnosti.</p>
+                        <button type="button" class="bc-credo-btn">Pročitaj ceo proglas načela <span>→</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    #bc-home .bc-brand-subtitle {
-        display: none;
-    }
+<!-- PLUTAJUĆE DUGME ZA PREKID OBILASKA -->
+<button type="button" id="bcTourFloatingStop">Zaustavi pregled ⏹</button>
 
-    #bc-home .bc-header-button {
-        display: none;
-    }
+<!-- MODAL NAČELA -->
+<div class="bc-modal-overlay" id="bcCredoModal" aria-hidden="true" role="dialog">
+    <div class="bc-modal-window">
+        <div class="bc-modal-header">
+            <div>
+                <div class="bc-credo-badge" style="margin-bottom: 4px;">Programska deklaracija i stavovi</div>
+                <h3 style="margin: 0; font-family: Georgia, serif; font-size: 22px; color: #fff;">Za šta se zalažemo — Temelji obnove Srbije</h3>
+            </div>
+            <button type="button" class="bc-modal-close" id="bcCredoCloseBtn" aria-label="Zatvori prozor">✕</button>
+        </div>
+        <div class="bc-modal-body">
+            <div class="bc-line" style="margin-bottom: 20px;"></div>
+            <h4>1. Spoljna politika i strateški opstanak</h4>
+            <p><strong>Politički smo nedvosmisleno za savez sa Rusijom, a potom i za punopravni savez sa BRIKS-om.</strong> Jedini zalog za opstanak i suverenitet Srbije jesu naša pravoslavna braća na čelu sa Vladimirom Putinom, predvodnikom pravoslavnog sveta i liderom BRIKS-a.</p>
+            <h4>2. Švajcarski sistem, Moba i Prelazna vlada spasa</h4>
+            <p>Zalažemo se za švajcarski model direktne demokratije koji pokret <em>Moba</em> uspešno propagira, sa <strong>Brankom Dragašem</strong> na čelu, koga mi iz Mobe Čačak predlažemo za premijera u Prelaznoj vladi spasa. Kompletno rukovodstvo i članovi Mobe treba da uđu u Prelaznu vladu narodnog spasa.</p>
+            <div class="bc-credo-quote-box">„Promena sistema iz korena — bez političara koji su decenijama parazitirali na grbači naroda! Samo narod treba da odlučuje preko nezavisne i dokazane struke o svim ključnim pitanjima u društvu.“</div>
+            <h4>3. Društvo apsolutne socijalne pravde i briga o ugroženima</h4>
+            <ul>
+                <li style="margin-bottom: 8px;"><strong>Prvo i najvažnije:</strong> Puna briga o bolesnima, nesposobnima za rad i socijalno ugroženima, a tek potom ostali kroz svoj lični rad, znanje i zalaganje.</li>
+                <li style="margin-bottom: 8px;"><strong>Dostojanstvo na ulicama:</strong> Prosjaci ne smeju biti prepušteni ulici — naša je dužnost i obaveza da ih zbrinemo u adekvatne ustanove.</li>
+                <li style="margin-bottom: 8px;"><strong>Uloga Crkve:</strong> Srpska pravoslavna crkva mora imati centralno mesto u zbrinjavanju sirotinje u okviru parohijskih domova, gde će svakom čoveku biti obezbeđen život dostojan ljudskog bića.</li>
+            </ul>
+            <h4>4. Kraj vladavine neukih — Meritokratija i domaća privreda</h4>
+            <p>Društvo mora počivati na socijalnoj pravdi, a na radnim mestima isključivo na stručnosti i dokazanoj sposobnosti. Nepismeni i partijski poltroni vladaju već 80 godina i tome se mora stati na kraj. Dolaze pismeni, obrazovani i radni ljudi koji će podići proizvodnju i privredu Srbije na sam vrh.</p>
+            <div class="bc-credo-quote-box" style="margin-bottom: 0;">„Svako prema svojim sposobnostima — a ne prema partijskoj knjižici, poltronstvu, prevarama i cinkarenju. Samo znanje provereno i primenjeno u praksi vodi do uspeha države i visokog životnog standarda svih građana!“</div>
+        </div>
+    </div>
+</div>
 
-    #bc-home .bc-nav.bc-open {
-        top: 68px;
-        padding: 6px 18px 14px;
-    }
+<style>
+/* =========================================================
+   ŠVAJCARSKI SISTEM (KRATKI BLOK)
+========================================================= */
+#bc-direct-short {
+    --navy:#07182d; --blue:#124d8b; --text:#17212c; --muted:#6d747c; --line:rgba(7,24,45,.11); --bg:#f8fafc;
+    width:100vw; margin-left:calc(50% - 50vw); background:var(--bg); color:var(--text); font-family:Arial,Helvetica,sans-serif; overflow:hidden;
+}
+#bc-direct-short *, #bc-direct-short *::before, #bc-direct-short *::after { box-sizing:border-box; }
+#bc-direct-short .bc-inner { width:min(1180px, calc(100% - 48px)); margin:0 auto; padding:82px 0 88px; }
+#bc-direct-short .bc-head { display:grid; grid-template-columns:minmax(0,1fr) minmax(300px,.65fr); gap:70px; align-items:end; padding-bottom:38px; border-bottom:1px solid var(--line); }
+#bc-direct-short .bc-title { max-width:760px; margin:0; color:var(--navy); font-family:Georgia,serif; font-size:clamp(42px,5vw,62px); font-weight:400; line-height:1; letter-spacing:-.04em; }
+#bc-direct-short .bc-title span { color:var(--blue); }
+#bc-direct-short .bc-intro { margin:0; color:var(--muted); font-size:13px; line-height:1.7; }
+#bc-direct-short .bc-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-bottom:1px solid var(--line); }
+#bc-direct-short .bc-item { padding:31px 30px 33px; border-right:1px solid var(--line); }
+#bc-direct-short .bc-item:first-child { padding-left:0; }
+#bc-direct-short .bc-item:last-child { padding-right:0; border-right:0; }
+#bc-direct-short .bc-number { display:block; margin-bottom:17px; color:var(--blue); font-size:9px; font-weight:800; letter-spacing:.14em; }
+#bc-direct-short .bc-item h3 { margin:0; color:var(--navy); font-family:Georgia,serif; font-size:22px; font-weight:500; line-height:1.18; }
+#bc-direct-short .bc-item p { max-width:310px; margin:10px 0 0; color:var(--muted); font-size:12px; line-height:1.6; }
+#bc-direct-short .bc-final { margin-top:34px; padding:21px 24px; display:flex; align-items:center; gap:18px; background:var(--navy); color:#fff; }
+#bc-direct-short .bc-final-mark { flex:0 0 auto; color:#6da0cf; font-family:Georgia,serif; font-size:27px; }
+#bc-direct-short .bc-final strong { font-family:Georgia,serif; font-size:18px; font-weight:400; line-height:1.35; }
+@media(max-width:767px) {
+    #bc-direct-short .bc-inner { width:100%; padding:62px max(17px, env(safe-area-inset-right)) 66px max(17px, env(safe-area-inset-left)); }
+    #bc-direct-short .bc-head { grid-template-columns:1fr; gap:18px; }
+    #bc-direct-short .bc-grid { grid-template-columns:1fr; }
+    #bc-direct-short .bc-item, #bc-direct-short .bc-item:first-child, #bc-direct-short .bc-item:last-child { padding:22px 0; border-right:0; border-bottom:1px solid var(--line); }
+    #bc-direct-short .bc-item:last-child { border-bottom:0; }
+}
+</style>
 
-    #bc-home .bc-nav.bc-open a {
-        min-height: 55px;
-        font-size: 17px;
-    }
+<section id="bc-direct-short">
+    <div class="bc-inner">
+        <div class="bc-head">
+            <h2 class="bc-title">Švajcarski sistem<br><span>za Srbiju.</span></h2>
+            <p class="bc-intro">Model u kome građanin ne predaje svu moć izborima, već može da predlaže, pokreće pitanja i učestvuje u važnim odlukama države.</p>
+        </div>
+        <div class="bc-grid">
+            <div class="bc-item">
+                <span class="bc-number">01</span>
+                <h3>Građani predlažu.</h3>
+                <p>Svaki građanin može da ukaže na problem, predloži rešenje ili pokrene pitanje koje smatra važnim za društvo.</p>
+            </div>
+            <div class="bc-item">
+                <span class="bc-number">02</span>
+                <h3>Građani odlučuju.</h3>
+                <p>Važna pitanja mogu da budu stavljena pred građane, tako da konačna odluka ne ostane samo u rukama političara.</p>
+            </div>
+            <div class="bc-item">
+                <span class="bc-number">03</span>
+                <h3>Glas ostaje privatan.</h3>
+                <p>Sistem potvrđuje pravo građanina da učestvuje, dok njegov konačni izbor ostaje tajan.</p>
+            </div>
+        </div>
+        <div class="bc-final">
+            <span class="bc-final-mark">→</span>
+            <strong>Identitet se proverava. Glas ostaje tajan. Rezultat pripada javnosti.</strong>
+        </div>
+    </div>
+</section>
 
-    #bc-home .bc-hero-overlay {
-        background:
-            linear-gradient(
-                180deg,
-                rgba(4,18,36,.92) 0%,
-                rgba(4,18,36,.82) 42%,
-                rgba(4,18,36,.55) 75%,
-                rgba(4,18,36,.85) 100%
-            );
-    }
+<style>
+/* =========================================================
+   3 PRINCIPA
+========================================================= */
+#bc-principles {
+    --navy: #07182d; --blue: #124d8b; --text: #17212c; --muted: #6d747c; --line: rgba(7,24,45,.10); --bg: #f8fafc;
+    position: relative; width: 100vw; margin-left: calc(50% - 50vw); overflow: hidden; background: var(--bg);
+    font-family: Arial, Helvetica, sans-serif; color: var(--text);
+}
+#bc-principles *, #bc-principles *::before, #bc-principles *::after { box-sizing: border-box; }
+#bc-principles .bc-principles-inner { width: min(1160px, calc(100% - 48px)); margin: 0 auto; padding: 38px 0 42px; }
+#bc-principles .bc-principles-top { display: flex; align-items: center; gap: 11px; margin-bottom: 27px; }
+#bc-principles .bc-principles-line { width: 38px; height: 2px; background: var(--blue); }
+#bc-principles .bc-principles-label { color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+#bc-principles .bc-principles-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+#bc-principles .bc-principle { position: relative; min-width: 0; padding: 31px 38px 32px; border-right: 1px solid var(--line); }
+#bc-principles .bc-principle:last-child { border-right: 0; }
+#bc-principles .bc-principle-head { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 17px; }
+#bc-principles .bc-icon { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; color: var(--blue); }
+#bc-principles .bc-icon svg { width: 34px; height: 34px; display: block; fill: none; stroke: currentColor; stroke-width: 1.45; stroke-linecap: round; stroke-linejoin: round; }
+#bc-principles .bc-number { color: rgba(7,24,45,.18); font-family: Georgia, serif; font-size: 19px; }
+#bc-principles .bc-title { margin: 0; color: var(--navy); font-family: Georgia, serif; font-size: 20px; font-weight: 500; line-height: 1.18; }
+#bc-principles .bc-text { max-width: 280px; margin: 9px 0 0; color: var(--muted); font-size: 12px; line-height: 1.58; }
+@media (max-width: 850px) {
+    #bc-principles .bc-principles-grid { grid-template-columns: 1fr; }
+    #bc-principles .bc-principle { padding: 28px 25px; border-right: 0; border-bottom: 1px solid var(--line); }
+    #bc-principles .bc-principle:last-child { border-bottom: 0; }
+}
+</style>
 
-    #bc-home .bc-content-inner {
-        width: calc(100% - 28px);
-    }
+<section id="bc-principles">
+    <div class="bc-principles-inner">
+        <div class="bc-principles-top">
+            <div class="bc-principles-line"></div>
+            <div class="bc-principles-label">Osnovni pravci</div>
+        </div>
+        <div class="bc-principles-grid">
+            <article class="bc-principle">
+                <div class="bc-principle-head">
+                    <div class="bc-icon">
+                        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40V20" /><path d="M24 25 C18 25 13 21 12 15 C18 14 23 17 24 22" /><path d="M24 31 C30 31 35 27 36 21 C30 20 25 23 24 28" /><path d="M16 40h16" /><path d="M12 44h24" /></svg>
+                    </div>
+                    <span class="bc-number">01</span>
+                </div>
+                <h3 class="bc-title">Domaća proizvodnja</h3>
+                <p class="bc-text">Poljoprivreda, prerada i domaći proizvodi sa većom dodatom vrednošću.</p>
+            </article>
+            <article class="bc-principle">
+                <div class="bc-principle-head">
+                    <div class="bc-icon">
+                        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 17h32" /><path d="M11 17L24 8l13 9" /><path d="M12 37h24" /><path d="M9 41h30" /><path d="M15 19v16" /><path d="M22 19v16" /><path d="M29 19v16" /><path d="M36 19v16" /></svg>
+                    </div>
+                    <span class="bc-number">02</span>
+                </div>
+                <h3 class="bc-title">Odgovorne institucije</h3>
+                <p class="bc-text">Jasna pravila, stručnost i odgovornost — institucije u službi građana.</p>
+            </article>
+            <article class="bc-principle">
+                <div class="bc-principle-head">
+                    <div class="bc-icon">
+                        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 l14 5 v10 c0 10-6 17-14 22 C16 37 10 20 10 20 V10z" /><path d="M24 14v13" /><path d="M18 20h12" /></svg>
+                    </div>
+                    <span class="bc-number">03</span>
+                </div>
+                <h3 class="bc-title">Švajcarski sistem</h3>
+                <p class="bc-text">Građani predlažu rešenja, ukazuju na probleme i direktnije učestvuju u odlučivanju.</p>
+            </article>
+        </div>
+    </div>
+</section>
 
-    #bc-home .bc-content-wrap {
-        padding-top: 100px;
-        padding-bottom: 50px;
-    }
+<style>
+/* =========================================================
+   ŠEST PRAVACA (INDEKS KARTICE)
+========================================================= */
+#bc-policy-index{
+    --navy:#07182d; --blue:#124d8b; --blue-hover:#1763ad; --bg:#f7f9fb; --text:#17212c;
+    --muted:#6d7782; --line:rgba(7,24,45,.10); --line-strong:rgba(7,24,45,.16);
+    position:relative; width:100vw; margin-left:calc(50% - 50vw); overflow:hidden;
+    background:linear-gradient(180deg, #fbfcfd 0%, var(--bg) 100%); color:var(--text); font-family:Arial,Helvetica,sans-serif;
+}
+#bc-policy-index *, #bc-policy-index *::before, #bc-policy-index *::after{ box-sizing:border-box; }
+#bc-policy-index .bc-index-inner{ position:relative; z-index:2; width:min(1180px,calc(100% - 48px)); margin:0 auto; padding:96px 0 112px; }
+#bc-policy-index .bc-index-intro{ display:grid; grid-template-columns:minmax(0,1fr) 330px; gap:86px; align-items:end; padding-bottom:52px; border-bottom:1px solid var(--line-strong); }
+#bc-policy-index .bc-index-label{ display:flex; align-items:center; gap:12px; margin-bottom:18px; color:var(--blue); font-size:9px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+#bc-policy-index .bc-index-label::before{ content:""; width:42px; height:2px; background:var(--blue); }
+#bc-policy-index .bc-index-heading{ max-width:760px; margin:0; color:var(--navy); font-family:Georgia,serif; font-size:clamp(48px,5.7vw,72px); font-weight:400; line-height:.94; letter-spacing:-.055em; }
+#bc-policy-index .bc-index-heading span{ color:var(--blue); }
+#bc-policy-index .bc-index-intro-side small{ display:block; margin-bottom:13px; color:rgba(7,24,45,.34); font-size:8px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+#bc-policy-index .bc-index-intro-text{ margin:0; color:var(--muted); font-size:13px; line-height:1.78; }
+#bc-policy-index .bc-index-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); border-bottom:1px solid var(--line-strong); }
+#bc-policy-index .bc-index-item{
+    position:relative; min-height:285px; display:flex; flex-direction:column; justify-content:space-between;
+    padding:38px 44px 34px 0; overflow:hidden; border-bottom:1px solid var(--line); transition:all .28s ease;
+}
+#bc-policy-index .bc-index-item:nth-child(odd){ padding-right:52px; border-right:1px solid var(--line-strong); }
+#bc-policy-index .bc-index-item:nth-child(even){ padding-left:52px; }
+#bc-policy-index .bc-index-item:nth-last-child(-n+2){ border-bottom:0; }
+#bc-policy-index .bc-index-bg-number{ position:absolute; right:26px; bottom:-16px; z-index:0; color:rgba(7,24,45,.035); font-family:Georgia,serif; font-size:118px; line-height:1; pointer-events:none; }
+#bc-policy-index .bc-index-top{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+#bc-policy-index .bc-index-number{ color:var(--blue); font-family:Georgia,serif; font-size:12px; letter-spacing:.08em; }
+#bc-policy-index .bc-index-category{ color:rgba(7,24,45,.42); font-size:8px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+#bc-policy-index .bc-index-title-wrap{ position:relative; z-index:2; margin-top:52px; }
+#bc-policy-index .bc-index-title{ max-width:470px; margin:0; color:var(--navy); font-family:Georgia,serif; font-size:clamp(31px,3.2vw,43px); font-weight:400; line-height:1.02; }
+#bc-policy-index .bc-index-sub{ max-width:430px; margin:12px 0 0; color:var(--muted); font-size:11.5px; line-height:1.65; }
+#bc-policy-index .bc-index-link{
+    position:relative; z-index:2; width:max-content; display:inline-flex; align-items:center;
+    gap:12px; margin-top:32px; color:var(--blue); text-decoration:none; font-size:9px;
+    font-weight:800; letter-spacing:.10em; text-transform:uppercase;
+}
+#bc-policy-index .bc-index-foot{ display:grid; grid-template-columns:160px minmax(0,1fr); gap:60px; padding-top:34px; }
+#bc-policy-index .bc-index-foot small{ color:var(--blue); font-size:8px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+#bc-policy-index .bc-index-foot p{ max-width:700px; margin:0; color:var(--muted); font-size:12px; line-height:1.75; }
 
-    #bc-home .bc-content {
-        width: 100%;
-        max-width: 480px;
-    }
-
-    #bc-home .bc-title {
-        font-size: clamp(38px, 10.5vw, 48px);
-        max-width: 430px;
-    }
-
-    #bc-home .bc-description {
-        font-size: 13.5px;
-        max-width: 430px;
-    }
-
-    #bc-home .bc-actions {
-        width: 100%;
-        max-width: 310px;
-    }
-
-    #bc-home .bc-button {
-        width: 100%;
-    }
-
-    #bc-home .bc-hero-credo-card {
-        padding: 16px 18px;
-    }
-
-    #bc-home .bc-credo-title {
-        font-size: 17px;
-    }
-
-    .bc-modal-window {
-        max-height: 94vh;
-    }
-
-    .bc-modal-header {
-        padding: 18px 20px;
-    }
-
-    .bc-modal-body {
-        padding: 20px;
-        font-size: 13.5px;
+@media(max-width:800px){
+    #bc-policy-index .bc-index-inner{ width:100%; padding:68px max(17px,env(safe-area-inset-right)) 78px max(17px,env(safe-area-inset-left)); }
+    #bc-policy-index .bc-index-intro{ grid-template-columns:1fr; gap:25px; }
+    #bc-policy-index .bc-index-grid{ grid-template-columns:1fr; }
+    #bc-policy-index .bc-index-item, #bc-policy-index .bc-index-item:nth-child(odd), #bc-policy-index .bc-index-item:nth-child(even){
+        min-height:235px; padding:28px 0 29px; border-right:0; border-bottom:1px solid var(--line);
     }
 }
 </style>
 
-
-<section id="bc-home">
-
-    <div class="bc-hero">
-
-        <img
-            class="bc-banner-image"
-            src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-04_25_46-AM.png"
-            alt="Blagoje Ćurčić - Za pravedniju Srbiju"
-        >
-
-        <div class="bc-hero-overlay"></div>
-
-        <!-- HEADER -->
-        <header class="bc-header">
-
-            <div class="bc-header-inner">
-
-                <a
-                    class="bc-brand"
-                    href="index.html"
-                >
-                    <div class="bc-monogram">
-                        BĆ
-                    </div>
-
-                    <div>
-                        <div class="bc-brand-name">
-                            BLAGOJE ĆURČIĆ
-                        </div>
-                        <div class="bc-brand-subtitle">
-                            Za pravedniju Srbiju
-                        </div>
-                    </div>
-                </a>
-
-                <nav
-                    class="bc-nav"
-                    id="bcNav"
-                    aria-label="Glavna navigacija"
-                >
-                    <a
-                        href="index.html"
-                        class="bc-current"
-                    >
-                        Početak
-                    </a>
-
-                    <a href="#bc-about">
-                        O meni
-                    </a>
-
-                    <a href="#bc-principles">
-                        Program
-                    </a>
-
-                    <a href="nekretnine.html">
-                        Nekretnine
-                    </a>
-
-                    <a href="kontakt.html">
-                        Kontakt
-                    </a>
-                </nav>
-
-                <a
-                    class="bc-header-button"
-                    href="kontakt.html"
-                >
-                    Kontakt
-                    <span>→</span>
-                </a>
-
-                <button
-                    id="bcMenuButton"
-                    class="bc-menu-button"
-                    type="button"
-                    aria-label="Otvori navigaciju"
-                    aria-expanded="false"
-                    aria-controls="bcNav"
-                >
-                    <span class="bc-menu-icon">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </span>
-                </button>
-
+<section id="bc-policy-index">
+    <div class="bc-index-inner">
+        <div class="bc-index-intro">
+            <div>
+                <div class="bc-index-label">Program</div>
+                <h2 class="bc-index-heading">Šest pravaca.<br><span>Jedna vizija razvoja.</span></h2>
             </div>
-
-        </header>
-
-
-        <!-- HERO CONTENT -->
-        <div class="bc-content-wrap">
-
-            <div class="bc-content-inner">
-
-                <div class="bc-content">
-
-                    <div class="bc-line"></div>
-
-                    <div class="bc-kicker">
-                        Za pravedniju Srbiju
-                    </div>
-
-                    <h1 class="bc-title">
-                        Država u kojoj se
-                        <br>
-                        pitaju građani.
-                    </h1>
-
-                    <p class="bc-description">
-                        Odgovorna država.
-                        Snažnija domaća proizvodnja.
-                        Institucije koje rade u interesu građana i naroda.
-                    </p>
-
-                    <div class="bc-actions">
-
-                        <a
-                            href="#bc-principles"
-                            class="bc-button bc-button-primary"
-                        >
-                            Pogledaj program
-                            <span>→</span>
-                        </a>
-
-                        <a
-                            href="#bc-about"
-                            class="bc-button bc-button-secondary"
-                        >
-                            O Blagoju
-                        </a>
-
-                    </div>
-
-                    <!-- KLJUČNA NAČELA - KARTICA KOJA OTVARA DETALJAN POP-UP -->
-                    <div class="bc-hero-credo-card" id="bcCredoOpenCard">
-                        <div class="bc-credo-badge">
-                            Za šta se zalažemo · Politička načela
-                        </div>
-                        <h3 class="bc-credo-title">
-                            Savez sa Rusijom i BRIKS-om · Prelazna vlada spasa · Narodna vlast i socijalna pravda
-                        </h3>
-                        <p class="bc-credo-excerpt">
-                            Promena sistema iz korena po švajcarskom modelu, bez političara koji žive na račun naroda. Zbrinjavanje najugroženijih i vlast struke umesto partijske podobnosti.
-                        </p>
-                        <button type="button" class="bc-credo-btn">
-                            Pročitaj ceo proglas načela <span>→</span>
-                        </button>
-                    </div>
-
-                </div>
-
+            <div class="bc-index-intro-side">
+                <small>Programske oblasti</small>
+                <p class="bc-index-intro-text">Svaka oblast ima zaseban predlog i detaljno obrazloženje. Izaberite pravac i otvorite njegovu stranicu.</p>
             </div>
-
         </div>
 
-    </div>
+        <div class="bc-index-grid">
+            <!-- 01 -->
+            <article class="bc-index-item">
+                <span class="bc-index-bg-number">01</span>
+                <div>
+                    <div class="bc-index-top">
+                        <span class="bc-index-number">01</span>
+                        <span class="bc-index-category">Privreda</span>
+                    </div>
+                    <div class="bc-index-title-wrap">
+                        <h3 class="bc-index-title">Domaća proizvodnja</h3>
+                        <p class="bc-index-sub">Više domaće vrednosti kroz proizvodnju, preradu i tržište.</p>
+                    </div>
+                </div>
+                <a class="bc-index-link" href="domaca-proizvodnja.html">Otvori stranicu <span>→</span></a>
+            </article>
 
+            <!-- 02 -->
+            <article class="bc-index-item">
+                <span class="bc-index-bg-number">02</span>
+                <div>
+                    <div class="bc-index-top">
+                        <span class="bc-index-number">02</span>
+                        <span class="bc-index-category">Poljoprivreda</span>
+                    </div>
+                    <div class="bc-index-title-wrap">
+                        <h3 class="bc-index-title">Voćarstvo</h3>
+                        <p class="bc-index-sub">Od zasada do prerade, finalnog proizvoda i izvoza.</p>
+                    </div>
+                </div>
+                <a class="bc-index-link" href="vocarstvo.html">Otvori stranicu <span>→</span></a>
+            </article>
+
+            <!-- 03 -->
+            <article class="bc-index-item">
+                <span class="bc-index-bg-number">03</span>
+                <div>
+                    <div class="bc-index-top">
+                        <span class="bc-index-number">03</span>
+                        <span class="bc-index-category">Poljoprivreda</span>
+                    </div>
+                    <div class="bc-index-title-wrap">
+                        <h3 class="bc-index-title">Stočarstvo</h3>
+                        <p class="bc-index-sub">Stabilna domaća proizvodnja mesa, mleka i prerađevina.</p>
+                    </div>
+                </div>
+                <a class="bc-index-link" href="stocarstvo.html">Otvori stranicu <span>→</span></a>
+            </article>
+
+            <!-- 04 -->
+            <article class="bc-index-item">
+                <span class="bc-index-bg-number">04</span>
+                <div>
+                    <div class="bc-index-top">
+                        <span class="bc-index-number">04</span>
+                        <span class="bc-index-category">Energija</span>
+                    </div>
+                    <div class="bc-index-title-wrap">
+                        <h3 class="bc-index-title">Solarna energija</h3>
+                        <p class="bc-index-sub">Sopstvena proizvodnja energije iz besplatnog sunčevog resursa.</p>
+                    </div>
+                </div>
+                <a class="bc-index-link" href="solarna-energija.html">Otvori stranicu <span>→</span></a>
+            </article>
+
+            <!-- 05 -->
+            <article class="bc-index-item">
+                <span class="bc-index-bg-number">05</span>
+                <div>
+                    <div class="bc-index-top">
+                        <span class="bc-index-number">05</span>
+                        <span class="bc-index-category">Država</span>
+                    </div>
+                    <div class="bc-index-title-wrap">
+                        <h3 class="bc-index-title">Institucije</h3>
+                        <p class="bc-index-sub">Odgovornije institucije, jasna pravila i funkcionalna država.</p>
+                    </div>
+                </div>
+                <a class="bc-index-link" href="institucije.html">Otvori stranicu <span>→</span></a>
+            </article>
+
+            <!-- 06 -->
+            <article class="bc-index-item">
+                <span class="bc-index-bg-number">06</span>
+                <div>
+                    <div class="bc-index-top">
+                        <span class="bc-index-number">06</span>
+                        <span class="bc-index-category">Sistem</span>
+                    </div>
+                    <div class="bc-index-title-wrap">
+                        <h3 class="bc-index-title">Direktna demokratija</h3>
+                        <p class="bc-index-sub">Veće neposredno učešće građana u donošenju odluka.</p>
+                    </div>
+                </div>
+                <a class="bc-index-link" href="svajcarski-sistem.html">Otvori stranicu <span>→</span></a>
+            </article>
+        </div>
+
+        <div class="bc-index-foot">
+            <small>Program</small>
+            <p>Program je organizovan po oblastima kako bi svaki predlog mogao da bude predstavljen jasno, odvojeno i dovoljno detaljno.</p>
+        </div>
+    </div>
 </section>
 
+<style>
+/* =========================================================
+   O MENI
+========================================================= */
+#bc-about {
+    --navy:#07182d; --blue:#124d8b; position:relative; width:100vw; margin-left:calc(50% - 50vw);
+    overflow:hidden; background:var(--navy); font-family:Arial,Helvetica,sans-serif;
+}
+#bc-about *, #bc-about *::before, #bc-about *::after { box-sizing:border-box; }
+#bc-about .bc-about-hero { position:relative; width:100%; min-height:650px; overflow:hidden; }
+#bc-about .bc-about-image { position:absolute; inset:0; z-index:1; width:100%; height:100%; display:block; object-fit:cover; object-position:center center; }
+#bc-about .bc-about-overlay {
+    position:absolute; inset:0; z-index:2; pointer-events:none;
+    background:linear-gradient(90deg, rgba(4,18,36,.95) 0%, rgba(4,18,36,.85) 20%, rgba(4,18,36,.63) 38%, rgba(4,18,36,.30) 55%, rgba(4,18,36,.07) 72%, rgba(4,18,36,0) 84%);
+}
+#bc-about .bc-content-wrap { position:absolute; inset:0; z-index:10; display:flex; align-items:center; }
+#bc-about .bc-content-inner { width:min(1220px, calc(100% - 60px)); margin:0 auto; }
+#bc-about .bc-content { width:54%; max-width:700px; }
+#bc-about .bc-line { width:76px; height:3px; margin-bottom:23px; background:linear-gradient(90deg, #d21f2b 0%, #d21f2b 33%, #ffffff 33%, #ffffff 66%, #1b5a9d 66%, #1b5a9d 100%); }
+#bc-about .bc-kicker { margin-bottom:11px; color:rgba(255,255,255,.58); font-size:9px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+#bc-about .bc-title { margin:0; color:#fff; font-family:Georgia,serif; font-size:clamp(54px, 5.5vw, 80px); font-weight:400; line-height:.98; letter-spacing:-.045em; }
+#bc-about .bc-description { max-width:610px; margin:23px 0 0; color:rgba(255,255,255,.76); font-size:15px; line-height:1.72; }
+#bc-about .bc-meta { max-width:650px; margin-top:28px; display:flex; flex-wrap:wrap; gap:8px; }
+#bc-about .bc-meta-item {
+    min-height:40px; padding:0 14px; display:inline-flex; align-items:center; justify-content:center;
+    border:1px solid rgba(255,255,255,.25); background:rgba(7,24,45,.28); color:rgba(255,255,255,.84);
+    font-size:8px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; backdrop-filter:blur(2px);
+}
+#bc-about .bc-about-actions { margin-top: 30px; display: flex; }
+#bc-about .bc-about-btn {
+    min-height: 46px; padding: 0 26px; display: inline-flex; align-items: center; justify-content: center;
+    gap: 12px; color: #fff; background: #124d8b; border: 1px solid #1e63ad; text-decoration: none;
+    font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; transition: all .25s ease;
+}
+#bc-about .bc-about-btn:hover { background: #1763ad; transform: translateY(-2px); }
+
+@media(max-width:767px) {
+    #bc-about .bc-about-hero { min-height:760px; height:auto; }
+    #bc-about .bc-content-wrap { position: relative; min-height: 760px; align-items: flex-end; }
+    #bc-about .bc-content-inner { width:100%; padding: 120px max(18px, env(safe-area-inset-right)) 34px max(18px, env(safe-area-inset-left)); }
+    #bc-about .bc-content { width:100%; }
+    #bc-about .bc-title { font-size: clamp(42px, 12vw, 54px); }
+    #bc-about .bc-about-actions { width: 100%; max-width: 300px; }
+    #bc-about .bc-about-btn { width: 100%; }
+}
+</style>
+
+<section id="bc-about">
+    <div class="bc-about-hero">
+        <img class="bc-about-image" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/ChatGPT-Image-Sep-6-2026-10_39_24-AM.png" alt="Blagoje Ćurčić">
+        <div class="bc-about-overlay" aria-hidden="true"></div>
+        <div class="bc-content-wrap">
+            <div class="bc-content-inner">
+                <div class="bc-content">
+                    <div class="bc-line"></div>
+                    <div class="bc-kicker">O meni</div>
+                    <h1 class="bc-title">Blagoje<br>Ćurčić.</h1>
+                    <p class="bc-description">
+                        Više od četiri decenije prati i učestvuje u političkom životu, upoznajući različite ideje, ljude i modele upravljanja. To iskustvo danas koristi da prepozna ljude i rešenja za koja smatra da mogu da doprinesu Srbiji.
+                    </p>
+                    <div class="bc-meta">
+                        <span class="bc-meta-item">40+ godina iskustva</span>
+                        <span class="bc-meta-item">Četnički vojvoda</span>
+                        <span class="bc-meta-item">Engleski vitez</span>
+                        <span class="bc-meta-item">Čačak</span>
+                    </div>
+                    <div class="bc-about-actions">
+                        <a href="kontakt.html" class="bc-about-btn">Kontaktirajte Blagoja <span>→</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- =========================================================
-     MODALNI PROZOR ZA NAČELA (POP-UP)
-========================================================= -->
-<div class="bc-modal-overlay" id="bcCredoModal" aria-hidden="true" role="dialog">
-    <div class="bc-modal-window">
-        
-        <div class="bc-modal-header">
+     FOOTER
+========================================================= */ -->
+<style>
+#bc-footer {
+    --navy:#07182d;
+    --navy-light:#0b2441;
+    --blue:#124d8b;
+    --blue-hover:#1763ad;
+    --white:#ffffff;
+
+    position:relative;
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    overflow:hidden;
+    background:var(--navy);
+    color:#fff;
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+#bc-footer *,
+#bc-footer *::before,
+#bc-footer *::after {
+    box-sizing:border-box;
+}
+
+#bc-footer .bc-footer-line {
+    width:100%;
+    height:3px;
+    background:
+        linear-gradient(
+            90deg,
+            #d21f2b 0%,
+            #d21f2b 33.33%,
+            #ffffff 33.33%,
+            #ffffff 66.66%,
+            #1b5a9d 66.66%,
+            #1b5a9d 100%
+        );
+}
+
+#bc-footer .bc-footer-inner {
+    width:min(1220px, calc(100% - 48px));
+    margin:0 auto;
+    padding: 72px 0 27px;
+}
+
+#bc-footer .bc-footer-main {
+    display:grid;
+    grid-template-columns: minmax(0,1.4fr) minmax(240px,.6fr);
+    gap:80px;
+    align-items:end;
+    padding-bottom:52px;
+    border-bottom: 1px solid rgba(255,255,255,.11);
+}
+
+#bc-footer .bc-footer-label {
+    display:flex;
+    align-items:center;
+    gap:11px;
+    margin-bottom:17px;
+    color:#77a6d1;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+}
+
+#bc-footer .bc-footer-label::before {
+    content:"";
+    width:35px;
+    height:2px;
+    background:#397bb7;
+}
+
+#bc-footer .bc-footer-title {
+    max-width:760px;
+    margin:0;
+    color:#fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(38px, 4.7vw, 61px);
+    font-weight:400;
+    line-height:1.02;
+    letter-spacing:-.04em;
+}
+
+#bc-footer .bc-footer-title span {
+    color:#70a1cf;
+}
+
+#bc-footer .bc-footer-copy {
+    max-width:600px;
+    margin:20px 0 0;
+    color: rgba(255,255,255,.55);
+    font-size:13px;
+    line-height:1.7;
+}
+
+#bc-footer .bc-footer-brand {
+    padding-left:30px;
+    border-left: 1px solid rgba(255,255,255,.12);
+}
+
+#bc-footer .bc-footer-monogram {
+    margin-bottom:16px;
+    color:#fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size:45px;
+    line-height:1;
+    letter-spacing:-.06em;
+}
+
+#bc-footer .bc-footer-name {
+    color:#fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size:20px;
+    font-weight:500;
+    line-height:1.2;
+}
+
+#bc-footer .bc-footer-tagline {
+    margin-top:7px;
+    color: rgba(255,255,255,.42);
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+}
+
+#bc-footer .bc-footer-nav {
+    margin-top:27px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0;
+}
+
+#bc-footer .bc-footer-nav a {
+    position:relative;
+    width:100%;
+    min-height:39px;
+    display:flex;
+    align-items:center;
+    color: rgba(255,255,255,.67);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    text-decoration:none;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    transition: color .2s ease, padding-left .2s ease;
+}
+
+#bc-footer .bc-footer-nav a:last-child {
+    border-bottom:0;
+}
+
+#bc-footer .bc-footer-nav a::before {
+    content:"";
+    width:0;
+    height:1px;
+    margin-right:0;
+    background:#5d95c8;
+    transition: width .2s ease, margin-right .2s ease;
+}
+
+#bc-footer .bc-footer-nav a:hover {
+    padding-left:3px;
+    color:#fff;
+}
+
+#bc-footer .bc-footer-nav a:hover::before {
+    width:16px;
+    margin-right:9px;
+}
+
+#bc-footer .bc-footer-bottom {
+    min-height:67px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+#bc-footer .bc-footer-copyright {
+    color: rgba(255,255,255,.34);
+    font-size:8px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+}
+
+#bc-footer .bc-footer-principle {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color: rgba(255,255,255,.40);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size:12px;
+}
+
+#bc-footer .bc-footer-principle::before {
+    content:"";
+    width:21px;
+    height:1px;
+    background:#3e73a4;
+}
+
+#bc-footer .bc-footer-top {
+    width:42px;
+    height:42px;
+    flex:0 0 42px;
+    display:grid;
+    place-items:center;
+    border: 1px solid rgba(255,255,255,.19);
+    color:#fff;
+    background:transparent;
+    text-decoration:none;
+    font-size:15px;
+    transition:.2s ease;
+}
+
+#bc-footer .bc-footer-top:hover {
+    background:var(--blue);
+    border-color:var(--blue);
+}
+
+@media(max-width:767px) {
+    #bc-footer {
+        width:100%;
+        margin-left:0;
+    }
+    #bc-footer .bc-footer-inner {
+        width:100%;
+        padding: 57px max(17px, env(safe-area-inset-right)) 20px max(17px, env(safe-area-inset-left));
+    }
+    #bc-footer .bc-footer-main {
+        grid-template-columns:1fr;
+        gap:39px;
+        padding-bottom:38px;
+    }
+    #bc-footer .bc-footer-title {
+        max-width:510px;
+        font-size: clamp(36px, 10.5vw, 48px);
+        line-height:1.02;
+    }
+    #bc-footer .bc-footer-copy {
+        max-width:470px;
+        margin-top:16px;
+        font-size:12px;
+    }
+    #bc-footer .bc-footer-brand {
+        padding: 27px 0 0;
+        border-left:0;
+        border-top: 1px solid rgba(255,255,255,.11);
+    }
+    #bc-footer .bc-footer-monogram {
+        margin-bottom:11px;
+        font-size:37px;
+    }
+    #bc-footer .bc-footer-name {
+        font-size:18px;
+    }
+    #bc-footer .bc-footer-nav {
+        margin-top:22px;
+    }
+    #bc-footer .bc-footer-nav a {
+        min-height:45px;
+        font-size:8px;
+    }
+    #bc-footer .bc-footer-bottom {
+        min-height:0;
+        padding-top:20px;
+        display:grid;
+        grid-template-columns: minmax(0,1fr) 42px;
+        gap:15px;
+        align-items:center;
+    }
+    #bc-footer .bc-footer-copyright {
+        font-size:7px;
+        grid-column:1;
+        grid-row:2;
+    }
+    #bc-footer .bc-footer-principle {
+        grid-column:1 / -1;
+        grid-row:1;
+        font-size:11px;
+    }
+    #bc-footer .bc-footer-top {
+        grid-column:2;
+        grid-row:2;
+    }
+}
+</style>
+
+<footer id="bc-footer">
+    <div class="bc-footer-line"></div>
+    <div class="bc-footer-inner">
+        <div class="bc-footer-main">
             <div>
-                <div class="bc-credo-badge" style="margin-bottom: 4px;">
-                    Programska deklaracija i stavovi
+                <div class="bc-footer-label">
+                    Za pravedniju Srbiju
                 </div>
-                <h3 style="margin: 0; font-family: Georgia, serif; font-size: 22px; color: #fff;">
-                    Za šta se zalažemo — Temelji obnove Srbije
-                </h3>
+                <h2 class="bc-footer-title">
+                    Država u kojoj se<br><span>pitaju građani.</span>
+                </h2>
+                <p class="bc-footer-copy">
+                    Odgovornost, domaća proizvodnja i veće učešće građana u odlukama koje određuju budućnost Srbije.
+                </p>
             </div>
-            <button type="button" class="bc-modal-close" id="bcCredoCloseBtn" aria-label="Zatvori prozor">✕</button>
+
+            <div class="bc-footer-brand">
+                <div class="bc-footer-monogram">
+                    BĆ
+                </div>
+                <div class="bc-footer-name">
+                    Blagoje Ćurčić
+                </div>
+                <div class="bc-footer-tagline">
+                    Za pravedniju Srbiju
+                </div>
+
+                <nav class="bc-footer-nav" aria-label="Navigacija u podnožju">
+                    <a href="index.html">Početak</a>
+                    <a href="#bc-about">O meni</a>
+                    <a href="#bc-principles">Program</a>
+                    <a href="nekretnine.html">Nekretnine</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </nav>
+            </div>
         </div>
 
-        <div class="bc-modal-body">
-            
-            <div class="bc-line" style="margin-bottom: 20px;"></div>
-
-            <h4>1. Spoljna politika i strateški opstanak</h4>
-            <p>
-                <strong>Politički smo nedvosmisleno za savez sa Rusijom, a potom i za punopravni savez sa BRIKS-om.</strong>
-                Jedini zalog za opstanak i suverenitet Srbije jesu naša pravoslavna braća na čelu sa Vladimirom Putinom, predvodnikom pravoslavnog sveta i liderom BRIKS-a.
-            </p>
-
-            <h4>2. Švajcarski sistem, Moba i Prelazna vlada spasa</h4>
-            <p>
-                Zalažemo se za švajcarski model direktne demokratije koji pokret <em>Moba</em> uspešno propagira, sa <strong>Brankom Dragašem</strong> na čelu, koga mi iz Mobe Čačak predlažemo za premijera u Prelaznoj vladi spasa. Kompletno rukovodstvo i članovi Mobe treba da uđu u Prelaznu vladu narodnog spasa.
-            </p>
-
-            <div class="bc-credo-quote-box">
-                „Promena sistema iz korena — bez političara koji su decenijama parazitirali na grbači naroda! Samo narod treba da odlučuje preko nezavisne i dokazane struke o svim ključnim pitanjima u društvu.“
+        <div class="bc-footer-bottom">
+            <div class="bc-footer-copyright">
+                © <span id="bcFooterYear">2026</span> Blagoje Ćurčić · Sva prava zadržana
             </div>
 
-            <h4>3. Društvo apsolutne socijalne pravde i briga o ugroženima</h4>
-            <p>
-                Neophodno nam je društvo socijalne i svake druge pravde, uređeno po proverenim mehanizmima švajcarskog uređenja:
-            </p>
-            <ul>
-                <li style="margin-bottom: 8px;"><strong>Prvo i najvažnije:</strong> Puna briga o bolesnima, nesposobnima za rad i socijalno ugroženima, a tek potom ostali kroz svoj lični rad, znanje i zalaganje.</li>
-                <li style="margin-bottom: 8px;"><strong>Dostojanstvo na ulicama:</strong> Prosjaci ne smeju biti prepušteni ulici — naša je dužnost i obaveza da ih zbrinemo u adekvatne ustanove.</li>
-                <li style="margin-bottom: 8px;"><strong>Uloga Crkve:</strong> Srpska pravoslavna crkva mora imati centralno mesto u zbrinjavanju sirotinje u okviru parohijskih domova, gde će svakom čoveku biti obezbeđen život dostojan ljudskog bića — smeštaj, kupatilo, zdrava hrana, stalna lekarska nega i patronažne sestre.</li>
-            </ul>
-
-            <h4>4. Kraj vladavine neukih — Meritokratija i domaća privreda</h4>
-            <p>
-                Društvo mora počivati na socijalnoj pravdi, a na radnim mestima isključivo na stručnosti i dokazanoj sposobnosti. Samo najbolji idu napred, dok ostali napreduju tačno onoliko koliko znaju i vrede:
-            </p>
-            <p>
-                Nepismeni i partijski poltroni vladaju već 80 godina i tome se mora stati na kraj. Dolaze pismeni, obrazovani i radni ljudi koji će podići proizvodnju i privredu Srbije tamo gde joj je mesto — <strong>na sam vrh</strong>.
-            </p>
-
-            <div class="bc-credo-quote-box" style="margin-bottom: 0;">
-                „Svako prema svojim sposobnostima — a ne prema partijskoj knjižici, poltronstvu, prevarama i cinkarenju. Samo znanje provereno i primenjeno u praksi vodi do uspeha države i visokog životnog standarda svih građana!“
+            <div class="bc-footer-principle">
+                Građanin u centru odluke.
             </div>
 
+            <a class="bc-footer-top" href="#bc-home" aria-label="Nazad na početak">
+                ↑
+            </a>
         </div>
-
     </div>
-</div>
-
+</footer>
 
 <script>
 (function () {
-
-    if ("scrollRestoration" in history) {
-        history.scrollRestoration = "manual";
+    const year = document.getElementById("bcFooterYear");
+    if (year) {
+        year.textContent = new Date().getFullYear();
     }
 
-    function bcStartFromTop() {
-        window.scrollTo(0, 0);
-    }
-
-    window.addEventListener("load", function () {
-        bcStartFromTop();
-        setTimeout(bcStartFromTop, 40);
-    });
-
-    window.addEventListener("pageshow", function () {
-        bcStartFromTop();
-    });
-
-    /* MENU */
-    const button = document.getElementById("bcMenuButton");
-    const nav = document.getElementById("bcNav");
-
-    if (button && nav) {
-        function closeMenu() {
-            nav.classList.remove("bc-open");
-            button.classList.remove("bc-active");
-            button.setAttribute("aria-expanded", "false");
-        }
-
-        button.addEventListener("click", function () {
-            const open = nav.classList.toggle("bc-open");
-            button.classList.toggle("bc-active", open);
-            button.setAttribute("aria-expanded", open ? "true" : "false");
-        });
-
-        nav.querySelectorAll('a[href^="#"]').forEach(function (link) {
-            link.addEventListener("click", function () {
-                closeMenu();
-            });
-        });
-
-        document.addEventListener("keydown", function (event) {
-            if (event.key === "Escape") {
-                closeMenu();
-            }
-        });
-
-        window.addEventListener("resize", function () {
-            if (window.innerWidth > 1050) {
-                closeMenu();
-            }
-        });
-    }
-
-    /* MODAL POP-UP LOGIKA */
     const openCard = document.getElementById("bcCredoOpenCard");
     const modal = document.getElementById("bcCredoModal");
     const closeBtn = document.getElementById("bcCredoCloseBtn");
@@ -1300,19 +1479,11 @@ html {
         }
     }
 
-    if (openCard) {
-        openCard.addEventListener("click", openModal);
-    }
-
-    if (closeBtn) {
-        closeBtn.addEventListener("click", closeModal);
-    }
-
+    if (openCard) openCard.addEventListener("click", openModal);
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
     if (modal) {
         modal.addEventListener("click", function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
+            if (e.target === modal) closeModal();
         });
     }
 
@@ -1322,2592 +1493,68 @@ html {
         }
     });
 
-})();
-</script>
-
-<style>
-/* =========================================================
-   BLAGOJE ĆURČIĆ — ŠVAJCARSKI SISTEM ZA SRBIJU
-========================================================= */
-
-#bc-direct-short {
-    --navy:#07182d;
-    --blue:#124d8b;
-    --text:#17212c;
-    --muted:#6d747c;
-    --line:rgba(7,24,45,.11);
-    --bg:#f8fafc;
-
-    width:100vw;
-    margin-left:calc(50% - 50vw);
-
-    background:var(--bg);
-    color:var(--text);
-
-    font-family:Arial,Helvetica,sans-serif;
-
-    overflow:hidden;
-}
-
-#bc-direct-short *,
-#bc-direct-short *::before,
-#bc-direct-short *::after {
-    box-sizing:border-box;
-}
-
-#bc-direct-short .bc-inner {
-    width:min(
-        1180px,
-        calc(100% - 48px)
-    );
-
-    margin:0 auto;
-
-    padding:82px 0 88px;
-}
-
-#bc-direct-short .bc-head {
-    display:grid;
-
-    grid-template-columns:
-        minmax(0,1fr)
-        minmax(300px,.65fr);
-
-    gap:70px;
-
-    align-items:end;
-
-    padding-bottom:38px;
-
-    border-bottom:1px solid var(--line);
-}
-
-#bc-direct-short .bc-title {
-    max-width:760px;
-
-    margin:0;
-
-    color:var(--navy);
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(
-            42px,
-            5vw,
-            62px
-        );
-
-    font-weight:400;
-
-    line-height:1;
-
-    letter-spacing:-.04em;
-}
-
-#bc-direct-short .bc-title span {
-    color:var(--blue);
-}
-
-#bc-direct-short .bc-intro {
-    margin:0;
-
-    color:var(--muted);
-
-    font-size:13px;
-
-    line-height:1.7;
-}
-
-#bc-direct-short .bc-grid {
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,minmax(0,1fr));
-
-    border-bottom:1px solid var(--line);
-}
-
-#bc-direct-short .bc-item {
-    padding:31px 30px 33px;
-
-    border-right:1px solid var(--line);
-}
-
-#bc-direct-short .bc-item:first-child {
-    padding-left:0;
-}
-
-#bc-direct-short .bc-item:last-child {
-    padding-right:0;
-
-    border-right:0;
-}
-
-#bc-direct-short .bc-number {
-    display:block;
-
-    margin-bottom:17px;
-
-    color:var(--blue);
-
-    font-size:9px;
-
-    font-weight:800;
-
-    letter-spacing:.14em;
-}
-
-#bc-direct-short .bc-item h3 {
-    margin:0;
-
-    color:var(--navy);
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:22px;
-
-    font-weight:500;
-
-    line-height:1.18;
-}
-
-#bc-direct-short .bc-item p {
-    max-width:310px;
-
-    margin:10px 0 0;
-
-    color:var(--muted);
-
-    font-size:12px;
-
-    line-height:1.6;
-}
-
-#bc-direct-short .bc-final {
-    margin-top:34px;
-
-    padding:21px 24px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-    background:var(--navy);
-
-    color:#fff;
-}
-
-#bc-direct-short .bc-final-mark {
-    flex:0 0 auto;
-
-    color:#6da0cf;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:27px;
-}
-
-#bc-direct-short .bc-final strong {
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:18px;
-
-    font-weight:400;
-
-    line-height:1.35;
-}
-
-@media(max-width:767px) {
-
-    html,
-    body {
-        overflow-x:hidden !important;
-    }
-
-    #bc-direct-short {
-        width:100%;
-
-        margin-left:0;
-    }
-
-    #bc-direct-short .bc-inner {
-        width:100%;
-
-        padding:
-            62px
-            max(
-                17px,
-                env(safe-area-inset-right)
-            )
-            66px
-            max(
-                17px,
-                env(safe-area-inset-left)
-            );
-    }
-
-    #bc-direct-short .bc-head {
-        grid-template-columns:1fr;
-
-        gap:18px;
-
-        padding-bottom:28px;
-    }
-
-    #bc-direct-short .bc-title {
-        max-width:540px;
-
-        font-size:
-            clamp(
-                39px,
-                11vw,
-                50px
-            );
-    }
-
-    #bc-direct-short .bc-intro {
-        max-width:500px;
-
-        font-size:12.5px;
-
-        line-height:1.65;
-    }
-
-    #bc-direct-short .bc-grid {
-        grid-template-columns:1fr;
-    }
-
-    #bc-direct-short .bc-item,
-    #bc-direct-short .bc-item:first-child,
-    #bc-direct-short .bc-item:last-child {
-        padding:22px 0;
-
-        border-right:0;
-
-        border-bottom:1px solid var(--line);
-    }
-
-    #bc-direct-short .bc-item:last-child {
-        border-bottom:0;
-    }
-
-    #bc-direct-short .bc-item h3 {
-        font-size:20px;
-    }
-
-    #bc-direct-short .bc-item p {
-        max-width:450px;
-
-        font-size:11.5px;
-    }
-
-    #bc-direct-short .bc-final {
-        margin-top:29px;
-
-        padding:19px 17px;
-    }
-
-    #bc-direct-short .bc-final strong {
-        font-size:16px;
-    }
-
-}
-
-@media(max-width:360px) {
-
-    #bc-direct-short .bc-inner {
-        padding-left:14px;
-
-        padding-right:14px;
-    }
-
-    #bc-direct-short .bc-title {
-        font-size:37px;
-    }
-
-    #bc-direct-short .bc-final {
-        align-items:flex-start;
-    }
-
-}
-</style>
-
-
-<section id="bc-direct-short">
-
-    <div class="bc-inner">
-
-        <div class="bc-head">
-
-            <h2 class="bc-title">
-                Švajcarski sistem
-                <br>
-                <span>
-                    za Srbiju.
-                </span>
-            </h2>
-
-            <p class="bc-intro">
-                Model u kome građanin ne predaje svu moć
-                izborima, već može da predlaže, pokreće pitanja
-                i učestvuje u važnim odlukama države.
-            </p>
-
-        </div>
-
-        <div class="bc-grid">
-
-            <div class="bc-item">
-
-                <span class="bc-number">
-                    01
-                </span>
-
-                <h3>
-                    Građani predlažu.
-                </h3>
-
-                <p>
-                    Svaki građanin može da ukaže na problem,
-                    predloži rešenje ili pokrene pitanje
-                    koje smatra važnim za društvo.
-                </p>
-
-            </div>
-
-            <div class="bc-item">
-
-                <span class="bc-number">
-                    02
-                </span>
-
-                <h3>
-                    Građani odlučuju.
-                </h3>
-
-                <p>
-                    Važna pitanja mogu da budu stavljena
-                    pred građane, tako da konačna odluka
-                    ne ostane samo u rukama političara.
-                </p>
-
-            </div>
-
-            <div class="bc-item">
-
-                <span class="bc-number">
-                    03
-                </span>
-
-                <h3>
-                    Glas ostaje privatan.
-                </h3>
-
-                <p>
-                    Sistem potvrđuje pravo građanina
-                    da učestvuje, dok njegov konačni
-                    izbor ostaje tajan.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="bc-final">
-
-            <span class="bc-final-mark">
-                →
-            </span>
-
-            <strong>
-                Identitet se proverava.
-                Glas ostaje tajan.
-                Rezultat pripada javnosti.
-            </strong>
-
-        </div>
-
-    </div>
-
-</section>
-
-<style>
-/* =========================================================
-   BLAGOJE ĆURČIĆ — 3 PRINCIPA
-========================================================= */
-
-#bc-principles {
-    --navy: #07182d;
-    --blue: #124d8b;
-    --text: #17212c;
-    --muted: #6d747c;
-    --line: rgba(7,24,45,.10);
-    --bg: #f8fafc;
-
-    position: relative;
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    overflow: hidden;
-    background: var(--bg);
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--text);
-}
-#bc-principles *,
-#bc-principles *::before,
-#bc-principles *::after { box-sizing: border-box; }
-#bc-principles .bc-principles-inner {
-    width: min(1160px, calc(100% - 48px));
-    margin: 0 auto;
-    padding: 38px 0 42px;
-}
-#bc-principles .bc-principles-top {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    margin-bottom: 27px;
-}
-#bc-principles .bc-principles-line { width: 38px; height: 2px; background: var(--blue); }
-#bc-principles .bc-principles-label {
-    color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase;
-}
-#bc-principles .bc-principles-grid {
-    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-}
-#bc-principles .bc-principle {
-    position: relative; min-width: 0; padding: 31px 38px 32px; border-right: 1px solid var(--line);
-}
-#bc-principles .bc-principle:last-child { border-right: 0; }
-#bc-principles .bc-principle-head {
-    display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 17px;
-}
-#bc-principles .bc-icon { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; color: var(--blue); }
-#bc-principles .bc-icon svg {
-    width: 34px; height: 34px; display: block; fill: none; stroke: currentColor; stroke-width: 1.45; stroke-linecap: round; stroke-linejoin: round;
-}
-#bc-principles .bc-number { color: rgba(7,24,45,.18); font-family: Georgia,"Times New Roman",serif; font-size: 19px; }
-#bc-principles .bc-title {
-    margin: 0; color: var(--navy); font-family: Georgia,"Times New Roman",serif; font-size: 20px; font-weight: 500; line-height: 1.18; letter-spacing: -.015em;
-}
-#bc-principles .bc-text { max-width: 280px; margin: 9px 0 0; color: var(--muted); font-size: 12px; line-height: 1.58; }
-@media (hover: hover) and (pointer: fine) {
-    #bc-principles .bc-principle { transition: background .2s ease; }
-    #bc-principles .bc-principle:hover { background: rgba(18,77,139,.025); }
-}
-@media (max-width: 850px) {
-    #bc-principles .bc-principles-inner { width: min(760px, calc(100% - 36px)); }
-    #bc-principles .bc-principles-grid { grid-template-columns: 1fr; }
-    #bc-principles .bc-principle { padding: 28px 25px; border-right: 0; border-bottom: 1px solid var(--line); }
-    #bc-principles .bc-principle:last-child { border-bottom: 0; }
-    #bc-principles .bc-text { max-width: 600px; }
-}
-@media (max-width: 600px) {
-    #bc-principles { width: 100%; margin-left: 0; }
-    #bc-principles .bc-principles-inner {
-        width: 100%; padding: 29px max(16px,env(safe-area-inset-right)) 32px max(16px,env(safe-area-inset-left));
-    }
-    #bc-principles .bc-principles-top { margin-bottom: 17px; }
-    #bc-principles .bc-principle { padding: 23px 5px 24px; }
-    #bc-principles .bc-principle-head { margin-bottom: 12px; }
-    #bc-principles .bc-icon { width: 32px; height: 32px; }
-    #bc-principles .bc-icon svg { width: 29px; height: 29px; }
-    #bc-principles .bc-number { font-size: 16px; }
-    #bc-principles .bc-title { font-size: 18px; line-height: 1.15; }
-    #bc-principles .bc-text { max-width: 330px; margin-top: 7px; font-size: 11px; line-height: 1.52; }
-}
-</style>
-
-<section id="bc-principles">
-    <div class="bc-principles-inner">
-        <div class="bc-principles-top">
-            <div class="bc-principles-line"></div>
-            <div class="bc-principles-label">Osnovni pravci</div>
-        </div>
-        <div class="bc-principles-grid">
-            <article class="bc-principle">
-                <div class="bc-principle-head">
-                    <div class="bc-icon">
-                        <svg viewBox="0 0 48 48" aria-hidden="true">
-                            <path d="M24 40V20" />
-                            <path d="M24 25 C18 25 13 21 12 15 C18 14 23 17 24 22" />
-                            <path d="M24 31 C30 31 35 27 36 21 C30 20 25 23 24 28" />
-                            <path d="M16 40h16" />
-                            <path d="M12 44h24" />
-                        </svg>
-                    </div>
-                    <span class="bc-number">01</span>
-                </div>
-                <h3 class="bc-title">Domaća proizvodnja</h3>
-                <p class="bc-text">Poljoprivreda, prerada i domaći proizvodi sa većom dodatom vrednošću.</p>
-            </article>
-            <article class="bc-principle">
-                <div class="bc-principle-head">
-                    <div class="bc-icon">
-                        <svg viewBox="0 0 48 48" aria-hidden="true">
-                            <path d="M8 17h32" />
-                            <path d="M11 17L24 8l13 9" />
-                            <path d="M12 37h24" />
-                            <path d="M9 41h30" />
-                            <path d="M15 19v16" />
-                            <path d="M22 19v16" />
-                            <path d="M29 19v16" />
-                            <path d="M36 19v16" />
-                        </svg>
-                    </div>
-                    <span class="bc-number">02</span>
-                </div>
-                <h3 class="bc-title">Odgovorne institucije</h3>
-                <p class="bc-text">Jasna pravila, stručnost i odgovornost — institucije u službi građana.</p>
-            </article>
-            <article class="bc-principle">
-                <div class="bc-principle-head">
-                    <div class="bc-icon">
-                        <svg viewBox="0 0 48 48" aria-hidden="true">
-                            <path d="M24 5 l14 5 v10 c0 10-6 17-14 22 C16 37 10 30 10 20 V10z" />
-                            <path d="M24 14v13" />
-                            <path d="M18 20h12" />
-                        </svg>
-                    </div>
-                    <span class="bc-number">03</span>
-                </div>
-                <h3 class="bc-title">Švajcarski sistem</h3>
-                <p class="bc-text">Građani predlažu rešenja, ukazuju na probleme i direktnije učestvuju u odlučivanju.</p>
-            </article>
-        </div>
-    </div>
-</section>
-
-<style>
-/* =========================================================
-   BLAGOJE ĆURČIĆ — PROGRAMSKI PRAVCI (INDEKS)
-========================================================= */
-
-#bc-policy-index{
-    --navy:#07182d;
-    --blue:#124d8b;
-    --blue-hover:#1763ad;
-    --bg:#f7f9fb;
-    --white:#ffffff;
-    --text:#17212c;
-    --muted:#6d7782;
-    --line:rgba(7,24,45,.10);
-    --line-strong:rgba(7,24,45,.16);
-
-    position:relative;
-    width:100vw;
-    margin-left:calc(50% - 50vw);
-    overflow:hidden;
-
-    background:
-        linear-gradient(
-            180deg,
-            #fbfcfd 0%,
-            var(--bg) 100%
-        );
-
-    color:var(--text);
-    font-family:Arial,Helvetica,sans-serif;
-}
-
-#bc-policy-index *,
-#bc-policy-index *::before,
-#bc-policy-index *::after{
-    box-sizing:border-box;
-}
-
-#bc-policy-index::before{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    pointer-events:none;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent calc(50% - .5px),
-            rgba(7,24,45,.035) calc(50% - .5px),
-            rgba(7,24,45,.035) calc(50% + .5px),
-            transparent calc(50% + .5px)
-        );
-}
-
-#bc-policy-index .bc-index-inner{
-    position:relative;
-    z-index:2;
-
-    width:min(1180px,calc(100% - 48px));
-    margin:0 auto;
-
-    padding:96px 0 112px;
-}
-
-#bc-policy-index .bc-index-intro{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) 330px;
-    gap:86px;
-    align-items:end;
-
-    padding-bottom:52px;
-
-    border-bottom:1px solid var(--line-strong);
-}
-
-#bc-policy-index .bc-index-label{
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    margin-bottom:18px;
-
-    color:var(--blue);
-
-    font-size:9px;
-    font-weight:800;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-}
-
-#bc-policy-index .bc-index-label::before{
-    content:"";
-
-    width:42px;
-    height:2px;
-
-    background:var(--blue);
-}
-
-#bc-policy-index .bc-index-heading{
-    max-width:760px;
-    margin:0;
-
-    color:var(--navy);
-
-    font-family:Georgia,"Times New Roman",serif;
-
-    font-size:clamp(48px,5.7vw,72px);
-    font-weight:400;
-
-    line-height:.94;
-    letter-spacing:-.055em;
-}
-
-#bc-policy-index .bc-index-heading span{
-    color:var(--blue);
-}
-
-#bc-policy-index .bc-index-intro-side{
-    padding-bottom:4px;
-}
-
-#bc-policy-index .bc-index-intro-side small{
-    display:block;
-
-    margin-bottom:13px;
-
-    color:rgba(7,24,45,.34);
-
-    font-size:8px;
-    font-weight:800;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-}
-
-#bc-policy-index .bc-index-intro-text{
-    margin:0;
-
-    color:var(--muted);
-
-    font-size:13px;
-    line-height:1.78;
-}
-
-#bc-policy-index .bc-index-grid{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-
-    border-bottom:1px solid var(--line-strong);
-}
-
-#bc-policy-index .bc-index-item{
-    position:relative;
-
-    min-height:285px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-
-    padding:38px 44px 34px 0;
-
-    overflow:hidden;
-
-    border-bottom:1px solid var(--line);
-
-    transition:
-        background .28s ease,
-        padding .28s ease;
-}
-
-#bc-policy-index .bc-index-item:nth-child(odd){
-    padding-right:52px;
-    border-right:1px solid var(--line-strong);
-}
-
-#bc-policy-index .bc-index-item:nth-child(even){
-    padding-left:52px;
-}
-
-#bc-policy-index .bc-index-item:nth-last-child(-n+2){
-    border-bottom:0;
-}
-
-#bc-policy-index .bc-index-item::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    z-index:-1;
-
-    background:#fff;
-
-    opacity:0;
-
-    transform:scale(.985);
-
-    transition:
-        opacity .28s ease,
-        transform .28s ease;
-}
-
-#bc-policy-index .bc-index-item:hover::after{
-    opacity:1;
-    transform:scale(1);
-}
-
-#bc-policy-index .bc-index-bg-number{
-    position:absolute;
-
-    right:26px;
-    bottom:-16px;
-
-    z-index:0;
-
-    color:rgba(7,24,45,.035);
-
-    font-family:Georgia,"Times New Roman",serif;
-
-    font-size:118px;
-    line-height:1;
-
-    letter-spacing:-.06em;
-
-    pointer-events:none;
-
-    transition:
-        color .28s ease,
-        transform .28s ease;
-}
-
-#bc-policy-index .bc-index-item:nth-child(even)
-.bc-index-bg-number{
-    right:24px;
-}
-
-#bc-policy-index .bc-index-item:hover
-.bc-index-bg-number{
-    color:rgba(18,77,139,.075);
-    transform:translateY(-5px);
-}
-
-#bc-policy-index .bc-index-top{
-    position:relative;
-    z-index:2;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:24px;
-}
-
-#bc-policy-index .bc-index-number{
-    color:var(--blue);
-
-    font-family:Georgia,"Times New Roman",serif;
-
-    font-size:12px;
-    letter-spacing:.08em;
-}
-
-#bc-policy-index .bc-index-category{
-    color:rgba(7,24,45,.42);
-
-    font-size:8px;
-    font-weight:800;
-
-    letter-spacing:.16em;
-    text-transform:uppercase;
-}
-
-#bc-policy-index .bc-index-title-wrap{
-    position:relative;
-    z-index:2;
-
-    margin-top:52px;
-}
-
-#bc-policy-index .bc-index-title{
-    max-width:470px;
-    margin:0;
-
-    color:var(--navy);
-
-    font-family:Georgia,"Times New Roman",serif;
-
-    font-size:clamp(31px,3.2vw,43px);
-    font-weight:400;
-
-    line-height:1.02;
-    letter-spacing:-.04em;
-}
-
-#bc-policy-index .bc-index-sub{
-    max-width:430px;
-
-    margin:12px 0 0;
-
-    color:var(--muted);
-
-    font-size:11.5px;
-    line-height:1.65;
-}
-
-#bc-policy-index .bc-index-link{
-    position:relative;
-    z-index:2;
-
-    width:max-content;
-
-    display:inline-flex;
-    align-items:center;
-    gap:12px;
-
-    margin-top:32px;
-
-    color:var(--blue);
-
-    text-decoration:none;
-
-    font-size:9px;
-    font-weight:800;
-
-    letter-spacing:.10em;
-    text-transform:uppercase;
-}
-
-#bc-policy-index .bc-index-link::after{
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    right:0;
-    bottom:-7px;
-
-    height:1px;
-
-    background:rgba(18,77,139,.42);
-
-    transform-origin:left center;
-
-    transition:
-        transform .25s ease,
-        background .25s ease;
-}
-
-#bc-policy-index .bc-index-link span{
-    display:inline-block;
-
-    transition:transform .22s ease;
-}
-
-#bc-policy-index .bc-index-link:hover{
-    color:var(--blue-hover);
-}
-
-#bc-policy-index .bc-index-link:hover::after{
-    background:var(--blue-hover);
-    transform:scaleX(.82);
-}
-
-#bc-policy-index .bc-index-link:hover span{
-    transform:translateX(5px);
-}
-
-#bc-policy-index .bc-index-foot{
-    display:grid;
-
-    grid-template-columns:160px minmax(0,1fr);
-
-    gap:60px;
-
-    padding-top:34px;
-}
-
-#bc-policy-index .bc-index-foot small{
-    color:var(--blue);
-
-    font-size:8px;
-    font-weight:800;
-
-    letter-spacing:.16em;
-    text-transform:uppercase;
-}
-
-#bc-policy-index .bc-index-foot p{
-    max-width:700px;
-
-    margin:0;
-
-    color:var(--muted);
-
-    font-size:12px;
-    line-height:1.75;
-}
-
-@media(hover:hover) and (pointer:fine){
-
-    #bc-policy-index .bc-index-item:hover{
-        padding-top:34px;
-        padding-bottom:38px;
-    }
-
-}
-
-@media(max-width:800px){
-
-    html,
-    body{
-        overflow-x:hidden!important;
-    }
-
-    #bc-policy-index{
-        width:100%;
-        margin-left:0;
-    }
-
-    #bc-policy-index::before{
-        display:none;
-    }
-
-    #bc-policy-index .bc-index-inner{
-        width:100%;
-
-        padding:
-            68px
-            max(17px,env(safe-area-inset-right))
-            78px
-            max(17px,env(safe-area-inset-left));
-    }
-
-    #bc-policy-index .bc-index-intro{
-        grid-template-columns:1fr;
-
-        gap:25px;
-
-        padding-bottom:36px;
-    }
-
-    #bc-policy-index .bc-index-heading{
-        max-width:620px;
-
-        font-size:clamp(40px,11vw,53px);
-
-        line-height:.97;
-    }
-
-    #bc-policy-index .bc-index-intro-side{
-        max-width:520px;
-
-        padding-bottom:0;
-    }
-
-    #bc-policy-index .bc-index-intro-text{
-        font-size:12.5px;
-    }
-
-    #bc-policy-index .bc-index-grid{
-        grid-template-columns:1fr;
-    }
-
-    #bc-policy-index .bc-index-item,
-    #bc-policy-index .bc-index-item:nth-child(odd),
-    #bc-policy-index .bc-index-item:nth-child(even){
-        min-height:235px;
-
-        padding:28px 0 29px;
-
-        border-right:0;
-        border-bottom:1px solid var(--line);
-    }
-
-    #bc-policy-index .bc-index-item:last-child{
-        border-bottom:0;
-    }
-
-    #bc-policy-index .bc-index-item::after{
-        display:none;
-    }
-
-    #bc-policy-index .bc-index-bg-number{
-        right:0;
-        bottom:-6px;
-
-        font-size:92px;
-    }
-
-    #bc-policy-index .bc-index-item:nth-child(even)
-    .bc-index-bg-number{
-        right:0;
-    }
-
-    #bc-policy-index .bc-index-title-wrap{
-        margin-top:38px;
-    }
-
-    #bc-policy-index .bc-index-title{
-        max-width:88%;
-
-        font-size:clamp(30px,8.7vw,39px);
-    }
-
-    #bc-policy-index .bc-index-sub{
-        max-width:86%;
-
-        font-size:11px;
-    }
-
-    #bc-policy-index .bc-index-link{
-        margin-top:27px;
-    }
-
-    #bc-policy-index .bc-index-foot{
-        grid-template-columns:1fr;
-
-        gap:12px;
-
-        padding-top:28px;
-    }
-
-}
-
-@media(max-width:360px){
-
-    #bc-policy-index .bc-index-inner{
-        padding-left:14px;
-        padding-right:14px;
-    }
-
-    #bc-policy-index .bc-index-heading{
-        font-size:38px;
-    }
-
-    #bc-policy-index .bc-index-title{
-        font-size:29px;
-    }
-
-    #bc-policy-index .bc-index-bg-number{
-        font-size:82px;
-    }
-
-}
-</style>
-
-
-<section id="bc-policy-index">
-
-    <div class="bc-index-inner">
-
-        <!-- INTRO -->
-        <div class="bc-index-intro">
-
-            <div>
-
-                <div class="bc-index-label">
-                    Program
-                </div>
-
-                <h2 class="bc-index-heading">
-                    Šest pravaca.
-                    <br>
-                    <span>Jedna vizija razvoja.</span>
-                </h2>
-
-            </div>
-
-            <div class="bc-index-intro-side">
-
-                <small>
-                    Programske oblasti
-                </small>
-
-                <p class="bc-index-intro-text">
-                    Svaka oblast ima zaseban predlog i detaljno obrazloženje.
-                    Izaberite pravac i otvorite njegovu stranicu.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- PROGRAM GRID -->
-        <div class="bc-index-grid">
-
-            <!-- 01 -->
-            <article class="bc-index-item">
-
-                <span class="bc-index-bg-number">
-                    01
-                </span>
-
-                <div>
-
-                    <div class="bc-index-top">
-
-                        <span class="bc-index-number">
-                            01
-                        </span>
-
-                        <span class="bc-index-category">
-                            Privreda
-                        </span>
-
-                    </div>
-
-                    <div class="bc-index-title-wrap">
-
-                        <h3 class="bc-index-title">
-                            Domaća proizvodnja
-                        </h3>
-
-                        <p class="bc-index-sub">
-                            Više domaće vrednosti kroz proizvodnju, preradu i tržište.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <a
-                    class="bc-index-link"
-                    href="domaca-proizvodnja.html"
-                >
-                    Otvori stranicu
-                    <span>→</span>
-                </a>
-
-            </article>
-
-
-            <!-- 02 -->
-            <article class="bc-index-item">
-
-                <span class="bc-index-bg-number">
-                    02
-                </span>
-
-                <div>
-
-                    <div class="bc-index-top">
-
-                        <span class="bc-index-number">
-                            02
-                        </span>
-
-                        <span class="bc-index-category">
-                            Poljoprivreda
-                        </span>
-
-                    </div>
-
-                    <div class="bc-index-title-wrap">
-
-                        <h3 class="bc-index-title">
-                            Voćarstvo
-                        </h3>
-
-                        <p class="bc-index-sub">
-                            Od zasada do prerade, finalnog proizvoda i izvoza.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <a
-                    class="bc-index-link"
-                    href="vocarstvo.html"
-                >
-                    Otvori stranicu
-                    <span>→</span>
-                </a>
-
-            </article>
-
-
-            <!-- 03 -->
-            <article class="bc-index-item">
-
-                <span class="bc-index-bg-number">
-                    03
-                </span>
-
-                <div>
-
-                    <div class="bc-index-top">
-
-                        <span class="bc-index-number">
-                            03
-                        </span>
-
-                        <span class="bc-index-category">
-                            Poljoprivreda
-                        </span>
-
-                    </div>
-
-                    <div class="bc-index-title-wrap">
-
-                        <h3 class="bc-index-title">
-                            Stočarstvo
-                        </h3>
-
-                        <p class="bc-index-sub">
-                            Stabilna domaća proizvodnja mesa, mleka i prerađevina.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <a
-                    class="bc-index-link"
-                    href="stocarstvo.html"
-                >
-                    Otvori stranicu
-                    <span>→</span>
-                </a>
-
-            </article>
-
-
-            <!-- 04 -->
-            <article class="bc-index-item">
-
-                <span class="bc-index-bg-number">
-                    04
-                </span>
-
-                <div>
-
-                    <div class="bc-index-top">
-
-                        <span class="bc-index-number">
-                            04
-                        </span>
-
-                        <span class="bc-index-category">
-                            Energija
-                        </span>
-
-                    </div>
-
-                    <div class="bc-index-title-wrap">
-
-                        <h3 class="bc-index-title">
-                            Solarna energija
-                        </h3>
-
-                        <p class="bc-index-sub">
-                            Sopstvena proizvodnja energije iz besplatnog sunčevog resursa.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <a
-                    class="bc-index-link"
-                    href="solarna-energija.html"
-                >
-                    Otvori stranicu
-                    <span>→</span>
-                </a>
-
-            </article>
-
-
-            <!-- 05 -->
-            <article class="bc-index-item">
-
-                <span class="bc-index-bg-number">
-                    05
-                </span>
-
-                <div>
-
-                    <div class="bc-index-top">
-
-                        <span class="bc-index-number">
-                            05
-                        </span>
-
-                        <span class="bc-index-category">
-                            Država
-                        </span>
-
-                    </div>
-
-                    <div class="bc-index-title-wrap">
-
-                        <h3 class="bc-index-title">
-                            Institucije
-                        </h3>
-
-                        <p class="bc-index-sub">
-                            Odgovornije institucije, jasna pravila i funkcionalna država.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <a
-                    class="bc-index-link"
-                    href="institucije.html"
-                >
-                    Otvori stranicu
-                    <span>→</span>
-                </a>
-
-            </article>
-
-
-            <!-- 06 -->
-            <article class="bc-index-item">
-
-                <span class="bc-index-bg-number">
-                    06
-                </span>
-
-                <div>
-
-                    <div class="bc-index-top">
-
-                        <span class="bc-index-number">
-                            06
-                        </span>
-
-                        <span class="bc-index-category">
-                            Sistem
-                        </span>
-
-                    </div>
-
-                    <div class="bc-index-title-wrap">
-
-                        <h3 class="bc-index-title">
-                            Direktna demokratija
-                        </h3>
-
-                        <p class="bc-index-sub">
-                            Veće neposredno učešće građana u donošenju odluka.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <a
-                    class="bc-index-link"
-                    href="svajcarski-sistem.html"
-                >
-                    Otvori stranicu
-                    <span>→</span>
-                </a>
-
-            </article>
-
-        </div>
-
-        <!-- FOOT -->
-        <div class="bc-index-foot">
-
-            <small>
-                Program
-            </small>
-
-            <p>
-                Program je organizovan po oblastima kako bi svaki predlog mogao
-                da bude predstavljen jasno, odvojeno i dovoljno detaljno.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<style>
-/* =========================================================
-   BLAGOJE ĆURČIĆ — O MENI
-   CLEAN ABOUT HERO + INFO BOXES + DUGME ZA KONTAKT
-========================================================= */
-
-#bc-about {
-    --navy:#07182d;
-    --blue:#124d8b;
-
-    position:relative;
-
-    width:100vw;
-    margin-left:calc(50% - 50vw);
-
-    overflow:hidden;
-
-    background:var(--navy);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-}
-
-#bc-about *,
-#bc-about *::before,
-#bc-about *::after {
-    box-sizing:border-box;
-}
-
-#bc-about .bc-about-hero {
-    position:relative;
-
-    width:100%;
-
-    min-height:650px;
-
-    overflow:hidden;
-}
-
-#bc-about .bc-about-image {
-    position:absolute;
-
-    inset:0;
-
-    z-index:1;
-
-    width:100%;
-    height:100%;
-
-    display:block;
-
-    object-fit:cover;
-
-    object-position:center center;
-}
-
-#bc-about .bc-about-overlay {
-    position:absolute;
-
-    inset:0;
-
-    z-index:2;
-
-    pointer-events:none;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(4,18,36,.95) 0%,
-            rgba(4,18,36,.85) 20%,
-            rgba(4,18,36,.63) 38%,
-            rgba(4,18,36,.30) 55%,
-            rgba(4,18,36,.07) 72%,
-            rgba(4,18,36,0) 84%
-        );
-}
-
-#bc-about .bc-content-wrap {
-    position:absolute;
-
-    inset:0;
-
-    z-index:10;
-
-    display:flex;
-
-    align-items:center;
-}
-
-#bc-about .bc-content-inner {
-    width:min(
-        1220px,
-        calc(100% - 60px)
-    );
-
-    margin:0 auto;
-}
-
-#bc-about .bc-content {
-    width:54%;
-
-    max-width:700px;
-}
-
-#bc-about .bc-line {
-    width:76px;
-
-    height:3px;
-
-    margin-bottom:23px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #d21f2b 0%,
-            #d21f2b 33%,
-            #ffffff 33%,
-            #ffffff 66%,
-            #1b5a9d 66%,
-            #1b5a9d 100%
-        );
-}
-
-#bc-about .bc-kicker {
-    margin-bottom:11px;
-
-    color:
-        rgba(255,255,255,.58);
-
-    font-size:9px;
-
-    font-weight:800;
-
-    letter-spacing:.18em;
-
-    text-transform:uppercase;
-}
-
-#bc-about .bc-title {
-    margin:0;
-
-    color:#fff;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(
-            54px,
-            5.5vw,
-            80px
-        );
-
-    font-weight:400;
-
-    line-height:.98;
-
-    letter-spacing:-.045em;
-}
-
-#bc-about .bc-description {
-    max-width:610px;
-
-    margin:23px 0 0;
-
-    color:
-        rgba(255,255,255,.76);
-
-    font-size:15px;
-
-    line-height:1.72;
-}
-
-#bc-about .bc-meta {
-    max-width:650px;
-
-    margin-top:28px;
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:8px;
-}
-
-#bc-about .bc-meta-item {
-    min-height:40px;
-
-    padding:0 14px;
-
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border:
-        1px solid rgba(255,255,255,.25);
-
-    background:
-        rgba(7,24,45,.28);
-
-    color:
-        rgba(255,255,255,.84);
-
-    font-size:8px;
-
-    font-weight:800;
-
-    letter-spacing:.07em;
-
-    line-height:1.2;
-
-    text-transform:uppercase;
-
-    backdrop-filter:blur(2px);
-    -webkit-backdrop-filter:blur(2px);
-}
-
-/* DUGME ZA KONTAKT U O MENI */
-#bc-about .bc-about-actions {
-    margin-top: 30px;
-    display: flex;
-}
-
-#bc-about .bc-about-btn {
-    min-height: 46px;
-    padding: 0 26px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    color: #fff;
-    background: #124d8b;
-    border: 1px solid #1e63ad;
-    text-decoration: none;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    transition: all .25s ease;
-}
-
-#bc-about .bc-about-btn:hover {
-    background: #1763ad;
-    border-color: #2b7bc7;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,.25);
-}
-
-@media(max-width:767px) {
-
-    html,
-    body {
-        overflow-x:hidden !important;
-    }
-
-    #bc-about {
-        width:100% !important;
-
-        margin-left:0 !important;
-    }
-
-    #bc-about .bc-about-hero {
-        min-height:760px;
-
-        height:auto;
-
-        max-height:none;
-    }
-
-    #bc-about .bc-about-image {
-        object-position:
-            67% center !important;
-
-        filter:none !important;
-    }
-
-    #bc-about .bc-about-overlay {
-        background:
-            linear-gradient(
-                180deg,
-                rgba(3,15,30,.08) 0%,
-                rgba(3,15,30,0) 25%,
-                rgba(3,15,30,.15) 45%,
-                rgba(3,15,30,.55) 60%,
-                rgba(3,15,30,.88) 78%,
-                rgba(3,15,30,.98) 100%
-            );
-    }
-
-    #bc-about .bc-content-wrap {
-        position: relative;
-        align-items:flex-end;
-        min-height: 760px;
-    }
-
-    #bc-about .bc-content-inner {
-        width:100%;
-
-        padding:
-            120px
-            max(
-                18px,
-                env(safe-area-inset-right)
-            )
-            34px
-            max(
-                18px,
-                env(safe-area-inset-left)
-            );
-    }
-
-    #bc-about .bc-content {
-        width:100%;
-
-        max-width:520px;
-    }
-
-    #bc-about .bc-line {
-        width:58px;
-
-        margin-bottom:14px;
-    }
-
-    #bc-about .bc-kicker {
-        margin-bottom:8px;
-
-        font-size:8px;
-    }
-
-    #bc-about .bc-title {
-        font-size:
-            clamp(
-                42px,
-                12vw,
-                54px
-            );
-
-        line-height:.97;
-    }
-
-    #bc-about .bc-description {
-        max-width:410px;
-
-        margin-top:14px;
-
-        font-size:12.8px;
-
-        line-height:1.55;
-    }
-
-    #bc-about .bc-meta {
-        max-width:430px;
-
-        margin-top:18px;
-
-        gap:6px;
-    }
-
-    #bc-about .bc-meta-item {
-        min-height:34px;
-
-        padding:0 10px;
-
-        font-size:7px;
-
-        letter-spacing:.05em;
-
-        background:
-            rgba(7,24,45,.40);
-
-        backdrop-filter:none;
-        -webkit-backdrop-filter:none;
-    }
-
-    #bc-about .bc-about-actions {
-        margin-top: 22px;
-        width: 100%;
-        max-width: 300px;
-    }
-
-    #bc-about .bc-about-btn {
-        width: 100%;
-    }
-
-}
-
-@media(max-width:360px) {
-
-    #bc-about .bc-about-hero {
-        min-height:710px;
-    }
-
-    #bc-about .bc-content-inner {
-        padding-left:14px;
-
-        padding-right:14px;
-
-        padding-bottom:21px;
-    }
-
-    #bc-about .bc-title {
-        font-size:39px;
-    }
-
-    #bc-about .bc-description {
-        font-size:12px;
-    }
-
-    #bc-about .bc-meta {
-        max-width:320px;
-    }
-
-    #bc-about .bc-meta-item {
-        min-height:31px;
-
-        padding:0 8px;
-
-        font-size:6.5px;
-    }
-
-}
-</style>
-
-
-<section id="bc-about">
-
-    <div class="bc-about-hero">
-
-        <!-- IMAGE -->
-        <img
-            class="bc-about-image"
-            src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/ChatGPT-Image-Sep-6-2026-10_39_24-AM.png"
-            alt="Blagoje Ćurčić"
-        >
-
-        <div
-            class="bc-about-overlay"
-            aria-hidden="true"
-        ></div>
-
-        <!-- CONTENT -->
-        <div class="bc-content-wrap">
-
-            <div class="bc-content-inner">
-
-                <div class="bc-content">
-
-                    <div class="bc-line"></div>
-
-                    <div class="bc-kicker">
-                        O meni
-                    </div>
-
-                    <h1 class="bc-title">
-                        Blagoje
-                        <br>
-                        Ćurčić.
-                    </h1>
-
-                    <p class="bc-description">
-                        Više od četiri decenije prati i učestvuje
-                        u političkom životu, upoznajući različite
-                        ideje, ljude i modele upravljanja.
-                        To iskustvo danas koristi da prepozna
-                        ljude i rešenja za koja smatra da mogu
-                        da doprinesu Srbiji.
-                    </p>
-
-                    <!-- INFO BOXES -->
-                    <div class="bc-meta">
-
-                        <span class="bc-meta-item">
-                            40+ godina iskustva
-                        </span>
-
-                        <span class="bc-meta-item">
-                            Četnički vojvoda
-                        </span>
-
-                        <span class="bc-meta-item">
-                            Engleski vitez
-                        </span>
-
-                        <span class="bc-meta-item">
-                            Čačak
-                        </span>
-
-                    </div>
-
-                    <!-- DUGME ZA KONTAKT -->
-                    <div class="bc-about-actions">
-                        <a href="kontakt.html" class="bc-about-btn">
-                            Kontaktirajte Blagoja <span>→</span>
-                        </a>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<style>
-/* =========================================================
-   BLAGOJE ĆURČIĆ — FOOTER
-   PREMIUM / INSTITUTIONAL / SINGLE PAGE
-========================================================= */
-
-#bc-footer {
-    --navy:#07182d;
-    --navy-light:#0b2441;
-    --blue:#124d8b;
-    --blue-hover:#1763ad;
-    --white:#ffffff;
-
-    position:relative;
-
-    width:100vw;
-    margin-left:calc(50% - 50vw);
-
-    overflow:hidden;
-
-    background:var(--navy);
-    color:#fff;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-}
-
-#bc-footer *,
-#bc-footer *::before,
-#bc-footer *::after {
-    box-sizing:border-box;
-}
-
-#bc-footer .bc-footer-line {
-    width:100%;
-    height:3px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #d21f2b 0%,
-            #d21f2b 33.33%,
-            #ffffff 33.33%,
-            #ffffff 66.66%,
-            #1b5a9d 66.66%,
-            #1b5a9d 100%
-        );
-}
-
-#bc-footer .bc-footer-inner {
-    width:min(
-        1220px,
-        calc(100% - 48px)
-    );
-
-    margin:0 auto;
-
-    padding:
-        72px 0
-        27px;
-}
-
-#bc-footer .bc-footer-main {
-    display:grid;
-
-    grid-template-columns:
-        minmax(0,1.4fr)
-        minmax(240px,.6fr);
-
-    gap:80px;
-
-    align-items:end;
-
-    padding-bottom:52px;
-
-    border-bottom:
-        1px solid rgba(255,255,255,.11);
-}
-
-#bc-footer .bc-footer-label {
-    display:flex;
-
-    align-items:center;
-
-    gap:11px;
-
-    margin-bottom:17px;
-
-    color:#77a6d1;
-
-    font-size:8px;
-
-    font-weight:800;
-
-    letter-spacing:.18em;
-
-    text-transform:uppercase;
-}
-
-#bc-footer .bc-footer-label::before {
-    content:"";
-
-    width:35px;
-    height:2px;
-
-    background:#397bb7;
-}
-
-#bc-footer .bc-footer-title {
-    max-width:760px;
-
-    margin:0;
-
-    color:#fff;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(
-            38px,
-            4.7vw,
-            61px
-        );
-
-    font-weight:400;
-
-    line-height:1.02;
-
-    letter-spacing:-.04em;
-}
-
-#bc-footer .bc-footer-title span {
-    color:#70a1cf;
-}
-
-#bc-footer .bc-footer-copy {
-    max-width:600px;
-
-    margin:20px 0 0;
-
-    color:
-        rgba(255,255,255,.55);
-
-    font-size:13px;
-
-    line-height:1.7;
-}
-
-#bc-footer .bc-footer-brand {
-    padding-left:30px;
-
-    border-left:
-        1px solid rgba(255,255,255,.12);
-}
-
-#bc-footer .bc-footer-monogram {
-    margin-bottom:16px;
-
-    color:#fff;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:45px;
-
-    line-height:1;
-
-    letter-spacing:-.06em;
-}
-
-#bc-footer .bc-footer-name {
-    color:#fff;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:20px;
-
-    font-weight:500;
-
-    line-height:1.2;
-}
-
-#bc-footer .bc-footer-tagline {
-    margin-top:7px;
-
-    color:
-        rgba(255,255,255,.42);
-
-    font-size:8px;
-
-    font-weight:800;
-
-    letter-spacing:.18em;
-
-    text-transform:uppercase;
-}
-
-#bc-footer .bc-footer-nav {
-    margin-top:27px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-    gap:0;
-}
-
-#bc-footer .bc-footer-nav a {
-    position:relative;
-
-    width:100%;
-
-    min-height:39px;
-
-    display:flex;
-
-    align-items:center;
-
-    color:
-        rgba(255,255,255,.67);
-
-    border-bottom:
-        1px solid rgba(255,255,255,.07);
-
-    text-decoration:none;
-
-    font-size:9px;
-
-    font-weight:800;
-
-    letter-spacing:.08em;
-
-    text-transform:uppercase;
-
-    transition:
-        color .2s ease,
-        padding-left .2s ease;
-}
-
-#bc-footer .bc-footer-nav a:last-child {
-    border-bottom:0;
-}
-
-#bc-footer .bc-footer-nav a::before {
-    content:"";
-
-    width:0;
-
-    height:1px;
-
-    margin-right:0;
-
-    background:#5d95c8;
-
-    transition:
-        width .2s ease,
-        margin-right .2s ease;
-}
-
-#bc-footer .bc-footer-nav a:hover {
-    padding-left:3px;
-
-    color:#fff;
-}
-
-#bc-footer .bc-footer-nav a:hover::before {
-    width:16px;
-
-    margin-right:9px;
-}
-
-#bc-footer .bc-footer-bottom {
-    min-height:67px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:30px;
-}
-
-#bc-footer .bc-footer-copyright {
-    color:
-        rgba(255,255,255,.34);
-
-    font-size:8px;
-
-    font-weight:700;
-
-    letter-spacing:.06em;
-
-    text-transform:uppercase;
-}
-
-#bc-footer .bc-footer-principle {
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    color:
-        rgba(255,255,255,.40);
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:12px;
-}
-
-#bc-footer .bc-footer-principle::before {
-    content:"";
-
-    width:21px;
-
-    height:1px;
-
-    background:#3e73a4;
-}
-
-#bc-footer .bc-footer-top {
-    width:42px;
-    height:42px;
-
-    flex:0 0 42px;
-
-    display:grid;
-
-    place-items:center;
-
-    border:
-        1px solid rgba(255,255,255,.19);
-
-    color:#fff;
-
-    background:transparent;
-
-    text-decoration:none;
-
-    font-size:15px;
-
-    transition:.2s ease;
-}
-
-#bc-footer .bc-footer-top:hover {
-    background:var(--blue);
-
-    border-color:var(--blue);
-}
-
-@media(max-width:767px) {
-
-    #bc-footer {
-        width:100%;
-
-        margin-left:0;
-    }
-
-    #bc-footer .bc-footer-inner {
-        width:100%;
-
-        padding:
-            57px
-            max(
-                17px,
-                env(safe-area-inset-right)
-            )
-            20px
-            max(
-                17px,
-                env(safe-area-inset-left)
-            );
-    }
-
-    #bc-footer .bc-footer-main {
-        grid-template-columns:1fr;
-
-        gap:39px;
-
-        padding-bottom:38px;
-    }
-
-    #bc-footer .bc-footer-title {
-        max-width:510px;
-
-        font-size:
-            clamp(
-                36px,
-                10.5vw,
-                48px
-            );
-
-        line-height:1.02;
-    }
-
-    #bc-footer .bc-footer-copy {
-        max-width:470px;
-
-        margin-top:16px;
-
-        font-size:12px;
-    }
-
-    #bc-footer .bc-footer-brand {
-        padding:
-            27px 0 0;
-
-        border-left:0;
-
-        border-top:
-            1px solid rgba(255,255,255,.11);
-    }
-
-    #bc-footer .bc-footer-monogram {
-        margin-bottom:11px;
-
-        font-size:37px;
-    }
-
-    #bc-footer .bc-footer-name {
-        font-size:18px;
-    }
-
-    #bc-footer .bc-footer-nav {
-        margin-top:22px;
-    }
-
-    #bc-footer .bc-footer-nav a {
-        min-height:45px;
-
-        font-size:8px;
-    }
-
-    #bc-footer .bc-footer-bottom {
-        min-height:0;
-
-        padding-top:20px;
-
-        display:grid;
-
-        grid-template-columns:
-            minmax(0,1fr)
-            42px;
-
-        gap:15px;
-
-        align-items:center;
-    }
-
-    #bc-footer .bc-footer-copyright {
-        font-size:7px;
-    }
-
-    #bc-footer .bc-footer-principle {
-        grid-column:1 / -1;
-
-        grid-row:1;
-
-        font-size:11px;
-    }
-
-    #bc-footer .bc-footer-copyright {
-        grid-column:1;
-
-        grid-row:2;
-    }
-
-    #bc-footer .bc-footer-top {
-        grid-column:2;
-
-        grid-row:2;
-    }
-
-}
-
-@media(max-width:360px) {
-
-    #bc-footer .bc-footer-inner {
-        padding-left:14px;
-
-        padding-right:14px;
-    }
-
-    #bc-footer .bc-footer-title {
-        font-size:34px;
-    }
-
-}
-</style>
-
-<footer id="bc-footer">
-
-    <div class="bc-footer-line"></div>
-
-    <div class="bc-footer-inner">
-
-        <div class="bc-footer-main">
-
-            <div>
-
-                <div class="bc-footer-label">
-                    Za pravedniju Srbiju
-                </div>
-
-                <h2 class="bc-footer-title">
-                    Država u kojoj se
-                    <br>
-                    <span>
-                        pitaju građani.
-                    </span>
-                </h2>
-
-                <p class="bc-footer-copy">
-                    Odgovornost, domaća proizvodnja
-                    i veće učešće građana u odlukama
-                    koje određuju budućnost Srbije.
-                </p>
-
-            </div>
-
-            <div class="bc-footer-brand">
-
-                <div class="bc-footer-monogram">
-                    BĆ
-                </div>
-
-                <div class="bc-footer-name">
-                    Blagoje Ćurčić
-                </div>
-
-                <div class="bc-footer-tagline">
-                    Za pravedniju Srbiju
-                </div>
-
-                <nav
-                    class="bc-footer-nav"
-                    aria-label="Navigacija u podnožju"
-                >
-
-                    <a href="index.html">
-                        Početak
-                    </a>
-
-                    <a href="#bc-about">
-                        O meni
-                    </a>
-
-                    <a href="#bc-principles">
-                        Program
-                    </a>
-
-                    <a href="nekretnine.html">
-                        Nekretnine
-                    </a>
-
-                    <a href="kontakt.html">
-                        Kontakt
-                    </a>
-
-                </nav>
-
-            </div>
-
-        </div>
-
-        <div class="bc-footer-bottom">
-
-            <div class="bc-footer-copyright">
-                ©
-                <span id="bcFooterYear">2026</span>
-                Blagoje Ćurčić · Sva prava zadržana
-            </div>
-
-            <div class="bc-footer-principle">
-                Građanin u centru odluke.
-            </div>
-
-            <a
-                class="bc-footer-top"
-                href="#bc-home"
-                aria-label="Nazad na početak"
-            >
-                ↑
-            </a>
-
-        </div>
-
-    </div>
-
-</footer>
-
-<script>
-(function () {
-
-    const year =
-        document.getElementById(
-            "bcFooterYear"
-        );
-
-    if (year) {
-        year.textContent =
-            new Date().getFullYear();
-    }
+    const button = document.getElementById("bcMenuButton");
+    const nav = document.getElementById("bcNav");
+
+    if (button && nav) {
+        button.addEventListener("click", function () {
+            const open = nav.classList.toggle("bc-open");
+            button.classList.toggle("bc-active", open);
+            button.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+    }
+
+    /* =========================================================
+       AUTOMATSKI OBILAZAK SAJTA (SMOOTH AUTO-TOUR)
+    ========================================================= */
+    const startTourBtn = document.getElementById("bcStartTourBtn");
+    const stopTourBtn = document.getElementById("bcTourFloatingStop");
+    let isAutoTourActive = false;
+    let tourAnimationId = null;
+
+    function stopTour() {
+        if (!isAutoTourActive) return;
+        isAutoTourActive = false;
+        cancelAnimationFrame(tourAnimationId);
+        if (stopTourBtn) stopTourBtn.style.display = "none";
+        document.removeEventListener("wheel", stopTour);
+        document.removeEventListener("touchmove", stopTour);
+    }
+
+    function startTour() {
+        if (isAutoTourActive) return;
+        isAutoTourActive = true;
+        if (stopTourBtn) stopTourBtn.style.display = "block";
+
+        // Brzina: 1.8 piksela po frejmu daje smiren, pregledan tempo
+        const speed = 1.8; 
+
+        function step() {
+            if (!isAutoTourActive) return;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            
+            if (window.scrollY < maxScroll - 5) {
+                window.scrollBy(0, speed);
+                tourAnimationId = requestAnimationFrame(step);
+            } else {
+                stopTour();
+            }
+        }
+
+        tourAnimationId = requestAnimationFrame(step);
+
+        // Ako korisnik sam dodirne ekran ili mrdne točkić, odmah se zaustavlja
+        setTimeout(function() {
+            document.addEventListener("wheel", stopTour, { passive: true });
+            document.addEventListener("touchmove", stopTour, { passive: true });
+        }, 300);
+    }
+
+    if (startTourBtn) startTourBtn.addEventListener("click", startTour);
+    if (stopTourBtn) stopTourBtn.addEventListener("click", stopTour);
 
 })();
 </script>
+<script src="bc-engine.js"></script>
 </body>
 </html>
