@@ -15,21 +15,23 @@ body{background:#f8fafc;}
 <body>
 <style>
 /* =========================================================
-   HEADER + HERO
+   HEADER + HERO (FULL SCREEN POSTER KAO NA SLICI 4)
 ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
 
 #bc-home {
     --navy: #07182d;
     --blue: #124d8b;
     --blue-hover: #1763ad;
     --white: #ffffff;
-    --soft-white: rgba(255,255,255,.76);
 
     position: relative;
     width: 100vw;
     margin-left: calc(50% - 50vw);
     overflow: hidden;
-
     font-family: Arial, Helvetica, sans-serif;
     background: #07182d;
 }
@@ -43,8 +45,10 @@ body{background:#f8fafc;}
 #bc-home .bc-hero {
     position: relative;
     width: 100%;
+    min-height: 100vh;
     overflow: hidden;
-    min-height: 860px;
+    display: flex;
+    flex-direction: column;
 }
 
 #bc-home .bc-banner-image {
@@ -55,7 +59,7 @@ body{background:#f8fafc;}
     height: 100%;
     display: block;
     object-fit: cover;
-    object-position: right center;
+    object-position: center top;
 }
 
 #bc-home .bc-hero-overlay {
@@ -65,119 +69,91 @@ body{background:#f8fafc;}
     pointer-events: none;
     background:
         linear-gradient(
-            90deg,
-            rgba(4,18,36,.96) 0%,
-            rgba(4,18,36,.88) 32%,
-            rgba(4,18,36,.65) 55%,
-            rgba(4,18,36,.20) 78%,
-            rgba(4,18,36,.05) 100%
+            180deg,
+            rgba(4,18,36,.82) 0%,
+            rgba(4,18,36,.65) 40%,
+            rgba(4,18,36,.88) 80%,
+            rgba(4,18,36,.98) 100%
         );
 }
 
-/* KOKARDA & SLOGAN STILOVI */
-.bc-kokarda-badge {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    z-index: 15;
-    background: rgba(7, 24, 45, 0.85);
-    border: 1px solid rgba(255, 215, 0, 0.4);
-    padding: 6px 14px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #ffd700;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
-
-.bc-kokarda-caption {
-    position: absolute;
-    bottom: 24px;
-    right: 24px;
-    z-index: 15;
-    background: #07182d;
-    color: #ffffff;
-    border: 1px solid rgba(210, 31, 43, 0.6);
-    border-left: 4px solid #d21f2b;
-    padding: 8px 18px;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+@media (min-width: 900px) {
+    #bc-home .bc-banner-image {
+        object-position: 75% center;
+    }
+    #bc-home .bc-hero-overlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(4,18,36,.96) 0%,
+                rgba(4,18,36,.88) 40%,
+                rgba(4,18,36,.45) 70%,
+                rgba(4,18,36,.15) 100%
+            );
+    }
 }
 
 #bc-home .bc-header {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
     z-index: 30;
     border-bottom: 1px solid rgba(255,255,255,.12);
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(3,15,30,.60),
-            rgba(3,15,30,.18)
-        );
+    background: linear-gradient(to bottom, rgba(3,15,30,.80), rgba(3,15,30,.20));
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
 }
 
 #bc-home .bc-header-inner {
-    width: min(1320px, calc(100% - 60px));
+    width: min(1320px, calc(100% - 40px));
     min-height: 84px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 32px;
+    gap: 20px;
 }
 
 #bc-home .bc-brand {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
     color: #fff;
     text-decoration: none;
     flex-shrink: 0;
 }
 
 #bc-home .bc-monogram {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 38px;
+    font-family: Georgia, serif;
+    font-size: 34px;
     line-height: 1;
     color: #fff;
-    padding-right: 17px;
+    padding-right: 14px;
     border-right: 1px solid rgba(255,255,255,.3);
 }
 
 #bc-home .bc-brand-name {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 17px;
+    font-family: Georgia, serif;
+    font-size: 16px;
     font-weight: 600;
     letter-spacing: .04em;
     color: #fff;
 }
 
 #bc-home .bc-brand-subtitle {
-    margin-top: 5px;
+    margin-top: 4px;
     font-size: 8px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: .27em;
+    letter-spacing: .24em;
     color: rgba(255,255,255,.55);
 }
 
 #bc-home .bc-nav {
     display: flex;
     align-items: center;
-    gap: 31px;
+    gap: 28px;
     margin-left: auto;
 }
 
@@ -190,11 +166,12 @@ body{background:#f8fafc;}
     letter-spacing: .08em;
     text-transform: uppercase;
     text-decoration: none;
-    opacity: .82;
-    transition: opacity .25s ease, color .25s ease;
+    opacity: .85;
+    transition: opacity .2s ease;
 }
 
-#bc-home .bc-nav a:hover {
+#bc-home .bc-nav a:hover,
+#bc-home .bc-nav a.bc-current {
     opacity: 1;
 }
 
@@ -202,7 +179,7 @@ body{background:#f8fafc;}
     content: "";
     position: absolute;
     left: 0;
-    bottom: 21px;
+    bottom: 22px;
     width: 0;
     height: 2px;
     background: #1c67ad;
@@ -214,17 +191,13 @@ body{background:#f8fafc;}
     width: 100%;
 }
 
-#bc-home .bc-nav a.bc-current {
-    opacity: 1;
-}
-
 #bc-home .bc-header-button {
     min-height: 42px;
     padding: 0 20px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 11px;
+    gap: 10px;
     color: #fff;
     background: #124d8b;
     border: 1px solid #2466a3;
@@ -233,76 +206,62 @@ body{background:#f8fafc;}
     font-weight: 800;
     letter-spacing: .07em;
     text-transform: uppercase;
-    transition: .25s ease;
     flex-shrink: 0;
-}
-
-#bc-home .bc-header-button:hover {
-    background: #1763ad;
-    transform: translateY(-1px);
 }
 
 #bc-home .bc-content-wrap {
     position: relative;
     z-index: 10;
+    flex: 1;
     display: flex;
     align-items: center;
-    padding: 130px 0 80px;
+    padding: 60px 0 80px;
 }
 
 #bc-home .bc-content-inner {
-    width: min(1320px, calc(100% - 60px));
+    width: min(1320px, calc(100% - 40px));
     margin: 0 auto;
 }
 
 #bc-home .bc-content {
-    width: 58%;
-    max-width: 720px;
+    width: 100%;
+    max-width: 640px;
 }
 
 #bc-home .bc-line {
-    width: 84px;
+    width: 74px;
     height: 3px;
-    margin-bottom: 25px;
-    background:
-        linear-gradient(
-            90deg,
-            #d21f2b 0%,
-            #d21f2b 33%,
-            #ffffff 33%,
-            #ffffff 66%,
-            #1b5a9d 66%,
-            #1b5a9d 100%
-        );
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #d21f2b 0%, #d21f2b 33%, #ffffff 33%, #ffffff 66%, #1b5a9d 66%, #1b5a9d 100%);
 }
 
 #bc-home .bc-kicker {
-    margin-bottom: 13px;
-    color: rgba(255,255,255,.65);
+    margin-bottom: 12px;
+    color: rgba(255,255,255,.75);
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: .2em;
     text-transform: uppercase;
 }
 
 #bc-home .bc-title {
-    max-width: 620px;
     margin: 0;
     color: #fff;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(44px, 4.3vw, 66px);
+    font-size: clamp(38px, 6vw, 68px);
     font-weight: 400;
-    line-height: 1.05;
+    line-height: 1.06;
     letter-spacing: -.035em;
-    text-shadow: 0 3px 20px rgba(0,0,0,.25);
+    text-shadow: 0 3px 20px rgba(0,0,0,.45);
 }
 
 #bc-home .bc-description {
-    max-width: 600px;
-    margin: 22px 0 0;
-    color: rgba(255,255,255,.82);
-    font-size: 15.5px;
-    line-height: 1.7;
+    max-width: 580px;
+    margin: 20px 0 0;
+    color: rgba(255,255,255,.88);
+    font-size: 16px;
+    line-height: 1.65;
+    text-shadow: 0 2px 10px rgba(0,0,0,.4);
 }
 
 #bc-home .bc-actions {
@@ -318,91 +277,62 @@ body{background:#f8fafc;}
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 13px;
+    gap: 12px;
     text-decoration: none;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: .08em;
     text-transform: uppercase;
-    transition: all .25s ease;
+    transition: all .2s ease;
 }
 
 #bc-home .bc-button-primary {
     color: #fff;
     background: #124d8b;
-    border: 1px solid #124d8b;
+    border: 1px solid #1e63ad;
 }
 
 #bc-home .bc-button-primary:hover {
     background: #1763ad;
-    border-color: #1763ad;
-    transform: translateY(-2px);
 }
 
 #bc-home .bc-button-secondary {
     color: #fff;
-    background: rgba(5,25,47,.35);
-    border: 1px solid rgba(255,255,255,.5);
-    backdrop-filter: blur(5px);
+    background: rgba(5,25,47,.45);
+    border: 1px solid rgba(255,255,255,.6);
+    backdrop-filter: blur(4px);
 }
 
 #bc-home .bc-button-secondary:hover {
     background: #124d8b;
     border-color: #124d8b;
-    transform: translateY(-2px);
 }
 
 #bc-home .bc-button-tour {
     color: #fff;
-    background: rgba(210, 31, 43, 0.55);
-    border: 1px solid rgba(210, 31, 43, 0.9);
+    background: rgba(210, 31, 43, 0.7);
+    border: 1px solid #d21f2b;
     cursor: pointer;
 }
 
 #bc-home .bc-button-tour:hover {
     background: #d21f2b;
-    border-color: #d21f2b;
-}
-
-#bcTourFloatingStop {
-    display: none;
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 999999;
-    background: #d21f2b;
-    color: #fff;
-    border: 2px solid #fff;
-    padding: 14px 28px;
-    border-radius: 40px;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    cursor: pointer;
 }
 
 #bc-home .bc-hero-credo-card {
-    margin-top: 30px;
-    padding: 20px 24px;
-    background: rgba(7, 24, 45, 0.72);
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    margin-top: 28px;
+    padding: 18px 22px;
+    background: rgba(7, 24, 45, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     border-left: 4px solid #d21f2b;
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     border-radius: 4px;
     cursor: pointer;
-    transition: all .3s ease;
-    max-width: 640px;
+    transition: all .25s ease;
 }
 
 #bc-home .bc-hero-credo-card:hover {
-    background: rgba(18, 77, 139, 0.45);
-    border-color: rgba(255, 255, 255, 0.4);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    background: rgba(18, 77, 139, 0.55);
 }
 
 #bc-home .bc-credo-badge {
@@ -419,164 +349,50 @@ body{background:#f8fafc;}
 
 #bc-home .bc-credo-badge::before {
     content: "";
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     background: #d21f2b;
     border-radius: 50%;
-    display: inline-block;
 }
 
 #bc-home .bc-credo-title {
     margin: 0;
     color: #ffffff;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 19px;
+    font-family: Georgia, serif;
+    font-size: 18px;
     font-weight: 500;
     line-height: 1.25;
 }
 
 #bc-home .bc-credo-excerpt {
-    margin: 8px 0 14px;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 12.5px;
-    line-height: 1.55;
+    margin: 8px 0 12px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    line-height: 1.5;
 }
 
 #bc-home .bc-credo-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
     background: none;
     border: none;
     padding: 0;
     color: #5aa4ea;
-    font-size: 10.5px;
+    font-size: 10px;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: .1em;
     cursor: pointer;
 }
 
-/* MODAL STILOVI */
-.bc-modal-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-    background: rgba(3, 12, 24, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .3s ease, visibility .3s ease;
-}
-
-.bc-modal-overlay.bc-modal-active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.bc-modal-window {
-    position: relative;
-    width: 100%;
-    max-width: 780px;
-    max-height: 88vh;
-    background: #07182d;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transform: translateY(20px) scale(0.97);
-    transition: transform .3s ease;
-}
-
-.bc-modal-overlay.bc-modal-active .bc-modal-window {
-    transform: translateY(0) scale(1);
-}
-
-.bc-modal-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: #061527;
-    padding: 24px 30px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.bc-modal-close {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background .2s ease;
-}
-
-.bc-modal-close:hover {
-    background: #d21f2b;
-    border-color: #d21f2b;
-}
-
-.bc-modal-body {
-    padding: 30px;
-    overflow-y: auto;
-    line-height: 1.7;
-    font-size: 14.5px;
-    color: rgba(255, 255, 255, 0.88);
-}
-
-.bc-modal-body h4 {
-    margin: 24px 0 8px;
-    color: #72aade;
-    font-family: Georgia, serif;
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.bc-modal-body h4:first-of-type {
-    margin-top: 0;
-}
-
-.bc-modal-body p {
-    margin: 0 0 16px;
-}
-
-.bc-credo-quote-box {
-    background: rgba(18, 77, 139, 0.2);
-    border-left: 3px solid #1c67ad;
-    padding: 16px 20px;
-    margin: 18px 0;
-    font-style: italic;
-    color: #e2ecf5;
-    border-radius: 0 4px 4px 0;
-}
-
+/* HAMBURGER */
 #bc-home .bc-menu-button {
     display: none;
-    position: relative;
     width: 44px;
     height: 44px;
     padding: 0;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255,255,255,.25);
-    background: rgba(7,24,45,.18);
+    border: 1px solid rgba(255,255,255,.3);
+    background: rgba(7,24,45,.4);
     color: #fff;
     cursor: pointer;
 }
@@ -584,17 +400,17 @@ body{background:#f8fafc;}
 #bc-home .bc-menu-icon {
     position: relative;
     display: block;
-    width: 19px;
+    width: 20px;
     height: 14px;
 }
 
 #bc-home .bc-menu-icon span {
     position: absolute;
     left: 0;
-    width: 19px;
-    height: 1.5px;
+    width: 20px;
+    height: 2px;
     background: #fff;
-    transition: transform .28s ease, opacity .2s ease, top .28s ease;
+    transition: all .25s ease;
 }
 
 #bc-home .bc-menu-icon span:nth-child(1) { top: 0; }
@@ -615,115 +431,303 @@ body{background:#f8fafc;}
         top: 84px;
         left: 0;
         right: 0;
-        margin: 0;
-        padding: 8px 30px 18px;
+        padding: 10px 24px 20px;
         flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        background: rgba(5,21,40,.985);
-        border-top: 1px solid rgba(255,255,255,.05);
-        border-bottom: 1px solid rgba(255,255,255,.12);
+        background: rgba(5,21,40,.98);
+        border-bottom: 1px solid rgba(255,255,255,.15);
     }
     #bc-home .bc-nav.bc-open a {
-        position: relative;
-        width: 100%;
-        min-height: 54px;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid rgba(255,255,255,.08);
+        padding: 16px 0;
         font-family: Georgia, serif;
-        font-size: 16px;
-        font-weight: 400;
-        opacity: .82;
+        font-size: 17px;
+        border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    #bc-home .bc-nav.bc-open a:last-child { border-bottom: 0; }
-    #bc-home .bc-content { width: 75%; }
+}
+
+@media (max-width: 700px) {
+    #bc-home .bc-header-inner { min-height: 70px; }
+    #bc-home .bc-monogram { font-size: 28px; }
+    #bc-home .bc-brand-name { font-size: 13px; }
+    #bc-home .bc-brand-subtitle, #bc-home .bc-header-button { display: none; }
+    #bc-home .bc-nav.bc-open { top: 70px; }
+    #bc-home .bc-content-wrap { padding-top: 100px; }
+    #bc-home .bc-button { width: 100%; }
 }
 
 /* =========================================================
-   MOBILNI HERO FIX
+   O MENI SEKCIJA (POPUT SLIKE 3)
 ========================================================= */
-@media (max-width: 700px) {
-    #bc-home .bc-header-inner { width: calc(100% - 24px); min-height: 68px; }
-    #bc-home .bc-monogram { font-size: 29px; padding-right: 11px; }
-    #bc-home .bc-brand-name { font-size: 13px; }
-    #bc-home .bc-brand-subtitle, #bc-home .bc-header-button { display: none; }
-    #bc-home .bc-nav.bc-open { top: 68px; padding: 6px 18px 14px; }
-    #bc-home .bc-content-inner { width: calc(100% - 28px); }
+#bc-about {
+    --navy:#07182d;
+    --blue:#124d8b;
+    position:relative;
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    overflow:hidden;
+    background:var(--navy);
+    font-family:Arial,Helvetica,sans-serif;
+}
 
-    #bc-home .bc-hero {
-        min-height: 1000px;
+#bc-about *, #bc-about *::before, #bc-about *::after { box-sizing:border-box; }
+
+#bc-about .bc-about-hero {
+    position:relative;
+    width:100%;
+    min-height:720px;
+    overflow:hidden;
+    display: flex;
+    align-items: flex-end;
+}
+
+#bc-about .bc-about-image {
+    position:absolute;
+    inset:0;
+    z-index:1;
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:center top;
+}
+
+#bc-about .bc-about-overlay {
+    position:absolute;
+    inset:0;
+    z-index:2;
+    pointer-events:none;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(4,18,36,.10) 0%,
+            rgba(4,18,36,.30) 30%,
+            rgba(4,18,36,.75) 60%,
+            rgba(4,18,36,.98) 95%
+        );
+}
+
+#bc-about .bc-content-wrap {
+    position:relative;
+    z-index:10;
+    width: 100%;
+    padding: 80px 0 60px;
+}
+
+#bc-about .bc-content-inner {
+    width:min(1220px, calc(100% - 40px));
+    margin:0 auto;
+}
+
+#bc-about .bc-content {
+    max-width:620px;
+}
+
+#bc-about .bc-line {
+    width:74px;
+    height:3px;
+    margin-bottom:20px;
+    background:linear-gradient(90deg, #d21f2b 0%, #d21f2b 33%, #ffffff 33%, #ffffff 66%, #1b5a9d 66%, #1b5a9d 100%);
+}
+
+#bc-about .bc-kicker {
+    margin-bottom:10px;
+    color:rgba(255,255,255,.7);
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+}
+
+#bc-about .bc-title {
+    margin:0;
+    color:#fff;
+    font-family:Georgia, serif;
+    font-size:clamp(46px, 6vw, 76px);
+    font-weight:400;
+    line-height:1;
+    letter-spacing:-.04em;
+    text-shadow: 0 3px 15px rgba(0,0,0,0.5);
+}
+
+#bc-about .bc-description {
+    margin:20px 0 0;
+    color:rgba(255,255,255,.88);
+    font-size:15px;
+    line-height:1.65;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+#bc-about .bc-meta {
+    margin-top:24px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+#bc-about .bc-meta-item {
+    min-height:38px;
+    padding:0 14px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(255,255,255,.3);
+    background:rgba(7,24,45,.65);
+    color:#fff;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    backdrop-filter:blur(3px);
+}
+
+#bc-about .bc-about-actions {
+    margin-top: 26px;
+}
+
+#bc-about .bc-about-btn {
+    min-height: 46px;
+    padding: 0 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #fff;
+    background: #124d8b;
+    border: 1px solid #1e63ad;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+    #bc-about .bc-about-hero {
+        min-height: 760px;
     }
-
-    #bc-home .bc-banner-image {
-        height: 50%;
-        object-position: center 5% !important;
-        opacity: 0.95;
-    }
-
-    #bc-home .bc-hero-overlay {
-        background:
-            linear-gradient(
-                180deg,
-                rgba(4,18,36,.05) 0%,
-                rgba(4,18,36,.30) 35%,
-                rgba(4,18,36,.96) 50%,
-                rgba(4,18,36,1) 100%
-            ) !important;
-    }
-
-    .bc-kokarda-badge {
-        top: 80px;
-        right: 15px;
-        font-size: 9px;
-    }
-
-    .bc-kokarda-caption {
-        top: 420px;
-        bottom: auto;
-        left: 15px;
-        right: auto;
-        font-size: 10px;
-    }
-
-    #bc-home .bc-content-wrap {
-        padding-top: 460px;
-        padding-bottom: 50px;
-    }
-
-    #bc-home .bc-content {
+    #bc-about .bc-about-btn {
         width: 100%;
-        max-width: 480px;
     }
+}
 
-    #bc-home .bc-title {
-        font-size: 34px;
-        line-height: 1.1;
-    }
+/* =========================================================
+   ISTORIJSKO NASLEĐE
+========================================================= */
+#bc-heritage {
+    --navy: #07182d;
+    --gold: #dfb15b;
+    --red: #d21f2b;
+    --line: rgba(255, 255, 255, 0.12);
 
-    #bc-home .bc-actions {
-        width: 100%;
-    }
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    background: #041224;
+    color: #ffffff;
+    padding: 85px 0 95px;
+    border-top: 1px solid var(--line);
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-    #bc-home .bc-button {
-        width: 100%;
+#bc-heritage .bc-heritage-inner {
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+#bc-heritage .bc-heritage-kicker {
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+#bc-heritage .bc-heritage-heading {
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 4.4vw, 54px);
+    margin: 0 0 20px;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+#bc-heritage .bc-heritage-heading span {
+    color: var(--gold);
+}
+
+#bc-heritage .bc-heritage-quote {
+    background: rgba(18, 77, 139, 0.15);
+    border-left: 4px solid var(--red);
+    padding: 22px 24px;
+    margin: 30px 0 45px;
+    font-family: Georgia, serif;
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.5;
+    color: #e4edf5;
+}
+
+#bc-heritage .bc-heritage-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+#bc-heritage .bc-heritage-card {
+    background: rgba(7, 24, 45, 0.7);
+    border: 1px solid var(--line);
+    padding: 30px 26px;
+    border-radius: 4px;
+    position: relative;
+}
+
+#bc-heritage .bc-heritage-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gold);
+}
+
+#bc-heritage .bc-heritage-card h3 {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    color: #fff;
+    margin: 0 0 12px;
+}
+
+#bc-heritage .bc-heritage-card p {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 12px;
+}
+
+#bc-heritage .bc-heritage-motto {
+    text-align: center;
+    margin-top: 55px;
+    padding-top: 35px;
+    border-top: 1px solid var(--line);
+    font-family: Georgia, serif;
+    font-size: clamp(18px, 2.3vw, 26px);
+    color: var(--gold);
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 800px) {
+    #bc-heritage .bc-heritage-grid {
+        grid-template-columns: 1fr;
     }
 }
 </style>
 
+<!-- =========================================================
+     HERO SEKCIJA
+========================================================= -->
 <section id="bc-home">
     <div class="bc-hero">
         <img class="bc-banner-image" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-04_25_46-AM.png" alt="Благоје Ћурчић">
         <div class="bc-hero-overlay"></div>
-
-        <!-- AMBLEMI NA HERO SLICI -->
-        <div class="bc-kokarda-badge">
-            ☦ ЈВуО · За Краља и Отаџбину
-        </div>
-        <div class="bc-kokarda-caption">
-            РАВНА ГОРА ПОБЕДИТИ МОРА
-        </div>
 
         <header class="bc-header">
             <div class="bc-header-inner">
@@ -743,7 +747,7 @@ body{background:#f8fafc;}
                     <a href="kontakt.html">Контакт</a>
                 </nav>
                 <a class="bc-header-button" href="kontakt.html">Контакт <span>→</span></a>
-                <button id="bcMenuButton" class="bc-menu-button" type="button" aria-label="Отвори навигацију" aria-expanded="false" aria-controls="bcNav">
+                <button id="bcMenuButton" class="bc-menu-button" type="button" aria-label="Отвори навигацију">
                     <span class="bc-menu-icon"><span></span><span></span><span></span></span>
                 </button>
             </div>
@@ -777,68 +781,91 @@ body{background:#f8fafc;}
     </div>
 </section>
 
-<!-- PLUTAJUĆE DUGME ZA PREKID TOURA -->
-<button type="button" id="bcTourFloatingStop">Заустави преглед ⏹</button>
-
 <!-- MODAL NAČELA -->
+<style>
+.bc-modal-overlay {
+    position: fixed; inset: 0; z-index: 99999; background: rgba(3, 12, 24, 0.88);
+    backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center;
+    padding: 20px; opacity: 0; visibility: hidden; transition: all .3s ease;
+}
+.bc-modal-overlay.bc-modal-active { opacity: 1; visibility: visible; }
+.bc-modal-window {
+    position: relative; width: 100%; max-width: 780px; max-height: 88vh; background: #07182d;
+    color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+    border-radius: 6px; display: flex; flex-direction: column; overflow: hidden;
+}
+.bc-modal-header {
+    background: #061527; padding: 22px 26px; border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;
+}
+.bc-modal-close {
+    background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+    font-size: 18px; cursor: pointer; border-radius: 4px;
+}
+.bc-modal-close:hover { background: #d21f2b; }
+.bc-modal-body { padding: 26px; overflow-y: auto; line-height: 1.7; font-size: 14px; color: rgba(255, 255, 255, 0.88); }
+.bc-modal-body h4 { margin: 20px 0 6px; color: #72aade; font-family: Georgia, serif; font-size: 17px; }
+.bc-modal-body h4:first-of-type { margin-top: 0; }
+.bc-credo-quote-box { background: rgba(18, 77, 139, 0.2); border-left: 3px solid #1c67ad; padding: 14px 18px; margin: 16px 0; font-style: italic; color: #e2ecf5; }
+</style>
+
 <div class="bc-modal-overlay" id="bcCredoModal" aria-hidden="true" role="dialog">
     <div class="bc-modal-window">
         <div class="bc-modal-header">
             <div>
-                <div class="bc-credo-badge" style="margin-bottom: 4px;">Програмска декларација и ставови</div>
-                <h3 style="margin: 0; font-family: Georgia, serif; font-size: 22px; color: #fff;">За шта се залажемо — Темељи обнове Србије</h3>
+                <div class="bc-credo-badge" style="margin-bottom: 4px;">Програмска декларација</div>
+                <h3 style="margin: 0; font-family: Georgia, serif; font-size: 20px; color: #fff;">За шта се залажемо — Темељи обнове Србије</h3>
             </div>
-            <button type="button" class="bc-modal-close" id="bcCredoCloseBtn" aria-label="Затвори прозор">✕</button>
+            <button type="button" class="bc-modal-close" id="bcCredoCloseBtn" aria-label="Затвори">✕</button>
         </div>
         <div class="bc-modal-body">
-            <div class="bc-line" style="margin-bottom: 20px;"></div>
             <h4>1. Спољна политика и стратешки опстанак</h4>
-            <p><strong>Политички смо недвосмислено за савез са Русијом, а потом и за пуноправни савез са БРИКС-ом.</strong> Једини залог за опстанак и суверенитет Србије јесу наша православна браћа на челу са Владимиром Путином, предводником православног света и лидером БРИКС-а.</p>
+            <p><strong>Политички смо недвосмислено за савез са Русијом, а потом и за пуноправни савез са БРИКС-ом.</strong> Једини залог за опстанак и суверенитет Србије јесу наша православна браћа на челу са Владимиром Путином.</p>
             <h4>2. Швајцарски систем, Моба и Прелазна влада спаса</h4>
-            <p>Залажемо се за швајцарски модел директне демократије који покрет <em>Моба</em> успешно пропагира, са <strong>Бранком Драгашем</strong> на челу, кога ми из Мобе Чачак предлажемо за премијера у Прелазној влади спаса. Комплетно руководство и чланови Мобе треба да уђу у Прелазну владу народног спаса.</p>
-            <div class="bc-credo-quote-box">„Промена система из корена — без политичара који су деценијама паразитирали на грбачи народа! Само народ треба да одлучује преко независне и доказане струке о свим кључним питањима у друштву.“</div>
-            <h4>3. Друштво апсолутне социјалне правде и брига о угроженима</h4>
+            <p>Залажемо се за швајцарски модел директне демократије који покрет <em>Моба</em> успешно пропагира, са <strong>Бранком Драгашем</strong> на челу. Само народ треба да одлучује преко струке о свим питањима у друштву.</p>
+            <div class="bc-credo-quote-box">„Промена система из корена — без политичара који су деценијама паразитирали на грбачи народа!“</div>
+            <h4>3. Друштво апсолутне социјалне правде</h4>
             <ul>
-                <li style="margin-bottom: 8px;"><strong>Прво и најважније:</strong> Пуна брига о болеснима, неспособнима за рад и социјално угроженима, а тек потом остали кроз свој лични рад, знање и залагање.</li>
-                <li style="margin-bottom: 8px;"><strong>Достојанство на улицама:</strong> Просјаци не смеју бити препуштени улици — наша је дужност и обавеза да их збринемо у адекватне установе.</li>
-                <li style="margin-bottom: 8px;"><strong>Улога Цркве:</strong> Српска православна црква мора имати централно место у збрињавању сиротиње у оквиру парохијских домова, где ће сваком човеку бити обезбеђен живот достојан људског бића.</li>
+                <li>Прво брига о болеснима, неспособнима за рад и социјално угроженима.</li>
+                <li>Просјаци морају бити збринути са улице у установе.</li>
+                <li>Српска православна црква на првом месту за збрињавање сиротиње у парохијским домовима.</li>
             </ul>
-            <h4>4. Крај владавине неуких — Меритократија и домаћа привреда</h4>
-            <p>Друштво мора почивати на социјалној правди, а на радним местима искључиво на стручности и доказаној способности. Неписмени и партијски полтрони владају већ 80 година и томе се мора стати на крај. Долазе писмени, образовани и радни људи који ће подићи производњу и привреду Србије на сам врх.</p>
-            <div class="bc-credo-quote-box" style="margin-bottom: 0;">„Свако према својим способностима — а не према партијској књижици, полтронству, преварама и цинкарењу. Само знање проверено и примењено у пракси води до успеха државе и високог животног стандарда свих грађана!“</div>
+            <h4>4. Меритократија и домаћа привреда</h4>
+            <p>Свако према својим способностима, а не према партијској припадности. Само знање примењено у пракси води ка успеху државе.</p>
         </div>
     </div>
 </div>
 
+<!-- =========================================================
+     ŠVAJCARSKI SISTEM (KRATKI PREGLED)
+========================================================= -->
 <style>
-/* =========================================================
-   ŠVAJCARSKI SISTEM (KRATKI BLOK)
-========================================================= */
 #bc-direct-short {
     --navy:#07182d; --blue:#124d8b; --text:#17212c; --muted:#6d747c; --line:rgba(7,24,45,.11); --bg:#f8fafc;
     width:100vw; margin-left:calc(50% - 50vw); background:var(--bg); color:var(--text); font-family:Arial,Helvetica,sans-serif; overflow:hidden;
 }
 #bc-direct-short *, #bc-direct-short *::before, #bc-direct-short *::after { box-sizing:border-box; }
-#bc-direct-short .bc-inner { width:min(1180px, calc(100% - 48px)); margin:0 auto; padding:82px 0 88px; }
-#bc-direct-short .bc-head { display:grid; grid-template-columns:minmax(0,1fr) minmax(300px,.65fr); gap:70px; align-items:end; padding-bottom:38px; border-bottom:1px solid var(--line); }
-#bc-direct-short .bc-title { max-width:760px; margin:0; color:var(--navy); font-family:Georgia,serif; font-size:clamp(42px,5vw,62px); font-weight:400; line-height:1; letter-spacing:-.04em; }
+#bc-direct-short .bc-inner { width:min(1180px, calc(100% - 40px)); margin:0 auto; padding:80px 0; }
+#bc-direct-short .bc-head { display:grid; grid-template-columns:minmax(0,1fr) minmax(300px,.65fr); gap:60px; align-items:end; padding-bottom:34px; border-bottom:1px solid var(--line); }
+#bc-direct-short .bc-title { margin:0; color:var(--navy); font-family:Georgia,serif; font-size:clamp(38px,4.6vw,58px); font-weight:400; line-height:1; }
 #bc-direct-short .bc-title span { color:var(--blue); }
 #bc-direct-short .bc-intro { margin:0; color:var(--muted); font-size:13px; line-height:1.7; }
 #bc-direct-short .bc-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-bottom:1px solid var(--line); }
-#bc-direct-short .bc-item { padding:31px 30px 33px; border-right:1px solid var(--line); }
+#bc-direct-short .bc-item { padding:30px 24px; border-right:1px solid var(--line); }
 #bc-direct-short .bc-item:first-child { padding-left:0; }
 #bc-direct-short .bc-item:last-child { padding-right:0; border-right:0; }
-#bc-direct-short .bc-number { display:block; margin-bottom:17px; color:var(--blue); font-size:9px; font-weight:800; letter-spacing:.14em; }
-#bc-direct-short .bc-item h3 { margin:0; color:var(--navy); font-family:Georgia,serif; font-size:22px; font-weight:500; line-height:1.18; }
-#bc-direct-short .bc-item p { max-width:310px; margin:10px 0 0; color:var(--muted); font-size:12px; line-height:1.6; }
-#bc-direct-short .bc-final { margin-top:34px; padding:21px 24px; display:flex; align-items:center; gap:18px; background:var(--navy); color:#fff; }
-#bc-direct-short .bc-final-mark { flex:0 0 auto; color:#6da0cf; font-family:Georgia,serif; font-size:27px; }
-#bc-direct-short .bc-final strong { font-family:Georgia,serif; font-size:18px; font-weight:400; line-height:1.35; }
+#bc-direct-short .bc-number { display:block; margin-bottom:14px; color:var(--blue); font-size:9px; font-weight:800; }
+#bc-direct-short .bc-item h3 { margin:0; color:var(--navy); font-family:Georgia,serif; font-size:21px; font-weight:500; }
+#bc-direct-short .bc-item p { margin:10px 0 0; color:var(--muted); font-size:12px; line-height:1.6; }
+#bc-direct-short .bc-final { margin-top:30px; padding:20px 24px; display:flex; align-items:center; gap:16px; background:var(--navy); color:#fff; }
+#bc-direct-short .bc-final-mark { color:#6da0cf; font-family:Georgia,serif; font-size:24px; }
+#bc-direct-short .bc-final strong { font-family:Georgia,serif; font-size:17px; font-weight:400; line-height:1.35; }
+
 @media(max-width:767px) {
-    #bc-direct-short .bc-inner { width:100%; padding:62px max(17px, env(safe-area-inset-right)) 66px max(17px, env(safe-area-inset-left)); }
-    #bc-direct-short .bc-head { grid-template-columns:1fr; gap:18px; }
+    #bc-direct-short .bc-head { grid-template-columns:1fr; gap:16px; }
     #bc-direct-short .bc-grid { grid-template-columns:1fr; }
-    #bc-direct-short .bc-item, #bc-direct-short .bc-item:first-child, #bc-direct-short .bc-item:last-child { padding:22px 0; border-right:0; border-bottom:1px solid var(--line); }
+    #bc-direct-short .bc-item, #bc-direct-short .bc-item:first-child, #bc-direct-short .bc-item:last-child { padding:20px 0; border-right:0; border-bottom:1px solid var(--line); }
     #bc-direct-short .bc-item:last-child { border-bottom:0; }
 }
 </style>
@@ -847,23 +874,23 @@ body{background:#f8fafc;}
     <div class="bc-inner">
         <div class="bc-head">
             <h2 class="bc-title">Швајцарски систем<br><span>за Србију.</span></h2>
-            <p class="bc-intro">Модел у коме грађанин не предаје сву моћ изборима, већ може да предлаже, покреће питања и учествује у важним одлукама државе.</p>
+            <p class="bc-intro">Модел у коме грађанин не предаје сву моћ изборима, већ може да предлаже, покреће питања и одлучује.</p>
         </div>
         <div class="bc-grid">
             <div class="bc-item">
                 <span class="bc-number">01</span>
                 <h3>Грађани предлажу.</h3>
-                <p>Сваки грађанин може да укаже на проблем, предложи решење или покрене питање које сматра важним за друштво.</p>
+                <p>Сваки грађанин може да укаже на проблем, предложи решење или покрене питање које сматра важним.</p>
             </div>
             <div class="bc-item">
                 <span class="bc-number">02</span>
                 <h3>Грађани одлучују.</h3>
-                <p>Важна питања могу да буду стављена пред грађане, тако да коначна одлука не остане само у рукама политичара.</p>
+                <p>Важна питања могу бити стављена на гласање, тако да одлука не остане само у рукама политичара.</p>
             </div>
             <div class="bc-item">
                 <span class="bc-number">03</span>
                 <h3>Глас остаје приватан.</h3>
-                <p>Систем потврђује право грађанина да учествује, док његов коначни избор остаје тајан.</p>
+                <p>Систем потврђује право грађанина да учествује, док његов коначни избор остаје строго тајан.</p>
             </div>
         </div>
         <div class="bc-final">
@@ -873,32 +900,33 @@ body{background:#f8fafc;}
     </div>
 </section>
 
+<!-- =========================================================
+     3 GLAVNA PRAVCA
+========================================================= -->
 <style>
-/* =========================================================
-   3 PRINCIPA
-========================================================= */
 #bc-principles {
     --navy: #07182d; --blue: #124d8b; --text: #17212c; --muted: #6d747c; --line: rgba(7,24,45,.10); --bg: #f8fafc;
     position: relative; width: 100vw; margin-left: calc(50% - 50vw); overflow: hidden; background: var(--bg);
     font-family: Arial, Helvetica, sans-serif; color: var(--text);
 }
 #bc-principles *, #bc-principles *::before, #bc-principles *::after { box-sizing: border-box; }
-#bc-principles .bc-principles-inner { width: min(1160px, calc(100% - 48px)); margin: 0 auto; padding: 38px 0 42px; }
-#bc-principles .bc-principles-top { display: flex; align-items: center; gap: 11px; margin-bottom: 27px; }
-#bc-principles .bc-principles-line { width: 38px; height: 2px; background: var(--blue); }
+#bc-principles .bc-principles-inner { width: min(1160px, calc(100% - 40px)); margin: 0 auto; padding: 36px 0; }
+#bc-principles .bc-principles-top { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+#bc-principles .bc-principles-line { width: 36px; height: 2px; background: var(--blue); }
 #bc-principles .bc-principles-label { color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
 #bc-principles .bc-principles-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-#bc-principles .bc-principle { position: relative; min-width: 0; padding: 31px 38px 32px; border-right: 1px solid var(--line); }
+#bc-principles .bc-principle { padding: 28px 30px; border-right: 1px solid var(--line); }
 #bc-principles .bc-principle:last-child { border-right: 0; }
-#bc-principles .bc-principle-head { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 17px; }
-#bc-principles .bc-icon { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; color: var(--blue); }
-#bc-principles .bc-icon svg { width: 34px; height: 34px; display: block; fill: none; stroke: currentColor; stroke-width: 1.45; stroke-linecap: round; stroke-linejoin: round; }
-#bc-principles .bc-number { color: rgba(7,24,45,.18); font-family: Georgia, serif; font-size: 19px; }
-#bc-principles .bc-title { margin: 0; color: var(--navy); font-family: Georgia, serif; font-size: 20px; font-weight: 500; line-height: 1.18; }
-#bc-principles .bc-text { max-width: 280px; margin: 9px 0 0; color: var(--muted); font-size: 12px; line-height: 1.58; }
+#bc-principles .bc-principle-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+#bc-principles .bc-icon { width: 36px; height: 36px; color: var(--blue); }
+#bc-principles .bc-icon svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+#bc-principles .bc-number { color: rgba(7,24,45,.2); font-family: Georgia, serif; font-size: 18px; }
+#bc-principles .bc-title { margin: 0; color: var(--navy); font-family: Georgia, serif; font-size: 19px; font-weight: 500; }
+#bc-principles .bc-text { margin: 8px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+
 @media (max-width: 850px) {
     #bc-principles .bc-principles-grid { grid-template-columns: 1fr; }
-    #bc-principles .bc-principle { padding: 28px 25px; border-right: 0; border-bottom: 1px solid var(--line); }
+    #bc-principles .bc-principle { padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--line); }
     #bc-principles .bc-principle:last-child { border-bottom: 0; }
 }
 </style>
@@ -913,7 +941,7 @@ body{background:#f8fafc;}
             <article class="bc-principle">
                 <div class="bc-principle-head">
                     <div class="bc-icon">
-                        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40V20" /><path d="M24 25 C18 25 13 21 12 15 C18 14 23 17 24 22" /><path d="M24 31 C30 31 35 27 36 21 C30 20 25 23 24 28" /><path d="M16 40h16" /><path d="M12 44h24" /></svg>
+                        <svg viewBox="0 0 48 48"><path d="M24 40V20" /><path d="M24 25 C18 25 13 21 12 15 C18 14 23 17 24 22" /><path d="M24 31 C30 31 35 27 36 21 C30 20 25 23 24 28" /><path d="M16 40h16" /><path d="M12 44h24" /></svg>
                     </div>
                     <span class="bc-number">01</span>
                 </div>
@@ -923,7 +951,7 @@ body{background:#f8fafc;}
             <article class="bc-principle">
                 <div class="bc-principle-head">
                     <div class="bc-icon">
-                        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 17h32" /><path d="M11 17L24 8l13 9" /><path d="M12 37h24" /><path d="M9 41h30" /><path d="M15 19v16" /><path d="M22 19v16" /><path d="M29 19v16" /><path d="M36 19v16" /></svg>
+                        <svg viewBox="0 0 48 48"><path d="M8 17h32" /><path d="M11 17L24 8l13 9" /><path d="M12 37h24" /><path d="M9 41h30" /><path d="M15 19v16" /><path d="M22 19v16" /><path d="M29 19v16" /><path d="M36 19v16" /></svg>
                     </div>
                     <span class="bc-number">02</span>
                 </div>
@@ -933,7 +961,7 @@ body{background:#f8fafc;}
             <article class="bc-principle">
                 <div class="bc-principle-head">
                     <div class="bc-icon">
-                        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 l14 5 v10 c0 10-6 17-14 22 C16 37 10 30 10 20 V10z" /><path d="M24 14v13" /><path d="M18 20h12" /></svg>
+                        <svg viewBox="0 0 48 48"><path d="M24 5 l14 5 v10 c0 10-6 17-14 22 C16 37 10 30 10 20 V10z" /><path d="M24 14v13" /><path d="M18 20h12" /></svg>
                     </div>
                     <span class="bc-number">03</span>
                 </div>
@@ -944,55 +972,54 @@ body{background:#f8fafc;}
     </div>
 </section>
 
+<!-- =========================================================
+     ŠEST PRAVACA (INDEKS PROGRAMSKIH OBLASTI)
+========================================================= -->
 <style>
-/* =========================================================
-   ŠEST PRAVACA (INDEKS KARTICE)
-========================================================= */
 #bc-policy-index{
-    --navy:#07182d; --blue:#124d8b; --blue-hover:#1763ad; --bg:#f7f9fb; --text:#17212c;
-    --muted:#6d7782; --line:rgba(7,24,45,.10); --line-strong:rgba(7,24,45,.16);
+    --navy:#07182d; --blue:#124d8b; --bg:#f7f9fb; --text:#17212c;
+    --muted:#6d7782; --line:rgba(7,24,45,.10);
     position:relative; width:100vw; margin-left:calc(50% - 50vw); overflow:hidden;
     background:linear-gradient(180deg, #fbfcfd 0%, var(--bg) 100%); color:var(--text); font-family:Arial,Helvetica,sans-serif;
 }
 #bc-policy-index *, #bc-policy-index *::before, #bc-policy-index *::after{ box-sizing:border-box; }
-#bc-policy-index .bc-index-inner{ position:relative; z-index:2; width:min(1180px,calc(100% - 48px)); margin:0 auto; padding:96px 0 112px; }
-#bc-policy-index .bc-index-intro{ display:grid; grid-template-columns:minmax(0,1fr) 330px; gap:86px; align-items:end; padding-bottom:52px; border-bottom:1px solid var(--line-strong); }
-#bc-policy-index .bc-index-label{ display:flex; align-items:center; gap:12px; margin-bottom:18px; color:var(--blue); font-size:9px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
-#bc-policy-index .bc-index-label::before{ content:""; width:42px; height:2px; background:var(--blue); }
-#bc-policy-index .bc-index-heading{ max-width:760px; margin:0; color:var(--navy); font-family:Georgia,serif; font-size:clamp(48px,5.7vw,72px); font-weight:400; line-height:.94; letter-spacing:-.055em; }
+#bc-policy-index .bc-index-inner{ position:relative; width:min(1180px,calc(100% - 40px)); margin:0 auto; padding:80px 0 95px; }
+#bc-policy-index .bc-index-intro{ display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:60px; align-items:end; padding-bottom:45px; border-bottom:1px solid var(--line); }
+#bc-policy-index .bc-index-label{ display:flex; align-items:center; gap:10px; margin-bottom:16px; color:var(--blue); font-size:9px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+#bc-policy-index .bc-index-label::before{ content:""; width:38px; height:2px; background:var(--blue); }
+#bc-policy-index .bc-index-heading{ margin:0; color:var(--navy); font-family:Georgia,serif; font-size:clamp(38px,5vw,64px); font-weight:400; line-height:.96; }
 #bc-policy-index .bc-index-heading span{ color:var(--blue); }
-#bc-policy-index .bc-index-intro-side small{ display:block; margin-bottom:13px; color:rgba(7,24,45,.34); font-size:8px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
-#bc-policy-index .bc-index-intro-text{ margin:0; color:var(--muted); font-size:13px; line-height:1.78; }
-#bc-policy-index .bc-index-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); border-bottom:1px solid var(--line-strong); }
+#bc-policy-index .bc-index-intro-side small{ display:block; margin-bottom:10px; color:rgba(7,24,45,.34); font-size:8px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+#bc-policy-index .bc-index-intro-text{ margin:0; color:var(--muted); font-size:13px; line-height:1.7; }
+#bc-policy-index .bc-index-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); border-bottom:1px solid var(--line); }
 #bc-policy-index .bc-index-item{
-    position:relative; min-height:285px; display:flex; flex-direction:column; justify-content:space-between;
-    padding:38px 44px 34px 0; overflow:hidden; border-bottom:1px solid var(--line); transition:all .28s ease;
+    position:relative; min-height:260px; display:flex; flex-direction:column; justify-content:space-between;
+    padding:34px 40px 30px 0; overflow:hidden; border-bottom:1px solid var(--line);
 }
-#bc-policy-index .bc-index-item:nth-child(odd){ padding-right:52px; border-right:1px solid var(--line-strong); }
-#bc-policy-index .bc-index-item:nth-child(even){ padding-left:52px; }
+#bc-policy-index .bc-index-item:nth-child(odd){ padding-right:48px; border-right:1px solid var(--line); }
+#bc-policy-index .bc-index-item:nth-child(even){ padding-left:48px; }
 #bc-policy-index .bc-index-item:nth-last-child(-n+2){ border-bottom:0; }
-#bc-policy-index .bc-index-bg-number{ position:absolute; right:26px; bottom:-16px; z-index:0; color:rgba(7,24,45,.035); font-family:Georgia,serif; font-size:118px; line-height:1; pointer-events:none; }
-#bc-policy-index .bc-index-top{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:24px; }
-#bc-policy-index .bc-index-number{ color:var(--blue); font-family:Georgia,serif; font-size:12px; letter-spacing:.08em; }
+#bc-policy-index .bc-index-bg-number{ position:absolute; right:20px; bottom:-14px; z-index:0; color:rgba(7,24,45,.035); font-family:Georgia,serif; font-size:110px; line-height:1; pointer-events:none; }
+#bc-policy-index .bc-index-top{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; }
+#bc-policy-index .bc-index-number{ color:var(--blue); font-family:Georgia,serif; font-size:12px; }
 #bc-policy-index .bc-index-category{ color:rgba(7,24,45,.42); font-size:8px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
-#bc-policy-index .bc-index-title-wrap{ position:relative; z-index:2; margin-top:52px; }
-#bc-policy-index .bc-index-title{ max-width:470px; margin:0; color:var(--navy); font-family:Georgia,serif; font-size:clamp(31px,3.2vw,43px); font-weight:400; line-height:1.02; }
-#bc-policy-index .bc-index-sub{ max-width:430px; margin:12px 0 0; color:var(--muted); font-size:11.5px; line-height:1.65; }
+#bc-policy-index .bc-index-title-wrap{ position:relative; z-index:2; margin-top:40px; }
+#bc-policy-index .bc-index-title{ margin:0; color:var(--navy); font-family:Georgia,serif; font-size:clamp(28px,3vw,38px); font-weight:400; }
+#bc-policy-index .bc-index-sub{ margin:10px 0 0; color:var(--muted); font-size:11.5px; line-height:1.6; }
 #bc-policy-index .bc-index-link{
     position:relative; z-index:2; width:max-content; display:inline-flex; align-items:center;
-    gap:12px; margin-top:32px; color:var(--blue); text-decoration:none; font-size:9px;
+    gap:10px; margin-top:28px; color:var(--blue); text-decoration:none; font-size:9px;
     font-weight:800; letter-spacing:.10em; text-transform:uppercase;
 }
-#bc-policy-index .bc-index-foot{ display:grid; grid-template-columns:160px minmax(0,1fr); gap:60px; padding-top:34px; }
-#bc-policy-index .bc-index-foot small{ color:var(--blue); font-size:8px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
-#bc-policy-index .bc-index-foot p{ max-width:700px; margin:0; color:var(--muted); font-size:12px; line-height:1.75; }
+#bc-policy-index .bc-index-foot{ display:grid; grid-template-columns:140px minmax(0,1fr); gap:50px; padding-top:30px; }
+#bc-policy-index .bc-index-foot small{ color:var(--blue); font-size:8px; font-weight:800; text-transform:uppercase; }
+#bc-policy-index .bc-index-foot p{ margin:0; color:var(--muted); font-size:12px; line-height:1.7; }
 
 @media(max-width:800px){
-    #bc-policy-index .bc-index-inner{ width:100%; padding:68px max(17px,env(safe-area-inset-right)) 78px max(17px,env(safe-area-inset-left)); }
-    #bc-policy-index .bc-index-intro{ grid-template-columns:1fr; gap:25px; }
+    #bc-policy-index .bc-index-intro{ grid-template-columns:1fr; gap:20px; }
     #bc-policy-index .bc-index-grid{ grid-template-columns:1fr; }
     #bc-policy-index .bc-index-item, #bc-policy-index .bc-index-item:nth-child(odd), #bc-policy-index .bc-index-item:nth-child(even){
-        min-height:235px; padding:28px 0 29px; border-right:0; border-bottom:1px solid var(--line);
+        min-height:220px; padding:24px 0; border-right:0; border-bottom:1px solid var(--line);
     }
 }
 </style>
@@ -1006,7 +1033,7 @@ body{background:#f8fafc;}
             </div>
             <div class="bc-index-intro-side">
                 <small>Програмске области</small>
-                <p class="bc-index-intro-text">Свака област има засебан предлог и детаљно образложење. Изаберите правац и отворите његову страницу.</p>
+                <p class="bc-index-intro-text">Свака област има засебан предлог. Изаберите правац и отворите детаљну страницу.</p>
             </div>
         </div>
 
@@ -1104,110 +1131,18 @@ body{background:#f8fafc;}
 
         <div class="bc-index-foot">
             <small>Програм</small>
-            <p>Програм је организован по областима како би сваки предлог могао да буде представљен јасно, одвојено и довољно детаљно.</p>
+            <p>Програм је организован по областима како би сваки предлог био представљен јасно и довољно детаљно.</p>
         </div>
     </div>
 </section>
 
-<style>
-/* =========================================================
-   O MENI
-========================================================= */
-#bc-about {
-    --navy:#07182d; --blue:#124d8b; position:relative; width:100vw; margin-left:calc(50% - 50vw);
-    overflow:hidden; background:var(--navy); font-family:Arial,Helvetica,sans-serif;
-}
-#bc-about *, #bc-about *::before, #bc-about *::after { box-sizing:border-box; }
-#bc-about .bc-about-hero { position:relative; width:100%; min-height:680px; overflow:hidden; }
-#bc-about .bc-about-image {
-    position:absolute; inset:0; z-index:1; width:100%; height:100%; display:block;
-    object-fit:cover; object-position:center center;
-}
-#bc-about .bc-about-overlay {
-    position:absolute; inset:0; z-index:2; pointer-events:none;
-    background:linear-gradient(90deg, rgba(4,18,36,.95) 0%, rgba(4,18,36,.85) 20%, rgba(4,18,36,.63) 38%, rgba(4,18,36,.30) 55%, rgba(4,18,36,.07) 72%, rgba(4,18,36,0) 84%);
-}
-#bc-about .bc-content-wrap { position:absolute; inset:0; z-index:10; display:flex; align-items:center; }
-#bc-about .bc-content-inner { width:min(1220px, calc(100% - 60px)); margin:0 auto; }
-#bc-about .bc-content { width:54%; max-width:700px; }
-#bc-about .bc-line { width:76px; height:3px; margin-bottom:23px; background:linear-gradient(90deg, #d21f2b 0%, #d21f2b 33%, #ffffff 33%, #ffffff 66%, #1b5a9d 66%, #1b5a9d 100%); }
-#bc-about .bc-kicker { margin-bottom:11px; color:rgba(255,255,255,.58); font-size:9px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
-#bc-about .bc-title { margin:0; color:#fff; font-family:Georgia,serif; font-size:clamp(54px, 5.5vw, 80px); font-weight:400; line-height:.98; letter-spacing:-.045em; }
-#bc-about .bc-description { max-width:610px; margin:23px 0 0; color:rgba(255,255,255,.76); font-size:15px; line-height:1.72; }
-#bc-about .bc-meta { max-width:650px; margin-top:28px; display:flex; flex-wrap:wrap; gap:8px; }
-#bc-about .bc-meta-item {
-    min-height:40px; padding:0 14px; display:inline-flex; align-items:center; justify-content:center;
-    border:1px solid rgba(255,255,255,.25); background:rgba(7,24,45,.28); color:rgba(255,255,255,.84);
-    font-size:8px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; backdrop-filter:blur(2px);
-}
-#bc-about .bc-about-actions { margin-top: 30px; display: flex; }
-#bc-about .bc-about-btn {
-    min-height: 46px; padding: 0 26px; display: inline-flex; align-items: center; justify-content: center;
-    gap: 12px; color: #fff; background: #124d8b; border: 1px solid #1e63ad; text-decoration: none;
-    font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; transition: all .25s ease;
-}
-#bc-about .bc-about-btn:hover { background: #1763ad; transform: translateY(-2px); }
-
-@media(max-width:767px) {
-    #bc-about .bc-about-hero {
-        min-height: auto;
-        display: flex;
-        flex-direction: column;
-    }
-
-    #bc-about .bc-about-image {
-        position: relative;
-        height: 390px;
-        width: 100%;
-        object-position: center 15% !important;
-        opacity: 1;
-    }
-
-    #bc-about .bc-about-overlay {
-        display: none;
-    }
-
-    #bc-about .bc-content-wrap {
-        position: relative;
-        padding: 40px 0 50px;
-        background: #07182d;
-    }
-
-    #bc-about .bc-content-inner {
-        width: 100%;
-        padding: 0 max(18px, env(safe-area-inset-right)) 0 max(18px, env(safe-area-inset-left));
-    }
-
-    #bc-about .bc-content {
-        width: 100%;
-    }
-
-    #bc-about .bc-title {
-        font-size: 40px;
-    }
-
-    #bc-about .bc-about-actions {
-        width: 100%;
-    }
-
-    #bc-about .bc-about-btn {
-        width: 100%;
-    }
-}
-</style>
-
+<!-- =========================================================
+     O MENI SEKCIJA
+========================================================= -->
 <section id="bc-about">
     <div class="bc-about-hero">
         <img class="bc-about-image" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/ChatGPT-Image-Sep-6-2026-10_39_24-AM.png" alt="Благоје Ћурчић">
-        <div class="bc-about-overlay" aria-hidden="true"></div>
-
-        <!-- AMBLEMI NA SLICI O MENI -->
-        <div class="bc-kokarda-badge">
-            ☦ ЈВуО · Четнички Покрет
-        </div>
-        <div class="bc-kokarda-caption">
-            РАВНА ГОРА ПОБЕДИТИ МОРА
-        </div>
+        <div class="bc-about-overlay"></div>
 
         <div class="bc-content-wrap">
             <div class="bc-content-inner">
@@ -1234,124 +1169,8 @@ body{background:#f8fafc;}
 </section>
 
 <!-- =========================================================
-     NOVA SEKCIJA: ISTORIJSKO NASLEĐE, ČETNIŠTVO I PRECI
-========================================================= */ -->
-<style>
-#bc-heritage {
-    --navy: #07182d;
-    --navy-dark: #041224;
-    --gold: #dfb15b;
-    --red: #d21f2b;
-    --line: rgba(255, 255, 255, 0.12);
-
-    position: relative;
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    background: var(--navy-dark);
-    color: #ffffff;
-    padding: 95px 0 105px;
-    border-top: 1px solid var(--line);
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#bc-heritage .bc-heritage-inner {
-    width: min(1200px, calc(100% - 48px));
-    margin: 0 auto;
-}
-
-#bc-heritage .bc-heritage-kicker {
-    color: var(--gold);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-}
-
-#bc-heritage .bc-heritage-heading {
-    font-family: Georgia, serif;
-    font-size: clamp(34px, 4.4vw, 56px);
-    margin: 0 0 20px;
-    font-weight: 400;
-    line-height: 1.1;
-}
-
-#bc-heritage .bc-heritage-heading span {
-    color: var(--gold);
-}
-
-#bc-heritage .bc-heritage-quote {
-    background: rgba(18, 77, 139, 0.15);
-    border-left: 4px solid var(--red);
-    padding: 24px 28px;
-    margin: 35px 0 50px;
-    font-family: Georgia, serif;
-    font-size: clamp(16px, 1.8vw, 21px);
-    line-height: 1.5;
-    color: #e4edf5;
-    border-radius: 0 4px 4px 0;
-}
-
-#bc-heritage .bc-heritage-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-#bc-heritage .bc-heritage-card {
-    background: rgba(7, 24, 45, 0.6);
-    border: 1px solid var(--line);
-    padding: 35px 32px;
-    border-radius: 4px;
-    position: relative;
-}
-
-#bc-heritage .bc-heritage-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--gold);
-}
-
-#bc-heritage .bc-heritage-card h3 {
-    font-family: Georgia, serif;
-    font-size: 24px;
-    color: #fff;
-    margin: 0 0 14px;
-}
-
-#bc-heritage .bc-heritage-card p {
-    font-size: 13.5px;
-    line-height: 1.75;
-    color: rgba(255, 255, 255, 0.78);
-    margin: 0 0 14px;
-}
-
-#bc-heritage .bc-heritage-motto {
-    text-align: center;
-    margin-top: 60px;
-    padding-top: 40px;
-    border-top: 1px solid var(--line);
-    font-family: Georgia, serif;
-    font-size: clamp(20px, 2.3vw, 28px);
-    color: var(--gold);
-    letter-spacing: 0.05em;
-}
-
-@media (max-width: 800px) {
-    #bc-heritage .bc-heritage-grid {
-        grid-template-columns: 1fr;
-    }
-    #bc-heritage {
-        padding: 65px 0 75px;
-    }
-}
-</style>
-
+     ISTORIJSKO NASLEĐE
+========================================================= -->
 <section id="bc-heritage">
     <div class="bc-heritage-inner">
         <div class="bc-heritage-kicker">Историја · Традиција · Корени</div>
@@ -1360,35 +1179,33 @@ body{background:#f8fafc;}
             <span>и породично наслеђе слободе.</span>
         </h2>
 
-        <p style="max-width: 840px; font-size: 15.5px; line-height: 1.75; color: rgba(255,255,255,0.85); margin: 0;">
-            Наша идеологија је чист историјски и морални контраст комунистичком и усташком лобију који већ осам деценија гуши српски народ и отаџбину. Четништво представља Југословенску Војску у Отаџбини (ЈВуО) — једину легалну и регуларну војску Краљевине под командом краља Александра, а касније краља Петра.
+        <p style="max-width: 840px; font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0;">
+            Наша идеологија је чист историјски и морални контраст комунистичком и усташком лобију који већ осам деценија гуши српски народ и отаџбину. Четништво представља Југословенску Војску у Отаџбини (ЈВуО) — једину легалну и регуларну војску Краљевине под командом краља Александра, а касније краља Петра. Равна гора победити мора!
         </p>
 
         <div class="bc-heritage-quote">
             „Слобода ме је родила, а издаја убила. Срби, завршите започето дело!“ <br>
-            <span style="display: block; margin-top: 8px; font-size: 14px; color: var(--gold); font-weight: bold; text-transform: uppercase;">— Генерал Драгољуб Дража Михаиловић</span>
+            <span style="display: block; margin-top: 8px; font-size: 13px; color: var(--gold); font-weight: bold; text-transform: uppercase;">— Генерал Драгољуб Дража Михаиловић</span>
         </div>
 
         <div class="bc-heritage-grid">
-            <!-- VOJVODA BOŽO JAVORAC -->
             <div class="bc-heritage-card">
                 <h3>Војвода Божо Јаворац (Божидар Ћосовић)</h3>
                 <p>
-                    Херој и вечита легенда Јавора, Голије, Брезове и Чемернице. Непоколебљиви командант који је спасао народ од затирања на читавом потезу од Кладнице до Чачка.
+                    Херој и легенда Јавора, Голије, Брезове и Чемернице. Командант који је спасао народ од затирања на читавом потезу од Кладнице до Чачка.
                 </p>
                 <p>
-                    Његово јунаштво и жртва су залог опстанка наших породица и читавог краја. <strong>„Жив је Божо Јаворац, умро није док је Срба, родбине и Србије!“</strong> Вечна му слава и хвала за слободу коју нам је оставио.
+                    Његово јунаштво је вечни залог: <strong>„Жив је Божо Јаворац, умро није док је Срба, родбине и Србије!“</strong> Слава му и хвала на жртви коју је дао за наш живот.
                 </p>
             </div>
 
-            <!-- DEDA BLAGOJE ĆURČIĆ -->
             <div class="bc-heritage-card">
                 <h3>Деда Благоје Ћурчић</h3>
                 <p>
-                    Возач на Белом двору, у служби краљевске породице. Мучки убијен 1924. године од стране усташа због своје непоколебљиве оданости српској држави и политици.
+                    Возач на Белом двору, у служби краљевске породице. Мучки убијен 1924. године од стране усташа због свог политичког става и оданости Србији.
                 </p>
                 <p>
-                    Породични завет и његова мученичка жртва разлог су због ког се данас без компромиса боримо за праведну, слободну и чисту Србију. Бог да му душу прости, вечна му слава и хвала!
+                    Породични завет и његова мученичка жртва разлог су због ког се данас без компромиса боримо за праведну државу. Бог да му душу прости, вечна му слава!
                 </p>
             </div>
         </div>
@@ -1404,294 +1221,48 @@ body{background:#f8fafc;}
 ========================================================= -->
 <style>
 #bc-footer {
-    --navy:#07182d;
-    --navy-light:#0b2441;
-    --blue:#124d8b;
-    --blue-hover:#1763ad;
-    --white:#ffffff;
-
-    position:relative;
-    width:100vw;
-    margin-left:calc(50% - 50vw);
-    overflow:hidden;
-    background:var(--navy);
-    color:#fff;
-    font-family: Arial, Helvetica, sans-serif;
+    --navy:#07182d; --blue:#124d8b;
+    position:relative; width:100vw; margin-left:calc(50% - 50vw);
+    overflow:hidden; background:var(--navy); color:#fff; font-family: Arial, Helvetica, sans-serif;
     border-top: 1px solid rgba(255,255,255,.08);
 }
-
-#bc-footer *,
-#bc-footer *::before,
-#bc-footer *::after {
-    box-sizing:border-box;
-}
-
-#bc-footer .bc-footer-line {
-    width:100%;
-    height:3px;
-    background:
-        linear-gradient(
-            90deg,
-            #d21f2b 0%,
-            #d21f2b 33.33%,
-            #ffffff 33.33%,
-            #ffffff 66.66%,
-            #1b5a9d 66.66%,
-            #1b5a9d 100%
-        );
-}
-
-#bc-footer .bc-footer-inner {
-    width:min(1220px, calc(100% - 48px));
-    margin:0 auto;
-    padding: 72px 0 27px;
-}
-
-#bc-footer .bc-footer-main {
-    display:grid;
-    grid-template-columns: minmax(0,1.4fr) minmax(240px,.6fr);
-    gap:80px;
-    align-items:end;
-    padding-bottom:52px;
-    border-bottom: 1px solid rgba(255,255,255,.11);
-}
-
-#bc-footer .bc-footer-label {
-    display:flex;
-    align-items:center;
-    gap:11px;
-    margin-bottom:17px;
-    color:#77a6d1;
-    font-size:8px;
-    font-weight:800;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-}
-
-#bc-footer .bc-footer-label::before {
-    content:"";
-    width:35px;
-    height:2px;
-    background:#397bb7;
-}
-
-#bc-footer .bc-footer-title {
-    max-width:760px;
-    margin:0;
-    color:#fff;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(38px, 4.7vw, 61px);
-    font-weight:400;
-    line-height:1.02;
-    letter-spacing:-.04em;
-}
-
-#bc-footer .bc-footer-title span {
-    color:#70a1cf;
-}
-
-#bc-footer .bc-footer-copy {
-    max-width:600px;
-    margin:20px 0 0;
-    color: rgba(255,255,255,.55);
-    font-size:13px;
-    line-height:1.7;
-}
-
-#bc-footer .bc-footer-brand {
-    padding-left:30px;
-    border-left: 1px solid rgba(255,255,255,.12);
-}
-
-#bc-footer .bc-footer-monogram {
-    margin-bottom:16px;
-    color:#fff;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size:45px;
-    line-height:1;
-    letter-spacing:-.06em;
-}
-
-#bc-footer .bc-footer-name {
-    color:#fff;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size:20px;
-    font-weight:500;
-    line-height:1.2;
-}
-
-#bc-footer .bc-footer-tagline {
-    margin-top:7px;
-    color: rgba(255,255,255,.42);
-    font-size:8px;
-    font-weight:800;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-}
-
-#bc-footer .bc-footer-nav {
-    margin-top:27px;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:0;
-}
-
+#bc-footer *, #bc-footer *::before, #bc-footer *::after { box-sizing:border-box; }
+#bc-footer .bc-footer-line { width:100%; height:3px; background: linear-gradient(90deg, #d21f2b 0%, #d21f2b 33.33%, #ffffff 33.33%, #ffffff 66.66%, #1b5a9d 66.66%, #1b5a9d 100%); }
+#bc-footer .bc-footer-inner { width:min(1220px, calc(100% - 40px)); margin:0 auto; padding: 70px 0 26px; }
+#bc-footer .bc-footer-main { display:grid; grid-template-columns: minmax(0,1.4fr) minmax(240px,.6fr); gap:80px; align-items:end; padding-bottom:50px; border-bottom: 1px solid rgba(255,255,255,.11); }
+#bc-footer .bc-footer-label { display:flex; align-items:center; gap:10px; margin-bottom:16px; color:#77a6d1; font-size:8px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+#bc-footer .bc-footer-label::before { content:""; width:34px; height:2px; background:#397bb7; }
+#bc-footer .bc-footer-title { margin:0; color:#fff; font-family: Georgia, serif; font-size: clamp(36px, 4.6vw, 60px); font-weight:400; line-height:1.02; }
+#bc-footer .bc-footer-title span { color:#70a1cf; }
+#bc-footer .bc-footer-copy { margin:18px 0 0; color: rgba(255,255,255,.55); font-size:13px; line-height:1.7; }
+#bc-footer .bc-footer-brand { padding-left:30px; border-left: 1px solid rgba(255,255,255,.12); }
+#bc-footer .bc-footer-monogram { margin-bottom:14px; color:#fff; font-family: Georgia, serif; font-size:42px; line-height:1; }
+#bc-footer .bc-footer-name { color:#fff; font-family: Georgia, serif; font-size:20px; font-weight:500; }
+#bc-footer .bc-footer-tagline { margin-top:6px; color: rgba(255,255,255,.42); font-size:8px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+#bc-footer .bc-footer-nav { margin-top:24px; display:flex; flex-direction:column; align-items:flex-start; }
 #bc-footer .bc-footer-nav a {
-    position:relative;
-    width:100%;
-    min-height:39px;
-    display:flex;
-    align-items:center;
-    color: rgba(255,255,255,.67);
-    border-bottom: 1px solid rgba(255,255,255,.07);
-    text-decoration:none;
-    font-size:9px;
-    font-weight:800;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    transition: color .2s ease, padding-left .2s ease;
+    position:relative; width:100%; min-height:38px; display:flex; align-items:center; color: rgba(255,255,255,.67);
+    border-bottom: 1px solid rgba(255,255,255,.07); text-decoration:none; font-size:9px; font-weight:800;
+    letter-spacing:.08em; text-transform:uppercase; transition: color .2s ease;
 }
-
-#bc-footer .bc-footer-nav a:last-child {
-    border-bottom:0;
-}
-
-#bc-footer .bc-footer-nav a::before {
-    content:"";
-    width:0;
-    height:1px;
-    margin-right:0;
-    background:#5d95c8;
-    transition: width .2s ease, margin-right .2s ease;
-}
-
-#bc-footer .bc-footer-nav a:hover {
-    padding-left:3px;
-    color:#fff;
-}
-
-#bc-footer .bc-footer-nav a:hover::before {
-    width:16px;
-    margin-right:9px;
-}
-
-#bc-footer .bc-footer-bottom {
-    min-height:67px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:30px;
-}
-
-#bc-footer .bc-footer-copyright {
-    color: rgba(255,255,255,.34);
-    font-size:8px;
-    font-weight:700;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-}
-
-#bc-footer .bc-footer-principle {
-    display:flex;
-    align-items:center;
-    gap:10px;
-    color: rgba(255,255,255,.40);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size:12px;
-}
-
-#bc-footer .bc-footer-principle::before {
-    content:"";
-    width:21px;
-    height:1px;
-    background:#3e73a4;
-}
-
+#bc-footer .bc-footer-nav a:hover { color:#fff; }
+#bc-footer .bc-footer-bottom { min-height:65px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+#bc-footer .bc-footer-copyright { color: rgba(255,255,255,.34); font-size:8px; font-weight:700; text-transform:uppercase; }
+#bc-footer .bc-footer-principle { display:flex; align-items:center; gap:10px; color: rgba(255,255,255,.40); font-family: Georgia, serif; font-size:12px; }
+#bc-footer .bc-footer-principle::before { content:""; width:20px; height:1px; background:#3e73a4; }
 #bc-footer .bc-footer-top {
-    width:42px;
-    height:42px;
-    flex:0 0 42px;
-    display:grid;
-    place-items:center;
-    border: 1px solid rgba(255,255,255,.19);
-    color:#fff;
-    background:transparent;
-    text-decoration:none;
-    font-size:15px;
-    transition:.2s ease;
+    width:42px; height:42px; display:grid; place-items:center; border: 1px solid rgba(255,255,255,.2);
+    color:#fff; background:transparent; text-decoration:none; font-size:15px;
 }
-
-#bc-footer .bc-footer-top:hover {
-    background:var(--blue);
-    border-color:var(--blue);
-}
+#bc-footer .bc-footer-top:hover { background:var(--blue); border-color:var(--blue); }
 
 @media(max-width:767px) {
-    #bc-footer {
-        width:100%;
-        margin-left:0;
-    }
-    #bc-footer .bc-footer-inner {
-        width:100%;
-        padding: 57px max(17px, env(safe-area-inset-right)) 20px max(17px, env(safe-area-inset-left));
-    }
-    #bc-footer .bc-footer-main {
-        grid-template-columns:1fr;
-        gap:39px;
-        padding-bottom:38px;
-    }
-    #bc-footer .bc-footer-title {
-        max-width:510px;
-        font-size: clamp(36px, 10.5vw, 48px);
-        line-height:1.02;
-    }
-    #bc-footer .bc-footer-copy {
-        max-width:470px;
-        margin-top:16px;
-        font-size:12px;
-    }
-    #bc-footer .bc-footer-brand {
-        padding: 27px 0 0;
-        border-left:0;
-        border-top: 1px solid rgba(255,255,255,.11);
-    }
-    #bc-footer .bc-footer-monogram {
-        margin-bottom:11px;
-        font-size:37px;
-    }
-    #bc-footer .bc-footer-name {
-        font-size:18px;
-    }
-    #bc-footer .bc-footer-nav {
-        margin-top:22px;
-    }
-    #bc-footer .bc-footer-nav a {
-        min-height:45px;
-        font-size:8px;
-    }
-    #bc-footer .bc-footer-bottom {
-        min-height:0;
-        padding-top:20px;
-        display:grid;
-        grid-template-columns: minmax(0,1fr) 42px;
-        gap:15px;
-        align-items:center;
-    }
-    #bc-footer .bc-footer-copyright {
-        font-size:7px;
-        grid-column:1;
-        grid-row:2;
-    }
-    #bc-footer .bc-footer-principle {
-        grid-column:1 / -1;
-        grid-row:1;
-        font-size:11px;
-    }
-    #bc-footer .bc-footer-top {
-        grid-column:2;
-        grid-row:2;
-    }
+    #bc-footer .bc-footer-main { grid-template-columns:1fr; gap:36px; padding-bottom:36px; }
+    #bc-footer .bc-footer-brand { padding: 24px 0 0; border-left:0; border-top: 1px solid rgba(255,255,255,.11); }
+    #bc-footer .bc-footer-bottom { padding-top:16px; display:grid; grid-template-columns: minmax(0,1fr) 42px; gap:15px; }
+    #bc-footer .bc-footer-principle { grid-column:1 / -1; grid-row:1; }
+    #bc-footer .bc-footer-copyright { grid-column:1; grid-row:2; }
+    #bc-footer .bc-footer-top { grid-column:2; grid-row:2; }
 }
 </style>
 
@@ -1700,22 +1271,14 @@ body{background:#f8fafc;}
     <div class="bc-footer-inner">
         <div class="bc-footer-main">
             <div>
-                <div class="bc-footer-label">
-                    За праведнију Србију
-                </div>
-                <h2 class="bc-footer-title">
-                    Држава у којој се<br><span>питају грађани.</span>
-                </h2>
-                <p class="bc-footer-copy">
-                    Одговорност, домаћа производња и веће учешће грађана у одлукама које одређују будућност Србије.
-                </p>
+                <div class="bc-footer-label">За праведнију Србију</div>
+                <h2 class="bc-footer-title">Држава у којој се<br><span>питају грађани.</span></h2>
+                <p class="bc-footer-copy">Одговорност, домаћа производња и веће учешће грађана у одлукама које одређују будућност Србије.</p>
             </div>
-
             <div class="bc-footer-brand">
                 <div class="bc-footer-monogram">BĆ</div>
                 <div class="bc-footer-name">Благоје Ћурчић</div>
                 <div class="bc-footer-tagline">За праведнију Србију</div>
-
                 <nav class="bc-footer-nav" aria-label="Navigacija u podnožju">
                     <a href="index.html">Почетак</a>
                     <a href="#bc-about">О мени</a>
@@ -1726,19 +1289,10 @@ body{background:#f8fafc;}
                 </nav>
             </div>
         </div>
-
         <div class="bc-footer-bottom">
-            <div class="bc-footer-copyright">
-                © <span id="bcFooterYear">2026</span> Благоје Ћурчић · Сва права задржана
-            </div>
-
-            <div class="bc-footer-principle">
-                Грађанин у центру одлуке.
-            </div>
-
-            <a class="bc-footer-top" href="#bc-home" aria-label="Nazad na početak">
-                ↑
-            </a>
+            <div class="bc-footer-copyright">© <span id="bcFooterYear">2026</span> Благоје Ћурчић · Сва права задржана</div>
+            <div class="bc-footer-principle">Грађанин у центру одлуке.</div>
+            <a class="bc-footer-top" href="index.html" aria-label="Назад на почетак">↑</a>
         </div>
     </div>
 </footer>
@@ -1746,112 +1300,58 @@ body{background:#f8fafc;}
 <script>
 (function () {
     const year = document.getElementById("bcFooterYear");
-    if (year) {
-        year.textContent = new Date().getFullYear();
-    }
+    if (year) year.textContent = new Date().getFullYear();
 
+    // Modal logika
     const openCard = document.getElementById("bcCredoOpenCard");
     const modal = document.getElementById("bcCredoModal");
     const closeBtn = document.getElementById("bcCredoCloseBtn");
 
-    function openModal() {
-        if (modal) {
+    if (openCard && modal && closeBtn) {
+        openCard.addEventListener("click", () => {
             modal.classList.add("bc-modal-active");
-            modal.setAttribute("aria-hidden", "false");
             document.body.style.overflow = "hidden";
-        }
-    }
-
-    function closeModal() {
-        if (modal) {
-            modal.classList.remove("bc-modal-active");
-            modal.setAttribute("aria-hidden", "true");
-            document.body.style.overflow = "";
-        }
-    }
-
-    if (openCard) openCard.addEventListener("click", openModal);
-    if (closeBtn) closeBtn.addEventListener("click", closeModal);
-    if (modal) {
-        modal.addEventListener("click", function(e) {
-            if (e.target === modal) closeModal();
         });
+        const close = () => {
+            modal.classList.remove("bc-modal-active");
+            document.body.style.overflow = "";
+        };
+        closeBtn.addEventListener("click", close);
+        modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
     }
 
-    document.addEventListener("keydown", function(e) {
-        if (e.key === "Escape" && modal && modal.classList.contains("bc-modal-active")) {
-            closeModal();
-        }
-    });
-
+    // Mobilni meni
     const button = document.getElementById("bcMenuButton");
     const nav = document.getElementById("bcNav");
-
     if (button && nav) {
         button.addEventListener("click", function () {
             const open = nav.classList.toggle("bc-open");
             button.classList.toggle("bc-active", open);
-            button.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+        nav.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener("click", () => {
+                nav.classList.remove("bc-open");
+                button.classList.remove("bc-active");
+            });
         });
     }
 
-    /* =========================================================
-       AUTOMATSKI OBILAZAK SAJTA (FIX ZA IPHONE I ANDROID)
-    ========================================================= */
-    const startTourBtn = document.getElementById("bcStartTourBtn");
-    const stopTourBtn = document.getElementById("bcTourFloatingStop");
-    let isTourRunning = false;
-    let tourTimer = null;
-
-    function stopTour() {
-        if (!isTourRunning) return;
-        isTourRunning = false;
-        clearInterval(tourTimer);
-        if (stopTourBtn) stopTourBtn.style.display = "none";
-        window.removeEventListener("touchstart", stopTour);
-        window.removeEventListener("wheel", stopTour);
-    }
-
-    function startTour(e) {
-        if (e) e.preventDefault();
-        if (isTourRunning) return;
-
-        isTourRunning = true;
-        if (stopTourBtn) stopTourBtn.style.display = "block";
-
-        const speed = window.innerWidth <= 700 ? 2 : 2.5;
-
-        tourTimer = setInterval(function () {
-            const maxScroll = Math.max(
-                document.body.scrollHeight, document.documentElement.scrollHeight,
-                document.body.offsetHeight, document.documentElement.offsetHeight,
-                document.body.clientHeight, document.documentElement.clientHeight
-            ) - window.innerHeight;
-
-            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (currentScroll >= maxScroll - 6) {
-                stopTour();
-                return;
+    // 100% POUZDAN AUTOMATSKI SKROL ZA TELEFON I DESKTOP
+    const tourBtn = document.getElementById("bcStartTourBtn");
+    if (tourBtn) {
+        tourBtn.addEventListener("click", function(e) {
+            e.preventDefault();
+            const footer = document.getElementById("bc-footer");
+            if (footer) {
+                footer.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
             }
-
-            window.scrollBy(0, speed);
-        }, 16);
-
-        setTimeout(function() {
-            window.addEventListener("touchstart", stopTour, { passive: true });
-            window.addEventListener("wheel", stopTour, { passive: true });
-        }, 500);
+        });
     }
-
-    if (startTourBtn) {
-        startTourBtn.addEventListener("click", startTour);
-    }
-    if (stopTourBtn) {
-        stopTourBtn.addEventListener("click", stopTour);
-    }
-
 })();
 </script>
+<script src="bc-engine.js"></script>
 </body>
 </html>
