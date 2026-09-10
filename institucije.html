@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07182d">
+<title>Odgovorne institucije — Blagoje Ćurčić</title>
+<meta name="description" content="Pravila moraju biti jača od pojedinca. Program odgovornih, stručnih i transparentnih institucija u službi građana.">
+<style>
+html,body{margin:0;padding:0;width:100%;min-height:100%;overflow-x:hidden;}
+body{background:#f8fafc;}
+</style>
+</head>
+<body>
+
+<style>
+/* =========================================================
+   HEADER (SHARED)
+========================================================= */
+html { scroll-behavior: smooth; }
+#bc-header-wrap {
+    --navy: #07182d; --blue: #124d8b; --blue-hover: #1763ad; --white: #ffffff;
+    position: relative; width: 100vw; margin-left: calc(50% - 50vw);
+    font-family: Arial, Helvetica, sans-serif; background: #07182d;
+}
+#bc-header-wrap *, #bc-header-wrap *::before, #bc-header-wrap *::after { box-sizing: border-box; }
+#bc-header-wrap .bc-header {
+    position: relative; top: 0; left: 0; right: 0; z-index: 30;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    background: linear-gradient(to bottom, rgba(3,15,30,.85), rgba(3,15,30,.60));
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+}
+#bc-header-wrap .bc-header-inner {
+    width: min(1320px, calc(100% - 60px)); min-height: 84px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 32px;
+}
+#bc-header-wrap .bc-brand { display: flex; align-items: center; gap: 16px; color: #fff; text-decoration: none; flex-shrink: 0; }
+#bc-header-wrap .bc-monogram { font-family: Georgia, serif; font-size: 38px; line-height: 1; color: #fff; padding-right: 17px; border-right: 1px solid rgba(255,255,255,.3); }
+#bc-header-wrap .bc-brand-name { font-family: Georgia, serif; font-size: 17px; font-weight: 600; letter-spacing: .04em; color: #fff; }
+#bc-header-wrap .bc-brand-subtitle { margin-top: 5px; font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: .27em; color: rgba(255,255,255,.55); }
+#bc-header-wrap .bc-nav { display: flex; align-items: center; gap: 31px; margin-left: auto; }
+#bc-header-wrap .bc-nav a {
+    position: relative; padding: 32px 0; color: #fff; font-size: 11px; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase; text-decoration: none; opacity: .82;
+    transition: opacity .25s ease, color .25s ease;
+}
+#bc-header-wrap .bc-nav a:hover { opacity: 1; }
+#bc-header-wrap .bc-nav a::after {
+    content: ""; position: absolute; left: 0; bottom: 21px; width: 0; height: 2px;
+    background: #1c67ad; transition: width .25s ease;
+}
+#bc-header-wrap .bc-nav a:hover::after, #bc-header-wrap .bc-nav a.bc-current::after { width: 100%; }
+#bc-header-wrap .bc-nav a.bc-current { opacity: 1; }
+#bc-header-wrap .bc-header-button {
+    min-height: 42px; padding: 0 20px; display: inline-flex; align-items: center; justify-content: center;
+    gap: 11px; color: #fff; background: #124d8b; border: 1px solid #2466a3; text-decoration: none;
+    font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; transition: .25s ease; flex-shrink: 0;
+}
+#bc-header-wrap .bc-header-button:hover { background: #1763ad; transform: translateY(-1px); }
+#bc-header-wrap .bc-menu-button {
+    display: none; position: relative; width: 44px; height: 44px; padding: 0;
+    align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.25);
+    background: rgba(7,24,45,.18); color: #fff; cursor: pointer; transition: background .25s ease;
+}
+#bc-header-wrap .bc-menu-icon { position: relative; display: block; width: 19px; height: 14px; }
+#bc-header-wrap .bc-menu-icon span {
+    position: absolute; left: 0; width: 19px; height: 1.5px; background: #fff;
+    transition: transform .28s ease, opacity .2s ease, top .28s ease;
+}
+#bc-header-wrap .bc-menu-icon span:nth-child(1) { top: 0; }
+#bc-header-wrap .bc-menu-icon span:nth-child(2) { top: 6px; }
+#bc-header-wrap .bc-menu-icon span:nth-child(3) { top: 12px; }
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(2) { opacity: 0; }
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+
+@media (max-width: 1050px) {
+    #bc-header-wrap .bc-nav { display: none; }
+    #bc-header-wrap .bc-header-button { margin-left: auto; }
+    #bc-header-wrap .bc-menu-button { display: flex; }
+    #bc-header-wrap .bc-nav.bc-open {
+        display: flex; position: absolute; top: 84px; left: 0; right: 0; margin: 0;
+        padding: 8px 30px 18px; flex-direction: column; align-items: stretch; gap: 0;
+        background: rgba(5,21,40,.985); border-top: 1px solid rgba(255,255,255,.05);
+        border-bottom: 1px solid rgba(255,255,255,.12); box-shadow: 0 18px 40px rgba(0,0,0,.18);
+    }
+    #bc-header-wrap .bc-nav.bc-open a {
+        position: relative; width: 100%; min-height: 54px; padding: 0; display: flex;
+        align-items: center; border-bottom: 1px solid rgba(255,255,255,.08);
+        font-family: Georgia, serif; font-size: 16px; font-weight: 400; text-transform: none; opacity: .82;
+    }
+    #bc-header-wrap .bc-nav.bc-open a:last-child { border-bottom: 0; }
+}
+@media (max-width: 700px) {
+    #bc-header-wrap .bc-header-inner { width: calc(100% - 24px); min-height: 68px; }
+    #bc-header-wrap .bc-monogram { font-size: 29px; padding-right: 11px; }
+    #bc-header-wrap .bc-brand-name { font-size: 13px; }
+    #bc-header-wrap .bc-brand-subtitle, #bc-header-wrap .bc-header-button { display: none; }
+    #bc-header-wrap .bc-nav.bc-open { top: 68px; padding: 6px 18px 14px; }
+}
+
+/* =========================================================
+   STALNO DUGME ZA POVRATAK
+========================================================= */
+.bc-back-home {
+    position: fixed; z-index: 9990; right: 22px; bottom: 22px; min-height: 46px; padding: 0 18px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    border: 1px solid rgba(255,255,255,.18); background: rgba(7,24,45,.94); color: #fff;
+    text-decoration: none; box-shadow: 0 10px 30px rgba(7,24,45,.18); font-size: 9px;
+    font-weight: 800; letter-spacing: .09em; text-transform: uppercase; border-radius: 4px;
+    transition: all .22s ease;
+}
+.bc-back-home span { font-size: 15px; line-height: 1; transition: transform .22s ease; }
+.bc-back-home:hover { background: #124d8b; border-color: #124d8b; transform: translateY(-2px); }
+.bc-back-home:hover span { transform: translateX(-3px); }
+
+/* =========================================================
+   INSTITUCIJE SPECIFIČNI STILOVI
+========================================================= */
+#bc-institucije {
+    --navy:#07182d; --navy2:#0b2645; --blue:#124d8b; --blue2:#1763ad;
+    --bg:#f8fafc; --white:#ffffff; --text:#17212c; --muted:#68727c;
+    --line:rgba(7,24,45,.11); --soft:#edf3f7;
+    position:relative; width:100vw; margin-left:calc(50% - 50vw);
+    overflow:hidden; background:var(--bg); color:var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+#bc-institucije *, #bc-institucije *::before, #bc-institucije *::after { box-sizing:border-box; }
+#bc-institucije .bc-inst-inner { width:min(1220px, calc(100% - 48px)); margin:0 auto; padding:80px 0 105px; }
+#bc-institucije .bc-inst-intro { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr); gap:72px; align-items:center; }
+#bc-institucije .bc-inst-label { display:flex; align-items:center; gap:11px; margin-bottom:19px; color:var(--blue); font-size:9px; font-weight:800; letter-spacing:.17em; text-transform:uppercase; }
+#bc-institucije .bc-inst-label::before { content:""; width:38px; height:2px; background:var(--blue); }
+#bc-institucije .bc-inst-index { margin-bottom:17px; color:rgba(7,24,45,.28); font-family:Georgia, "Times New Roman", serif; font-size:17px; letter-spacing:.07em; }
+#bc-institucije .bc-inst-title { max-width:730px; margin:0; color:var(--navy); font-family:Georgia, "Times New Roman", serif; font-size:clamp(44px, 4.8vw, 68px); font-weight:400; line-height:1.02; letter-spacing:-.04em; }
+#bc-institucije .bc-inst-title span { color:var(--blue); }
+#bc-institucije .bc-inst-lead { max-width:650px; margin:24px 0 0; color:#48545f; font-size:17.5px; line-height:1.68; }
+#bc-institucije .bc-inst-copy { max-width:630px; margin:18px 0 0; color:var(--muted); font-size:13px; line-height:1.78; }
+#bc-institucije .bc-inst-visual { position:relative; min-height:560px; overflow:hidden; background:#dbe4ea; border-radius:4px; }
+#bc-institucije .bc-inst-image { position:absolute; inset:0; width:100%; height:100%; display:block; object-fit:cover; object-position:center; filter:saturate(.78) contrast(1.04); }
+#bc-institucije .bc-inst-visual::before { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(180deg, rgba(7,24,45,.04) 30%, rgba(7,24,45,.09) 55%, rgba(7,24,45,.67) 100%); }
+#bc-institucije .bc-inst-photo-number { position:absolute; z-index:3; top:25px; right:27px; color:rgba(255,255,255,.88); font-family:Georgia, "Times New Roman", serif; font-size:13px; }
+#bc-institucije .bc-inst-caption { position:absolute; z-index:3; left:27px; bottom:25px; display:flex; align-items:center; gap:10px; color:#fff; font-size:9px; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
+#bc-institucije .bc-inst-caption::before { content:""; width:28px; height:2px; background:#fff; }
+#bc-institucije .bc-inst-statement { margin-top:75px; padding:31px 35px; display:grid; grid-template-columns:52px minmax(0,1fr); gap:20px; align-items:center; background:var(--navy); color:#fff; border-radius:4px; }
+#bc-institucije .bc-inst-statement-mark { color:#5d95c8; font-family:Georgia, "Times New Roman", serif; font-size:38px; line-height:1; }
+#bc-institucije .bc-inst-statement small { display:block; margin-bottom:6px; color:#76a7d3; font-size:8px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; }
+#bc-institucije .bc-inst-statement strong { max-width:930px; display:block; color:#fff; font-family:Georgia, "Times New Roman", serif; font-size:clamp(21px, 2vw, 28px); font-weight:400; line-height:1.35; }
+#bc-institucije .bc-inst-section-head { margin-top:85px; display:grid; grid-template-columns:minmax(0,1fr) minmax(300px,.65fr); gap:70px; align-items:end; padding-bottom:29px; border-bottom:1px solid var(--line); }
+#bc-institucije .bc-inst-section-head h3 { max-width:680px; margin:0; color:var(--navy); font-family:Georgia, "Times New Roman", serif; font-size:clamp(34px, 4vw, 49px); font-weight:400; line-height:1.05; letter-spacing:-.035em; }
+#bc-institucije .bc-inst-section-head p { margin:0; color:var(--muted); font-size:12.5px; line-height:1.7; }
+#bc-institucije .bc-inst-principles { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-bottom:1px solid var(--line); }
+#bc-institucije .bc-inst-principle { min-width:0; padding:35px 32px 37px; border-right:1px solid var(--line); }
+#bc-institucije .bc-inst-principle:first-child { padding-left:0; }
+#bc-institucije .bc-inst-principle:last-child { padding-right:0; border-right:0; }
+#bc-institucije .bc-inst-principle-number { display:block; margin-bottom:20px; color:var(--blue); font-family:Georgia, "Times New Roman", serif; font-size:14px; }
+#bc-institucije .bc-inst-principle h4 { margin:0; color:var(--navy); font-family:Georgia, "Times New Roman", serif; font-size:23px; font-weight:500; line-height:1.18; }
+#bc-institucije .bc-inst-principle p { margin:12px 0 0; color:var(--muted); font-size:12px; line-height:1.68; }
+#bc-institucije .bc-inst-flow { margin-top:85px; }
+#bc-institucije .bc-inst-flow-label { margin-bottom:12px; color:var(--blue); font-size:8px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; }
+#bc-institucije .bc-inst-flow-title { max-width:780px; margin:0; color:var(--navy); font-family:Georgia, "Times New Roman", serif; font-size:clamp(34px, 4vw, 49px); font-weight:400; line-height:1.08; letter-spacing:-.035em; }
+#bc-institucije .bc-inst-flow-grid { margin-top:34px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+#bc-institucije .bc-inst-flow-item { min-width:0; padding:29px 28px 31px; border-right:1px solid var(--line); }
+#bc-institucije .bc-inst-flow-item:first-child { padding-left:0; }
+#bc-institucije .bc-inst-flow-item:last-child { padding-right:0; border-right:0; }
+#bc-institucije .bc-inst-flow-number { display:block; margin-bottom:16px; color:#a3adb6; font-family:Georgia, "Times New Roman", serif; font-size:16px; }
+#bc-institucije .bc-inst-flow-item h5 { margin:0; color:var(--navy); font-size:12px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
+#bc-institucije .bc-inst-flow-item p { margin:9px 0 0; color:var(--muted); font-size:11px; line-height:1.6; }
+#bc-institucije .bc-inst-standard { margin-top:85px; display:grid; grid-template-columns:minmax(0,.65fr) minmax(0,1.35fr); gap:0; background:var(--soft); border-radius:4px; overflow:hidden; }
+#bc-institucije .bc-inst-standard-label { padding:34px 30px; border-right:1px solid rgba(7,24,45,.10); }
+#bc-institucije .bc-inst-standard-label small { display:block; color:var(--blue); font-size:8px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; }
+#bc-institucije .bc-inst-standard-label strong { display:block; margin-top:10px; color:var(--navy); font-family:Georgia, "Times New Roman", serif; font-size:24px; font-weight:500; line-height:1.3; }
+#bc-institucije .bc-inst-standard-content { padding:34px 38px; display:flex; align-items:center; }
+#bc-institucije .bc-inst-standard-content p { max-width:760px; margin:0; color:var(--muted); font-size:13px; line-height:1.78; }
+#bc-institucije .bc-inst-standard-content strong { color:var(--navy); }
+#bc-institucije .bc-inst-final { margin-top:85px; display:grid; grid-template-columns:minmax(0,1fr) minmax(320px,.78fr); gap:70px; align-items:start; }
+#bc-institucije .bc-inst-final-main small { color:var(--blue); font-size:8px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; }
+#bc-institucije .bc-inst-final-main h3 { max-width:720px; margin:11px 0 0; color:var(--navy); font-family:Georgia, "Times New Roman", serif; font-size:clamp(34px, 4vw, 49px); font-weight:400; line-height:1.06; letter-spacing:-.035em; }
+#bc-institucije .bc-inst-final-main p { max-width:700px; margin:18px 0 0; color:var(--muted); font-size:13px; line-height:1.75; }
+#bc-institucije .bc-inst-final-side { padding:27px 28px; background:var(--navy); border-top:3px solid #4f8ac0; border-radius:2px; }
+#bc-institucije .bc-inst-final-side small { display:block; margin-bottom:9px; color:#76a7d3; font-size:8px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+#bc-institucije .bc-inst-final-side strong { display:block; color:#fff; font-family:Georgia, "Times New Roman", serif; font-size:21px; font-weight:500; line-height:1.35; }
+#bc-institucije .bc-inst-final-side p { margin:11px 0 0; color:rgba(255,255,255,.55); font-size:11.5px; line-height:1.65; }
+
+@media(max-width:800px) {
+    #bc-institucije .bc-inst-inner { width:100%; padding:56px max(17px, env(safe-area-inset-right)) 72px max(17px, env(safe-area-inset-left)); }
+    #bc-institucije .bc-inst-intro { grid-template-columns:1fr; gap:37px; }
+    #bc-institucije .bc-inst-title { font-size:clamp(38px, 10.5vw, 50px); }
+    #bc-institucije .bc-inst-lead { margin-top:18px; font-size:15.5px; line-height:1.58; }
+    #bc-institucije .bc-inst-copy { font-size:12.5px; }
+    #bc-institucije .bc-inst-visual { min-height:clamp(300px, 82vw, 420px); }
+    #bc-institucije .bc-inst-caption { left:18px; bottom:18px; font-size:8px; }
+    #bc-institucije .bc-inst-photo-number { top:18px; right:18px; }
+    #bc-institucije .bc-inst-statement { margin-top:47px; padding:23px 19px; grid-template-columns:34px minmax(0,1fr); gap:13px; }
+    #bc-institucije .bc-inst-statement-mark { font-size:29px; }
+    #bc-institucije .bc-inst-statement strong { font-size:18px; }
+    #bc-institucije .bc-inst-section-head { margin-top:61px; grid-template-columns:1fr; gap:16px; padding-bottom:24px; }
+    #bc-institucije .bc-inst-section-head h3 { font-size:clamp(30px, 8.5vw, 38px); }
+    #bc-institucije .bc-inst-principles { grid-template-columns:1fr; }
+    #bc-institucije .bc-inst-principle, #bc-institucije .bc-inst-principle:first-child, #bc-institucije .bc-inst-principle:last-child { padding:24px 0; border-right:0; border-bottom:1px solid var(--line); }
+    #bc-institucije .bc-inst-principle:last-child { border-bottom:0; }
+    #bc-institucije .bc-inst-flow { margin-top:61px; }
+    #bc-institucije .bc-inst-flow-title { font-size:clamp(30px, 8.5vw, 38px); }
+    #bc-institucije .bc-inst-flow-grid { grid-template-columns:1fr; }
+    #bc-institucije .bc-inst-flow-item, #bc-institucije .bc-inst-flow-item:first-child, #bc-institucije .bc-inst-flow-item:last-child { padding:20px 0; border-right:0; border-bottom:1px solid var(--line); }
+    #bc-institucije .bc-inst-flow-item:last-child { border-bottom:0; }
+    #bc-institucije .bc-inst-standard { margin-top:61px; grid-template-columns:1fr; }
+    #bc-institucije .bc-inst-standard-label { padding:24px 20px; border-right:0; border-bottom:1px solid rgba(7,24,45,.10); }
+    #bc-institucije .bc-inst-standard-content { padding:24px 20px; }
+    #bc-institucije .bc-inst-final { margin-top:61px; grid-template-columns:1fr; gap:31px; }
+    #bc-institucije .bc-inst-final-main h3 { font-size:clamp(30px, 8.5vw, 38px); }
+    #bc-institucije .bc-inst-final-side { padding:23px 20px; }
+}
+
+@media(max-width:360px) {
+    #bc-institucije .bc-inst-inner { padding-left:14px; padding-right:14px; }
+    #bc-institucije .bc-inst-title { font-size:35px; }
+    #bc-institucije .bc-inst-lead { font-size:14.5px; }
+    #bc-institucije .bc-back-home { right:10px; bottom:10px; padding:0 12px; }
+}
+
+/* =========================================================
+   FOOTER (SHARED)
+========================================================= */
+#bc-footer {
+    --navy:#07182d; --blue:#124d8b; width:100vw; margin-left:calc(50% - 50vw);
+    overflow:hidden; background:var(--navy); color:#fff; font-family:Arial,Helvetica,sans-serif;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+#bc-footer .bc-footer-line {
+    width:100%; height:3px;
+    background:linear-gradient(90deg,#d21f2b 0%,#d21f2b 33.33%,#ffffff 33.33%,#ffffff 66.66%,#1b5a9d 66.66%,#1b5a9d 100%);
+}
+#bc-footer .bc-footer-inner { width:min(1220px, calc(100% - 48px)); margin:0 auto; padding:72px 0 27px; }
+#bc-footer .bc-footer-main { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(240px,.6fr); gap:80px; align-items:end; padding-bottom:52px; border-bottom:1px solid rgba(255,255,255,.11); }
+#bc-footer .bc-footer-label { display:flex; align-items:center; gap:11px; margin-bottom:17px; color:#77a6d1; font-size:8px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+#bc-footer .bc-footer-label::before { content:""; width:35px; height:2px; background:#397bb7; }
+#bc-footer .bc-footer-title { max-width:760px; margin:0; color:#fff; font-family:Georgia,serif; font-size:clamp(38px,4.7vw,61px); font-weight:400; line-height:1.02; letter-spacing:-.04em; }
+#bc-footer .bc-footer-title span { color:#70a1cf; }
+#bc-footer .bc-footer-copy { max-width:600px; margin:20px 0 0; color:rgba(255,255,255,.55); font-size:13px; line-height:1.7; }
+#bc-footer .bc-footer-brand { padding-left:30px; border-left:1px solid rgba(255,255,255,.12); }
+#bc-footer .bc-footer-monogram { margin-bottom:16px; color:#fff; font-family:Georgia,serif; font-size:45px; line-height:1; }
+#bc-footer .bc-footer-name { color:#fff; font-family:Georgia,serif; font-size:20px; font-weight:500; }
+#bc-footer .bc-footer-tagline { margin-top:7px; color:rgba(255,255,255,.42); font-size:8px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+#bc-footer .bc-footer-nav { margin-top:27px; display:flex; flex-direction:column; align-items:flex-start; }
+#bc-footer .bc-footer-nav a {
+    position:relative; width:100%; min-height:39px; display:flex; align-items:center;
+    color:rgba(255,255,255,.67); border-bottom:1px solid rgba(255,255,255,.07); text-decoration:none;
+    font-size:9px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; transition:color .2s ease;
+}
+#bc-footer .bc-footer-nav a:hover { color:#fff; }
+#bc-footer .bc-footer-bottom { min-height:67px; display:flex; align-items:center; justify-content:space-between; gap:30px; }
+#bc-footer .bc-footer-copyright { color:rgba(255,255,255,.34); font-size:8px; font-weight:700; text-transform:uppercase; }
+#bc-footer .bc-footer-principle { display:flex; align-items:center; gap:10px; color:rgba(255,255,255,.40); font-family:Georgia,serif; font-size:12px; }
+#bc-footer .bc-footer-principle::before { content:""; width:21px; height:1px; background:#3e73a4; }
+#bc-footer .bc-footer-top {
+    width:42px; height:42px; flex:0 0 42px; display:grid; place-items:center;
+    border:1px solid rgba(255,255,255,.19); color:#fff; background:transparent; text-decoration:none; font-size:15px; transition:.2s ease;
+}
+#bc-footer .bc-footer-top:hover { background:var(--blue); border-color:var(--blue); }
+
+@media(max-width:767px) {
+    #bc-footer .bc-footer-inner { width:100%; padding:57px max(17px,env(safe-area-inset-right)) 20px max(17px,env(safe-area-inset-left)); }
+    #bc-footer .bc-footer-main { grid-template-columns:1fr; gap:39px; padding-bottom:38px; }
+    #bc-footer .bc-footer-brand { padding:27px 0 0; border-left:0; border-top:1px solid rgba(255,255,255,.11); }
+    #bc-footer .bc-footer-bottom { min-height:0; padding-top:20px; display:grid; grid-template-columns:minmax(0,1fr) 42px; gap:15px; }
+    #bc-footer .bc-footer-copyright { grid-column:1; grid-row:2; }
+    #bc-footer .bc-footer-principle { grid-column:1 / -1; grid-row:1; }
+    #bc-footer .bc-footer-top { grid-column:2; grid-row:2; }
+}
+</style>
+
+<div id="bc-header-wrap">
+    <header class="bc-header">
+        <div class="bc-header-inner">
+            <a class="bc-brand" href="pocetna.html">
+                <div class="bc-monogram">BĆ</div>
+                <div>
+                    <div class="bc-brand-name">BLAGOJE ĆURČIĆ</div>
+                    <div class="bc-brand-subtitle">Za pravedniju Srbiju</div>
+                </div>
+            </a>
+            <nav class="bc-nav" id="bcNav" aria-label="Glavna navigacija">
+                <a href="pocetna.html">Početak</a>
+                <a href="pocetna.html#bc-about">O meni</a>
+                <a href="pocetna.html#bc-principles" class="bc-current">Program</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+            <a class="bc-header-button" href="kontakt.html">Kontakt <span>→</span></a>
+            <button id="bcMenuButton" class="bc-menu-button" type="button" aria-label="Otvori navigaciju" aria-expanded="false" aria-controls="bcNav">
+                <span class="bc-menu-icon"><span></span><span></span><span></span></span>
+            </button>
+        </div>
+    </header>
+</div>
+
+<section id="bc-institucije">
+    <!-- POVRATAK NA POČETNU -->
+    <a class="bc-back-home" href="pocetna.html" aria-label="Vrati se na početnu stranicu">
+        <span>←</span> Početna
+    </a>
+
+    <div class="bc-inst-inner">
+        <!-- INTRO -->
+        <div class="bc-inst-intro">
+            <div>
+                <div class="bc-inst-label">
+                    Program · Odgovorne institucije
+                </div>
+                <div class="bc-inst-index">
+                    02 / INSTITUCIJE
+                </div>
+                <h2 class="bc-inst-title">
+                    Pravila moraju biti<br><span>jača od pojedinca.</span>
+                </h2>
+                <p class="bc-inst-lead">
+                    Država mora da funkcioniše po jasnim pravilima, bez obzira na to ko je trenutno na vlasti ili ko sedi na određenoj funkciji.
+                </p>
+                <p class="bc-inst-copy">
+                    Građanin mora da zna ko donosi odluku, na osnovu kog pravila i ko za tu odluku odgovara. Institucije moraju da budu profesionalne, predvidive i jednake za sve.
+                </p>
+            </div>
+
+            <!-- PHOTO -->
+            <div class="bc-inst-visual">
+                <img
+                    class="bc-inst-image"
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/House_of_the_National_Assembly_of_the_Republic_of_Serbia_Belgrade_1.jpg"
+                    alt="Dom Narodne skupštine Republike Srbije"
+                    loading="lazy"
+                >
+                <span class="bc-inst-photo-number">02</span>
+                <div class="bc-inst-caption">Institucije u službi građana</div>
+            </div>
+        </div>
+
+        <!-- STATEMENT -->
+        <div class="bc-inst-statement">
+            <div class="bc-inst-statement-mark">“</div>
+            <div>
+                <small>Osnovni princip</small>
+                <strong>
+                    Funkcija ne sme da bude izvor moći — već obaveza prema građanima.
+                </strong>
+            </div>
+        </div>
+
+        <!-- SECTION HEAD -->
+        <div class="bc-inst-section-head">
+            <h3>Institucija mora da radi isto za svakog građanina.</h3>
+            <p>
+                Sistem ne sme da zavisi od poznanstva, političke veze ili ličnog uticaja. Pravila moraju biti jasna, dostupna i jednaka za sve.
+            </p>
+        </div>
+
+        <!-- PRINCIPLES -->
+        <div class="bc-inst-principles">
+            <!-- 01 -->
+            <div class="bc-inst-principle">
+                <span class="bc-inst-principle-number">01</span>
+                <h4>Stručnost pre politike</h4>
+                <p>
+                    Javne funkcije i odgovorni poslovi moraju pripadati ljudima koji imaju znanje, iskustvo i rezultate.
+                </p>
+            </div>
+
+            <!-- 02 -->
+            <div class="bc-inst-principle">
+                <span class="bc-inst-principle-number">02</span>
+                <h4>Jasna odgovornost</h4>
+                <p>
+                    Za važnu odluku mora da se zna ko ju je doneo, zašto i kakav rezultat je ta odluka proizvela.
+                </p>
+            </div>
+
+            <!-- 03 -->
+            <div class="bc-inst-principle">
+                <span class="bc-inst-principle-number">03</span>
+                <h4>Javan rad</h4>
+                <p>
+                    Građanin treba jednostavno da može da vidi odluke, troškove i rezultate rada državnih organa.
+                </p>
+            </div>
+        </div>
+
+        <!-- RESPONSIBILITY FLOW -->
+        <div class="bc-inst-flow">
+            <div class="bc-inst-flow-label">Od odluke do odgovornosti</div>
+            <h3 class="bc-inst-flow-title">Svaka javna odluka mora da ostavi jasan trag.</h3>
+
+            <div class="bc-inst-flow-grid">
+                <div class="bc-inst-flow-item">
+                    <span class="bc-inst-flow-number">01</span>
+                    <h5>Pravilo</h5>
+                    <p>Odluka mora da se zasniva na unapred poznatom pravilu.</p>
+                </div>
+                <div class="bc-inst-flow-item">
+                    <span class="bc-inst-flow-number">02</span>
+                    <h5>Odluka</h5>
+                    <p>Mora biti jasno ko je konkretnu odluku doneo.</p>
+                </div>
+                <div class="bc-inst-flow-item">
+                    <span class="bc-inst-flow-number">03</span>
+                    <h5>Rezultat</h5>
+                    <p>Javnost treba da može da vidi njen stvarni efekat.</p>
+                </div>
+                <div class="bc-inst-flow-item">
+                    <span class="bc-inst-flow-number">04</span>
+                    <h5>Odgovornost</h5>
+                    <p>Ako odluka nije opravdana, mora postojati odgovornost.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- LARGE EDITORIAL BLOCK -->
+        <div class="bc-inst-standard">
+            <div class="bc-inst-standard-label">
+                <small>Standard države</small>
+                <strong>Sistem mora da radi i kada ne poznajete nikoga.</strong>
+            </div>
+            <div class="bc-inst-standard-content">
+                <p>
+                    Dobra institucija nije ona u kojoj građanin mora da traži vezu da bi ostvario svoje pravo.
+                    <strong>Dobra institucija je ona u kojoj je procedura jasna, rok poznat, odluka obrazložena i odgovornost vidljiva.</strong>
+                    Državni sistem mora da pruža isti standard običnom građaninu, privredniku i politički moćnom pojedincu.
+                </p>
+            </div>
+        </div>
+
+        <!-- FINAL -->
+        <div class="bc-inst-final">
+            <div class="bc-inst-final-main">
+                <small>Cilj</small>
+                <h3>Država kojoj građanin može da veruje.</h3>
+                <p>
+                    Poverenje se ne gradi obećanjima, već sistemom koji funkcioniše svaki dan. Kada su pravila jasna, kada se zna ko je odgovoran i kada građanin može da proveri rad institucije, država postaje stabilnija i ozbiljnija.
+                </p>
+            </div>
+            <aside class="bc-inst-final-side">
+                <small>Suština</small>
+                <strong>Ne treba vam poznanstvo da biste ostvarili svoje pravo.</strong>
+                <p>
+                    Jednaka pravila i profesionalne institucije moraju da budu osnovni standard države.
+                </p>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<footer id="bc-footer">
+    <div class="bc-footer-line"></div>
+    <div class="bc-footer-inner">
+        <div class="bc-footer-main">
+            <div>
+                <div class="bc-footer-label">Za pravedniju Srbiju</div>
+                <h2 class="bc-footer-title">Država u kojoj se<br><span>pitaju građani.</span></h2>
+                <p class="bc-footer-copy">Odgovornost, domaća proizvodnja i veće učešće građana u odlukama koje određuju budućnost Srbije.</p>
+            </div>
+            <div class="bc-footer-brand">
+                <div class="bc-footer-monogram">BĆ</div>
+                <div class="bc-footer-name">Blagoje Ćurčić</div>
+                <div class="bc-footer-tagline">Za pravedniju Srbiju</div>
+                <nav class="bc-footer-nav" aria-label="Navigacija u podnožju">
+                    <a href="pocetna.html">Početak</a>
+                    <a href="pocetna.html#bc-about">O meni</a>
+                    <a href="pocetna.html#bc-principles">Program</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </nav>
+            </div>
+        </div>
+        <div class="bc-footer-bottom">
+            <div class="bc-footer-copyright">© <span id="bcFooterYear">2026</span> Blagoje Ćurčić · Sva prava zadržana</div>
+            <div class="bc-footer-principle">Građanin u centru odluke.</div>
+            <a class="bc-footer-top" href="#bc-institucije" aria-label="Nazad na vrh">↑</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function () {
+    const btn = document.getElementById("bcMenuButton");
+    const nav = document.getElementById("bcNav");
+    if (btn && nav) {
+        btn.addEventListener("click", function () {
+            const open = nav.classList.toggle("bc-open");
+            btn.classList.toggle("bc-active", open);
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+    }
+    const year = document.getElementById("bcFooterYear");
+    if (year) { year.textContent = new Date().getFullYear(); }
+})();
+</script>
+</body>
+</html>

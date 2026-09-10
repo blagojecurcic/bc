@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07182d">
+<title>Nekretnine na prodaju — Blagoje Ćurčić</title>
+<meta name="description" content="Aktuelna ponuda nekretnina u Preljini i okolini sa foto-galerijama i detaljnim podacima.">
+<style>
+html,body{margin:0;padding:0;width:100%;min-height:100%;overflow-x:hidden;}
+body{background:#f7f9fb;}
+</style>
+</head>
+<body>
+
+<style>
+/* =========================================================
+   HEADER (SHARED)
+========================================================= */
+html { scroll-behavior: smooth; }
+#bc-header-wrap {
+    --navy: #07182d; --blue: #124d8b; --blue-hover: #1763ad; --white: #ffffff;
+    position: relative; width: 100vw; margin-left: calc(50% - 50vw);
+    font-family: Arial, Helvetica, sans-serif; background: #07182d;
+}
+#bc-header-wrap *, #bc-header-wrap *::before, #bc-header-wrap *::after { box-sizing: border-box; }
+#bc-header-wrap .bc-header {
+    position: relative; top: 0; left: 0; right: 0; z-index: 30;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    background: linear-gradient(to bottom, rgba(3,15,30,.85), rgba(3,15,30,.60));
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+}
+#bc-header-wrap .bc-header-inner {
+    width: min(1320px, calc(100% - 60px)); min-height: 84px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 32px;
+}
+#bc-header-wrap .bc-brand { display: flex; align-items: center; gap: 16px; color: #fff; text-decoration: none; flex-shrink: 0; }
+#bc-header-wrap .bc-monogram { font-family: Georgia, serif; font-size: 38px; line-height: 1; color: #fff; padding-right: 17px; border-right: 1px solid rgba(255,255,255,.3); }
+#bc-header-wrap .bc-brand-name { font-family: Georgia, serif; font-size: 17px; font-weight: 600; letter-spacing: .04em; color: #fff; }
+#bc-header-wrap .bc-brand-subtitle { margin-top: 5px; font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: .27em; color: rgba(255,255,255,.55); }
+#bc-header-wrap .bc-nav { display: flex; align-items: center; gap: 31px; margin-left: auto; }
+#bc-header-wrap .bc-nav a {
+    position: relative; padding: 32px 0; color: #fff; font-size: 11px; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase; text-decoration: none; opacity: .82;
+    transition: opacity .25s ease, color .25s ease;
+}
+#bc-header-wrap .bc-nav a:hover { opacity: 1; }
+#bc-header-wrap .bc-nav a::after {
+    content: ""; position: absolute; left: 0; bottom: 21px; width: 0; height: 2px;
+    background: #1c67ad; transition: width .25s ease;
+}
+#bc-header-wrap .bc-nav a:hover::after, #bc-header-wrap .bc-nav a.bc-current::after { width: 100%; }
+#bc-header-wrap .bc-nav a.bc-current { opacity: 1; }
+#bc-header-wrap .bc-header-button {
+    min-height: 42px; padding: 0 20px; display: inline-flex; align-items: center; justify-content: center;
+    gap: 11px; color: #fff; background: #124d8b; border: 1px solid #2466a3; text-decoration: none;
+    font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; transition: .25s ease; flex-shrink: 0;
+}
+#bc-header-wrap .bc-header-button:hover { background: #1763ad; transform: translateY(-1px); }
+#bc-header-wrap .bc-menu-button {
+    display: none; position: relative; width: 44px; height: 44px; padding: 0;
+    align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.25);
+    background: rgba(7,24,45,.18); color: #fff; cursor: pointer; transition: background .25s ease;
+}
+#bc-header-wrap .bc-menu-icon { position: relative; display: block; width: 19px; height: 14px; }
+#bc-header-wrap .bc-menu-icon span {
+    position: absolute; left: 0; width: 19px; height: 1.5px; background: #fff;
+    transition: transform .28s ease, opacity .2s ease, top .28s ease;
+}
+#bc-header-wrap .bc-menu-icon span:nth-child(1) { top: 0; }
+#bc-header-wrap .bc-menu-icon span:nth-child(2) { top: 6px; }
+#bc-header-wrap .bc-menu-icon span:nth-child(3) { top: 12px; }
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(2) { opacity: 0; }
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+
+@media (max-width: 1050px) {
+    #bc-header-wrap .bc-nav { display: none; }
+    #bc-header-wrap .bc-header-button { margin-left: auto; }
+    #bc-header-wrap .bc-menu-button { display: flex; }
+    #bc-header-wrap .bc-nav.bc-open {
+        display: flex; position: absolute; top: 84px; left: 0; right: 0; margin: 0;
+        padding: 8px 30px 18px; flex-direction: column; align-items: stretch; gap: 0;
+        background: rgba(5,21,40,.985); border-top: 1px solid rgba(255,255,255,.05);
+        border-bottom: 1px solid rgba(255,255,255,.12); box-shadow: 0 18px 40px rgba(0,0,0,.18);
+    }
+    #bc-header-wrap .bc-nav.bc-open a {
+        position: relative; width: 100%; min-height: 54px; padding: 0; display: flex;
+        align-items: center; border-bottom: 1px solid rgba(255,255,255,.08);
+        font-family: Georgia, serif; font-size: 16px; font-weight: 400; text-transform: none; opacity: .82;
+    }
+    #bc-header-wrap .bc-nav.bc-open a:last-child { border-bottom: 0; }
+}
+@media (max-width: 700px) {
+    #bc-header-wrap .bc-header-inner { width: calc(100% - 24px); min-height: 68px; }
+    #bc-header-wrap .bc-monogram { font-size: 29px; padding-right: 11px; }
+    #bc-header-wrap .bc-brand-name { font-size: 13px; }
+    #bc-header-wrap .bc-brand-subtitle, #bc-header-wrap .bc-header-button { display: none; }
+    #bc-header-wrap .bc-nav.bc-open { top: 68px; padding: 6px 18px 14px; }
+}
+
+/* =========================================================
+   STALNO DUGME ZA POVRATAK
+========================================================= */
+.bc-back-home {
+    position: fixed; z-index: 9990; right: 22px; bottom: 22px; min-height: 46px; padding: 0 18px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    border: 1px solid rgba(255,255,255,.18); background: rgba(7,24,45,.94); color: #fff;
+    text-decoration: none; box-shadow: 0 10px 30px rgba(7,24,45,.18); font-size: 9px;
+    font-weight: 800; letter-spacing: .09em; text-transform: uppercase; border-radius: 4px;
+    transition: all .22s ease;
+}
+.bc-back-home span { font-size: 15px; line-height: 1; transition: transform .22s ease; }
+.bc-back-home:hover { background: #124d8b; border-color: #124d8b; transform: translateY(-2px); }
+.bc-back-home:hover span { transform: translateX(-3px); }
+
+/* =========================================================
+   NEKRETNINE SPECIFIČNI STILOVI
+========================================================= */
+#bc-properties {
+    --navy:#07182d; --navy2:#0b2645; --blue:#124d8b; --blue2:#1763ad;
+    --bg:#f7f9fb; --white:#ffffff; --text:#17212c; --muted:#6d7781;
+    --line:rgba(7,24,45,.11); --soft:#edf3f7;
+    width:100vw; margin-left:calc(50% - 50vw); overflow:hidden;
+    background:var(--bg); color:var(--text); font-family:Arial,Helvetica,sans-serif;
+}
+#bc-properties *, #bc-properties *::before, #bc-properties *::after { box-sizing:border-box; }
+#bc-properties .bc-prop-inner { width:min(1220px,calc(100% - 48px)); margin:0 auto; padding:80px 0 105px; }
+#bc-properties .bc-prop-intro { display:grid; grid-template-columns:minmax(0,1fr) minmax(300px,.6fr); gap:70px; align-items:end; padding-bottom:34px; border-bottom:1px solid var(--line); }
+#bc-properties .bc-prop-label { display:flex; align-items:center; gap:11px; margin-bottom:15px; color:var(--blue); font-size:8px; font-weight:800; letter-spacing:.17em; text-transform:uppercase; }
+#bc-properties .bc-prop-label::before { content:""; width:36px; height:2px; background:var(--blue); }
+#bc-properties .bc-prop-heading { margin:0; color:var(--navy); font-family:Georgia,serif; font-size:clamp(40px,4.7vw,61px); font-weight:400; line-height:1; letter-spacing:-.04em; }
+#bc-properties .bc-prop-heading span { color:var(--blue); }
+#bc-properties .bc-prop-intro p { margin:0; color:var(--muted); font-size:13px; line-height:1.75; }
+#bc-properties .bc-prop-grid { margin-top:45px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; }
+#bc-properties .bc-prop-card { min-width:0; background:#fff; border:1px solid var(--line); border-radius:4px; overflow:hidden; transition:transform .28s ease, box-shadow .28s ease; }
+#bc-properties .bc-prop-card:hover { transform:translateY(-4px); box-shadow:0 18px 50px rgba(7,24,45,.09); }
+#bc-properties .bc-prop-image-wrap { position:relative; width:100%; aspect-ratio:16/10; overflow:hidden; background:#dbe3e8; cursor:pointer; }
+#bc-properties .bc-prop-image { width:100%; height:100%; display:block; object-fit:cover; object-position:center; transition:transform .65s cubic-bezier(.2,.7,.2,1); }
+#bc-properties .bc-prop-card:hover .bc-prop-image { transform:scale(1.035); }
+#bc-properties .bc-prop-image-wrap::after { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(180deg,transparent 42%,rgba(7,24,45,.50) 100%); }
+#bc-properties .bc-prop-status { position:absolute; z-index:4; top:18px; left:18px; padding:8px 11px; background:rgba(7,24,45,.94); color:#fff; font-size:7px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; border-radius:2px; }
+#bc-properties .bc-prop-gallery-count { position:absolute; z-index:4; top:18px; right:18px; min-height:29px; padding:0 10px; display:flex; align-items:center; gap:6px; background:rgba(255,255,255,.92); color:var(--navy); font-size:8px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; border-radius:2px; }
+#bc-properties .bc-prop-photo-label { position:absolute; z-index:4; left:19px; bottom:18px; display:flex; align-items:center; gap:9px; color:#fff; font-size:8px; font-weight:800; letter-spacing:.10em; text-transform:uppercase; }
+#bc-properties .bc-prop-photo-label::before { content:""; width:24px; height:2px; background:#fff; }
+#bc-properties .bc-prop-content { padding:27px 27px 30px; }
+#bc-properties .bc-prop-topline { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-bottom:13px; }
+#bc-properties .bc-prop-type { color:var(--blue); font-size:8px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+#bc-properties .bc-prop-price { color:var(--navy); font-family:Georgia,serif; font-size:22px; white-space:nowrap; }
+#bc-properties .bc-prop-title { max-width:500px; margin:0; color:var(--navy); font-family:Georgia,serif; font-size:clamp(26px,2.4vw,34px); font-weight:400; line-height:1.08; letter-spacing:-.03em; }
+#bc-properties .bc-prop-desc { margin:15px 0 0; color:var(--muted); font-size:12px; line-height:1.7; }
+#bc-properties .bc-prop-data { margin-top:23px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+#bc-properties .bc-prop-data-item { min-width:0; padding:14px 12px; border-right:1px solid var(--line); }
+#bc-properties .bc-prop-data-item:first-child { padding-left:0; }
+#bc-properties .bc-prop-data-item:last-child { border-right:0; }
+#bc-properties .bc-prop-data-item small { display:block; margin-bottom:5px; color:#8a949d; font-size:7px; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
+#bc-properties .bc-prop-data-item strong { display:block; color:var(--navy); font-size:11px; font-weight:700; line-height:1.35; }
+#bc-properties .bc-prop-actions { margin-top:24px; display:flex; align-items:center; justify-content:space-between; gap:15px; }
+#bc-properties .bc-prop-btn { width:max-content; display:inline-flex; align-items:center; gap:12px; padding:0 0 6px; border:0; border-bottom:1px solid var(--blue); background:none; color:var(--blue); cursor:pointer; font-size:8px; font-weight:800; letter-spacing:.10em; text-transform:uppercase; transition:.2s ease; }
+#bc-properties .bc-prop-btn:hover { gap:18px; color:var(--blue2); }
+#bc-properties .bc-prop-phone-mini { color:#89939d; text-decoration:none; font-size:9px; font-weight:700; }
+#bc-properties .bc-prop-phone-mini:hover { color:var(--blue); }
+
+/* =========================================================
+   MODAL PROZOR I GALERIJA
+========================================================= */
+.bc-property-modal { position:fixed; inset:0; z-index:99999; display:none; align-items:center; justify-content:center; padding:24px; background:rgba(3,12,23,.88); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+.bc-property-modal.bc-open { display:flex; }
+.bc-property-dialog { position:relative; width:min(1180px,100%); max-height:calc(100vh - 48px); overflow:auto; display:grid; grid-template-columns:minmax(0,1.08fr) minmax(370px,.92fr); background:#fff; box-shadow:0 35px 90px rgba(0,0,0,.32); border-radius:4px; }
+.bc-property-close { position:absolute; z-index:20; top:15px; right:15px; width:42px; height:42px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.28); background:rgba(7,24,45,.91); color:#fff; cursor:pointer; font-size:20px; line-height:1; border-radius:2px; }
+.bc-property-gallery { min-width:0; padding:0; background:#07182d; }
+.bc-property-main-photo { position:relative; width:100%; height:530px; overflow:hidden; background:#10243b; }
+.bc-property-main-photo img { width:100%; height:100%; display:block; object-fit:cover; object-position:center; }
+.bc-gallery-counter { position:absolute; z-index:5; left:18px; bottom:18px; min-height:31px; padding:0 11px; display:flex; align-items:center; background:rgba(7,24,45,.88); color:#fff; font-size:8px; font-weight:800; letter-spacing:.10em; text-transform:uppercase; border-radius:2px; }
+.bc-gallery-arrow { position:absolute; z-index:6; top:50%; width:44px; height:44px; transform:translateY(-50%); display:grid; place-items:center; border:1px solid rgba(255,255,255,.25); background:rgba(7,24,45,.72); color:#fff; cursor:pointer; font-size:19px; border-radius:2px; transition:.2s ease; }
+.bc-gallery-arrow:hover { background:#124d8b; }
+.bc-gallery-prev { left:14px; }
+.bc-gallery-next { right:14px; }
+.bc-property-thumbs { padding:10px; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:7px; background:#07182d; }
+.bc-property-thumb { position:relative; min-width:0; aspect-ratio:4/3; overflow:hidden; border:2px solid transparent; padding:0; background:#132c48; cursor:pointer; opacity:.60; transition:opacity .2s ease, border-color .2s ease; border-radius:2px; }
+.bc-property-thumb:hover, .bc-property-thumb.bc-active { opacity:1; }
+.bc-property-thumb.bc-active { border-color:#fff; }
+.bc-property-thumb img { width:100%; height:100%; display:block; object-fit:cover; }
+.bc-property-modal-content { padding:54px 45px; display:flex; flex-direction:column; justify-content:center; }
+.bc-property-modal-label { display:flex; align-items:center; gap:10px; margin-bottom:13px; color:#124d8b; font-size:8px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; }
+.bc-property-modal-label::before { content:""; width:29px; height:2px; background:#124d8b; }
+.bc-property-modal-content h3 { margin:0; color:#07182d; font-family:Georgia,serif; font-size:clamp(34px,3.7vw,49px); font-weight:400; line-height:1.04; letter-spacing:-.04em; }
+.bc-property-modal-price { margin-top:17px; color:#124d8b; font-family:Georgia,serif; font-size:28px; }
+.bc-property-modal-description { margin:18px 0 0; color:#68727c; font-size:12.5px; line-height:1.75; }
+.bc-property-modal-facts { margin-top:25px; border-top:1px solid rgba(7,24,45,.11); }
+.bc-property-modal-fact { min-height:45px; display:grid; grid-template-columns:125px minmax(0,1fr); gap:20px; align-items:center; border-bottom:1px solid rgba(7,24,45,.11); }
+.bc-property-modal-fact small { color:#8b949d; font-size:7px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+.bc-property-modal-fact strong { color:#07182d; font-size:11px; font-weight:700; line-height:1.4; }
+.bc-property-phone-box { margin-top:28px; padding:19px 20px; display:flex; align-items:center; justify-content:space-between; gap:20px; background:#edf3f7; border-left:3px solid #124d8b; border-radius:2px; }
+.bc-property-phone-box small { display:block; margin-bottom:5px; color:#74808b; font-size:7px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+.bc-property-phone-box strong { display:block; color:#07182d; font-family:Georgia,serif; font-size:19px; font-weight:500; }
+.bc-property-call { min-height:43px; padding:0 17px; display:inline-flex; align-items:center; justify-content:center; background:#124d8b; color:#fff; text-decoration:none; font-size:8px; font-weight:800; letter-spacing:.11em; text-transform:uppercase; white-space:nowrap; border-radius:2px; transition:.2s ease; }
+.bc-property-call:hover { background:#1763ad; }
+
+@media(max-width:800px) {
+    #bc-properties .bc-prop-inner { width:100%; padding:56px max(16px,env(safe-area-inset-right)) 72px max(16px,env(safe-area-inset-left)); }
+    #bc-properties .bc-prop-intro { grid-template-columns:1fr; gap:17px; }
+    #bc-properties .bc-prop-grid { margin-top:28px; grid-template-columns:1fr; gap:22px; }
+    #bc-properties .bc-prop-content { padding:22px 19px 25px; }
+    .bc-property-modal { padding:10px; }
+    .bc-property-dialog { max-height:calc(100vh - 20px); grid-template-columns:1fr; }
+    .bc-property-main-photo { height:clamp(290px,80vw,430px); }
+    .bc-property-thumbs { grid-template-columns:repeat(5,minmax(72px,1fr)); overflow-x:auto; }
+    .bc-property-modal-content { padding:31px 21px 35px; }
+    .bc-property-phone-box { align-items:flex-start; flex-direction:column; gap:13px; }
+    .bc-property-call { width:100%; }
+}
+
+/* =========================================================
+   FOOTER (SHARED)
+========================================================= */
+#bc-footer {
+    --navy:#07182d; --blue:#124d8b; width:100vw; margin-left:calc(50% - 50vw);
+    overflow:hidden; background:var(--navy); color:#fff; font-family:Arial,Helvetica,sans-serif;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+#bc-footer .bc-footer-line {
+    width:100%; height:3px;
+    background:linear-gradient(90deg,#d21f2b 0%,#d21f2b 33.33%,#ffffff 33.33%,#ffffff 66.66%,#1b5a9d 66.66%,#1b5a9d 100%);
+}
+#bc-footer .bc-footer-inner { width:min(1220px, calc(100% - 48px)); margin:0 auto; padding:72px 0 27px; }
+#bc-footer .bc-footer-main { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(240px,.6fr); gap:80px; align-items:end; padding-bottom:52px; border-bottom:1px solid rgba(255,255,255,.11); }
+#bc-footer .bc-footer-label { display:flex; align-items:center; gap:11px; margin-bottom:17px; color:#77a6d1; font-size:8px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+#bc-footer .bc-footer-label::before { content:""; width:35px; height:2px; background:#397bb7; }
+#bc-footer .bc-footer-title { max-width:760px; margin:0; color:#fff; font-family:Georgia,serif; font-size:clamp(38px,4.7vw,61px); font-weight:400; line-height:1.02; letter-spacing:-.04em; }
+#bc-footer .bc-footer-title span { color:#70a1cf; }
+#bc-footer .bc-footer-copy { max-width:600px; margin:20px 0 0; color:rgba(255,255,255,.55); font-size:13px; line-height:1.7; }
+#bc-footer .bc-footer-brand { padding-left:30px; border-left:1px solid rgba(255,255,255,.12); }
+#bc-footer .bc-footer-monogram { margin-bottom:16px; color:#fff; font-family:Georgia,serif; font-size:45px; line-height:1; }
+#bc-footer .bc-footer-name { color:#fff; font-family:Georgia,serif; font-size:20px; font-weight:500; }
+#bc-footer .bc-footer-tagline { margin-top:7px; color:rgba(255,255,255,.42); font-size:8px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+#bc-footer .bc-footer-nav { margin-top:27px; display:flex; flex-direction:column; align-items:flex-start; }
+#bc-footer .bc-footer-nav a {
+    position:relative; width:100%; min-height:39px; display:flex; align-items:center;
+    color:rgba(255,255,255,.67); border-bottom:1px solid rgba(255,255,255,.07); text-decoration:none;
+    font-size:9px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; transition:color .2s ease;
+}
+#bc-footer .bc-footer-nav a:hover { color:#fff; }
+#bc-footer .bc-footer-bottom { min-height:67px; display:flex; align-items:center; justify-content:space-between; gap:30px; }
+#bc-footer .bc-footer-copyright { color:rgba(255,255,255,.34); font-size:8px; font-weight:700; text-transform:uppercase; }
+#bc-footer .bc-footer-principle { display:flex; align-items:center; gap:10px; color:rgba(255,255,255,.40); font-family:Georgia,serif; font-size:12px; }
+#bc-footer .bc-footer-principle::before { content:""; width:21px; height:1px; background:#3e73a4; }
+#bc-footer .bc-footer-top {
+    width:42px; height:42px; flex:0 0 42px; display:grid; place-items:center;
+    border:1px solid rgba(255,255,255,.19); color:#fff; background:transparent; text-decoration:none; font-size:15px; transition:.2s ease;
+}
+#bc-footer .bc-footer-top:hover { background:var(--blue); border-color:var(--blue); }
+
+@media(max-width:767px) {
+    #bc-footer .bc-footer-inner { width:100%; padding:57px max(17px,env(safe-area-inset-right)) 20px max(17px,env(safe-area-inset-left)); }
+    #bc-footer .bc-footer-main { grid-template-columns:1fr; gap:39px; padding-bottom:38px; }
+    #bc-footer .bc-footer-brand { padding:27px 0 0; border-left:0; border-top:1px solid rgba(255,255,255,.11); }
+    #bc-footer .bc-footer-bottom { min-height:0; padding-top:20px; display:grid; grid-template-columns:minmax(0,1fr) 42px; gap:15px; }
+    #bc-footer .bc-footer-copyright { grid-column:1; grid-row:2; }
+    #bc-footer .bc-footer-principle { grid-column:1 / -1; grid-row:1; }
+    #bc-footer .bc-footer-top { grid-column:2; grid-row:2; }
+}
+</style>
+
+<div id="bc-header-wrap">
+    <header class="bc-header">
+        <div class="bc-header-inner">
+            <a class="bc-brand" href="pocetna.html">
+                <div class="bc-monogram">BĆ</div>
+                <div>
+                    <div class="bc-brand-name">BLAGOJE ĆURČIĆ</div>
+                    <div class="bc-brand-subtitle">Za pravedniju Srbiju</div>
+                </div>
+            </a>
+            <nav class="bc-nav" id="bcNav" aria-label="Glavna navigacija">
+                <a href="pocetna.html">Početak</a>
+                <a href="pocetna.html#bc-about">O meni</a>
+                <a href="pocetna.html#bc-principles">Program</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+            <a class="bc-header-button" href="kontakt.html">Kontakt <span>→</span></a>
+            <button id="bcMenuButton" class="bc-menu-button" type="button" aria-label="Otvori navigaciju" aria-expanded="false" aria-controls="bcNav">
+                <span class="bc-menu-icon"><span></span><span></span><span></span></span>
+            </button>
+        </div>
+    </header>
+</div>
+
+<section id="bc-properties">
+    <!-- POVRATAK NA POČETNU -->
+    <a class="bc-back-home" href="pocetna.html" aria-label="Vrati se na početnu stranicu">
+        <span>←</span> Početna
+    </a>
+
+    <div class="bc-prop-inner">
+        <div class="bc-prop-intro">
+            <div>
+                <div class="bc-prop-label">Nekretnine</div>
+                <h2 class="bc-prop-heading">Kuće <span>na prodaju.</span></h2>
+            </div>
+            <p>Aktuelna ponuda nekretnina. Otvorite oglas za kompletnu galeriju, podatke o objektu i direktan kontakt.</p>
+        </div>
+
+        <div class="bc-prop-grid">
+            <!-- 01 — PRELJINA -->
+            <article class="bc-prop-card">
+                <div class="bc-prop-image-wrap" onclick="bcOpenProperty('bcPropertyPreljina')">
+                    <img class="bc-prop-image" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.17-8.jpeg" alt="Kuća u Preljini 240 m²" loading="lazy">
+                    <div class="bc-prop-status">Na prodaju</div>
+                    <div class="bc-prop-gallery-count">◫ 5 fotografija</div>
+                    <div class="bc-prop-photo-label">Preljina · Poslovni potencijal</div>
+                </div>
+                <div class="bc-prop-content">
+                    <div class="bc-prop-topline">
+                        <span class="bc-prop-type">Preljina</span>
+                        <span class="bc-prop-price">400.000 €</span>
+                    </div>
+                    <h3 class="bc-prop-title">Kuća 240 m² na 30 ari placa.</h3>
+                    <p class="bc-prop-desc">Nekretnina u Preljini, u zoni autoputnog čvorišta. Lokacija pogodna za poslovni centar, halu, predstavništvo ili drugi poslovni sadržaj.</p>
+                    <div class="bc-prop-data">
+                        <div class="bc-prop-data-item"><small>Objekat</small><strong>240 m²</strong></div>
+                        <div class="bc-prop-data-item"><small>Plac</small><strong>30 ari</strong></div>
+                        <div class="bc-prop-data-item"><small>Cena</small><strong>400.000 €</strong></div>
+                    </div>
+                    <div class="bc-prop-actions">
+                        <button class="bc-prop-btn" type="button" onclick="bcOpenProperty('bcPropertyPreljina')">Pogledaj oglas <span>→</span></button>
+                        <a class="bc-prop-phone-mini" href="tel:+381616372838">+381 61 637 2838</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 02 — LOKALI -->
+            <article class="bc-prop-card">
+                <div class="bc-prop-image-wrap" onclick="bcOpenProperty('bcPropertyLokali')">
+                    <img class="bc-prop-image" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.18-5.jpeg" alt="Kuća 88 m² sa dva lokala" loading="lazy">
+                    <div class="bc-prop-status">Na prodaju</div>
+                    <div class="bc-prop-gallery-count">◫ 4 fotografije</div>
+                    <div class="bc-prop-photo-label">Kuća · Dva poslovna lokala</div>
+                </div>
+                <div class="bc-prop-content">
+                    <div class="bc-prop-topline">
+                        <span class="bc-prop-type">Stambeno-poslovni objekat</span>
+                        <span class="bc-prop-price">150.000 €</span>
+                    </div>
+                    <h3 class="bc-prop-title">Kuća 88 m² sa dva lokala.</h3>
+                    <p class="bc-prop-desc">Stambeno-poslovna nekretnina površine 88 m² sa dva lokala. Frizerski salon je trenutno u radu, što objektu daje dodatnu poslovnu vrednost.</p>
+                    <div class="bc-prop-data">
+                        <div class="bc-prop-data-item"><small>Površina</small><strong>88 m²</strong></div>
+                        <div class="bc-prop-data-item"><small>Lokali</small><strong>2 lokala</strong></div>
+                        <div class="bc-prop-data-item"><small>Cena</small><strong>150.000 €</strong></div>
+                    </div>
+                    <div class="bc-prop-actions">
+                        <button class="bc-prop-btn" type="button" onclick="bcOpenProperty('bcPropertyLokali')">Pogledaj oglas <span>→</span></button>
+                        <a class="bc-prop-phone-mini" href="tel:+381616372838">+381 61 637 2838</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- MODAL PRELJINA -->
+<div class="bc-property-modal" id="bcPropertyPreljina" data-current="0" onclick="bcModalBackground(event,this)">
+    <div class="bc-property-dialog">
+        <button class="bc-property-close" type="button" onclick="bcCloseProperty('bcPropertyPreljina')" aria-label="Zatvori">×</button>
+        <div class="bc-property-gallery">
+            <div class="bc-property-main-photo">
+                <img id="bcPreljinaMain" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.17-8.jpeg" alt="Kuća u Preljini">
+                <button class="bc-gallery-arrow bc-gallery-prev" type="button" onclick="bcGalleryMove('bcPropertyPreljina',-1)">‹</button>
+                <button class="bc-gallery-arrow bc-gallery-next" type="button" onclick="bcGalleryMove('bcPropertyPreljina',1)">›</button>
+                <div class="bc-gallery-counter" id="bcPreljinaCounter">1 / 5</div>
+            </div>
+            <div class="bc-property-thumbs">
+                <button class="bc-property-thumb bc-active" type="button" onclick="bcGallerySelect('bcPropertyPreljina',0)"><img src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.17-8.jpeg" alt=""></button>
+                <button class="bc-property-thumb" type="button" onclick="bcGallerySelect('bcPropertyPreljina',1)"><img src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.17-6.jpeg" alt=""></button>
+                <button class="bc-property-thumb" type="button" onclick="bcGallerySelect('bcPropertyPreljina',2)"><img src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.18-6.jpeg" alt=""></button>
+                <button class="bc-property-thumb" type="button" onclick="bcGallerySelect('bcPropertyPreljina',3)"><img src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.18-7.jpeg" alt=""></button>
+                <button class="bc-property-thumb" type="button" onclick="bcGallerySelect('bcPropertyPreljina',4)"><img src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.17-7.jpeg" alt=""></button>
+            </div>
+        </div>
+        <div class="bc-property-modal-content">
+            <div class="bc-property-modal-label">Na prodaju · Preljina</div>
+            <h3>Kuća 240 m² na 30 ari placa.</h3>
+            <div class="bc-property-modal-price">400.000 €</div>
+            <p class="bc-property-modal-description">
+                Nekretnina u Preljini, na lokaciji sa izraženim poslovnim potencijalom, u zoni značajnog autoputnog čvorišta. Objekat ima 240 m², dok zemljište obuhvata 30 ari. Lokacija može biti interesantna za razvoj poslovnog centra, hale, predstavništva ili druge komercijalne namene.
+            </p>
+            <div class="bc-property-modal-facts">
+                <div class="bc-property-modal-fact"><small>Lokacija</small><strong>Preljina</strong></div>
+                <div class="bc-property-modal-fact"><small>Objekat</small><strong>240 m²</strong></div>
+                <div class="bc-property-modal-fact"><small>Plac</small><strong>30 ari</strong></div>
+                <div class="bc-property-modal-fact"><small>Namena</small><strong>Stanovanje / poslovni potencijal</strong></div>
+                <div class="bc-property-modal-fact"><small>Potencijal</small><strong>Hala · poslovni centar · predstavništvo</strong></div>
+                <div class="bc-property-modal-fact"><small>Cena</small><strong>400.000 €</strong></div>
+            </div>
+            <div class="bc-property-phone-box">
+                <div><small>Kontakt telefon</small><strong>+381 61 637 2838</strong></div>
+                <a class="bc-property-call" href="tel:+381616372838">Pozovi</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL LOKALI -->
+<div class="bc-property-modal" id="bcPropertyLokali" data-current="0" onclick="bcModalBackground(event,this)">
+    <div class="bc-property-dialog">
+        <button class="bc-property-close" type="button" onclick="bcCloseProperty('bcPropertyLokali')" aria-label="Zatvori">×</button>
+        <div class="bc-property-gallery">
+            <div class="bc-property-main-photo">
+                <img id="bcLokaliMain" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.18-5.jpeg" alt="Kuća sa dva lokala">
+                <button class="bc-gallery-arrow bc-gallery-prev" type="button" onclick="bcGalleryMove('bcPropertyLokali',-1)">‹</button>
+                <button class="bc-gallery-arrow bc-gallery-next" type="button" onclick="bcGalleryMove('bcPropertyLokali',1)">›</button>
+                <div class="bc-gallery-counter" id="bcLokaliCounter">1 / 4</div>
+            </div>
+            <div class="bc-property-thumbs">
+                <button class="bc-property-thumb bc-active" type="button" onclick="bcGallerySelect('bcPropertyLokali',0)"><img src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.18-5.jpeg" alt=""></button>
+                <button class="bc-property-thumb" type="button" onclick="bcGallerySelect('bcPropertyLokali',1)"><img src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.18-2.jpeg" alt=""></button>
+                <button class="bc-property-thumb" type="button" onclick="bcGallerySelect('bcPropertyLokali',2)"><img src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.18-1.jpeg" alt=""></button>
+                <button class="bc-property-thumb" type="button" onclick="bcGallerySelect('bcPropertyLokali',3)"><img src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.17-4.jpeg" alt=""></button>
+            </div>
+        </div>
+        <div class="bc-property-modal-content">
+            <div class="bc-property-modal-label">Na prodaju · Stambeno-poslovni objekat</div>
+            <h3>Kuća 88 m² sa dva lokala.</h3>
+            <div class="bc-property-modal-price">150.000 €</div>
+            <p class="bc-property-modal-description">
+                Stambeno-poslovna nekretnina površine 88 m² sa dva poslovna lokala. Jedan od lokala koristi se kao frizerski salon koji je trenutno u radu, što objektu daje postojeću poslovnu funkciju i dodatni komercijalni potencijal.
+            </p>
+            <div class="bc-property-modal-facts">
+                <div class="bc-property-modal-fact"><small>Površina</small><strong>88 m²</strong></div>
+                <div class="bc-property-modal-fact"><small>Lokali</small><strong>2 poslovna lokala</strong></div>
+                <div class="bc-property-modal-fact"><small>Aktivnost</small><strong>Frizerski salon u radu</strong></div>
+                <div class="bc-property-modal-fact"><small>Tip</small><strong>Stambeno-poslovni objekat</strong></div>
+                <div class="bc-property-modal-fact"><small>Cena</small><strong>150.000 €</strong></div>
+            </div>
+            <div class="bc-property-phone-box">
+                <div><small>Kontakt telefon</small><strong>+381 61 637 2838</strong></div>
+                <a class="bc-property-call" href="tel:+381616372838">Pozovi</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="bc-footer">
+    <div class="bc-footer-line"></div>
+    <div class="bc-footer-inner">
+        <div class="bc-footer-main">
+            <div>
+                <div class="bc-footer-label">Za pravedniju Srbiju</div>
+                <h2 class="bc-footer-title">Država u kojoj se<br><span>pitaju građani.</span></h2>
+                <p class="bc-footer-copy">Odgovornost, domaća proizvodnja i veće učešće građana u odlukama koje određuju budućnost Srbije.</p>
+            </div>
+            <div class="bc-footer-brand">
+                <div class="bc-footer-monogram">BĆ</div>
+                <div class="bc-footer-name">Blagoje Ćurčić</div>
+                <div class="bc-footer-tagline">Za pravedniju Srbiju</div>
+                <nav class="bc-footer-nav" aria-label="Navigacija u podnožju">
+                    <a href="pocetna.html">Početak</a>
+                    <a href="pocetna.html#bc-about">O meni</a>
+                    <a href="pocetna.html#bc-principles">Program</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </nav>
+            </div>
+        </div>
+        <div class="bc-footer-bottom">
+            <div class="bc-footer-copyright">© <span id="bcFooterYear">2026</span> Blagoje Ćurčić · Sva prava zadržana</div>
+            <div class="bc-footer-principle">Građanin u centru odluke.</div>
+            <a class="bc-footer-top" href="#bc-properties" aria-label="Nazad na vrh">↑</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+/* =========================================================
+   GALERIJA I MODAL LOGIKA
+========================================================= */
+const bcPropertyGalleries = {
+    bcPropertyPreljina: {
+        mainId: "bcPreljinaMain",
+        counterId: "bcPreljinaCounter",
+        images: [
+            "https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.17-8.jpeg",
+            "https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.17-6.jpeg",
+            "https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.18-6.jpeg",
+            "https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.18-7.jpeg",
+            "https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.17-7.jpeg"
+        ]
+    },
+    bcPropertyLokali: {
+        mainId: "bcLokaliMain",
+        counterId: "bcLokaliCounter",
+        images: [
+            "https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.18-5.jpeg",
+            "https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.18-2.jpeg",
+            "https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.18-1.jpeg",
+            "https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-04-at-12.52.17-4.jpeg"
+        ]
+    }
+};
+
+function bcOpenProperty(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.add("bc-open");
+    document.body.style.overflow = "hidden";
+}
+
+function bcCloseProperty(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.remove("bc-open");
+    document.body.style.overflow = "";
+}
+
+function bcModalBackground(event, modal) {
+    if (event.target === modal) {
+        modal.classList.remove("bc-open");
+        document.body.style.overflow = "";
+    }
+}
+
+function bcGallerySelect(modalId, index) {
+    const modal = document.getElementById(modalId);
+    const gallery = bcPropertyGalleries[modalId];
+    if (!modal || !gallery || index < 0 || index >= gallery.images.length) return;
+
+    modal.dataset.current = index;
+    const main = document.getElementById(gallery.mainId);
+    if (main) main.src = gallery.images[index];
+
+    const counter = document.getElementById(gallery.counterId);
+    if (counter) counter.textContent = (index + 1) + " / " + gallery.images.length;
+
+    const thumbs = modal.querySelectorAll(".bc-property-thumb");
+    thumbs.forEach((thumb, i) => thumb.classList.toggle("bc-active", i === index));
+}
+
+function bcGalleryMove(modalId, direction) {
+    const modal = document.getElementById(modalId);
+    const gallery = bcPropertyGalleries[modalId];
+    if (!modal || !gallery) return;
+
+    let current = parseInt(modal.dataset.current || "0", 10) + direction;
+    if (current < 0) current = gallery.images.length - 1;
+    if (current >= gallery.images.length) current = 0;
+
+    bcGallerySelect(modalId, current);
+}
+
+document.addEventListener("keydown", function(event) {
+    const openModal = document.querySelector(".bc-property-modal.bc-open");
+    if (!openModal) return;
+
+    if (event.key === "Escape") bcCloseProperty(openModal.id);
+    if (event.key === "ArrowLeft") bcGalleryMove(openModal.id, -1);
+    if (event.key === "ArrowRight") bcGalleryMove(openModal.id, 1);
+});
+
+(function () {
+    const btn = document.getElementById("bcMenuButton");
+    const nav = document.getElementById("bcNav");
+    if (btn && nav) {
+        btn.addEventListener("click", function () {
+            const open = nav.classList.toggle("bc-open");
+            btn.classList.toggle("bc-active", open);
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+    }
+    const year = document.getElementById("bcFooterYear");
+    if (year) { year.textContent = new Date().getFullYear(); }
+})();
+</script>
+</body>
+</html>

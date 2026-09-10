@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07182d">
+<title>Švajcarski sistem — Blagoje Ćurčić</title>
+<meta name="description" content="Švajcarski sistem za Srbiju. Direktna demokratija, veća odgovornost vlasti i ekonomski rast.">
+<style>
+html,body{margin:0;padding:0;width:100%;min-height:100%;overflow-x:hidden;}
+body{background:#f8fafc;}
+</style>
+</head>
+<body>
+
+<style>
+/* =========================================================
+   HEADER (SHARED)
+========================================================= */
+html { scroll-behavior: smooth; }
+#bc-header-wrap {
+    --navy: #07182d; --blue: #124d8b; --blue-hover: #1763ad; --white: #ffffff;
+    position: relative; width: 100vw; margin-left: calc(50% - 50vw);
+    font-family: Arial, Helvetica, sans-serif; background: #07182d;
+}
+#bc-header-wrap *, #bc-header-wrap *::before, #bc-header-wrap *::after { box-sizing: border-box; }
+#bc-header-wrap .bc-header {
+    position: relative; top: 0; left: 0; right: 0; z-index: 30;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    background: linear-gradient(to bottom, rgba(3,15,30,.85), rgba(3,15,30,.60));
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+}
+#bc-header-wrap .bc-header-inner {
+    width: min(1320px, calc(100% - 60px)); min-height: 84px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 32px;
+}
+#bc-header-wrap .bc-brand { display: flex; align-items: center; gap: 16px; color: #fff; text-decoration: none; flex-shrink: 0; }
+#bc-header-wrap .bc-monogram { font-family: Georgia, serif; font-size: 38px; line-height: 1; color: #fff; padding-right: 17px; border-right: 1px solid rgba(255,255,255,.3); }
+#bc-header-wrap .bc-brand-name { font-family: Georgia, serif; font-size: 17px; font-weight: 600; letter-spacing: .04em; color: #fff; }
+#bc-header-wrap .bc-brand-subtitle { margin-top: 5px; font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: .27em; color: rgba(255,255,255,.55); }
+#bc-header-wrap .bc-nav { display: flex; align-items: center; gap: 31px; margin-left: auto; }
+#bc-header-wrap .bc-nav a {
+    position: relative; padding: 32px 0; color: #fff; font-size: 11px; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase; text-decoration: none; opacity: .82;
+    transition: opacity .25s ease, color .25s ease;
+}
+#bc-header-wrap .bc-nav a:hover { opacity: 1; }
+#bc-header-wrap .bc-nav a::after {
+    content: ""; position: absolute; left: 0; bottom: 21px; width: 0; height: 2px;
+    background: #1c67ad; transition: width .25s ease;
+}
+#bc-header-wrap .bc-nav a:hover::after, #bc-header-wrap .bc-nav a.bc-current::after { width: 100%; }
+#bc-header-wrap .bc-nav a.bc-current { opacity: 1; }
+#bc-header-wrap .bc-header-button {
+    min-height: 42px; padding: 0 20px; display: inline-flex; align-items: center; justify-content: center;
+    gap: 11px; color: #fff; background: #124d8b; border: 1px solid #2466a3; text-decoration: none;
+    font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; transition: .25s ease; flex-shrink: 0;
+}
+#bc-header-wrap .bc-header-button:hover { background: #1763ad; transform: translateY(-1px); }
+#bc-header-wrap .bc-menu-button {
+    display: none; position: relative; width: 44px; height: 44px; padding: 0;
+    align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.25);
+    background: rgba(7,24,45,.18); color: #fff; cursor: pointer; transition: background .25s ease;
+}
+#bc-header-wrap .bc-menu-icon { position: relative; display: block; width: 19px; height: 14px; }
+#bc-header-wrap .bc-menu-icon span {
+    position: absolute; left: 0; width: 19px; height: 1.5px; background: #fff;
+    transition: transform .28s ease, opacity .2s ease, top .28s ease;
+}
+#bc-header-wrap .bc-menu-icon span:nth-child(1) { top: 0; }
+#bc-header-wrap .bc-menu-icon span:nth-child(2) { top: 6px; }
+#bc-header-wrap .bc-menu-icon span:nth-child(3) { top: 12px; }
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(2) { opacity: 0; }
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+
+@media (max-width: 1050px) {
+    #bc-header-wrap .bc-nav { display: none; }
+    #bc-header-wrap .bc-header-button { margin-left: auto; }
+    #bc-header-wrap .bc-menu-button { display: flex; }
+    #bc-header-wrap .bc-nav.bc-open {
+        display: flex; position: absolute; top: 84px; left: 0; right: 0; margin: 0;
+        padding: 8px 30px 18px; flex-direction: column; align-items: stretch; gap: 0;
+        background: rgba(5,21,40,.985); border-top: 1px solid rgba(255,255,255,.05);
+        border-bottom: 1px solid rgba(255,255,255,.12); box-shadow: 0 18px 40px rgba(0,0,0,.18);
+    }
+    #bc-header-wrap .bc-nav.bc-open a {
+        position: relative; width: 100%; min-height: 54px; padding: 0; display: flex;
+        align-items: center; border-bottom: 1px solid rgba(255,255,255,.08);
+        font-family: Georgia, serif; font-size: 16px; font-weight: 400; text-transform: none; opacity: .82;
+    }
+    #bc-header-wrap .bc-nav.bc-open a:last-child { border-bottom: 0; }
+}
+@media (max-width: 700px) {
+    #bc-header-wrap .bc-header-inner { width: calc(100% - 24px); min-height: 68px; }
+    #bc-header-wrap .bc-monogram { font-size: 29px; padding-right: 11px; }
+    #bc-header-wrap .bc-brand-name { font-size: 13px; }
+    #bc-header-wrap .bc-brand-subtitle, #bc-header-wrap .bc-header-button { display: none; }
+    #bc-header-wrap .bc-nav.bc-open { top: 68px; padding: 6px 18px 14px; }
+}
+
+/* =========================================================
+   ŠVAJCARSKI SISTEM SPECIFIČNI STILOVI
+========================================================= */
+#bc-svajcarski{
+    --navy:#07182d;--navy2:#0b2645;--blue:#124d8b;--blue2:#1763ad;--bg:#f8fafc;--white:#ffffff;
+    --text:#17212c;--muted:#68727c;--line:rgba(7,24,45,.11);--soft:#edf3f7;
+    position:relative;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;
+    background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;
+}
+#bc-svajcarski *,#bc-svajcarski *::before,#bc-svajcarski *::after{box-sizing:border-box;}
+#bc-svajcarski .bc-swiss-home{
+    position:fixed;z-index:9990;right:22px;bottom:22px;min-height:46px;padding:0 18px;
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid rgba(255,255,255,.18);
+    background:rgba(7,24,45,.94);color:#fff;text-decoration:none;box-shadow:0 10px 30px rgba(7,24,45,.18);
+    font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;border-radius:4px;transition:.22s ease;
+}
+#bc-svajcarski .bc-swiss-home span{font-size:15px;transition:transform .22s ease;}
+#bc-svajcarski .bc-swiss-home:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-2px);}
+#bc-svajcarski .bc-swiss-home:hover span{transform:translateX(-3px);}
+#bc-svajcarski .bc-swiss-inner{width:min(1220px,calc(100% - 48px));margin:0 auto;padding:80px 0 105px;}
+#bc-svajcarski .bc-swiss-hero{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(370px,.96fr);min-height:600px;background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden;}
+#bc-svajcarski .bc-swiss-hero-content{padding:62px 58px;display:flex;flex-direction:column;justify-content:center;}
+#bc-svajcarski .bc-swiss-label{display:flex;align-items:center;gap:11px;margin-bottom:20px;color:var(--blue);font-size:9px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;}
+#bc-svajcarski .bc-swiss-label::before{content:"";width:38px;height:2px;background:var(--blue);}
+#bc-svajcarski .bc-swiss-index{margin-bottom:17px;color:rgba(7,24,45,.27);font-family:Georgia,serif;font-size:17px;letter-spacing:.07em;}
+#bc-svajcarski .bc-swiss-title{max-width:700px;margin:0;color:var(--navy);font-family:Georgia,serif;font-size:clamp(45px,5vw,68px);font-weight:400;line-height:1;letter-spacing:-.045em;}
+#bc-svajcarski .bc-swiss-title span{color:var(--blue);}
+#bc-svajcarski .bc-swiss-lead{max-width:610px;margin:25px 0 0;color:#48545f;font-size:18px;line-height:1.66;}
+#bc-svajcarski .bc-swiss-copy{max-width:610px;margin:18px 0 0;color:var(--muted);font-size:13px;line-height:1.78;}
+#bc-svajcarski .bc-swiss-visual{position:relative;min-width:0;overflow:hidden;background:#dbe4ea;}
+#bc-svajcarski .bc-swiss-image{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center;filter:saturate(.72) contrast(1.04);}
+#bc-svajcarski .bc-swiss-visual::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(7,24,45,.03) 26%,rgba(7,24,45,.08) 55%,rgba(7,24,45,.72) 100%);}
+#bc-svajcarski .bc-swiss-photo-index{position:absolute;z-index:4;top:27px;right:28px;color:rgba(255,255,255,.88);font-family:Georgia,serif;font-size:13px;}
+#bc-svajcarski .bc-swiss-caption{position:absolute;z-index:4;left:28px;bottom:27px;display:flex;align-items:center;gap:10px;color:#fff;font-size:9px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;}
+#bc-svajcarski .bc-swiss-caption::before{content:"";width:28px;height:2px;background:#fff;}
+#bc-svajcarski .bc-swiss-principle{margin-top:70px;display:grid;grid-template-columns:minmax(210px,.35fr) minmax(0,1fr);background:var(--navy);border-radius:4px;overflow:hidden;}
+#bc-svajcarski .bc-swiss-principle-side{padding:33px 31px;border-right:1px solid rgba(255,255,255,.12);}
+#bc-svajcarski .bc-swiss-principle-side small{display:block;color:#75a7d4;font-size:8px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;}
+#bc-svajcarski .bc-swiss-principle-side strong{display:block;margin-top:10px;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:400;line-height:1.3;}
+#bc-svajcarski .bc-swiss-principle-main{padding:33px 39px;display:flex;align-items:center;}
+#bc-svajcarski .bc-swiss-principle-main p{max-width:830px;margin:0;color:rgba(255,255,255,.69);font-size:13px;line-height:1.78;}
+#bc-svajcarski .bc-swiss-principle-main strong{color:#fff;}
+#bc-svajcarski .bc-swiss-head{margin-top:86px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.65fr);gap:70px;align-items:end;padding-bottom:30px;border-bottom:1px solid var(--line);}
+#bc-svajcarski .bc-swiss-head h3{max-width:690px;margin:0;color:var(--navy);font-family:Georgia,serif;font-size:clamp(34px,4vw,49px);font-weight:400;line-height:1.05;letter-spacing:-.035em;}
+#bc-svajcarski .bc-swiss-head p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.72;}
+#bc-svajcarski .bc-swiss-pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--line);}
+#bc-svajcarski .bc-swiss-pillar{min-width:0;padding:35px 32px 38px;border-right:1px solid var(--line);}
+#bc-svajcarski .bc-swiss-pillar:first-child{padding-left:0;}
+#bc-svajcarski .bc-swiss-pillar:last-child{padding-right:0;border-right:0;}
+#bc-svajcarski .bc-swiss-pillar-num{display:block;margin-bottom:20px;color:var(--blue);font-family:Georgia,serif;font-size:14px;}
+#bc-svajcarski .bc-swiss-pillar h4{margin:0;color:var(--navy);font-family:Georgia,serif;font-size:23px;font-weight:500;line-height:1.18;}
+#bc-svajcarski .bc-swiss-pillar p{margin:12px 0 0;color:var(--muted);font-size:12px;line-height:1.68;}
+#bc-svajcarski .bc-swiss-vote{margin-top:86px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);min-height:320px;background:var(--navy);border-radius:4px;overflow:hidden;}
+#bc-svajcarski .bc-swiss-vote-left{padding:42px 38px;border-right:1px solid rgba(255,255,255,.12);}
+#bc-svajcarski .bc-swiss-vote-left small{color:#76a7d3;font-size:8px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;}
+#bc-svajcarski .bc-swiss-vote-left h3{max-width:500px;margin:13px 0 0;color:#fff;font-family:Georgia,serif;font-size:clamp(30px,3.5vw,44px);font-weight:400;line-height:1.08;letter-spacing:-.03em;}
+#bc-svajcarski .bc-swiss-vote-left p{max-width:510px;margin:18px 0 0;color:rgba(255,255,255,.58);font-size:12px;line-height:1.72;}
+#bc-svajcarski .bc-swiss-vote-right{padding:34px 38px;display:flex;flex-direction:column;justify-content:center;}
+#bc-svajcarski .bc-swiss-vote-item{display:grid;grid-template-columns:37px minmax(0,1fr);gap:13px;padding:19px 0;border-bottom:1px solid rgba(255,255,255,.11);}
+#bc-svajcarski .bc-swiss-vote-item:last-child{border-bottom:0;}
+#bc-svajcarski .bc-swiss-vote-item span{color:#75a7d4;font-family:Georgia,serif;font-size:14px;}
+#bc-svajcarski .bc-swiss-vote-item strong{display:block;color:#fff;font-size:12px;font-weight:700;line-height:1.45;}
+#bc-svajcarski .bc-swiss-vote-item p{margin:5px 0 0;color:rgba(255,255,255,.49);font-size:10.5px;line-height:1.55;}
+#bc-svajcarski .bc-swiss-income{margin-top:86px;position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(250px,.42fr) minmax(0,1fr);background:linear-gradient(135deg,#07182d 0%,#0a2543 100%);color:#fff;border-radius:4px;}
+#bc-svajcarski .bc-swiss-income::after{content:"2×";position:absolute;right:-28px;bottom:-78px;color:rgba(255,255,255,.035);font-family:Georgia,serif;font-size:260px;line-height:1;pointer-events:none;}
+#bc-svajcarski .bc-swiss-income-number{position:relative;z-index:2;min-height:330px;padding:42px 35px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid rgba(255,255,255,.12);}
+#bc-svajcarski .bc-swiss-income-number small{color:#78a8d3;font-size:8px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;}
+#bc-svajcarski .bc-swiss-income-number strong{color:#fff;font-family:Georgia,serif;font-size:clamp(72px,8vw,108px);font-weight:400;line-height:.8;letter-spacing:-.07em;}
+#bc-svajcarski .bc-swiss-income-number span{color:rgba(255,255,255,.47);font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;}
+#bc-svajcarski .bc-swiss-income-content{position:relative;z-index:2;padding:48px 46px;display:flex;flex-direction:column;justify-content:center;}
+#bc-svajcarski .bc-swiss-income-label{display:flex;align-items:center;gap:11px;margin-bottom:17px;color:#79a9d4;font-size:8px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;}
+#bc-svajcarski .bc-swiss-income-label::before{content:"";width:31px;height:2px;background:#5e96c8;}
+#bc-svajcarski .bc-swiss-income-content h3{max-width:730px;margin:0;color:#fff;font-family:Georgia,serif;font-size:clamp(34px,4vw,50px);font-weight:400;line-height:1.06;letter-spacing:-.035em;}
+#bc-svajcarski .bc-swiss-income-content h3 span{color:#79a9d4;}
+#bc-svajcarski .bc-swiss-income-content p{max-width:720px;margin:20px 0 0;color:rgba(255,255,255,.61);font-size:12.5px;line-height:1.78;}
+#bc-svajcarski .bc-swiss-income-promise{max-width:720px;margin-top:25px;padding-top:21px;border-top:1px solid rgba(255,255,255,.12);color:#fff;font-family:Georgia,serif;font-size:20px;line-height:1.4;}
+#bc-svajcarski .bc-swiss-vin{position:relative;margin-top:34px;min-height:310px;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(280px,.82fr);overflow:hidden;border:1px solid var(--line);background:#fff;border-radius:4px;}
+#bc-svajcarski .bc-swiss-vin-main{position:relative;z-index:2;padding:45px 44px;display:flex;flex-direction:column;justify-content:center;}
+#bc-svajcarski .bc-swiss-vin-label{display:flex;align-items:center;gap:11px;margin-bottom:16px;color:var(--blue);font-size:8px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;}
+#bc-svajcarski .bc-swiss-vin-label::before{content:"";width:31px;height:2px;background:var(--blue);}
+#bc-svajcarski .bc-swiss-vin-main h3{max-width:680px;margin:0;color:var(--navy);font-family:Georgia,serif;font-size:clamp(31px,3.7vw,46px);font-weight:400;line-height:1.07;letter-spacing:-.035em;}
+#bc-svajcarski .bc-swiss-vin-main h3 span{color:var(--blue);}
+#bc-svajcarski .bc-swiss-vin-main p{max-width:680px;margin:18px 0 0;color:var(--muted);font-size:12px;line-height:1.75;}
+#bc-svajcarski .bc-swiss-vin-side{position:relative;min-height:310px;padding:35px 31px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--soft);border-left:1px solid var(--line);}
+#bc-svajcarski .bc-swiss-vin-side::before{content:"V";position:absolute;top:-45px;right:-18px;color:rgba(18,77,139,.065);font-family:Georgia,serif;font-size:245px;line-height:1;pointer-events:none;}
+#bc-svajcarski .bc-swiss-vin-side small{position:relative;z-index:2;color:var(--blue);font-size:8px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;}
+#bc-svajcarski .bc-swiss-vin-side strong{position:relative;z-index:2;display:block;margin-top:10px;color:var(--navy);font-family:Georgia,serif;font-size:23px;font-weight:500;line-height:1.3;}
+#bc-svajcarski .bc-swiss-vin-status{position:relative;z-index:2;width:max-content;margin-top:20px;padding:9px 12px;border:1px solid rgba(18,77,139,.20);color:var(--blue);background:rgba(255,255,255,.62);font-size:7px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;}
+
+@media(max-width:800px){
+    #bc-svajcarski .bc-swiss-inner{width:100%;padding:56px max(17px,env(safe-area-inset-right)) 72px max(17px,env(safe-area-inset-left));}
+    #bc-svajcarski .bc-swiss-hero{grid-template-columns:1fr;min-height:0;}
+    #bc-svajcarski .bc-swiss-hero-content{padding:39px 22px 42px;}
+    #bc-svajcarski .bc-swiss-title{font-size:clamp(38px,10.8vw,51px);}
+    #bc-svajcarski .bc-swiss-lead{margin-top:19px;font-size:15.5px;line-height:1.58;}
+    #bc-svajcarski .bc-swiss-visual{min-height:clamp(300px,82vw,420px);}
+    #bc-svajcarski .bc-swiss-principle{margin-top:47px;grid-template-columns:1fr;}
+    #bc-svajcarski .bc-swiss-principle-side{padding:23px 20px;border-right:0;border-bottom:1px solid rgba(255,255,255,.11);}
+    #bc-svajcarski .bc-swiss-principle-main{padding:23px 20px;}
+    #bc-svajcarski .bc-swiss-head{margin-top:61px;grid-template-columns:1fr;gap:16px;padding-bottom:24px;}
+    #bc-svajcarski .bc-swiss-head h3{font-size:clamp(31px,8.5vw,40px);}
+    #bc-svajcarski .bc-swiss-pillars{grid-template-columns:1fr;}
+    #bc-svajcarski .bc-swiss-pillar,#bc-svajcarski .bc-swiss-pillar:first-child,#bc-svajcarski .bc-swiss-pillar:last-child{padding:24px 0;border-right:0;border-bottom:1px solid var(--line);}
+    #bc-svajcarski .bc-swiss-pillar:last-child{border-bottom:0;}
+    #bc-svajcarski .bc-swiss-vote{margin-top:61px;grid-template-columns:1fr;min-height:0;}
+    #bc-svajcarski .bc-swiss-vote-left{padding:29px 22px;border-right:0;border-bottom:1px solid rgba(255,255,255,.11);}
+    #bc-svajcarski .bc-swiss-vote-right{padding:11px 22px 17px;}
+    #bc-svajcarski .bc-swiss-income{margin-top:61px;grid-template-columns:1fr;}
+    #bc-svajcarski .bc-swiss-income-number{min-height:210px;padding:28px 22px;border-right:0;border-bottom:1px solid rgba(255,255,255,.12);}
+    #bc-svajcarski .bc-swiss-income-number strong{font-size:72px;}
+    #bc-svajcarski .bc-swiss-income-content{padding:30px 22px;}
+    #bc-svajcarski .bc-swiss-income-content h3{font-size:clamp(30px,8.5vw,40px);}
+    #bc-svajcarski .bc-swiss-income-promise{font-size:17px;}
+    #bc-svajcarski .bc-swiss-vin{margin-top:24px;grid-template-columns:1fr;}
+    #bc-svajcarski .bc-swiss-vin-main{padding:30px 22px;}
+    #bc-svajcarski .bc-swiss-vin-side{min-height:210px;padding:27px 22px;border-left:0;border-top:1px solid var(--line);}
+}
+
+/* =========================================================
+   FOOTER (SHARED)
+========================================================= */
+#bc-footer {
+    --navy:#07182d; --blue:#124d8b; width:100vw; margin-left:calc(50% - 50vw);
+    overflow:hidden; background:var(--navy); color:#fff; font-family:Arial,Helvetica,sans-serif;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+#bc-footer .bc-footer-line {
+    width:100%; height:3px;
+    background:linear-gradient(90deg,#d21f2b 0%,#d21f2b 33.33%,#ffffff 33.33%,#ffffff 66.66%,#1b5a9d 66.66%,#1b5a9d 100%);
+}
+#bc-footer .bc-footer-inner { width:min(1220px, calc(100% - 48px)); margin:0 auto; padding:72px 0 27px; }
+#bc-footer .bc-footer-main { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(240px,.6fr); gap:80px; align-items:end; padding-bottom:52px; border-bottom:1px solid rgba(255,255,255,.11); }
+#bc-footer .bc-footer-label { display:flex; align-items:center; gap:11px; margin-bottom:17px; color:#77a6d1; font-size:8px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+#bc-footer .bc-footer-label::before { content:""; width:35px; height:2px; background:#397bb7; }
+#bc-footer .bc-footer-title { max-width:760px; margin:0; color:#fff; font-family:Georgia,serif; font-size:clamp(38px,4.7vw,61px); font-weight:400; line-height:1.02; letter-spacing:-.04em; }
+#bc-footer .bc-footer-title span { color:#70a1cf; }
+#bc-footer .bc-footer-copy { max-width:600px; margin:20px 0 0; color:rgba(255,255,255,.55); font-size:13px; line-height:1.7; }
+#bc-footer .bc-footer-brand { padding-left:30px; border-left:1px solid rgba(255,255,255,.12); }
+#bc-footer .bc-footer-monogram { margin-bottom:16px; color:#fff; font-family:Georgia,serif; font-size:45px; line-height:1; }
+#bc-footer .bc-footer-name { color:#fff; font-family:Georgia,serif; font-size:20px; font-weight:500; }
+#bc-footer .bc-footer-tagline { margin-top:7px; color:rgba(255,255,255,.42); font-size:8px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+#bc-footer .bc-footer-nav { margin-top:27px; display:flex; flex-direction:column; align-items:flex-start; }
+#bc-footer .bc-footer-nav a {
+    position:relative; width:100%; min-height:39px; display:flex; align-items:center;
+    color:rgba(255,255,255,.67); border-bottom:1px solid rgba(255,255,255,.07); text-decoration:none;
+    font-size:9px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; transition:color .2s ease;
+}
+#bc-footer .bc-footer-nav a:hover { color:#fff; }
+#bc-footer .bc-footer-bottom { min-height:67px; display:flex; align-items:center; justify-content:space-between; gap:30px; }
+#bc-footer .bc-footer-copyright { color:rgba(255,255,255,.34); font-size:8px; font-weight:700; text-transform:uppercase; }
+#bc-footer .bc-footer-principle { display:flex; align-items:center; gap:10px; color:rgba(255,255,255,.40); font-family:Georgia,serif; font-size:12px; }
+#bc-footer .bc-footer-principle::before { content:""; width:21px; height:1px; background:#3e73a4; }
+#bc-footer .bc-footer-top {
+    width:42px; height:42px; flex:0 0 42px; display:grid; place-items:center;
+    border:1px solid rgba(255,255,255,.19); color:#fff; background:transparent; text-decoration:none; font-size:15px; transition:.2s ease;
+}
+#bc-footer .bc-footer-top:hover { background:var(--blue); border-color:var(--blue); }
+
+@media(max-width:767px) {
+    #bc-footer .bc-footer-inner { width:100%; padding:57px max(17px,env(safe-area-inset-right)) 20px max(17px,env(safe-area-inset-left)); }
+    #bc-footer .bc-footer-main { grid-template-columns:1fr; gap:39px; padding-bottom:38px; }
+    #bc-footer .bc-footer-brand { padding:27px 0 0; border-left:0; border-top:1px solid rgba(255,255,255,.11); }
+    #bc-footer .bc-footer-bottom { min-height:0; padding-top:20px; display:grid; grid-template-columns:minmax(0,1fr) 42px; gap:15px; }
+    #bc-footer .bc-footer-copyright { grid-column:1; grid-row:2; }
+    #bc-footer .bc-footer-principle { grid-column:1 / -1; grid-row:1; }
+    #bc-footer .bc-footer-top { grid-column:2; grid-row:2; }
+}
+</style>
+
+<div id="bc-header-wrap">
+    <header class="bc-header">
+        <div class="bc-header-inner">
+            <a class="bc-brand" href="pocetna.html">
+                <div class="bc-monogram">BĆ</div>
+                <div>
+                    <div class="bc-brand-name">BLAGOJE ĆURČIĆ</div>
+                    <div class="bc-brand-subtitle">Za pravedniju Srbiju</div>
+                </div>
+            </a>
+            <nav class="bc-nav" id="bcNav" aria-label="Glavna navigacija">
+                <a href="pocetna.html">Početak</a>
+                <a href="pocetna.html#bc-about">O meni</a>
+                <a href="pocetna.html#bc-principles" class="bc-current">Program</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+            <a class="bc-header-button" href="kontakt.html">Kontakt <span>→</span></a>
+            <button id="bcMenuButton" class="bc-menu-button" type="button" aria-label="Otvori navigaciju" aria-expanded="false" aria-controls="bcNav">
+                <span class="bc-menu-icon"><span></span><span></span><span></span></span>
+            </button>
+        </div>
+    </header>
+</div>
+
+<section id="bc-svajcarski">
+    <!-- POVRATAK NA POČETNU -->
+    <a class="bc-swiss-home" href="pocetna.html" aria-label="Vrati se na početnu stranicu">
+        <span>←</span> Početna
+    </a>
+
+    <div class="bc-swiss-inner">
+        <!-- HERO -->
+        <div class="bc-swiss-hero">
+            <div class="bc-swiss-hero-content">
+                <div class="bc-swiss-label">Program · Učešće građana</div>
+                <div class="bc-swiss-index">03 / DEMOKRATIJA</div>
+                <h2 class="bc-swiss-title">
+                    Švajcarski sistem<br><span>za Srbiju.</span>
+                </h2>
+                <p class="bc-swiss-lead">
+                    Građanin ne sme da bude važan samo na dan izbora. Potreban je sistem u kojem ljudi imaju mogućnost da pokreću pitanja, predlažu rešenja i neposrednije učestvuju u važnim odlukama.
+                </p>
+                <p class="bc-swiss-copy">
+                    Predlog je model za Srbiju inspirisan principima direktne demokratije — prilagođen domaćim institucijama, potrebama građana i savremenim mogućnostima bezbednog glasanja.
+                </p>
+            </div>
+            <div class="bc-swiss-visual">
+                <img class="bc-swiss-image" src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=1800&q=90" alt="Građanin glasa na izborima" loading="lazy">
+                <span class="bc-swiss-photo-index">03</span>
+                <div class="bc-swiss-caption">Građanin kao deo odlučivanja</div>
+            </div>
+        </div>
+
+        <!-- PRINCIPLE -->
+        <div class="bc-swiss-principle">
+            <div class="bc-swiss-principle-side">
+                <small>Osnovni princip</small>
+                <strong>Građanin ostaje deo države i posle izbora.</strong>
+            </div>
+            <div class="bc-swiss-principle-main">
+                <p>
+                    Izbor predstavnika ostaje važan deo demokratije, ali ne mora da bude jedini način uticaja građana.
+                    <strong>Građani treba da imaju mogućnost da između izbornih ciklusa pokreću pitanja, predlažu rešenja i učestvuju u važnim odlukama.</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- HEAD -->
+        <div class="bc-swiss-head">
+            <h3>Više prava građaninu. Više odgovornosti vlasti.</h3>
+            <p>Cilj nije ukidanje institucija, već stvaranje dodatnog mehanizma kroz koji građani mogu da utiču na pitanja koja smatraju važnim.</p>
+        </div>
+
+        <!-- PILLARS -->
+        <div class="bc-swiss-pillars">
+            <div class="bc-swiss-pillar">
+                <span class="bc-swiss-pillar-num">01</span>
+                <h4>Građanin predlaže</h4>
+                <p>Građanin može da ukaže na problem, predloži rešenje ili podrži inicijativu koju smatra važnom za društvo.</p>
+            </div>
+            <div class="bc-swiss-pillar">
+                <span class="bc-swiss-pillar-num">02</span>
+                <h4>Javnost odlučuje</h4>
+                <p>Kada predlog dobije dovoljnu podršku, može da pređe u javno izjašnjavanje građana.</p>
+            </div>
+            <div class="bc-swiss-pillar">
+                <span class="bc-swiss-pillar-num">03</span>
+                <h4>Vlast odgovara</h4>
+                <p>Institucije više ne mogu jednostavno da ignorišu pitanje koje je dobilo jasnu podršku građana.</p>
+            </div>
+        </div>
+
+        <!-- VOTE -->
+        <div class="bc-swiss-vote">
+            <div class="bc-swiss-vote-left">
+                <small>Bezbednost sistema</small>
+                <h3>Identitet se proverava. Glas ostaje tajan.</h3>
+                <p>Predloženi sistem mora da spreči višestruko glasanje i zloupotrebe, a da istovremeno sačuva privatnost konačnog izbora svakog građanina.</p>
+            </div>
+            <div class="bc-swiss-vote-right">
+                <div class="bc-swiss-vote-item">
+                    <span>01</span>
+                    <div>
+                        <strong>Potvrđen građanin</strong>
+                        <p>Sistem potvrđuje da osoba ima pravo da učestvuje.</p>
+                    </div>
+                </div>
+                <div class="bc-swiss-vote-item">
+                    <span>02</span>
+                    <div>
+                        <strong>Tajnost izbora</strong>
+                        <p>Konačni glas ne prikazuje se javno uz identitet građanina.</p>
+                    </div>
+                </div>
+                <div class="bc-swiss-vote-item">
+                    <span>03</span>
+                    <div>
+                        <strong>Javan rezultat</strong>
+                        <p>Javnost vidi zbirni rezultat, nivo podrške i odluku.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INCOME -->
+        <div class="bc-swiss-income">
+            <div class="bc-swiss-income-number">
+                <small>Standard građana</small>
+                <strong>2×</strong>
+                <span>Prva 3 meseca</span>
+            </div>
+            <div class="bc-swiss-income-content">
+                <div class="bc-swiss-income-label">Plate i penzije</div>
+                <h3>Duplo veće plate i penzije<br><span>u prva tri meseca.</span></h3>
+                <p>Predlog novog sistema povezuje promenu načina upravljanja državom sa konkretnim ekonomskim rezultatom za građane. Veća odgovornost, efikasnije upravljanje javnim novcem i snažnija domaća privreda treba da se neposredno odraze na životni standard.</p>
+                <div class="bc-swiss-income-promise">Program postavlja cilj da plate i penzije u prva tri meseca budu približno dvostruko veće u odnosu na početni nivo.</div>
+            </div>
+        </div>
+
+        <!-- VIN COIN -->
+        <div class="bc-swiss-vin">
+            <div class="bc-swiss-vin-main">
+                <div class="bc-swiss-vin-label">Posebno ekonomsko pitanje</div>
+                <h3>VIN Coin kao <span>digitalna valuta.</span></h3>
+                <p>Odvojeno od plana povećanja plata i penzija, razmatra se mogućnost uvođenja VIN Coin-a kao digitalnog ekonomskog instrumenta u okviru šireg modela modernizacije sistema.</p>
+                <p>Ova ideja je povezana sa ekonomskim konceptom novog sistema, ali nije isto što i povećanje zarada i penzija. Njena namena, način izdavanja, pravni okvir, odnos prema dinaru i mogućnosti korišćenja moraju biti posebno definisani pre eventualnog uvođenja.</p>
+            </div>
+            <div class="bc-swiss-vin-side">
+                <small>VIN Coin</small>
+                <strong>Digitalna valuta u razmatranju.</strong>
+                <div class="bc-swiss-vin-status">Poseban koncept</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="bc-footer">
+    <div class="bc-footer-line"></div>
+    <div class="bc-footer-inner">
+        <div class="bc-footer-main">
+            <div>
+                <div class="bc-footer-label">Za pravedniju Srbiju</div>
+                <h2 class="bc-footer-title">Država u kojoj se<br><span>pitaju građani.</span></h2>
+                <p class="bc-footer-copy">Odgovornost, domaća proizvodnja i veće učešće građana u odlukama koje određuju budućnost Srbije.</p>
+            </div>
+            <div class="bc-footer-brand">
+                <div class="bc-footer-monogram">BĆ</div>
+                <div class="bc-footer-name">Blagoje Ćurčić</div>
+                <div class="bc-footer-tagline">Za pravedniju Srbiju</div>
+                <nav class="bc-footer-nav" aria-label="Navigacija u podnožju">
+                    <a href="pocetna.html">Početak</a>
+                    <a href="pocetna.html#bc-about">O meni</a>
+                    <a href="pocetna.html#bc-principles">Program</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </nav>
+            </div>
+        </div>
+        <div class="bc-footer-bottom">
+            <div class="bc-footer-copyright">© <span id="bcFooterYear">2026</span> Blagoje Ćurčić · Sva prava zadržana</div>
+            <div class="bc-footer-principle">Građanin u centru odluke.</div>
+            <a class="bc-footer-top" href="#bc-svajcarski" aria-label="Nazad na vrh">↑</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function () {
+    const btn = document.getElementById("bcMenuButton");
+    const nav = document.getElementById("bcNav");
+    if (btn && nav) {
+        btn.addEventListener("click", function () {
+            const open = nav.classList.toggle("bc-open");
+            btn.classList.toggle("bc-active", open);
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+    }
+    const year = document.getElementById("bcFooterYear");
+    if (year) { year.textContent = new Date().getFullYear(); }
+})();
+</script>
+</body>
+</html>

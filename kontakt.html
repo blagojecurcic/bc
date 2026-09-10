@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07182d">
+<title>Kontakt — Blagoje Ćurčić</title>
+<meta name="description" content="Kontaktirajte Blagoja Ćurčića — telefon, e-mail i adresa.">
+<style>
+html,body{margin:0;padding:0;width:100%;min-height:100%;overflow-x:hidden;}
+body{background:#07182d;}
+</style>
+</head>
+<body>
+
+<style>
+/* =========================================================
+   BLAGOJE ĆURČIĆ — HEADER (SHARED)
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+#bc-header-wrap {
+    --navy: #07182d;
+    --blue: #124d8b;
+    --blue-hover: #1763ad;
+    --white: #ffffff;
+
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    font-family: Arial, Helvetica, sans-serif;
+    background: #07182d;
+}
+
+#bc-header-wrap *,
+#bc-header-wrap *::before,
+#bc-header-wrap *::after {
+    box-sizing: border-box;
+}
+
+#bc-header-wrap .bc-header {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 30;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    background: linear-gradient(to bottom, rgba(3,15,30,.80), rgba(3,15,30,.40));
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+#bc-header-wrap .bc-header-inner {
+    width: min(1320px, calc(100% - 60px));
+    min-height: 84px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+#bc-header-wrap .bc-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #fff;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+#bc-header-wrap .bc-monogram {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    line-height: 1;
+    color: #fff;
+    padding-right: 17px;
+    border-right: 1px solid rgba(255,255,255,.3);
+}
+
+#bc-header-wrap .bc-brand-name {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: #fff;
+}
+
+#bc-header-wrap .bc-brand-subtitle {
+    margin-top: 5px;
+    font-size: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .27em;
+    color: rgba(255,255,255,.55);
+}
+
+#bc-header-wrap .bc-nav {
+    display: flex;
+    align-items: center;
+    gap: 31px;
+    margin-left: auto;
+}
+
+#bc-header-wrap .bc-nav a {
+    position: relative;
+    padding: 32px 0;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: .82;
+    transition: opacity .25s ease, color .25s ease;
+}
+
+#bc-header-wrap .bc-nav a:hover {
+    opacity: 1;
+}
+
+#bc-header-wrap .bc-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 21px;
+    width: 0;
+    height: 2px;
+    background: #1c67ad;
+    transition: width .25s ease;
+}
+
+#bc-header-wrap .bc-nav a:hover::after,
+#bc-header-wrap .bc-nav a.bc-current::after {
+    width: 100%;
+}
+
+#bc-header-wrap .bc-nav a.bc-current {
+    opacity: 1;
+}
+
+#bc-header-wrap .bc-header-button {
+    min-height: 42px;
+    padding: 0 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    color: #fff;
+    background: #124d8b;
+    border: 1px solid #2466a3;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    transition: .25s ease;
+    flex-shrink: 0;
+}
+
+#bc-header-wrap .bc-header-button:hover {
+    background: #1763ad;
+    transform: translateY(-1px);
+}
+
+#bc-header-wrap .bc-menu-button {
+    display: none;
+    position: relative;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(7,24,45,.18);
+    color: #fff;
+    cursor: pointer;
+    transition: background .25s ease, border-color .25s ease;
+}
+
+#bc-header-wrap .bc-menu-button:hover,
+#bc-header-wrap .bc-menu-button.bc-active {
+    background: #124d8b;
+    border-color: #3474ad;
+}
+
+#bc-header-wrap .bc-menu-icon {
+    position: relative;
+    display: block;
+    width: 19px;
+    height: 14px;
+}
+
+#bc-header-wrap .bc-menu-icon span {
+    position: absolute;
+    left: 0;
+    width: 19px;
+    height: 1.5px;
+    background: #fff;
+    transition: transform .28s ease, opacity .2s ease, top .28s ease;
+}
+
+#bc-header-wrap .bc-menu-icon span:nth-child(1) { top: 0; }
+#bc-header-wrap .bc-menu-icon span:nth-child(2) { top: 6px; }
+#bc-header-wrap .bc-menu-icon span:nth-child(3) { top: 12px; }
+
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(1) {
+    top: 6px;
+    transform: rotate(45deg);
+}
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(2) {
+    opacity: 0;
+}
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(3) {
+    top: 6px;
+    transform: rotate(-45deg);
+}
+
+@media (max-width: 1050px) {
+    #bc-header-wrap .bc-nav { display: none; }
+    #bc-header-wrap .bc-header-button { margin-left: auto; }
+    #bc-header-wrap .bc-menu-button { display: flex; }
+
+    #bc-header-wrap .bc-nav.bc-open {
+        display: flex;
+        position: absolute;
+        top: 84px;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 8px 30px 18px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(5,21,40,.985);
+        border-top: 1px solid rgba(255,255,255,.05);
+        border-bottom: 1px solid rgba(255,255,255,.12);
+        box-shadow: 0 18px 40px rgba(0,0,0,.18);
+        animation: bcMenuIn .24s ease both;
+    }
+
+    #bc-header-wrap .bc-nav.bc-open a {
+        position: relative;
+        width: 100%;
+        min-height: 54px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0;
+        text-transform: none;
+        opacity: .82;
+    }
+
+    #bc-header-wrap .bc-nav.bc-open a:last-child { border-bottom: 0; }
+    #bc-header-wrap .bc-nav.bc-open a::before {
+        content: "";
+        width: 0;
+        height: 1px;
+        margin-right: 0;
+        background: #4d8bc2;
+        transition: width .2s ease, margin-right .2s ease;
+    }
+    #bc-header-wrap .bc-nav.bc-open a:hover::before {
+        width: 20px;
+        margin-right: 10px;
+    }
+    #bc-header-wrap .bc-nav.bc-open a::after { display: none; }
+}
+
+@keyframes bcMenuIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 700px) {
+    #bc-header-wrap .bc-header-inner {
+        width: calc(100% - 24px);
+        min-height: 68px;
+        gap: 10px;
+    }
+    #bc-header-wrap .bc-monogram { font-size: 29px; padding-right: 11px; }
+    #bc-header-wrap .bc-brand-name { font-size: 13px; }
+    #bc-header-wrap .bc-brand-subtitle { display: none; }
+    #bc-header-wrap .bc-header-button { display: none; }
+    #bc-header-wrap .bc-nav.bc-open { top: 68px; padding: 6px 18px 14px; }
+    #bc-header-wrap .bc-nav.bc-open a { min-height: 55px; font-size: 17px; }
+}
+</style>
+
+<div id="bc-header-wrap">
+    <header class="bc-header">
+        <div class="bc-header-inner">
+            <a class="bc-brand" href="pocetna.html">
+                <div class="bc-monogram">BĆ</div>
+                <div>
+                    <div class="bc-brand-name">BLAGOJE ĆURČIĆ</div>
+                    <div class="bc-brand-subtitle">Za pravedniju Srbiju</div>
+                </div>
+            </a>
+
+            <nav class="bc-nav" id="bcNav" aria-label="Glavna navigacija">
+                <a href="pocetna.html">Početak</a>
+                <a href="pocetna.html#bc-about">O meni</a>
+                <a href="pocetna.html#bc-principles">Program</a>
+                <a href="kontakt.html" class="bc-current">Kontakt</a>
+            </nav>
+
+            <a class="bc-header-button" href="kontakt.html">
+                Kontakt <span>→</span>
+            </a>
+
+            <button id="bcMenuButton" class="bc-menu-button" type="button" aria-label="Otvori navigaciju" aria-expanded="false" aria-controls="bcNav">
+                <span class="bc-menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </div>
+    </header>
+</div>
+
+<style>
+/* =========================================================
+   BLAGOJE ĆURČIĆ — KONTAKT SEKCIJA
+========================================================= */
+
+#bc-contact {
+    --navy:#07182d;
+    --blue:#124d8b;
+
+    position:relative;
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    overflow:hidden;
+    background:var(--navy);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#bc-contact *,
+#bc-contact *::before,
+#bc-contact *::after {
+    box-sizing:border-box;
+}
+
+#bc-contact .bc-contact-hero {
+    position:relative;
+    width:100%;
+    min-height:calc(100vh - 84px);
+    overflow:hidden;
+    background:
+        radial-gradient(
+            circle at 78% 45%,
+            rgba(18,77,139,.28) 0%,
+            rgba(18,77,139,.10) 24%,
+            rgba(18,77,139,0) 52%
+        ),
+        #07182d;
+    display:flex;
+    align-items:center;
+}
+
+#bc-contact .bc-contact-bg {
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+#bc-contact .bc-contact-bg::before {
+    content:"";
+    position:absolute;
+    width:520px;
+    height:520px;
+    right:-120px;
+    top:50%;
+    transform: translateY(-50%) rotate(45deg);
+    border: 1px solid rgba(255,255,255,.05);
+}
+
+#bc-contact .bc-contact-bg::after {
+    content:"";
+    position:absolute;
+    width:340px;
+    height:340px;
+    right:20px;
+    top:50%;
+    transform: translateY(-50%) rotate(45deg);
+    border: 1px solid rgba(255,255,255,.07);
+}
+
+#bc-contact .bc-contact-overlay {
+    position:absolute;
+    inset:0;
+    z-index:2;
+    pointer-events:none;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4,18,36,.98) 0%,
+            rgba(4,18,36,.94) 25%,
+            rgba(4,18,36,.78) 48%,
+            rgba(4,18,36,.35) 75%,
+            rgba(4,18,36,.12) 100%
+        );
+}
+
+#bc-contact .bc-content-wrap {
+    position:relative;
+    z-index:10;
+    width: 100%;
+    padding: 70px 0 90px;
+    display:flex;
+    align-items:center;
+}
+
+#bc-contact .bc-content-inner {
+    width:min(1220px, calc(100% - 60px));
+    margin:0 auto;
+    display:grid;
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 520px);
+    align-items:center;
+    gap:70px;
+}
+
+#bc-contact .bc-content {
+    max-width:650px;
+}
+
+#bc-contact .bc-line {
+    width:76px;
+    height:3px;
+    margin-bottom:23px;
+    background:
+        linear-gradient(
+            90deg,
+            #d21f2b 0%,
+            #d21f2b 33%,
+            #ffffff 33%,
+            #ffffff 66%,
+            #1b5a9d 66%,
+            #1b5a9d 100%
+        );
+}
+
+#bc-contact .bc-kicker {
+    margin-bottom:11px;
+    color: rgba(255,255,255,.58);
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+}
+
+#bc-contact .bc-title {
+    margin:0;
+    color:#fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 5.2vw, 76px);
+    font-weight:400;
+    line-height:.98;
+    letter-spacing:-.045em;
+}
+
+#bc-contact .bc-description {
+    max-width:580px;
+    margin:23px 0 0;
+    color: rgba(255,255,255,.76);
+    font-size:15px;
+    line-height:1.72;
+}
+
+#bc-contact .bc-contact-note {
+    margin-top:27px;
+    color: rgba(255,255,255,.42);
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+}
+
+#bc-contact .bc-contact-list {
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+#bc-contact .bc-contact-card {
+    position:relative;
+    width:100%;
+    min-height:96px;
+    padding:18px 20px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    border: 1px solid rgba(255,255,255,.15);
+    background: rgba(255,255,255,.035);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 3px;
+    transition: background .25s ease, border-color .25s ease, transform .25s ease;
+}
+
+#bc-contact .bc-contact-card:hover {
+    background: rgba(255,255,255,.07);
+    border-color: rgba(255,255,255,.28);
+    transform: translateY(-2px);
+}
+
+#bc-contact .bc-contact-card::before {
+    content:"";
+    position:absolute;
+    left:-1px;
+    top:-1px;
+    bottom:-1px;
+    width:3px;
+    background:#1c67ad;
+    opacity:0;
+    transition:opacity .25s ease;
+}
+
+#bc-contact .bc-contact-card:hover::before {
+    opacity:1;
+}
+
+#bc-contact .bc-contact-icon {
+    width:46px;
+    height:46px;
+    flex:0 0 46px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border: 1px solid rgba(255,255,255,.16);
+    color:#70a1cf;
+    background: rgba(7,24,45,.65);
+    border-radius: 2px;
+}
+
+#bc-contact .bc-contact-icon svg {
+    width:20px;
+    height:20px;
+    display:block;
+    stroke:currentColor;
+}
+
+#bc-contact .bc-contact-info {
+    min-width:0;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+#bc-contact .bc-contact-label {
+    color: rgba(255,255,255,.43);
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+
+#bc-contact .bc-contact-value {
+    color: rgba(255,255,255,.95);
+    font-size:13.5px;
+    font-weight:600;
+    line-height:1.4;
+    word-break:break-word;
+}
+
+#bc-contact .bc-contact-actions {
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+#bc-contact .bc-action {
+    height:36px;
+    padding:0 12px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    border: 1px solid rgba(255,255,255,.16);
+    background: rgba(255,255,255,.04);
+    color: rgba(255,255,255,.76);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    cursor:pointer;
+    border-radius: 2px;
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+#bc-contact .bc-action:hover {
+    background: #124d8b;
+    border-color: #2466a3;
+    color:#fff;
+}
+
+#bc-contact .bc-action svg {
+    width:13px;
+    height:13px;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.7;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+#bc-contact .bc-action.bc-copied {
+    border-color: #2e8b57;
+    background: rgba(46, 139, 87, 0.25);
+    color:#a8f0c2;
+}
+
+@media(max-width:950px) {
+    #bc-contact .bc-content-inner {
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+}
+
+@media(max-width:767px) {
+    html, body { overflow-x:hidden !important; }
+    #bc-contact { width:100% !important; margin-left:0 !important; }
+    #bc-contact .bc-contact-hero { min-height:auto; }
+
+    #bc-contact .bc-content-wrap {
+        padding: 45px 0 60px;
+    }
+
+    #bc-contact .bc-content-inner {
+        width:100%;
+        padding: 0 max(18px, env(safe-area-inset-right)) 0 max(18px, env(safe-area-inset-left));
+        gap:36px;
+    }
+
+    #bc-contact .bc-content { max-width:520px; }
+    #bc-contact .bc-line { width:58px; margin-bottom:14px; }
+    #bc-contact .bc-kicker { margin-bottom:8px; font-size:8px; }
+
+    #bc-contact .bc-title {
+        font-size: clamp(40px, 11vw, 52px);
+        line-height:.97;
+    }
+
+    #bc-contact .bc-description {
+        max-width:430px;
+        margin-top:14px;
+        font-size:13px;
+        line-height:1.6;
+    }
+
+    #bc-contact .bc-contact-note { margin-top:18px; font-size:7.5px; }
+    #bc-contact .bc-contact-card { min-height:86px; padding:14px; gap:12px; }
+    #bc-contact .bc-contact-icon { width:40px; height:40px; flex-basis:40px; }
+    #bc-contact .bc-contact-value { font-size:12px; }
+
+    #bc-contact .bc-action {
+        width:36px;
+        height:36px;
+        padding:0;
+    }
+
+    #bc-contact .bc-action span { display:none; }
+    #bc-contact .bc-action svg { width:14px; height:14px; }
+}
+
+@media(max-width:390px) {
+    #bc-contact .bc-contact-card { flex-wrap:wrap; }
+    #bc-contact .bc-contact-info { width: calc(100% - 58px); }
+    #bc-contact .bc-contact-actions { width:100%; padding-left:52px; }
+    #bc-contact .bc-action { width:auto; padding:0 10px; }
+    #bc-contact .bc-action span { display:inline; }
+}
+</style>
+
+<section id="bc-contact">
+    <div class="bc-contact-hero">
+        <div class="bc-contact-bg" aria-hidden="true"></div>
+        <div class="bc-contact-overlay" aria-hidden="true"></div>
+
+        <div class="bc-content-wrap">
+            <div class="bc-content-inner">
+
+                <!-- LEFT CONTENT -->
+                <div class="bc-content">
+                    <div class="bc-line"></div>
+                    <div class="bc-kicker">Kontakt</div>
+
+                    <h1 class="bc-title">
+                        Budimo<br>u kontaktu.
+                    </h1>
+
+                    <p class="bc-description">
+                        Za pitanja, predloge, inicijative, saradnju ili dodatne informacije 
+                        možete me kontaktirati putem telefona, elektronske pošte ili na navedenoj adresi u Čačku.
+                    </p>
+
+                    <div class="bc-contact-note">
+                        Blagoje Ćurčić · Čačak, Srbija
+                    </div>
+                </div>
+
+                <!-- CONTACT LIST -->
+                <div class="bc-contact-list">
+
+                    <!-- EMAIL -->
+                    <div class="bc-contact-card">
+                        <div class="bc-contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="5" width="18" height="14" rx="1"></rect>
+                                <path d="M3 7l9 6 9-6"></path>
+                            </svg>
+                        </div>
+
+                        <div class="bc-contact-info">
+                            <span class="bc-contact-label">E-mail</span>
+                            <span class="bc-contact-value">curcicblagoje172@gmail.com</span>
+                        </div>
+
+                        <div class="bc-contact-actions">
+                            <button class="bc-action bc-copy" type="button" data-copy="curcicblagoje172@gmail.com" aria-label="Kopiraj e-mail">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="8" y="8" width="11" height="11" rx="1"></rect>
+                                    <path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"></path>
+                                </svg>
+                                <span>Kopiraj</span>
+                            </button>
+
+                            <a class="bc-action" href="mailto:curcicblagoje172@gmail.com" aria-label="Otvori e-mail">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M14 5h5v5"></path>
+                                    <path d="M10 14L19 5"></path>
+                                    <path d="M19 13v6H5V5h6"></path>
+                                </svg>
+                                <span>Otvori</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PHONE -->
+                    <div class="bc-contact-card">
+                        <div class="bc-contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 4h3l2 5-2 1.5a16 16 0 0 0 5.5 5.5L15 14l5 2v3c0 1.1-.9 2-2 2C9.7 21 3 14.3 3 6c0-1.1.9-2 2-2z"></path>
+                            </svg>
+                        </div>
+
+                        <div class="bc-contact-info">
+                            <span class="bc-contact-label">Telefon</span>
+                            <span class="bc-contact-value">+381 61 637 2838</span>
+                        </div>
+
+                        <div class="bc-contact-actions">
+                            <button class="bc-action bc-copy" type="button" data-copy="+381616372838" aria-label="Kopiraj broj telefona">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="8" y="8" width="11" height="11" rx="1"></rect>
+                                    <path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"></path>
+                                </svg>
+                                <span>Kopiraj</span>
+                            </button>
+
+                            <a class="bc-action" href="tel:+381616372838" aria-label="Pozovi telefon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M14 5h5v5"></path>
+                                    <path d="M10 14L19 5"></path>
+                                    <path d="M19 13v6H5V5h6"></path>
+                                </svg>
+                                <span>Pozovi</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- ADDRESS -->
+                    <div class="bc-contact-card">
+                        <div class="bc-contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0z"></path>
+                                <circle cx="12" cy="10" r="2.5"></circle>
+                            </svg>
+                        </div>
+
+                        <div class="bc-contact-info">
+                            <span class="bc-contact-label">Adresa</span>
+                            <span class="bc-contact-value">8. mart 15, Moba, Čačak</span>
+                        </div>
+
+                        <div class="bc-contact-actions">
+                            <button class="bc-action bc-copy" type="button" data-copy="8. mart 15, Moba, Čačak" aria-label="Kopiraj adresu">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="8" y="8" width="11" height="11" rx="1"></rect>
+                                    <path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"></path>
+                                </svg>
+                                <span>Kopiraj</span>
+                            </button>
+
+                            <a class="bc-action" href="https://www.google.com/maps/search/?api=1&query=8.%20mart%2015%2C%20Moba%2C%20%C4%8Ca%C4%8Dak" target="_blank" rel="noopener noreferrer" aria-label="Otvori adresu na mapi">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M14 5h5v5"></path>
+                                    <path d="M10 14L19 5"></path>
+                                    <path d="M19 13v6H5V5h6"></path>
+                                </svg>
+                                <span>Mapa</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* =========================================================
+   BLAGOJE ĆURČIĆ — FOOTER (SHARED)
+========================================================= */
+
+#bc-footer {
+    --navy:#07182d;
+    --navy-light:#0b2441;
+    --blue:#124d8b;
+    --blue-hover:#1763ad;
+    --white:#ffffff;
+
+    position:relative;
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    overflow:hidden;
+    background:var(--navy);
+    color:#fff;
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+#bc-footer *,
+#bc-footer *::before,
+#bc-footer *::after {
+    box-sizing:border-box;
+}
+
+#bc-footer .bc-footer-line {
+    width:100%;
+    height:3px;
+    background:
+        linear-gradient(
+            90deg,
+            #d21f2b 0%,
+            #d21f2b 33.33%,
+            #ffffff 33.33%,
+            #ffffff 66.66%,
+            #1b5a9d 66.66%,
+            #1b5a9d 100%
+        );
+}
+
+#bc-footer .bc-footer-inner {
+    width:min(1220px, calc(100% - 48px));
+    margin:0 auto;
+    padding: 72px 0 27px;
+}
+
+#bc-footer .bc-footer-main {
+    display:grid;
+    grid-template-columns: minmax(0,1.4fr) minmax(240px,.6fr);
+    gap:80px;
+    align-items:end;
+    padding-bottom:52px;
+    border-bottom: 1px solid rgba(255,255,255,.11);
+}
+
+#bc-footer .bc-footer-label {
+    display:flex;
+    align-items:center;
+    gap:11px;
+    margin-bottom:17px;
+    color:#77a6d1;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+}
+
+#bc-footer .bc-footer-label::before {
+    content:"";
+    width:35px;
+    height:2px;
+    background:#397bb7;
+}
+
+#bc-footer .bc-footer-title {
+    max-width:760px;
+    margin:0;
+    color:#fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(38px, 4.7vw, 61px);
+    font-weight:400;
+    line-height:1.02;
+    letter-spacing:-.04em;
+}
+
+#bc-footer .bc-footer-title span { color:#70a1cf; }
+
+#bc-footer .bc-footer-copy {
+    max-width:600px;
+    margin:20px 0 0;
+    color: rgba(255,255,255,.55);
+    font-size:13px;
+    line-height:1.7;
+}
+
+#bc-footer .bc-footer-brand {
+    padding-left:30px;
+    border-left: 1px solid rgba(255,255,255,.12);
+}
+
+#bc-footer .bc-footer-monogram {
+    margin-bottom:16px;
+    color:#fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size:45px;
+    line-height:1;
+    letter-spacing:-.06em;
+}
+
+#bc-footer .bc-footer-name {
+    color:#fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size:20px;
+    font-weight:500;
+    line-height:1.2;
+}
+
+#bc-footer .bc-footer-tagline {
+    margin-top:7px;
+    color: rgba(255,255,255,.42);
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+}
+
+#bc-footer .bc-footer-nav {
+    margin-top:27px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0;
+}
+
+#bc-footer .bc-footer-nav a {
+    position:relative;
+    width:100%;
+    min-height:39px;
+    display:flex;
+    align-items:center;
+    color: rgba(255,255,255,.67);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    text-decoration:none;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    transition: color .2s ease, padding-left .2s ease;
+}
+
+#bc-footer .bc-footer-nav a:last-child { border-bottom:0; }
+
+#bc-footer .bc-footer-nav a::before {
+    content:"";
+    width:0;
+    height:1px;
+    margin-right:0;
+    background:#5d95c8;
+    transition: width .2s ease, margin-right .2s ease;
+}
+
+#bc-footer .bc-footer-nav a:hover {
+    padding-left:3px;
+    color:#fff;
+}
+
+#bc-footer .bc-footer-nav a:hover::before {
+    width:16px;
+    margin-right:9px;
+}
+
+#bc-footer .bc-footer-bottom {
+    min-height:67px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+#bc-footer .bc-footer-copyright {
+    color: rgba(255,255,255,.34);
+    font-size:8px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+}
+
+#bc-footer .bc-footer-principle {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color: rgba(255,255,255,.40);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size:12px;
+}
+
+#bc-footer .bc-footer-principle::before {
+    content:"";
+    width:21px;
+    height:1px;
+    background:#3e73a4;
+}
+
+#bc-footer .bc-footer-top {
+    width:42px;
+    height:42px;
+    flex:0 0 42px;
+    display:grid;
+    place-items:center;
+    border: 1px solid rgba(255,255,255,.19);
+    color:#fff;
+    background:transparent;
+    text-decoration:none;
+    font-size:15px;
+    transition:.2s ease;
+}
+
+#bc-footer .bc-footer-top:hover {
+    background:var(--blue);
+    border-color:var(--blue);
+}
+
+@media(max-width:767px) {
+    #bc-footer { width:100%; margin-left:0; }
+    #bc-footer .bc-footer-inner {
+        width:100%;
+        padding: 57px max(17px, env(safe-area-inset-right)) 20px max(17px, env(safe-area-inset-left));
+    }
+    #bc-footer .bc-footer-main { grid-template-columns:1fr; gap:39px; padding-bottom:38px; }
+    #bc-footer .bc-footer-title {
+        max-width:510px;
+        font-size: clamp(36px, 10.5vw, 48px);
+        line-height:1.02;
+    }
+    #bc-footer .bc-footer-copy { max-width:470px; margin-top:16px; font-size:12px; }
+    #bc-footer .bc-footer-brand {
+        padding: 27px 0 0;
+        border-left:0;
+        border-top: 1px solid rgba(255,255,255,.11);
+    }
+    #bc-footer .bc-footer-monogram { margin-bottom:11px; font-size:37px; }
+    #bc-footer .bc-footer-name { font-size:18px; }
+    #bc-footer .bc-footer-nav { margin-top:22px; }
+    #bc-footer .bc-footer-nav a { min-height:45px; font-size:8px; }
+
+    #bc-footer .bc-footer-bottom {
+        min-height:0;
+        padding-top:20px;
+        display:grid;
+        grid-template-columns: minmax(0,1fr) 42px;
+        gap:15px;
+        align-items:center;
+    }
+    #bc-footer .bc-footer-copyright { font-size:7px; grid-column:1; grid-row:2; }
+    #bc-footer .bc-footer-principle { grid-column:1 / -1; grid-row:1; font-size:11px; }
+    #bc-footer .bc-footer-top { grid-column:2; grid-row:2; }
+}
+</style>
+
+<footer id="bc-footer">
+    <div class="bc-footer-line"></div>
+    <div class="bc-footer-inner">
+        <div class="bc-footer-main">
+            <div>
+                <div class="bc-footer-label">Za pravedniju Srbiju</div>
+                <h2 class="bc-footer-title">
+                    Država u kojoj se<br><span>pitaju građani.</span>
+                </h2>
+                <p class="bc-footer-copy">
+                    Odgovornost, domaća proizvodnja i veće učešće građana u odlukama koje određuju budućnost Srbije.
+                </p>
+            </div>
+
+            <div class="bc-footer-brand">
+                <div class="bc-footer-monogram">BĆ</div>
+                <div class="bc-footer-name">Blagoje Ćurčić</div>
+                <div class="bc-footer-tagline">Za pravedniju Srbiju</div>
+
+                <nav class="bc-footer-nav" aria-label="Navigacija u podnožju">
+                    <a href="pocetna.html">Početak</a>
+                    <a href="pocetna.html#bc-about">O meni</a>
+                    <a href="pocetna.html#bc-principles">Program</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="bc-footer-bottom">
+            <div class="bc-footer-copyright">
+                © <span id="bcFooterYear">2026</span> Blagoje Ćurčić · Sva prava zadržana
+            </div>
+
+            <div class="bc-footer-principle">
+                Građanin u centru odluke.
+            </div>
+
+            <a class="bc-footer-top" href="#bc-contact" aria-label="Nazad na vrh">
+                ↑
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function () {
+    /* MENU LOGIKA */
+    const button = document.getElementById("bcMenuButton");
+    const nav = document.getElementById("bcNav");
+
+    if (button && nav) {
+        button.addEventListener("click", function () {
+            const open = nav.classList.toggle("bc-open");
+            button.classList.toggle("bc-active", open);
+            button.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+    }
+
+    /* COPY CLIPBOARD DUGMIĆI */
+    const contactSection = document.getElementById("bc-contact");
+    if (contactSection) {
+        const copyButtons = contactSection.querySelectorAll(".bc-copy");
+
+        copyButtons.forEach(function (btn) {
+            btn.addEventListener("click", async function () {
+                const value = btn.getAttribute("data-copy");
+                const textElement = btn.querySelector("span");
+                const originalText = textElement ? textElement.textContent : "";
+
+                try {
+                    await navigator.clipboard.writeText(value);
+                } catch (error) {
+                    const textarea = document.createElement("textarea");
+                    textarea.value = value;
+                    textarea.style.position = "fixed";
+                    textarea.style.opacity = "0";
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand("copy");
+                    textarea.remove();
+                }
+
+                btn.classList.add("bc-copied");
+                if (textElement) { textElement.textContent = "Kopirano"; }
+
+                setTimeout(function () {
+                    btn.classList.remove("bc-copied");
+                    if (textElement) { textElement.textContent = originalText; }
+                }, 1500);
+            });
+        });
+    }
+
+    /* GODINA U FOOTERU */
+    const year = document.getElementById("bcFooterYear");
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
+})();
+</script>
+
+</body>
+</html>

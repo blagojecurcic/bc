@@ -1,0 +1,1471 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07182d">
+<title>Voćarstvo i prerada — Blagoje Ćurčić</title>
+<meta name="description" content="Od voćnjaka do finalnog proizvoda. Program razvoja domaćeg voćarstva, prerade i izvoza gotovih proizvoda.">
+<style>
+html,body{margin:0;padding:0;width:100%;min-height:100%;overflow-x:hidden;}
+body{background:#f8fafc;}
+</style>
+</head>
+<body>
+
+<style>
+/* =========================================================
+   BLAGOJE ĆURČIĆ — HEADER (SHARED)
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+#bc-header-wrap {
+    --navy: #07182d;
+    --blue: #124d8b;
+    --blue-hover: #1763ad;
+    --white: #ffffff;
+
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    font-family: Arial, Helvetica, sans-serif;
+    background: #07182d;
+}
+
+#bc-header-wrap *,
+#bc-header-wrap *::before,
+#bc-header-wrap *::after {
+    box-sizing: border-box;
+}
+
+#bc-header-wrap .bc-header {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 30;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    background: linear-gradient(to bottom, rgba(3,15,30,.85), rgba(3,15,30,.60));
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+#bc-header-wrap .bc-header-inner {
+    width: min(1320px, calc(100% - 60px));
+    min-height: 84px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+#bc-header-wrap .bc-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #fff;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+#bc-header-wrap .bc-monogram {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    line-height: 1;
+    color: #fff;
+    padding-right: 17px;
+    border-right: 1px solid rgba(255,255,255,.3);
+}
+
+#bc-header-wrap .bc-brand-name {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: #fff;
+}
+
+#bc-header-wrap .bc-brand-subtitle {
+    margin-top: 5px;
+    font-size: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .27em;
+    color: rgba(255,255,255,.55);
+}
+
+#bc-header-wrap .bc-nav {
+    display: flex;
+    align-items: center;
+    gap: 31px;
+    margin-left: auto;
+}
+
+#bc-header-wrap .bc-nav a {
+    position: relative;
+    padding: 32px 0;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: .82;
+    transition: opacity .25s ease, color .25s ease;
+}
+
+#bc-header-wrap .bc-nav a:hover {
+    opacity: 1;
+}
+
+#bc-header-wrap .bc-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 21px;
+    width: 0;
+    height: 2px;
+    background: #1c67ad;
+    transition: width .25s ease;
+}
+
+#bc-header-wrap .bc-nav a:hover::after,
+#bc-header-wrap .bc-nav a.bc-current::after {
+    width: 100%;
+}
+
+#bc-header-wrap .bc-nav a.bc-current {
+    opacity: 1;
+}
+
+#bc-header-wrap .bc-header-button {
+    min-height: 42px;
+    padding: 0 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    color: #fff;
+    background: #124d8b;
+    border: 1px solid #2466a3;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    transition: .25s ease;
+    flex-shrink: 0;
+}
+
+#bc-header-wrap .bc-header-button:hover {
+    background: #1763ad;
+    transform: translateY(-1px);
+}
+
+#bc-header-wrap .bc-menu-button {
+    display: none;
+    position: relative;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(7,24,45,.18);
+    color: #fff;
+    cursor: pointer;
+    transition: background .25s ease, border-color .25s ease;
+}
+
+#bc-header-wrap .bc-menu-button:hover,
+#bc-header-wrap .bc-menu-button.bc-active {
+    background: #124d8b;
+    border-color: #3474ad;
+}
+
+#bc-header-wrap .bc-menu-icon {
+    position: relative;
+    display: block;
+    width: 19px;
+    height: 14px;
+}
+
+#bc-header-wrap .bc-menu-icon span {
+    position: absolute;
+    left: 0;
+    width: 19px;
+    height: 1.5px;
+    background: #fff;
+    transition: transform .28s ease, opacity .2s ease, top .28s ease;
+}
+
+#bc-header-wrap .bc-menu-icon span:nth-child(1) { top: 0; }
+#bc-header-wrap .bc-menu-icon span:nth-child(2) { top: 6px; }
+#bc-header-wrap .bc-menu-icon span:nth-child(3) { top: 12px; }
+
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(1) {
+    top: 6px;
+    transform: rotate(45deg);
+}
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(2) {
+    opacity: 0;
+}
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(3) {
+    top: 6px;
+    transform: rotate(-45deg);
+}
+
+@media (max-width: 1050px) {
+    #bc-header-wrap .bc-nav { display: none; }
+    #bc-header-wrap .bc-header-button { margin-left: auto; }
+    #bc-header-wrap .bc-menu-button { display: flex; }
+
+    #bc-header-wrap .bc-nav.bc-open {
+        display: flex;
+        position: absolute;
+        top: 84px;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 8px 30px 18px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(5,21,40,.985);
+        border-top: 1px solid rgba(255,255,255,.05);
+        border-bottom: 1px solid rgba(255,255,255,.12);
+        box-shadow: 0 18px 40px rgba(0,0,0,.18);
+        animation: bcMenuIn .24s ease both;
+    }
+
+    #bc-header-wrap .bc-nav.bc-open a {
+        position: relative;
+        width: 100%;
+        min-height: 54px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0;
+        text-transform: none;
+        opacity: .82;
+    }
+
+    #bc-header-wrap .bc-nav.bc-open a:last-child { border-bottom: 0; }
+    #bc-header-wrap .bc-nav.bc-open a::before {
+        content: "";
+        width: 0;
+        height: 1px;
+        margin-right: 0;
+        background: #4d8bc2;
+        transition: width .2s ease, margin-right .2s ease;
+    }
+    #bc-header-wrap .bc-nav.bc-open a:hover::before {
+        width: 20px;
+        margin-right: 10px;
+    }
+    #bc-header-wrap .bc-nav.bc-open a::after { display: none; }
+}
+
+@keyframes bcMenuIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 700px) {
+    #bc-header-wrap .bc-header-inner {
+        width: calc(100% - 24px);
+        min-height: 68px;
+        gap: 10px;
+    }
+    #bc-header-wrap .bc-monogram { font-size: 29px; padding-right: 11px; }
+    #bc-header-wrap .bc-brand-name { font-size: 13px; }
+    #bc-header-wrap .bc-brand-subtitle { display: none; }
+    #bc-header-wrap .bc-header-button { display: none; }
+    #bc-header-wrap .bc-nav.bc-open { top: 68px; padding: 6px 18px 14px; }
+    #bc-header-wrap .bc-nav.bc-open a { min-height: 55px; font-size: 17px; }
+}
+</style>
+
+<div id="bc-header-wrap">
+    <header class="bc-header">
+        <div class="bc-header-inner">
+            <a class="bc-brand" href="pocetna.html">
+                <div class="bc-monogram">BĆ</div>
+                <div>
+                    <div class="bc-brand-name">BLAGOJE ĆURČIĆ</div>
+                    <div class="bc-brand-subtitle">Za pravedniju Srbiju</div>
+                </div>
+            </a>
+
+            <nav class="bc-nav" id="bcNav" aria-label="Glavna navigacija">
+                <a href="pocetna.html">Početak</a>
+                <a href="pocetna.html#bc-about">O meni</a>
+                <a href="pocetna.html#bc-principles" class="bc-current">Program</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+
+            <a class="bc-header-button" href="kontakt.html">
+                Kontakt <span>→</span>
+            </a>
+
+            <button id="bcMenuButton" class="bc-menu-button" type="button" aria-label="Otvori navigaciju" aria-expanded="false" aria-controls="bcNav">
+                <span class="bc-menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </div>
+    </header>
+</div>
+
+<style>
+/* =========================================================
+   BLAGOJE ĆURČIĆ — VOĆARSTVO
+   KOMPLETAN PROGRAMSKI BLOK
+========================================================= */
+
+#bc-vocarstvo-program{
+    --navy:#07182d;
+    --blue:#124d8b;
+    --blue2:#1763ad;
+    --bg:#f8fafc;
+    --white:#ffffff;
+    --text:#17212c;
+    --muted:#68727c;
+    --line:rgba(7,24,45,.11);
+    --soft:#edf3f7;
+
+    position:relative;
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    overflow:hidden;
+
+    background:var(--bg);
+    color:var(--text);
+
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+#bc-vocarstvo-program *,
+#bc-vocarstvo-program *::before,
+#bc-vocarstvo-program *::after{
+    box-sizing:border-box;
+}
+
+/* =========================================================
+   STALNO DUGME — POVRATAK NA POČETNU
+========================================================= */
+
+#bc-vocarstvo-program .bc-back-home {
+    position:fixed;
+    z-index:9990;
+    right:22px;
+    bottom:22px;
+    min-height:46px;
+    padding:0 18px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(7,24,45,.94);
+    color:#fff;
+    text-decoration:none;
+    box-shadow: 0 10px 30px rgba(7,24,45,.18);
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    border-radius: 4px;
+    transition: background .22s ease, transform .22s ease, border-color .22s ease;
+}
+
+#bc-vocarstvo-program .bc-back-home span {
+    font-size:15px;
+    line-height:1;
+    transition:transform .22s ease;
+}
+
+#bc-vocarstvo-program .bc-back-home:hover {
+    background:var(--blue);
+    border-color:var(--blue);
+    transform:translateY(-2px);
+}
+
+#bc-vocarstvo-program .bc-back-home:hover span {
+    transform:translateX(-3px);
+}
+
+#bc-vocarstvo-program .bc-fr-inner{
+    width:min(1180px,calc(100% - 48px));
+    margin:0 auto;
+    padding:80px 0 105px;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+#bc-vocarstvo-program .bc-fr-hero{
+    max-width:920px;
+    padding-bottom:52px;
+    border-bottom:1px solid var(--line);
+}
+
+#bc-vocarstvo-program .bc-fr-label{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    margin-bottom:18px;
+    color:var(--blue);
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.17em;
+    text-transform:uppercase;
+}
+
+#bc-vocarstvo-program .bc-fr-label::before{
+    content:"";
+    width:38px;
+    height:2px;
+    background:var(--blue);
+}
+
+#bc-vocarstvo-program .bc-fr-index{
+    margin-bottom:16px;
+    color:rgba(7,24,45,.26);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:16px;
+    letter-spacing:.07em;
+}
+
+#bc-vocarstvo-program .bc-fr-title{
+    max-width:880px;
+    margin:0;
+    color:var(--navy);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(44px,5vw,66px);
+    font-weight:400;
+    line-height:1;
+    letter-spacing:-.045em;
+}
+
+#bc-vocarstvo-program .bc-fr-title span{
+    color:var(--blue);
+}
+
+#bc-vocarstvo-program .bc-fr-lead{
+    max-width:780px;
+    margin:25px 0 0;
+    color:#46525e;
+    font-size:18px;
+    line-height:1.68;
+}
+
+#bc-vocarstvo-program .bc-fr-copy{
+    max-width:780px;
+    margin:17px 0 0;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+}
+
+/* =========================================================
+   PRINCIPLE BOX
+========================================================= */
+
+#bc-vocarstvo-program .bc-fr-principle{
+    margin-top:52px;
+    display:grid;
+    grid-template-columns:minmax(220px,.34fr) minmax(0,1fr);
+    background:var(--navy);
+    color:#fff;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#bc-vocarstvo-program .bc-fr-principle-side{
+    padding:32px 30px;
+    border-right:1px solid rgba(255,255,255,.12);
+}
+
+#bc-vocarstvo-program .bc-fr-principle-side small{
+    display:block;
+    color:#77a7d2;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+}
+
+#bc-vocarstvo-program .bc-fr-principle-side strong{
+    display:block;
+    margin-top:10px;
+    color:#fff;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:21px;
+    font-weight:400;
+    line-height:1.35;
+}
+
+#bc-vocarstvo-program .bc-fr-principle-main{
+    padding:32px 38px;
+    display:flex;
+    align-items:center;
+}
+
+#bc-vocarstvo-program .bc-fr-principle-main p{
+    max-width:840px;
+    margin:0;
+    color:rgba(255,255,255,.69);
+    font-size:13px;
+    line-height:1.8;
+}
+
+#bc-vocarstvo-program .bc-fr-principle-main strong{
+    color:#fff;
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+#bc-vocarstvo-program .bc-fr-section{
+    display:grid;
+    grid-template-columns:180px minmax(0,1fr);
+    gap:52px;
+    padding:50px 0;
+    border-bottom:1px solid var(--line);
+}
+
+#bc-vocarstvo-program .bc-fr-section-number{
+    color:var(--blue);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:14px;
+    letter-spacing:.05em;
+}
+
+#bc-vocarstvo-program .bc-fr-section-content h3{
+    max-width:770px;
+    margin:0;
+    color:var(--navy);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(28px,3.2vw,42px);
+    font-weight:400;
+    line-height:1.08;
+    letter-spacing:-.03em;
+}
+
+#bc-vocarstvo-program .bc-fr-section-content > p{
+    max-width:800px;
+    margin:17px 0 0;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+}
+
+/* =========================================================
+   STEPS / VALUE CHAIN
+========================================================= */
+
+#bc-vocarstvo-program .bc-fr-steps{
+    margin-top:28px;
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    border-top:1px solid var(--line);
+}
+
+#bc-vocarstvo-program .bc-fr-step{
+    padding:24px 22px 22px 0;
+    border-right:1px solid var(--line);
+}
+
+#bc-vocarstvo-program .bc-fr-step:not(:first-child){
+    padding-left:22px;
+}
+
+#bc-vocarstvo-program .bc-fr-step:last-child{
+    border-right:0;
+    padding-right:0;
+}
+
+#bc-vocarstvo-program .bc-fr-step span{
+    display:block;
+    margin-bottom:10px;
+    color:var(--blue);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:12px;
+}
+
+#bc-vocarstvo-program .bc-fr-step strong{
+    display:block;
+    color:var(--navy);
+    font-size:11.5px;
+    line-height:1.45;
+}
+
+#bc-vocarstvo-program .bc-fr-step p{
+    margin:7px 0 0;
+    color:var(--muted);
+    font-size:10.5px;
+    line-height:1.6;
+}
+
+/* =========================================================
+   LIST
+========================================================= */
+
+#bc-vocarstvo-program .bc-fr-list{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    border-top:1px solid var(--line);
+}
+
+#bc-vocarstvo-program .bc-fr-list-item{
+    min-height:58px;
+    display:grid;
+    grid-template-columns:28px minmax(0,1fr);
+    gap:10px;
+    align-items:center;
+    padding:12px 18px 12px 0;
+    border-bottom:1px solid var(--line);
+}
+
+#bc-vocarstvo-program .bc-fr-list-item:nth-child(odd){
+    border-right:1px solid var(--line);
+}
+
+#bc-vocarstvo-program .bc-fr-list-item:nth-child(even){
+    padding-left:18px;
+}
+
+#bc-vocarstvo-program .bc-fr-list-item span{
+    color:var(--blue);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:12px;
+}
+
+#bc-vocarstvo-program .bc-fr-list-item strong{
+    color:var(--navy);
+    font-size:11px;
+    line-height:1.45;
+}
+
+/* =========================================================
+   MARKET / EXPORT
+========================================================= */
+
+#bc-vocarstvo-program .bc-fr-market{
+    margin-top:55px;
+    padding:42px 44px;
+    background:linear-gradient(135deg,#07182d 0%,#0b294a 100%);
+    color:#fff;
+    border-radius: 4px;
+}
+
+#bc-vocarstvo-program .bc-fr-market small{
+    color:#78a8d3;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+
+#bc-vocarstvo-program .bc-fr-market h3{
+    max-width:800px;
+    margin:13px 0 0;
+    color:#fff;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(32px,4vw,48px);
+    font-weight:400;
+    line-height:1.06;
+    letter-spacing:-.035em;
+}
+
+#bc-vocarstvo-program .bc-fr-market h3 span{
+    color:#79a9d4;
+}
+
+#bc-vocarstvo-program .bc-fr-market p{
+    max-width:800px;
+    margin:18px 0 0;
+    color:rgba(255,255,255,.62);
+    font-size:12.5px;
+    line-height:1.78;
+}
+
+#bc-vocarstvo-program .bc-fr-market-rule{
+    max-width:800px;
+    margin-top:22px;
+    padding-top:19px;
+    border-top:1px solid rgba(255,255,255,.13);
+    color:#fff;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:19px;
+    line-height:1.4;
+}
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+#bc-vocarstvo-program .bc-fr-final{
+    max-width:900px;
+    margin-top:58px;
+    padding-top:34px;
+    border-top:1px solid var(--line);
+}
+
+#bc-vocarstvo-program .bc-fr-final small{
+    color:var(--blue);
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+}
+
+#bc-vocarstvo-program .bc-fr-final p{
+    margin:13px 0 0;
+    color:var(--navy);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(23px,2.7vw,34px);
+    line-height:1.3;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:800px){
+    html, body{ overflow-x:hidden!important; }
+    #bc-vocarstvo-program{ width:100%; margin-left:0; }
+
+    #bc-vocarstvo-program .bc-back-home {
+        right: max(14px, env(safe-area-inset-right));
+        bottom: max(14px, env(safe-area-inset-bottom));
+        min-height:44px;
+        padding:0 14px;
+        font-size:8px;
+    }
+
+    #bc-vocarstvo-program .bc-fr-inner{
+        width:100%;
+        padding: 56px max(17px,env(safe-area-inset-right)) 72px max(17px,env(safe-area-inset-left));
+    }
+
+    #bc-vocarstvo-program .bc-fr-title{
+        font-size:clamp(38px,10.5vw,50px);
+    }
+
+    #bc-vocarstvo-program .bc-fr-lead{
+        font-size:15.5px;
+        line-height:1.6;
+    }
+
+    #bc-vocarstvo-program .bc-fr-copy{
+        font-size:12.5px;
+    }
+
+    #bc-vocarstvo-program .bc-fr-principle{
+        grid-template-columns:1fr;
+    }
+
+    #bc-vocarstvo-program .bc-fr-principle-side{
+        padding:23px 20px;
+        border-right:0;
+        border-bottom:1px solid rgba(255,255,255,.11);
+    }
+
+    #bc-vocarstvo-program .bc-fr-principle-main{
+        padding:23px 20px;
+    }
+
+    #bc-vocarstvo-program .bc-fr-section{
+        grid-template-columns:1fr;
+        gap:13px;
+        padding:39px 0;
+    }
+
+    #bc-vocarstvo-program .bc-fr-section-content h3{
+        font-size:clamp(29px,8vw,38px);
+    }
+
+    #bc-vocarstvo-program .bc-fr-steps{
+        grid-template-columns:1fr;
+    }
+
+    #bc-vocarstvo-program .bc-fr-step,
+    #bc-vocarstvo-program .bc-fr-step:not(:first-child),
+    #bc-vocarstvo-program .bc-fr-step:last-child{
+        padding:18px 0;
+        border-right:0;
+        border-bottom:1px solid var(--line);
+    }
+
+    #bc-vocarstvo-program .bc-fr-step:last-child{
+        border-bottom:0;
+    }
+
+    #bc-vocarstvo-program .bc-fr-list{
+        grid-template-columns:1fr;
+    }
+
+    #bc-vocarstvo-program .bc-fr-list-item,
+    #bc-vocarstvo-program .bc-fr-list-item:nth-child(odd),
+    #bc-vocarstvo-program .bc-fr-list-item:nth-child(even){
+        padding:12px 0;
+        border-right:0;
+    }
+
+    #bc-vocarstvo-program .bc-fr-market{
+        margin-top:42px;
+        padding:30px 22px;
+    }
+
+    #bc-vocarstvo-program .bc-fr-market h3{
+        font-size:clamp(29px,8.4vw,39px);
+    }
+
+    #bc-vocarstvo-program .bc-fr-market-rule{
+        font-size:17px;
+    }
+}
+
+@media(max-width:360px){
+    #bc-vocarstvo-program .bc-fr-inner{ padding-left:14px; padding-right:14px; }
+    #bc-vocarstvo-program .bc-fr-title{ font-size:36px; }
+    #bc-vocarstvo-program .bc-fr-lead{ font-size:14.5px; }
+    #bc-vocarstvo-program .bc-back-home { right:10px; bottom:10px; padding:0 12px; }
+}
+</style>
+
+<section id="bc-vocarstvo-program">
+
+    <!-- POVRATAK NA GLAVNU STRANICU -->
+    <a
+        class="bc-back-home"
+        href="pocetna.html"
+        aria-label="Vrati se na početnu stranicu"
+    >
+        <span>←</span>
+        Početna
+    </a>
+
+    <div class="bc-fr-inner">
+
+        <!-- HERO -->
+        <div class="bc-fr-hero">
+
+            <div class="bc-fr-label">
+                Program · Voćarstvo i prerada
+            </div>
+
+            <div class="bc-fr-index">
+                02 / VOĆARSTVO
+            </div>
+
+            <h2 class="bc-fr-title">
+                Od voćnjaka do
+                <br>
+                <span>finalnog proizvoda.</span>
+            </h2>
+
+            <p class="bc-fr-lead">
+                Cilj nije da Srbija prodaje samo sirov plod,
+                već da što veći deo vrednosti ostane kroz domaću
+                preradu, pakovanje, izvoz i razvoj sopstvenih brendova.
+            </p>
+
+            <p class="bc-fr-copy">
+                Kao početni model može da posluži komercijalni zasad maline
+                na jednom hektaru, sa sigurnim izvorom vode i planski
+                organizovanom proizvodnjom. Isti princip kasnije može da se
+                primeni na borovnicu, šljivu, kupinu, ribizlu i drugo voće.
+            </p>
+
+        </div>
+
+        <!-- PRINCIPLE -->
+        <div class="bc-fr-principle">
+
+            <div class="bc-fr-principle-side">
+                <small>
+                    Osnovni princip
+                </small>
+                <strong>
+                    Ne završavati posao prodajom sirovog ploda.
+                </strong>
+            </div>
+
+            <div class="bc-fr-principle-main">
+                <p>
+                    Vrednost projekta raste kada se proizvodnja poveže sa
+                    preradom i tržištem.
+                    <strong>
+                        Svež i zamrznut plod ostaju deo ponude,
+                        ali se paralelno razvijaju pirei, džemovi,
+                        sirupi, prelivi, sušeni i liofilizovani proizvodi.
+                    </strong>
+                    Tako proizvođač ne zavisi samo od trenutne otkupne cene.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- 01 -->
+        <div class="bc-fr-section">
+
+            <div class="bc-fr-section-number">
+                01 / ZASAD
+            </div>
+
+            <div class="bc-fr-section-content">
+
+                <h3>
+                    Proizvodnja počinje od zemlje i vode.
+                </h3>
+
+                <p>
+                    Pre podizanja zasada potrebno je proveriti kvalitet
+                    zemljišta i vode, sigurnost izvora za navodnjavanje
+                    i uslove same parcele. Sadni materijal mora biti
+                    sertifikovan, a izbor sorte prilagođen tržištu,
+                    lokaciji i planiranom načinu prerade.
+                </p>
+
+                <div class="bc-fr-steps">
+
+                    <div class="bc-fr-step">
+                        <span>01</span>
+                        <strong>Analiza zemljišta i vode</strong>
+                        <p>
+                            Proizvodnja se planira tek nakon provere
+                            osnovnih uslova parcele.
+                        </p>
+                    </div>
+
+                    <div class="bc-fr-step">
+                        <span>02</span>
+                        <strong>Sertifikovan sadni materijal</strong>
+                        <p>
+                            Kvalitet zasada počinje od pouzdane
+                            i kontrolisane sadnice.
+                        </p>
+                    </div>
+
+                    <div class="bc-fr-step">
+                        <span>03</span>
+                        <strong>Sigurno navodnjavanje</strong>
+                        <p>
+                            Sistem vode mora biti deo projekta,
+                            a ne naknadno rešenje.
+                        </p>
+                    </div>
+
+                    <div class="bc-fr-step">
+                        <span>04</span>
+                        <strong>Planska proizvodnja</strong>
+                        <p>
+                            Sorta, način gajenja i tržište definišu
+                            se pre podizanja zasada.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- 02 -->
+        <div class="bc-fr-section">
+
+            <div class="bc-fr-section-number">
+                02 / PRERADA
+            </div>
+
+            <div class="bc-fr-section-content">
+
+                <h3>
+                    Veća vrednost nastaje posle berbe.
+                </h3>
+
+                <p>
+                    Deo roda može da se prodaje kao svež ili zamrznut plod,
+                    dok se ostatak usmerava u proizvode veće dodate vrednosti.
+                    U početnoj fazi nije potrebno posedovati svu opremu —
+                    pojedini procesi mogu se raditi uslužno dok obim proizvodnje
+                    ne opravda sopstveni pogon.
+                </p>
+
+                <div class="bc-fr-list">
+
+                    <div class="bc-fr-list-item">
+                        <span>01</span>
+                        <strong>Hlađenje i zamrzavanje</strong>
+                    </div>
+
+                    <div class="bc-fr-list-item">
+                        <span>02</span>
+                        <strong>Pire i voćne baze</strong>
+                    </div>
+
+                    <div class="bc-fr-list-item">
+                        <span>03</span>
+                        <strong>Džemovi, sirupi i prelivi</strong>
+                    </div>
+
+                    <div class="bc-fr-list-item">
+                        <span>04</span>
+                        <strong>Sušenje i liofilizacija</strong>
+                    </div>
+
+                    <div class="bc-fr-list-item">
+                        <span>05</span>
+                        <strong>Punjenje i pakovanje</strong>
+                    </div>
+
+                    <div class="bc-fr-list-item">
+                        <span>06</span>
+                        <strong>Kontrola kvaliteta i standardizacija</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- 03 -->
+        <div class="bc-fr-section">
+
+            <div class="bc-fr-section-number">
+                03 / TRŽIŠTE
+            </div>
+
+            <div class="bc-fr-section-content">
+
+                <h3>
+                    Proizvodnja mora da ima poznat put do kupca.
+                </h3>
+
+                <p>
+                    Fokus nije samo na otkupu sirovog voća.
+                    Projekat treba razvijati kroz direktnu B2B prodaju,
+                    izvoz i sopstveni brend, uz jasno definisane standarde
+                    kvaliteta i proizvode prilagođene konkretnim kupcima.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- 04 -->
+        <div class="bc-fr-section">
+
+            <div class="bc-fr-section-number">
+                04 / RAST
+            </div>
+
+            <div class="bc-fr-section-content">
+
+                <h3>
+                    Jedan zasad je početak, ne krajnji model.
+                </h3>
+
+                <p>
+                    Pilot-projekat treba da pokaže kako funkcioniše ceo lanac:
+                    proizvodnja, prerada, pakovanje i prodaja.
+                    Kada se model potvrdi, može da se širi kroz nove zasade,
+                    kooperante, otkup i preradu drugih vrsta voća.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- MARKET -->
+        <div class="bc-fr-market">
+
+            <small>
+                05 / Dodata vrednost
+            </small>
+
+            <h3>
+                Manje zavisnosti od otkupne cene.
+                <br>
+                <span>Više vrednosti kroz sopstveni proizvod.</span>
+            </h3>
+
+            <p>
+                Najveći potencijal nije samo u količini proizvedenog voća,
+                već u tome koliko se tog voća pretvori u proizvod više vrednosti.
+                Prerada, pakovanje, standardizacija i direktna prodaja omogućavaju
+                da veći deo vrednosti ostane proizvođaču i domaćoj privredi.
+            </p>
+
+            <div class="bc-fr-market-rule">
+                Zasad → prerada → finalni proizvod → izvoz → sopstveni brend.
+            </div>
+
+        </div>
+
+        <!-- FINAL -->
+        <div class="bc-fr-final">
+
+            <small>
+                Krajnji cilj
+            </small>
+
+            <p>
+                Voćarstvo treba razvijati kao kompletan proizvodni sistem —
+                od kvalitetnog zasada i sigurne vode do prerade,
+                poznatog tržišta i proizvoda koji nosi veću vrednost.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+/* =========================================================
+   BLAGOJE ĆURČIĆ — FOOTER (SHARED)
+========================================================= */
+
+#bc-footer {
+    --navy:#07182d;
+    --navy-light:#0b2441;
+    --blue:#124d8b;
+    --blue-hover:#1763ad;
+    --white:#ffffff;
+
+    position:relative;
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    overflow:hidden;
+    background:var(--navy);
+    color:#fff;
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+#bc-footer *,
+#bc-footer *::before,
+#bc-footer *::after {
+    box-sizing:border-box;
+}
+
+#bc-footer .bc-footer-line {
+    width:100%;
+    height:3px;
+    background:
+        linear-gradient(
+            90deg,
+            #d21f2b 0%,
+            #d21f2b 33.33%,
+            #ffffff 33.33%,
+            #ffffff 66.66%,
+            #1b5a9d 66.66%,
+            #1b5a9d 100%
+        );
+}
+
+#bc-footer .bc-footer-inner {
+    width:min(1220px, calc(100% - 48px));
+    margin:0 auto;
+    padding: 72px 0 27px;
+}
+
+#bc-footer .bc-footer-main {
+    display:grid;
+    grid-template-columns: minmax(0,1.4fr) minmax(240px,.6fr);
+    gap:80px;
+    align-items:end;
+    padding-bottom:52px;
+    border-bottom: 1px solid rgba(255,255,255,.11);
+}
+
+#bc-footer .bc-footer-label {
+    display:flex;
+    align-items:center;
+    gap:11px;
+    margin-bottom:17px;
+    color:#77a6d1;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+}
+
+#bc-footer .bc-footer-label::before {
+    content:"";
+    width:35px;
+    height:2px;
+    background:#397bb7;
+}
+
+#bc-footer .bc-footer-title {
+    max-width:760px;
+    margin:0;
+    color:#fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(38px, 4.7vw, 61px);
+    font-weight:400;
+    line-height:1.02;
+    letter-spacing:-.04em;
+}
+
+#bc-footer .bc-footer-title span { color:#70a1cf; }
+
+#bc-footer .bc-footer-copy {
+    max-width:600px;
+    margin:20px 0 0;
+    color: rgba(255,255,255,.55);
+    font-size:13px;
+    line-height:1.7;
+}
+
+#bc-footer .bc-footer-brand {
+    padding-left:30px;
+    border-left: 1px solid rgba(255,255,255,.12);
+}
+
+#bc-footer .bc-footer-monogram {
+    margin-bottom:16px;
+    color:#fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size:45px;
+    line-height:1;
+    letter-spacing:-.06em;
+}
+
+#bc-footer .bc-footer-name {
+    color:#fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size:20px;
+    font-weight:500;
+    line-height:1.2;
+}
+
+#bc-footer .bc-footer-tagline {
+    margin-top:7px;
+    color: rgba(255,255,255,.42);
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+}
+
+#bc-footer .bc-footer-nav {
+    margin-top:27px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0;
+}
+
+#bc-footer .bc-footer-nav a {
+    position:relative;
+    width:100%;
+    min-height:39px;
+    display:flex;
+    align-items:center;
+    color: rgba(255,255,255,.67);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    text-decoration:none;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    transition: color .2s ease, padding-left .2s ease;
+}
+
+#bc-footer .bc-footer-nav a:last-child { border-bottom:0; }
+
+#bc-footer .bc-footer-nav a::before {
+    content:"";
+    width:0;
+    height:1px;
+    margin-right:0;
+    background:#5d95c8;
+    transition: width .2s ease, margin-right .2s ease;
+}
+
+#bc-footer .bc-footer-nav a:hover {
+    padding-left:3px;
+    color:#fff;
+}
+
+#bc-footer .bc-footer-nav a:hover::before {
+    width:16px;
+    margin-right:9px;
+}
+
+#bc-footer .bc-footer-bottom {
+    min-height:67px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+#bc-footer .bc-footer-copyright {
+    color: rgba(255,255,255,.34);
+    font-size:8px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+}
+
+#bc-footer .bc-footer-principle {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color: rgba(255,255,255,.40);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size:12px;
+}
+
+#bc-footer .bc-footer-principle::before {
+    content:"";
+    width:21px;
+    height:1px;
+    background:#3e73a4;
+}
+
+#bc-footer .bc-footer-top {
+    width:42px;
+    height:42px;
+    flex:0 0 42px;
+    display:grid;
+    place-items:center;
+    border: 1px solid rgba(255,255,255,.19);
+    color:#fff;
+    background:transparent;
+    text-decoration:none;
+    font-size:15px;
+    transition:.2s ease;
+}
+
+#bc-footer .bc-footer-top:hover {
+    background:var(--blue);
+    border-color:var(--blue);
+}
+
+@media(max-width:767px) {
+    #bc-footer { width:100%; margin-left:0; }
+    #bc-footer .bc-footer-inner {
+        width:100%;
+        padding: 57px max(17px, env(safe-area-inset-right)) 20px max(17px, env(safe-area-inset-left));
+    }
+    #bc-footer .bc-footer-main { grid-template-columns:1fr; gap:39px; padding-bottom:38px; }
+    #bc-footer .bc-footer-title {
+        max-width:510px;
+        font-size: clamp(36px, 10.5vw, 48px);
+        line-height:1.02;
+    }
+    #bc-footer .bc-footer-copy { max-width:470px; margin-top:16px; font-size:12px; }
+    #bc-footer .bc-footer-brand {
+        padding: 27px 0 0;
+        border-left:0;
+        border-top: 1px solid rgba(255,255,255,.11);
+    }
+    #bc-footer .bc-footer-monogram { margin-bottom:11px; font-size:37px; }
+    #bc-footer .bc-footer-name { font-size:18px; }
+    #bc-footer .bc-footer-nav { margin-top:22px; }
+    #bc-footer .bc-footer-nav a { min-height:45px; font-size:8px; }
+
+    #bc-footer .bc-footer-bottom {
+        min-height:0;
+        padding-top:20px;
+        display:grid;
+        grid-template-columns: minmax(0,1fr) 42px;
+        gap:15px;
+        align-items:center;
+    }
+    #bc-footer .bc-footer-copyright { font-size:7px; grid-column:1; grid-row:2; }
+    #bc-footer .bc-footer-principle { grid-column:1 / -1; grid-row:1; font-size:11px; }
+    #bc-footer .bc-footer-top { grid-column:2; grid-row:2; }
+}
+</style>
+
+<footer id="bc-footer">
+    <div class="bc-footer-line"></div>
+    <div class="bc-footer-inner">
+        <div class="bc-footer-main">
+            <div>
+                <div class="bc-footer-label">Za pravedniju Srbiju</div>
+                <h2 class="bc-footer-title">
+                    Država u kojoj se<br><span>pitaju građani.</span>
+                </h2>
+                <p class="bc-footer-copy">
+                    Odgovornost, domaća proizvodnja i veće učešće građana u odlukama koje određuju budućnost Srbije.
+                </p>
+            </div>
+
+            <div class="bc-footer-brand">
+                <div class="bc-footer-monogram">BĆ</div>
+                <div class="bc-footer-name">Blagoje Ćurčić</div>
+                <div class="bc-footer-tagline">Za pravedniju Srbiju</div>
+
+                <nav class="bc-footer-nav" aria-label="Navigacija u podnožju">
+                    <a href="pocetna.html">Početak</a>
+                    <a href="pocetna.html#bc-about">O meni</a>
+                    <a href="pocetna.html#bc-principles">Program</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="bc-footer-bottom">
+            <div class="bc-footer-copyright">
+                © <span id="bcFooterYear">2026</span> Blagoje Ćurčić · Sva prava zadržana
+            </div>
+
+            <div class="bc-footer-principle">
+                Građanin u centru odluke.
+            </div>
+
+            <a class="bc-footer-top" href="#bc-vocarstvo-program" aria-label="Nazad na vrh">
+                ↑
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function () {
+    /* MENU LOGIKA */
+    const button = document.getElementById("bcMenuButton");
+    const nav = document.getElementById("bcNav");
+
+    if (button && nav) {
+        button.addEventListener("click", function () {
+            const open = nav.classList.toggle("bc-open");
+            button.classList.toggle("bc-active", open);
+            button.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+    }
+
+    /* GODINA U FOOTERU */
+    const year = document.getElementById("bcFooterYear");
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
+})();
+</script>
+
+</body>
+</html>

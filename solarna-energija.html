@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07182d">
+<title>Solarna energija — Blagoje Ćurčić</title>
+<meta name="description" content="Sunce je besplatno. Program energetske nezavisnosti kroz fotonaponske sisteme za domaćinstva i privredu.">
+<style>
+html,body{margin:0;padding:0;width:100%;min-height:100%;overflow-x:hidden;}
+body{background:#f8fafc;}
+</style>
+</head>
+<body>
+
+<style>
+/* =========================================================
+   HEADER (SHARED)
+========================================================= */
+html { scroll-behavior: smooth; }
+#bc-header-wrap {
+    --navy: #07182d; --blue: #124d8b; --blue-hover: #1763ad; --white: #ffffff;
+    position: relative; width: 100vw; margin-left: calc(50% - 50vw);
+    font-family: Arial, Helvetica, sans-serif; background: #07182d;
+}
+#bc-header-wrap *, #bc-header-wrap *::before, #bc-header-wrap *::after { box-sizing: border-box; }
+#bc-header-wrap .bc-header {
+    position: relative; top: 0; left: 0; right: 0; z-index: 30;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    background: linear-gradient(to bottom, rgba(3,15,30,.85), rgba(3,15,30,.60));
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+}
+#bc-header-wrap .bc-header-inner {
+    width: min(1320px, calc(100% - 60px)); min-height: 84px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 32px;
+}
+#bc-header-wrap .bc-brand { display: flex; align-items: center; gap: 16px; color: #fff; text-decoration: none; flex-shrink: 0; }
+#bc-header-wrap .bc-monogram { font-family: Georgia, serif; font-size: 38px; line-height: 1; color: #fff; padding-right: 17px; border-right: 1px solid rgba(255,255,255,.3); }
+#bc-header-wrap .bc-brand-name { font-family: Georgia, serif; font-size: 17px; font-weight: 600; letter-spacing: .04em; color: #fff; }
+#bc-header-wrap .bc-brand-subtitle { margin-top: 5px; font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: .27em; color: rgba(255,255,255,.55); }
+#bc-header-wrap .bc-nav { display: flex; align-items: center; gap: 31px; margin-left: auto; }
+#bc-header-wrap .bc-nav a {
+    position: relative; padding: 32px 0; color: #fff; font-size: 11px; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase; text-decoration: none; opacity: .82;
+    transition: opacity .25s ease, color .25s ease;
+}
+#bc-header-wrap .bc-nav a:hover { opacity: 1; }
+#bc-header-wrap .bc-nav a::after {
+    content: ""; position: absolute; left: 0; bottom: 21px; width: 0; height: 2px;
+    background: #1c67ad; transition: width .25s ease;
+}
+#bc-header-wrap .bc-nav a:hover::after, #bc-header-wrap .bc-nav a.bc-current::after { width: 100%; }
+#bc-header-wrap .bc-nav a.bc-current { opacity: 1; }
+#bc-header-wrap .bc-header-button {
+    min-height: 42px; padding: 0 20px; display: inline-flex; align-items: center; justify-content: center;
+    gap: 11px; color: #fff; background: #124d8b; border: 1px solid #2466a3; text-decoration: none;
+    font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; transition: .25s ease; flex-shrink: 0;
+}
+#bc-header-wrap .bc-header-button:hover { background: #1763ad; transform: translateY(-1px); }
+#bc-header-wrap .bc-menu-button {
+    display: none; position: relative; width: 44px; height: 44px; padding: 0;
+    align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.25);
+    background: rgba(7,24,45,.18); color: #fff; cursor: pointer; transition: background .25s ease;
+}
+#bc-header-wrap .bc-menu-icon { position: relative; display: block; width: 19px; height: 14px; }
+#bc-header-wrap .bc-menu-icon span {
+    position: absolute; left: 0; width: 19px; height: 1.5px; background: #fff;
+    transition: transform .28s ease, opacity .2s ease, top .28s ease;
+}
+#bc-header-wrap .bc-menu-icon span:nth-child(1) { top: 0; }
+#bc-header-wrap .bc-menu-icon span:nth-child(2) { top: 6px; }
+#bc-header-wrap .bc-menu-icon span:nth-child(3) { top: 12px; }
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(2) { opacity: 0; }
+#bc-header-wrap .bc-menu-button.bc-active .bc-menu-icon span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+
+@media (max-width: 1050px) {
+    #bc-header-wrap .bc-nav { display: none; }
+    #bc-header-wrap .bc-header-button { margin-left: auto; }
+    #bc-header-wrap .bc-menu-button { display: flex; }
+    #bc-header-wrap .bc-nav.bc-open {
+        display: flex; position: absolute; top: 84px; left: 0; right: 0; margin: 0;
+        padding: 8px 30px 18px; flex-direction: column; align-items: stretch; gap: 0;
+        background: rgba(5,21,40,.985); border-top: 1px solid rgba(255,255,255,.05);
+        border-bottom: 1px solid rgba(255,255,255,.12); box-shadow: 0 18px 40px rgba(0,0,0,.18);
+    }
+    #bc-header-wrap .bc-nav.bc-open a {
+        position: relative; width: 100%; min-height: 54px; padding: 0; display: flex;
+        align-items: center; border-bottom: 1px solid rgba(255,255,255,.08);
+        font-family: Georgia, serif; font-size: 16px; font-weight: 400; text-transform: none; opacity: .82;
+    }
+    #bc-header-wrap .bc-nav.bc-open a:last-child { border-bottom: 0; }
+}
+@media (max-width: 700px) {
+    #bc-header-wrap .bc-header-inner { width: calc(100% - 24px); min-height: 68px; }
+    #bc-header-wrap .bc-monogram { font-size: 29px; padding-right: 11px; }
+    #bc-header-wrap .bc-brand-name { font-size: 13px; }
+    #bc-header-wrap .bc-brand-subtitle, #bc-header-wrap .bc-header-button { display: none; }
+    #bc-header-wrap .bc-nav.bc-open { top: 68px; padding: 6px 18px 14px; }
+}
+
+/* =========================================================
+   STALNO DUGME ZA POVRATAK
+========================================================= */
+.bc-back-home {
+    position: fixed; z-index: 9990; right: 22px; bottom: 22px; min-height: 46px; padding: 0 18px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    border: 1px solid rgba(255,255,255,.18); background: rgba(7,24,45,.94); color: #fff;
+    text-decoration: none; box-shadow: 0 10px 30px rgba(7,24,45,.18); font-size: 9px;
+    font-weight: 800; letter-spacing:.09em; text-transform: uppercase; border-radius: 4px;
+    transition: all .22s ease;
+}
+.bc-back-home span { font-size: 15px; line-height: 1; transition: transform .22s ease; }
+.bc-back-home:hover { background: #124d8b; border-color: #124d8b; transform: translateY(-2px); }
+.bc-back-home:hover span { transform: translateX(-3px); }
+
+/* =========================================================
+   SOLARNA ENERGIJA SPECIFIČNI STILOVI
+========================================================= */
+#bc-solar-program{
+    --navy:#07182d;--blue:#124d8b;--blue2:#1763ad;--bg:#f8fafc;--white:#ffffff;
+    --text:#17212c;--muted:#68727c;--line:rgba(7,24,45,.11);--soft:#edf3f7;
+    position:relative;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;
+    background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;
+}
+#bc-solar-program *,#bc-solar-program *::before,#bc-solar-program *::after{box-sizing:border-box;}
+#bc-solar-program .bc-fr-inner{width:min(1180px,calc(100% - 48px));margin:0 auto;padding:80px 0 105px;}
+#bc-solar-program .bc-fr-hero{max-width:920px;padding-bottom:52px;border-bottom:1px solid var(--line);}
+#bc-solar-program .bc-fr-label{display:flex;align-items:center;gap:11px;margin-bottom:18px;color:var(--blue);font-size:9px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;}
+#bc-solar-program .bc-fr-label::before{content:"";width:38px;height:2px;background:var(--blue);}
+#bc-solar-program .bc-fr-index{margin-bottom:16px;color:rgba(7,24,45,.26);font-family:Georgia,serif;font-size:16px;letter-spacing:.07em;}
+#bc-solar-program .bc-fr-title{max-width:880px;margin:0;color:var(--navy);font-family:Georgia,serif;font-size:clamp(44px,5vw,66px);font-weight:400;line-height:1;letter-spacing:-.045em;}
+#bc-solar-program .bc-fr-title span{color:var(--blue);}
+#bc-solar-program .bc-fr-lead{max-width:780px;margin:25px 0 0;color:#46525e;font-size:18px;line-height:1.68;}
+#bc-solar-program .bc-fr-copy{max-width:780px;margin:17px 0 0;color:var(--muted);font-size:13px;line-height:1.8;}
+#bc-solar-program .bc-fr-principle{margin-top:52px;display:grid;grid-template-columns:minmax(220px,.34fr) minmax(0,1fr);background:var(--navy);color:#fff;border-radius:4px;overflow:hidden;}
+#bc-solar-program .bc-fr-principle-side{padding:32px 30px;border-right:1px solid rgba(255,255,255,.12);}
+#bc-solar-program .bc-fr-principle-side small{display:block;color:#77a7d2;font-size:8px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;}
+#bc-solar-program .bc-fr-principle-side strong{display:block;margin-top:10px;color:#fff;font-family:Georgia,serif;font-size:21px;font-weight:400;line-height:1.35;}
+#bc-solar-program .bc-fr-principle-main{padding:32px 38px;display:flex;align-items:center;}
+#bc-solar-program .bc-fr-principle-main p{max-width:840px;margin:0;color:rgba(255,255,255,.69);font-size:13px;line-height:1.8;}
+#bc-solar-program .bc-fr-principle-main strong{color:#fff;}
+#bc-solar-program .bc-fr-section{display:grid;grid-template-columns:180px minmax(0,1fr);gap:52px;padding:50px 0;border-bottom:1px solid var(--line);}
+#bc-solar-program .bc-fr-section-number{color:var(--blue);font-family:Georgia,serif;font-size:14px;letter-spacing:.05em;}
+#bc-solar-program .bc-fr-section-content h3{max-width:770px;margin:0;color:var(--navy);font-family:Georgia,serif;font-size:clamp(28px,3.2vw,42px);font-weight:400;line-height:1.08;letter-spacing:-.03em;}
+#bc-solar-program .bc-fr-section-content > p{max-width:800px;margin:17px 0 0;color:var(--muted);font-size:13px;line-height:1.8;}
+#bc-solar-program .bc-fr-steps{margin-top:28px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);}
+#bc-solar-program .bc-fr-step{padding:24px 22px 22px 0;border-right:1px solid var(--line);}
+#bc-solar-program .bc-fr-step:not(:first-child){padding-left:22px;}
+#bc-solar-program .bc-fr-step:last-child{border-right:0;padding-right:0;}
+#bc-solar-program .bc-fr-step span{display:block;margin-bottom:10px;color:var(--blue);font-family:Georgia,serif;font-size:12px;}
+#bc-solar-program .bc-fr-step strong{display:block;color:var(--navy);font-size:11.5px;line-height:1.45;}
+#bc-solar-program .bc-fr-step p{margin:7px 0 0;color:var(--muted);font-size:10.5px;line-height:1.6;}
+#bc-solar-program .bc-fr-list{margin-top:25px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);}
+#bc-solar-program .bc-fr-list-item{min-height:58px;display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:center;padding:12px 18px 12px 0;border-bottom:1px solid var(--line);}
+#bc-solar-program .bc-fr-list-item:nth-child(odd){border-right:1px solid var(--line);}
+#bc-solar-program .bc-fr-list-item:nth-child(even){padding-left:18px;}
+#bc-solar-program .bc-fr-list-item span{color:var(--blue);font-family:Georgia,serif;font-size:12px;}
+#bc-solar-program .bc-fr-list-item strong{color:var(--navy);font-size:11px;line-height:1.45;}
+#bc-solar-program .bc-fr-market{margin-top:55px;padding:42px 44px;background:linear-gradient(135deg,#07182d 0%,#0b294a 100%);color:#fff;border-radius:4px;}
+#bc-solar-program .bc-fr-market small{color:#78a8d3;font-size:8px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;}
+#bc-solar-program .bc-fr-market h3{max-width:800px;margin:13px 0 0;color:#fff;font-family:Georgia,serif;font-size:clamp(32px,4vw,48px);font-weight:400;line-height:1.06;letter-spacing:-.035em;}
+#bc-solar-program .bc-fr-market h3 span{color:#79a9d4;}
+#bc-solar-program .bc-fr-market p{max-width:800px;margin:18px 0 0;color:rgba(255,255,255,.62);font-size:12.5px;line-height:1.78;}
+#bc-solar-program .bc-fr-market-rule{max-width:800px;margin-top:22px;padding-top:19px;border-top:1px solid rgba(255,255,255,.13);color:#fff;font-family:Georgia,serif;font-size:19px;line-height:1.4;}
+#bc-solar-program .bc-fr-final{max-width:900px;margin-top:58px;padding-top:34px;border-top:1px solid var(--line);}
+#bc-solar-program .bc-fr-final small{color:var(--blue);font-size:8px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;}
+#bc-solar-program .bc-fr-final p{margin:13px 0 0;color:var(--navy);font-family:Georgia,serif;font-size:clamp(23px,2.7vw,34px);line-height:1.3;}
+
+@media(max-width:800px){
+    #bc-solar-program .bc-fr-inner{width:100%;padding:56px max(17px,env(safe-area-inset-right)) 72px max(17px,env(safe-area-inset-left));}
+    #bc-solar-program .bc-fr-title{font-size:clamp(38px,10.5vw,50px);}
+    #bc-solar-program .bc-fr-lead{font-size:15.5px;line-height:1.6;}
+    #bc-solar-program .bc-fr-principle{grid-template-columns:1fr;}
+    #bc-solar-program .bc-fr-principle-side{padding:23px 20px;border-right:0;border-bottom:1px solid rgba(255,255,255,.11);}
+    #bc-solar-program .bc-fr-principle-main{padding:23px 20px;}
+    #bc-solar-program .bc-fr-section{grid-template-columns:1fr;gap:13px;padding:39px 0;}
+    #bc-solar-program .bc-fr-section-content h3{font-size:clamp(29px,8vw,38px);}
+    #bc-solar-program .bc-fr-steps{grid-template-columns:1fr;}
+    #bc-solar-program .bc-fr-step, #bc-solar-program .bc-fr-step:not(:first-child), #bc-solar-program .bc-fr-step:last-child{padding:18px 0;border-right:0;border-bottom:1px solid var(--line);}
+    #bc-solar-program .bc-fr-step:last-child{border-bottom:0;}
+    #bc-solar-program .bc-fr-list{grid-template-columns:1fr;}
+    #bc-solar-program .bc-fr-list-item, #bc-solar-program .bc-fr-list-item:nth-child(odd), #bc-solar-program .bc-fr-list-item:nth-child(even){padding:12px 0;border-right:0;}
+    #bc-solar-program .bc-fr-market{margin-top:42px;padding:30px 22px;}
+    #bc-solar-program .bc-fr-market h3{font-size:clamp(29px,8.4vw,39px);}
+    #bc-solar-program .bc-fr-market-rule{font-size:17px;}
+}
+
+/* =========================================================
+   FOOTER (SHARED)
+========================================================= */
+#bc-footer {
+    --navy:#07182d; --blue:#124d8b; width:100vw; margin-left:calc(50% - 50vw);
+    overflow:hidden; background:var(--navy); color:#fff; font-family:Arial,Helvetica,sans-serif;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+#bc-footer .bc-footer-line {
+    width:100%; height:3px;
+    background:linear-gradient(90deg,#d21f2b 0%,#d21f2b 33.33%,#ffffff 33.33%,#ffffff 66.66%,#1b5a9d 66.66%,#1b5a9d 100%);
+}
+#bc-footer .bc-footer-inner { width:min(1220px, calc(100% - 48px)); margin:0 auto; padding:72px 0 27px; }
+#bc-footer .bc-footer-main { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(240px,.6fr); gap:80px; align-items:end; padding-bottom:52px; border-bottom:1px solid rgba(255,255,255,.11); }
+#bc-footer .bc-footer-label { display:flex; align-items:center; gap:11px; margin-bottom:17px; color:#77a6d1; font-size:8px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+#bc-footer .bc-footer-label::before { content:""; width:35px; height:2px; background:#397bb7; }
+#bc-footer .bc-footer-title { max-width:760px; margin:0; color:#fff; font-family:Georgia,serif; font-size:clamp(38px,4.7vw,61px); font-weight:400; line-height:1.02; letter-spacing:-.04em; }
+#bc-footer .bc-footer-title span { color:#70a1cf; }
+#bc-footer .bc-footer-copy { max-width:600px; margin:20px 0 0; color:rgba(255,255,255,.55); font-size:13px; line-height:1.7; }
+#bc-footer .bc-footer-brand { padding-left:30px; border-left:1px solid rgba(255,255,255,.12); }
+#bc-footer .bc-footer-monogram { margin-bottom:16px; color:#fff; font-family:Georgia,serif; font-size:45px; line-height:1; }
+#bc-footer .bc-footer-name { color:#fff; font-family:Georgia,serif; font-size:20px; font-weight:500; }
+#bc-footer .bc-footer-tagline { margin-top:7px; color:rgba(255,255,255,.42); font-size:8px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+#bc-footer .bc-footer-nav { margin-top:27px; display:flex; flex-direction:column; align-items:flex-start; }
+#bc-footer .bc-footer-nav a {
+    position:relative; width:100%; min-height:39px; display:flex; align-items:center;
+    color:rgba(255,255,255,.67); border-bottom:1px solid rgba(255,255,255,.07); text-decoration:none;
+    font-size:9px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; transition:color .2s ease;
+}
+#bc-footer .bc-footer-nav a:hover { color:#fff; }
+#bc-footer .bc-footer-bottom { min-height:67px; display:flex; align-items:center; justify-content:space-between; gap:30px; }
+#bc-footer .bc-footer-copyright { color:rgba(255,255,255,.34); font-size:8px; font-weight:700; text-transform:uppercase; }
+#bc-footer .bc-footer-principle { display:flex; align-items:center; gap:10px; color:rgba(255,255,255,.40); font-family:Georgia,serif; font-size:12px; }
+#bc-footer .bc-footer-principle::before { content:""; width:21px; height:1px; background:#3e73a4; }
+#bc-footer .bc-footer-top {
+    width:42px; height:42px; flex:0 0 42px; display:grid; place-items:center;
+    border:1px solid rgba(255,255,255,.19); color:#fff; background:transparent; text-decoration:none; font-size:15px; transition:.2s ease;
+}
+#bc-footer .bc-footer-top:hover { background:var(--blue); border-color:var(--blue); }
+
+@media(max-width:767px) {
+    #bc-footer .bc-footer-inner { width:100%; padding:57px max(17px,env(safe-area-inset-right)) 20px max(17px,env(safe-area-inset-left)); }
+    #bc-footer .bc-footer-main { grid-template-columns:1fr; gap:39px; padding-bottom:38px; }
+    #bc-footer .bc-footer-brand { padding:27px 0 0; border-left:0; border-top:1px solid rgba(255,255,255,.11); }
+    #bc-footer .bc-footer-bottom { min-height:0; padding-top:20px; display:grid; grid-template-columns:minmax(0,1fr) 42px; gap:15px; }
+    #bc-footer .bc-footer-copyright { grid-column:1; grid-row:2; }
+    #bc-footer .bc-footer-principle { grid-column:1 / -1; grid-row:1; }
+    #bc-footer .bc-footer-top { grid-column:2; grid-row:2; }
+}
+</style>
+
+<div id="bc-header-wrap">
+    <header class="bc-header">
+        <div class="bc-header-inner">
+            <a class="bc-brand" href="pocetna.html">
+                <div class="bc-monogram">BĆ</div>
+                <div>
+                    <div class="bc-brand-name">BLAGOJE ĆURČIĆ</div>
+                    <div class="bc-brand-subtitle">Za pravedniju Srbiju</div>
+                </div>
+            </a>
+            <nav class="bc-nav" id="bcNav" aria-label="Glavna navigacija">
+                <a href="pocetna.html">Početak</a>
+                <a href="pocetna.html#bc-about">O meni</a>
+                <a href="pocetna.html#bc-principles" class="bc-current">Program</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+            <a class="bc-header-button" href="kontakt.html">Kontakt <span>→</span></a>
+            <button id="bcMenuButton" class="bc-menu-button" type="button" aria-label="Otvori navigaciju" aria-expanded="false" aria-controls="bcNav">
+                <span class="bc-menu-icon"><span></span><span></span><span></span></span>
+            </button>
+        </div>
+    </header>
+</div>
+
+<section id="bc-solar-program">
+    <!-- POVRATAK NA POČETNU -->
+    <a class="bc-back-home" href="pocetna.html" aria-label="Vrati se na početnu stranicu">
+        <span>←</span> Početna
+    </a>
+
+    <div class="bc-fr-inner">
+        <!-- HERO -->
+        <div class="bc-fr-hero">
+            <div class="bc-fr-label">Program · Solarna energija</div>
+            <div class="bc-fr-index">03 / SOLARNA ENERGIJA</div>
+            <h2 class="bc-fr-title">
+                Sunce je besplatno.<br><span>Energija ne mora da bude.</span>
+            </h2>
+            <p class="bc-fr-lead">
+                Solarna energija je jedan od najjednostavnijih načina da domaćinstva, privreda i javne institucije deo električne energije proizvode sami — iz resursa koji je dostupan svakog dana i za koji ne postoji račun.
+            </p>
+            <p class="bc-fr-copy">
+                Za razliku od proizvodnje koja zavisi od plodne zemlje, navodnjavanja ili stalne nabavke goriva, fotonaponski sistem se postavlja na krov, nadstrešnicu ili drugu odgovarajuću površinu i zatim godinama pretvara sunčevu svetlost u električnu energiju. Potrebni su dobra lokacija, pravilno projektovanje, kvalitetna oprema i stručna ugradnja.
+            </p>
+        </div>
+
+        <!-- PRINCIPLE -->
+        <div class="bc-fr-principle">
+            <div class="bc-fr-principle-side">
+                <small>Osnovni princip</small>
+                <strong>Jednom se ugradi. Godinama proizvodi.</strong>
+            </div>
+            <div class="bc-fr-principle-main">
+                <p>
+                    Sunce ne naplaćuje energiju koju šalje.
+                    <strong>Što više električne energije proizvedemo sami, manje moramo da je kupujemo.</strong>
+                    Novac koji ne ode na račun za struju može da ostane porodici, preduzeću, poljoprivredniku ili ustanovi — za opremu, razvoj, nova ulaganja i druge potrebe.
+                </p>
+            </div>
+        </div>
+
+        <!-- 01 -->
+        <div class="bc-fr-section">
+            <div class="bc-fr-section-number">01 / RESURS</div>
+            <div class="bc-fr-section-content">
+                <h3>Sunce ne traži gorivo, vodu ni plodnu zemlju.</h3>
+                <p>Solarna elektrana ne mora da zauzima obradivu površinu. Paneli mogu da se postavljaju na krovove kuća, hala, skladišta, javnih objekata, nadstrešnice i druge već postojeće površine. Zato proizvodnja električne energije može da raste bez direktnog oslanjanja na kvalitet zemljišta ili sistem navodnjavanja.</p>
+                <div class="bc-fr-steps">
+                    <div class="bc-fr-step">
+                        <span>01</span>
+                        <strong>Odgovarajuća površina</strong>
+                        <p>Krov ili druga površina proverava se prema položaju, nosivosti i osunčanosti.</p>
+                    </div>
+                    <div class="bc-fr-step">
+                        <span>02</span>
+                        <strong>Pravilno dimenzionisan sistem</strong>
+                        <p>Snaga elektrane planira se prema realnoj potrošnji i mogućnostima objekta.</p>
+                    </div>
+                    <div class="bc-fr-step">
+                        <span>03</span>
+                        <strong>Kvalitetna oprema</strong>
+                        <p>Paneli, inverteri, konstrukcija i zaštita moraju biti deo jednog pouzdanog sistema.</p>
+                    </div>
+                    <div class="bc-fr-step">
+                        <span>04</span>
+                        <strong>Stručna ugradnja</strong>
+                        <p>Dobar projekat i pravilna montaža određuju sigurnost, trajnost i učinak sistema.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="bc-fr-section">
+            <div class="bc-fr-section-number">02 / UGRADNJA</div>
+            <div class="bc-fr-section-content">
+                <h3>Koristiti ono što već imamo.</h3>
+                <p>Veliki deo solarne proizvodnje može da se razvija na postojećoj infrastrukturi. Krov koji danas samo pokriva objekat može sutra da postane površina koja proizvodi električnu energiju. Sistem može da počne od jednog domaćinstva ili poslovnog objekta, a zatim da se širi prema potrebama i mogućnostima.</p>
+                <div class="bc-fr-list">
+                    <div class="bc-fr-list-item"><span>01</span><strong>Krovovi porodičnih kuća</strong></div>
+                    <div class="bc-fr-list-item"><span>02</span><strong>Proizvodne hale i skladišta</strong></div>
+                    <div class="bc-fr-list-item"><span>03</span><strong>Javne zgrade i ustanove</strong></div>
+                    <div class="bc-fr-list-item"><span>04</span><strong>Nadstrešnice i parking prostori</strong></div>
+                    <div class="bc-fr-list-item"><span>05</span><strong>Industrijske i neiskorišćene površine</strong></div>
+                    <div class="bc-fr-list-item"><span>06</span><strong>Sistemi sa baterijskim skladištenjem</strong></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="bc-fr-section">
+            <div class="bc-fr-section-number">03 / NEZAVISNOST</div>
+            <div class="bc-fr-section-content">
+                <h3>Manje zavisnosti od cene električne energije.</h3>
+                <p>Cilj nije potpuna izolacija od elektroenergetskog sistema, već da se što veći deo sopstvene dnevne potrošnje pokrije sopstvenom proizvodnjom tamo gde je to tehnički i ekonomski opravdano. Tako domaćinstva i privreda dobijaju veću kontrolu nad troškovima i manju izloženost budućim promenama cena energije.</p>
+            </div>
+        </div>
+
+        <!-- 04 -->
+        <div class="bc-fr-section">
+            <div class="bc-fr-section-number">04 / RAST</div>
+            <div class="bc-fr-section-content">
+                <h3>Od jednog krova do energetski jače Srbije.</h3>
+                <p>Hiljade malih i srednjih sistema zajedno mogu da naprave veliku razliku. Razvoj treba podsticati kroz domaćinstva, preduzeća, poljoprivredna gazdinstva, škole, opštine i industriju, uz jasna pravila, jednostavne procedure i ulaganje u mrežu i skladištenje.</p>
+            </div>
+        </div>
+
+        <!-- MARKET -->
+        <div class="bc-fr-market">
+            <small>05 / Vrednost energije</small>
+            <h3>Ono što ne ode na struju,<br><span>može da ode u nešto drugo.</span></h3>
+            <p>Svaki kilovat-sat koji se proizvede i potroši na mestu nastanka može da smanji količinu energije koju je potrebno kupiti iz mreže. Time solarni panel nije samo ekološka odluka, već i alat za dugoročnije planiranje troškova i oslobađanje dela novca za druge potrebe domaćinstva, poslovanja ili zajednice.</p>
+            <div class="bc-fr-market-rule">Sunce → panel → električna energija → manji račun → više prostora za ulaganje.</div>
+        </div>
+
+        <!-- FINAL -->
+        <div class="bc-fr-final">
+            <small>Krajnji cilj</small>
+            <p>Budućnost energetike nije samo u tome od koga kupujemo struju, već koliko energije možemo pouzdano da proizvedemo sami. Sunce je besplatno — naš posao je da napravimo sistem koji će tu energiju pretvoriti u korist za građane, privredu i državu.</p>
+        </div>
+    </div>
+</section>
+
+<footer id="bc-footer">
+    <div class="bc-footer-line"></div>
+    <div class="bc-footer-inner">
+        <div class="bc-footer-main">
+            <div>
+                <div class="bc-footer-label">Za pravedniju Srbiju</div>
+                <h2 class="bc-footer-title">Država u kojoj se<br><span>pitaju građani.</span></h2>
+                <p class="bc-footer-copy">Odgovornost, domaća proizvodnja i veće učešće građana u odlukama koje određuju budućnost Srbije.</p>
+            </div>
+            <div class="bc-footer-brand">
+                <div class="bc-footer-monogram">BĆ</div>
+                <div class="bc-footer-name">Blagoje Ćurčić</div>
+                <div class="bc-footer-tagline">Za pravedniju Srbiju</div>
+                <nav class="bc-footer-nav" aria-label="Navigacija u podnožju">
+                    <a href="pocetna.html">Početak</a>
+                    <a href="pocetna.html#bc-about">O meni</a>
+                    <a href="pocetna.html#bc-principles">Program</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </nav>
+            </div>
+        </div>
+        <div class="bc-footer-bottom">
+            <div class="bc-footer-copyright">© <span id="bcFooterYear">2026</span> Blagoje Ćurčić · Sva prava zadržana</div>
+            <div class="bc-footer-principle">Građanin u centru odluke.</div>
+            <a class="bc-footer-top" href="#bc-solar-program" aria-label="Nazad na vrh">↑</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function () {
+    const btn = document.getElementById("bcMenuButton");
+    const nav = document.getElementById("bcNav");
+    if (btn && nav) {
+        btn.addEventListener("click", function () {
+            const open = nav.classList.toggle("bc-open");
+            btn.classList.toggle("bc-active", open);
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+    }
+    const year = document.getElementById("bcFooterYear");
+    if (year) { year.textContent = new Date().getFullYear(); }
+})();
+</script>
+</body>
+</html>
