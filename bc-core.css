@@ -1,0 +1,89 @@
+/* =========================================================
+   BLAGOJE ĆURČIĆ — PERFORMANCE & UI ENGINE (CORE CSS)
+   Maksimalna optimizacija za slabije telefone + mikro-animacije
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Rasterećenje grafičkog čipa na mobilnim telefonima */
+@media (max-width: 900px) {
+    #bc-home .bc-header,
+    #bc-header-wrap .bc-header,
+    .bc-modal-overlay,
+    .bc-property-modal,
+    #bc-about .bc-meta-item {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    #bc-home .bc-header,
+    #bc-header-wrap .bc-header {
+        background: rgba(4, 18, 36, 0.96) !important;
+    }
+
+    .bc-modal-overlay,
+    .bc-property-modal {
+        background: rgba(3, 12, 24, 0.94) !important;
+    }
+}
+
+/* Mikro-animacije za dugmad i linkove */
+button, 
+.bc-button, 
+.bc-header-button, 
+.bc-back-home, 
+.bc-swiss-home,
+.bc-about-btn, 
+.bc-prop-btn, 
+.bc-action, 
+.bc-index-link {
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: transform 0.16s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                background-color 0.2s ease, 
+                box-shadow 0.2s ease !important;
+}
+
+button:active, 
+.bc-button:active, 
+.bc-header-button:active, 
+.bc-back-home:active, 
+.bc-swiss-home:active,
+.bc-about-btn:active, 
+.bc-prop-btn:active, 
+.bc-action:active {
+    transform: scale(0.96) !important;
+}
+
+/* Hardverski ubrzan Reveal pri skrolovanju */
+.bc-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.bc-reveal.bc-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fluidni prelaz između stranica */
+body {
+    opacity: 1;
+    transition: opacity 0.25s ease-out;
+}
+
+body.bc-page-transition {
+    opacity: 0;
+}
