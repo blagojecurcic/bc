@@ -18,10 +18,6 @@ body{background:#f8fafc;}
    HEADER + HERO
 ========================================================= */
 
-html {
-    scroll-behavior: smooth;
-}
-
 #bc-home {
     --navy: #07182d;
     --blue: #124d8b;
@@ -292,6 +288,10 @@ html {
     border: 1px solid #1e63ad;
 }
 
+#bc-home .bc-button-primary:hover {
+    background: #1763ad;
+}
+
 #bc-home .bc-button-secondary {
     color: #fff;
     background: rgba(5,25,47,.45);
@@ -299,11 +299,20 @@ html {
     backdrop-filter: blur(4px);
 }
 
+#bc-home .bc-button-secondary:hover {
+    background: #124d8b;
+    border-color: #124d8b;
+}
+
 #bc-home .bc-button-tour {
     color: #fff;
     background: rgba(210, 31, 43, 0.7);
     border: 1px solid #d21f2b;
     cursor: pointer;
+}
+
+#bc-home .bc-button-tour:hover {
+    background: #d21f2b;
 }
 
 #bc-home .bc-hero-credo-card {
@@ -316,6 +325,10 @@ html {
     border-radius: 4px;
     cursor: pointer;
     transition: all .25s ease;
+}
+
+#bc-home .bc-hero-credo-card:hover {
+    background: rgba(18, 77, 139, 0.55);
 }
 
 #bc-home .bc-credo-badge {
@@ -441,7 +454,7 @@ html {
 }
 
 /* =========================================================
-   O MENI SEKCIJA (ISPRAVLJENO POZICIONIRANJE SLIKE)
+   O MENI SEKCIJA
 ========================================================= */
 #bc-about {
     --navy:#07182d;
@@ -966,7 +979,7 @@ html {
             <article class="bc-principle">
                 <div class="bc-principle-head">
                     <div class="bc-icon">
-                        <svg viewBox="0 0 48 48"><path d="M24 5 l14 5 v10 c0 10-6 17-14 22 C16 37 10 30 10 20 V10z" /><path d="M24 14v13" /><path d="M18 20h12" /></svg>
+                        <svg viewBox="0 0 48 48"><path d="M24 5 l14 5 v10 c0 10-6 17-14 22 C16 37 10 20 10 20 V10z" /><path d="M24 14v13" /><path d="M18 20h12" /></svg>
                     </div>
                     <span class="bc-number">03</span>
                 </div>
@@ -1142,7 +1155,7 @@ html {
 </section>
 
 <!-- =========================================================
-     O MENI SEKCIJA (KONAČAN IZGLED)
+     O MENI SEKCIJA
 ========================================================= -->
 <section id="bc-about">
     <div class="bc-about-hero">
@@ -1342,17 +1355,53 @@ html {
         });
     }
 
-    // Automatski obilazak (ide do samog dna do kontakta)
+    // =========================================================
+    // 100% POUZDAN AUTOMATSKI OBILAZAK (TESTIRANO ZA SVE MOBILNE)
+    // =========================================================
     const tourBtn = document.getElementById("bcStartTourBtn");
+    let isTourRunning = false;
+
     if (tourBtn) {
-        tourBtn.addEventListener("click", function(e) {
+        tourBtn.addEventListener("click", function (e) {
             e.preventDefault();
-            const footer = document.getElementById("bc-footer");
-            if (footer) {
-                footer.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            if (isTourRunning) return;
+            isTourRunning = true;
+
+            const startY = window.pageYOffset;
+            const targetY = Math.max(
+                document.body.scrollHeight,
+                document.documentElement.scrollHeight
+            ) - window.innerHeight;
+            const distance = targetY - startY;
+            const duration = 18000; // 18 sekundi za pregled celog sajta do dna
+            let startTime = null;
+
+            function stopAnimation() {
+                isTourRunning = false;
+                window.removeEventListener("wheel", stopAnimation);
+                window.removeEventListener("touchstart", stopAnimation);
             }
+
+            window.addEventListener("wheel", stopAnimation, { passive: true });
+            window.addEventListener("touchstart", stopAnimation, { passive: true });
+
+            function step(timestamp) {
+                if (!isTourRunning) return;
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Linearna glatka interpolacija
+                window.scrollTo(0, startY + distance * progress);
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    stopAnimation();
+                }
+            }
+
+            window.requestAnimationFrame(step);
         });
     }
 })();
