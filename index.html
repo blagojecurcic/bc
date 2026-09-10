@@ -15,7 +15,7 @@ body{background:#f8fafc;}
 <body>
 <style>
 /* =========================================================
-   HEADER + HERO (FULL SCREEN POSTER KAO NA SLICI 4)
+   HEADER + HERO
 ========================================================= */
 
 html {
@@ -59,7 +59,7 @@ html {
     height: 100%;
     display: block;
     object-fit: cover;
-    object-position: center top;
+    object-position: 70% center;
 }
 
 #bc-home .bc-hero-overlay {
@@ -70,8 +70,8 @@ html {
     background:
         linear-gradient(
             180deg,
-            rgba(4,18,36,.82) 0%,
-            rgba(4,18,36,.65) 40%,
+            rgba(4,18,36,.80) 0%,
+            rgba(4,18,36,.65) 45%,
             rgba(4,18,36,.88) 80%,
             rgba(4,18,36,.98) 100%
         );
@@ -292,10 +292,6 @@ html {
     border: 1px solid #1e63ad;
 }
 
-#bc-home .bc-button-primary:hover {
-    background: #1763ad;
-}
-
 #bc-home .bc-button-secondary {
     color: #fff;
     background: rgba(5,25,47,.45);
@@ -303,20 +299,11 @@ html {
     backdrop-filter: blur(4px);
 }
 
-#bc-home .bc-button-secondary:hover {
-    background: #124d8b;
-    border-color: #124d8b;
-}
-
 #bc-home .bc-button-tour {
     color: #fff;
     background: rgba(210, 31, 43, 0.7);
     border: 1px solid #d21f2b;
     cursor: pointer;
-}
-
-#bc-home .bc-button-tour:hover {
-    background: #d21f2b;
 }
 
 #bc-home .bc-hero-credo-card {
@@ -329,10 +316,6 @@ html {
     border-radius: 4px;
     cursor: pointer;
     transition: all .25s ease;
-}
-
-#bc-home .bc-hero-credo-card:hover {
-    background: rgba(18, 77, 139, 0.55);
 }
 
 #bc-home .bc-credo-badge {
@@ -450,12 +433,15 @@ html {
     #bc-home .bc-brand-name { font-size: 13px; }
     #bc-home .bc-brand-subtitle, #bc-home .bc-header-button { display: none; }
     #bc-home .bc-nav.bc-open { top: 70px; }
-    #bc-home .bc-content-wrap { padding-top: 100px; }
     #bc-home .bc-button { width: 100%; }
+
+    #bc-home .bc-banner-image {
+        object-position: 68% center !important;
+    }
 }
 
 /* =========================================================
-   O MENI SEKCIJA (POPUT SLIKE 3)
+   O MENI SEKCIJA (ISPRAVLJENO POZICIONIRANJE SLIKE)
 ========================================================= */
 #bc-about {
     --navy:#07182d;
@@ -473,7 +459,7 @@ html {
 #bc-about .bc-about-hero {
     position:relative;
     width:100%;
-    min-height:720px;
+    min-height:780px;
     overflow:hidden;
     display: flex;
     align-items: flex-end;
@@ -487,7 +473,7 @@ html {
     height:100%;
     display:block;
     object-fit:cover;
-    object-position:center top;
+    object-position: 72% top;
 }
 
 #bc-about .bc-about-overlay {
@@ -498,18 +484,34 @@ html {
     background:
         linear-gradient(
             180deg,
-            rgba(4,18,36,.10) 0%,
-            rgba(4,18,36,.30) 30%,
-            rgba(4,18,36,.75) 60%,
-            rgba(4,18,36,.98) 95%
+            rgba(4,18,36,.15) 0%,
+            rgba(4,18,36,.25) 30%,
+            rgba(4,18,36,.80) 65%,
+            rgba(4,18,36,.98) 100%
         );
+}
+
+@media (min-width: 900px) {
+    #bc-about .bc-about-image {
+        object-position: 80% center;
+    }
+    #bc-about .bc-about-overlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(4,18,36,.96) 0%,
+                rgba(4,18,36,.88) 42%,
+                rgba(4,18,36,.40) 70%,
+                rgba(4,18,36,.10) 100%
+            );
+    }
 }
 
 #bc-about .bc-content-wrap {
     position:relative;
     z-index:10;
     width: 100%;
-    padding: 80px 0 60px;
+    padding: 100px 0 60px;
 }
 
 #bc-about .bc-content-inner {
@@ -530,7 +532,7 @@ html {
 
 #bc-about .bc-kicker {
     margin-bottom:10px;
-    color:rgba(255,255,255,.7);
+    color:rgba(255,255,255,.75);
     font-size:9px;
     font-weight:800;
     letter-spacing:.2em;
@@ -550,8 +552,8 @@ html {
 
 #bc-about .bc-description {
     margin:20px 0 0;
-    color:rgba(255,255,255,.88);
-    font-size:15px;
+    color:rgba(255,255,255,.9);
+    font-size:15.5px;
     line-height:1.65;
     text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
@@ -602,7 +604,10 @@ html {
 
 @media (max-width: 767px) {
     #bc-about .bc-about-hero {
-        min-height: 760px;
+        min-height: 860px;
+    }
+    #bc-about .bc-about-image {
+        object-position: 68% 10% !important;
     }
     #bc-about .bc-about-btn {
         width: 100%;
@@ -1137,7 +1142,7 @@ html {
 </section>
 
 <!-- =========================================================
-     O MENI SEKCIJA
+     O MENI SEKCIJA (KONAČAN IZGLED)
 ========================================================= -->
 <section id="bc-about">
     <div class="bc-about-hero">
@@ -1302,7 +1307,7 @@ html {
     const year = document.getElementById("bcFooterYear");
     if (year) year.textContent = new Date().getFullYear();
 
-    // Modal logika
+    // Modal
     const openCard = document.getElementById("bcCredoOpenCard");
     const modal = document.getElementById("bcCredoModal");
     const closeBtn = document.getElementById("bcCredoCloseBtn");
@@ -1337,7 +1342,7 @@ html {
         });
     }
 
-    // 100% POUZDAN AUTOMATSKI SKROL ZA TELEFON I DESKTOP
+    // Automatski obilazak (ide do samog dna do kontakta)
     const tourBtn = document.getElementById("bcStartTourBtn");
     if (tourBtn) {
         tourBtn.addEventListener("click", function(e) {
