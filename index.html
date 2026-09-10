@@ -18,6 +18,10 @@ body{background:#f8fafc;}
    HEADER + HERO
 ========================================================= */
 
+html {
+    scroll-behavior: smooth;
+}
+
 #bc-home {
     --navy: #07182d;
     --blue: #124d8b;
@@ -41,10 +45,10 @@ body{background:#f8fafc;}
 #bc-home .bc-hero {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 780px;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
+    align-items: flex-end;
 }
 
 #bc-home .bc-banner-image {
@@ -55,7 +59,7 @@ body{background:#f8fafc;}
     height: 100%;
     display: block;
     object-fit: cover;
-    object-position: 70% center;
+    object-position: 72% top;
 }
 
 #bc-home .bc-hero-overlay {
@@ -66,31 +70,31 @@ body{background:#f8fafc;}
     background:
         linear-gradient(
             180deg,
-            rgba(4,18,36,.80) 0%,
-            rgba(4,18,36,.65) 45%,
-            rgba(4,18,36,.88) 80%,
+            rgba(4,18,36,.15) 0%,
+            rgba(4,18,36,.25) 30%,
+            rgba(4,18,36,.80) 65%,
             rgba(4,18,36,.98) 100%
         );
 }
 
 @media (min-width: 900px) {
     #bc-home .bc-banner-image {
-        object-position: 75% center;
+        object-position: 80% center;
     }
     #bc-home .bc-hero-overlay {
         background:
             linear-gradient(
                 90deg,
                 rgba(4,18,36,.96) 0%,
-                rgba(4,18,36,.88) 40%,
-                rgba(4,18,36,.45) 70%,
-                rgba(4,18,36,.15) 100%
+                rgba(4,18,36,.88) 42%,
+                rgba(4,18,36,.40) 70%,
+                rgba(4,18,36,.10) 100%
             );
     }
 }
 
 #bc-home .bc-header {
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -208,10 +212,8 @@ body{background:#f8fafc;}
 #bc-home .bc-content-wrap {
     position: relative;
     z-index: 10;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    padding: 60px 0 80px;
+    width: 100%;
+    padding: 100px 0 60px;
 }
 
 #bc-home .bc-content-inner {
@@ -309,10 +311,6 @@ body{background:#f8fafc;}
     background: rgba(210, 31, 43, 0.7);
     border: 1px solid #d21f2b;
     cursor: pointer;
-}
-
-#bc-home .bc-button-tour:hover {
-    background: #d21f2b;
 }
 
 #bc-home .bc-hero-credo-card {
@@ -440,17 +438,15 @@ body{background:#f8fafc;}
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 767px) {
     #bc-home .bc-header-inner { min-height: 70px; }
     #bc-home .bc-monogram { font-size: 28px; }
     #bc-home .bc-brand-name { font-size: 13px; }
     #bc-home .bc-brand-subtitle, #bc-home .bc-header-button { display: none; }
     #bc-home .bc-nav.bc-open { top: 70px; }
+    #bc-home .bc-hero { min-height: 860px; }
+    #bc-home .bc-banner-image { object-position: 68% 10% !important; }
     #bc-home .bc-button { width: 100%; }
-
-    #bc-home .bc-banner-image {
-        object-position: 68% center !important;
-    }
 }
 
 /* =========================================================
@@ -740,11 +736,12 @@ body{background:#f8fafc;}
 </style>
 
 <!-- =========================================================
-     HERO SEKCIJA
+     HERO SEKCIJA (ISTO POZICIONIRANJE I SLIKA KAO O MENI)
 ========================================================= -->
 <section id="bc-home">
     <div class="bc-hero">
-        <img class="bc-banner-image" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-04_25_46-AM.png" alt="Благоје Ћурчић">
+        <!-- ZAMENJENA SLIKA: SADA JE ISTA KAO U O MENI -->
+        <img class="bc-banner-image" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/ChatGPT-Image-Sep-6-2026-10_39_24-AM.png" alt="Благоје Ћурчић">
         <div class="bc-hero-overlay"></div>
 
         <header class="bc-header">
@@ -857,7 +854,7 @@ body{background:#f8fafc;}
 
 <!-- =========================================================
      ŠVAJCARSKI SISTEM (KRATKI PREGLED)
-========================================================= -->
+========================================================= */ -->
 <style>
 #bc-direct-short {
     --navy:#07182d; --blue:#124d8b; --text:#17212c; --muted:#6d747c; --line:rgba(7,24,45,.11); --bg:#f8fafc;
@@ -1355,9 +1352,7 @@ body{background:#f8fafc;}
         });
     }
 
-    // =========================================================
-    // 100% POUZDAN AUTOMATSKI OBILAZAK (TESTIRANO ZA SVE MOBILNE)
-    // =========================================================
+    // Automatski obilazak
     const tourBtn = document.getElementById("bcStartTourBtn");
     let isTourRunning = false;
 
@@ -1373,7 +1368,7 @@ body{background:#f8fafc;}
                 document.documentElement.scrollHeight
             ) - window.innerHeight;
             const distance = targetY - startY;
-            const duration = 18000; // 18 sekundi za pregled celog sajta do dna
+            const duration = 18000;
             let startTime = null;
 
             function stopAnimation() {
@@ -1391,7 +1386,6 @@ body{background:#f8fafc;}
                 const elapsed = timestamp - startTime;
                 const progress = Math.min(elapsed / duration, 1);
 
-                // Linearna glatka interpolacija
                 window.scrollTo(0, startY + distance * progress);
 
                 if (progress < 1) {
