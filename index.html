@@ -624,7 +624,7 @@ html {
 }
 
 /* =========================================================
-   ISTORIJSKO NASLEĐE
+   ISTORIJSKO NASLEĐE (PRECI: MAJČINA I OČEVA STRANA)
 ========================================================= */
 #bc-heritage {
     --navy: #07182d;
@@ -703,6 +703,16 @@ html {
     background: var(--gold);
 }
 
+#bc-heritage .bc-heritage-card-badge {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+}
+
 #bc-heritage .bc-heritage-card h3 {
     font-family: Georgia, serif;
     font-size: 22px;
@@ -733,14 +743,53 @@ html {
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================================================
+   AUDIO KONTROLA (POGLEDAJ DOM SVOJ ANĐELE)
+========================================================= */
+#bcAudioToggle {
+    position: fixed;
+    bottom: 22px;
+    left: 22px;
+    z-index: 99990;
+    min-height: 44px;
+    padding: 0 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(7, 24, 45, 0.95);
+    border: 1px solid rgba(223, 177, 91, 0.6);
+    color: #dfb15b;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    transition: all .2s ease;
+}
+#bcAudioToggle:hover {
+    background: #124d8b;
+    color: #fff;
+    border-color: #fff;
+}
 </style>
 
+<!-- AUDIO ELEMENT: POGLEDAJ DOM SVOJ ANĐELE -->
+<audio id="bcBackgroundAudio" loop preload="auto">
+    <source src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Riblja_Corba_Pogledaj_dom_svoj_andjele_sample.ogg" type="audio/ogg">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/16/audio_db6591201e.mp3" type="audio/mpeg">
+</audio>
+<button type="button" id="bcAudioToggle" aria-label="Звук песме">
+    <span id="bcAudioIcon">🔊</span> <span id="bcAudioText">Музика: Укључено</span>
+</button>
+
 <!-- =========================================================
-     HERO SEKCIJA (ISTO POZICIONIRANJE I SLIKA KAO O MENI)
+     HERO SEKCIJA
 ========================================================= -->
 <section id="bc-home">
     <div class="bc-hero">
-        <!-- ZAMENJENA SLIKA: SADA JE ISTA KAO U O MENI -->
         <img class="bc-banner-image" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/ChatGPT-Image-Sep-6-2026-10_39_24-AM.png" alt="Благоје Ћурчић">
         <div class="bc-hero-overlay"></div>
 
@@ -854,7 +903,7 @@ html {
 
 <!-- =========================================================
      ŠVAJCARSKI SISTEM (KRATKI PREGLED)
-========================================================= */ -->
+========================================================= -->
 <style>
 #bc-direct-short {
     --navy:#07182d; --blue:#124d8b; --text:#17212c; --muted:#6d747c; --line:rgba(7,24,45,.11); --bg:#f8fafc;
@@ -998,7 +1047,7 @@ html {
     background:linear-gradient(180deg, #fbfcfd 0%, var(--bg) 100%); color:var(--text); font-family:Arial,Helvetica,sans-serif;
 }
 #bc-policy-index *, #bc-policy-index *::before, #bc-policy-index *::after{ box-sizing:border-box; }
-#bc-policy-index .bc-index-inner{ position:relative; width:min(1180px,calc(100% - 40px)); margin:0 auto; padding:80px 0 95px; }
+#bc-index-inner{ position:relative; width:min(1180px,calc(100% - 40px)); margin:0 auto; padding:80px 0 95px; }
 #bc-policy-index .bc-index-intro{ display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:60px; align-items:end; padding-bottom:45px; border-bottom:1px solid var(--line); }
 #bc-policy-index .bc-index-label{ display:flex; align-items:center; gap:10px; margin-bottom:16px; color:var(--blue); font-size:9px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
 #bc-policy-index .bc-index-label::before{ content:""; width:38px; height:2px; background:var(--blue); }
@@ -1184,7 +1233,7 @@ html {
 </section>
 
 <!-- =========================================================
-     ISTORIJSKO NASLEĐE
+     ISTORIJSKO NASLEĐE (PRECI: MAJČINA I OČEVA STRANA)
 ========================================================= -->
 <section id="bc-heritage">
     <div class="bc-heritage-inner">
@@ -1204,7 +1253,9 @@ html {
         </div>
 
         <div class="bc-heritage-grid">
+            <!-- MAJČINA STRANA -->
             <div class="bc-heritage-card">
+                <span class="bc-heritage-card-badge">Порекло са мајчине стране</span>
                 <h3>Војвода Божо Јаворац (Божидар Ћосовић)</h3>
                 <p>
                     Херој и легенда Јавора, Голије, Брезове и Чемернице. Командант који је спасао народ од затирања на читавом потезу од Кладнице до Чачка.
@@ -1214,7 +1265,9 @@ html {
                 </p>
             </div>
 
+            <!-- OČEVA STRANA -->
             <div class="bc-heritage-card">
+                <span class="bc-heritage-card-badge">Порекло са очеве стране</span>
                 <h3>Деда Благоје Ћурчић</h3>
                 <p>
                     Возач на Белом двору, у служби краљевске породице. Мучки убијен 1924. године од стране усташа због свог политичког става и оданости Србији.
@@ -1396,6 +1449,49 @@ html {
             }
 
             window.requestAnimationFrame(step);
+        });
+    }
+
+    // =========================================================
+    // AUTOMATSKA MUZIKA: POGLEDAJ DOM SVOJ ANĐELE
+    // =========================================================
+    const audio = document.getElementById("bcBackgroundAudio");
+    const audioToggle = document.getElementById("bcAudioToggle");
+    const audioIcon = document.getElementById("bcAudioIcon");
+    const audioText = document.getElementById("bcAudioText");
+
+    function playAudio() {
+        if (!audio) return;
+        audio.play().then(() => {
+            if (audioIcon) audioIcon.textContent = "🔊";
+            if (audioText) audioText.textContent = "Музика: Укључено";
+        }).catch(() => {
+            // Ako pregledač čeka interakciju, aktivira se na prvi dodir
+            const unlock = () => {
+                audio.play();
+                if (audioIcon) audioIcon.textContent = "🔊";
+                if (audioText) audioText.textContent = "Музика: Укључено";
+                document.removeEventListener("click", unlock);
+                document.removeEventListener("touchstart", unlock);
+            };
+            document.addEventListener("click", unlock, { once: true });
+            document.addEventListener("touchstart", unlock, { once: true });
+        });
+    }
+
+    playAudio();
+
+    if (audioToggle && audio) {
+        audioToggle.addEventListener("click", function() {
+            if (audio.paused) {
+                audio.play();
+                audioIcon.textContent = "🔊";
+                audioText.textContent = "Музика: Укључено";
+            } else {
+                audio.pause();
+                audioIcon.textContent = "🔇";
+                audioText.textContent = "Музика: Искључено";
+            }
         });
     }
 })();
