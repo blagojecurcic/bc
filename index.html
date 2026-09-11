@@ -745,7 +745,7 @@ html {
 }
 
 /* =========================================================
-   AUDIO KONTROLA (POGLEDAJ DOM SVOJ ANĐELE)
+   AUDIO KONTROLA
 ========================================================= */
 #bcAudioToggle {
     position: fixed;
@@ -776,11 +776,12 @@ html {
 }
 </style>
 
-<!-- AUDIO ELEMENT: POGLEDAJ DOM SVOJ ANĐELE -->
+<!-- AUDIO ELEMENT -->
 <audio id="bcBackgroundAudio" loop preload="auto">
-    <source src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Riblja_Corba_Pogledaj_dom_svoj_andjele_sample.ogg" type="audio/ogg">
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/16/audio_db6591201e.mp3" type="audio/mpeg">
+    <source src="pesma.mp3" type="audio/mpeg">
+    <source src="https://ia800501.us.archive.org/11/items/riblja-corba-pogledaj-dom-svoj-andjele/Riblja%20Corba%20-%20Pogledaj%20dom%20svoj%20andjele.mp3" type="audio/mpeg">
 </audio>
+
 <button type="button" id="bcAudioToggle" aria-label="Звук песме">
     <span id="bcAudioIcon">🔊</span> <span id="bcAudioText">Музика: Укључено</span>
 </button>
@@ -1452,113 +1453,11 @@ html {
         });
     }
 
-    <!-- AUDIO ELEMENT: BRZI DIREKTNI IZVOR -->
-<audio id="bcBackgroundAudio" loop preload="auto">
-    <!-- Prvi i najbrži izvor: tvoj lokalni fajl iz GitHub repozitorijuma -->
-    <source src="pesma.mp3" type="audio/mpeg">
-    <!-- Rezervni brzi direktni izvor -->
-    <source src="https://ia800501.us.archive.org/11/items/riblja-corba-pogledaj-dom-svoj-andjele/Riblja%20Corba%20-%20Pogledaj%20dom%20svoj%20andjele.mp3" type="audio/mpeg">
-</audio>
-
-<button type="button" id="bcAudioToggle" aria-label="Звук песме">
-    <span id="bcAudioIcon">🔊</span> <span id="bcAudioText">Музика: Укључено</span>
-</button>
-
-<script>
-(function () {
-    const year = document.getElementById("bcFooterYear");
-    if (year) year.textContent = new Date().getFullYear();
-
-    // Modal prozor
-    const openCard = document.getElementById("bcCredoOpenCard");
-    const modal = document.getElementById("bcCredoModal");
-    const closeBtn = document.getElementById("bcCredoCloseBtn");
-
-    if (openCard && modal && closeBtn) {
-        openCard.addEventListener("click", () => {
-            modal.classList.add("bc-modal-active");
-            document.body.style.overflow = "hidden";
-        });
-        const close = () => {
-            modal.classList.remove("bc-modal-active");
-            document.body.style.overflow = "";
-        };
-        closeBtn.addEventListener("click", close);
-        modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
-        document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
-    }
-
-    // Mobilni meni
-    const button = document.getElementById("bcMenuButton");
-    const nav = document.getElementById("bcNav");
-    if (button && nav) {
-        button.addEventListener("click", function () {
-            const open = nav.classList.toggle("bc-open");
-            button.classList.toggle("bc-active", open);
-        });
-        nav.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener("click", () => {
-                nav.classList.remove("bc-open");
-                button.classList.remove("bc-active");
-            });
-        });
-    }
-
-    // Automatski obilazak
-    const tourBtn = document.getElementById("bcStartTourBtn");
-    let isTourRunning = false;
-
-    if (tourBtn) {
-        tourBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            if (isTourRunning) return;
-            isTourRunning = true;
-
-            const startY = window.pageYOffset;
-            const targetY = Math.max(
-                document.body.scrollHeight,
-                document.documentElement.scrollHeight
-            ) - window.innerHeight;
-            const distance = targetY - startY;
-            const duration = 18000;
-            let startTime = null;
-
-            function stopAnimation() {
-                isTourRunning = false;
-                window.removeEventListener("wheel", stopAnimation);
-                window.removeEventListener("touchstart", stopAnimation);
-            }
-
-            window.addEventListener("wheel", stopAnimation, { passive: true });
-            window.addEventListener("touchstart", stopAnimation, { passive: true });
-
-            function step(timestamp) {
-                if (!isTourRunning) return;
-                if (!startTime) startTime = timestamp;
-                const elapsed = timestamp - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-
-                window.scrollTo(0, startY + distance * progress);
-
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                } else {
-                    stopAnimation();
-                }
-            }
-
-            window.requestAnimationFrame(step);
-        });
-    }
-
-    // =========================================================
-    // BRZO I POUZDANO PUŠTANJE MUZIKE (BYPASS ZA TELEFONE)
-    // =========================================================
+    // Audio reprodukcija
     const audio = document.getElementById("bcBackgroundAudio");
     const audioToggle = document.getElementById("bcAudioToggle");
     const audioIcon = document.getElementById("bcAudioIcon");
     const audioText = document.getElementById("bcAudioText");
-
     let isAudioPlaying = false;
 
     function playMusic() {
@@ -1568,10 +1467,9 @@ html {
             isAudioPlaying = true;
             if (audioIcon) audioIcon.textContent = "🔊";
             if (audioText) audioText.textContent = "Музика: Укључено";
-            // Uklanjamo slušaoce čim krene zvuk
             removeAudioTriggers();
         }).catch(() => {
-            // Čeka prvu korisničku interakciju
+            // Ceka korisnicku interakciju
         });
     }
 
@@ -1586,16 +1484,12 @@ html {
         window.removeEventListener("scroll", triggerAudioOnInteraction);
     }
 
-    // 1. Pokušaj automatski čim uđe na sajt
     playMusic();
-
-    // 2. Ako telefon blokira, pokreni čim korisnik dodirne ekran ili krene da skroluje
     document.addEventListener("click", triggerAudioOnInteraction, { passive: true });
     document.addEventListener("touchstart", triggerAudioOnInteraction, { passive: true });
     document.addEventListener("scroll", triggerAudioOnInteraction, { passive: true, once: true });
     window.addEventListener("scroll", triggerAudioOnInteraction, { passive: true, once: true });
 
-    // Dugme za ručno gašenje/paljenje
     if (audioToggle && audio) {
         audioToggle.addEventListener("click", function (e) {
             e.stopPropagation();
