@@ -624,7 +624,6 @@ html {
 }
 
 /* =========================================================
-   ISTORIJSKO NASLEĐE
    ISTORIJSKO NASLEĐE (PRECI: MAJČINA I OČEVA STRANA)
 ========================================================= */
 #bc-heritage {
@@ -746,7 +745,7 @@ html {
 }
 
 /* =========================================================
-   AUDIO KONTROLA (POGLEDAJ DOM SVOJ ANĐELE)
+   AUDIO KONTROLA
 ========================================================= */
 #bcAudioToggle {
     position: fixed;
@@ -777,22 +776,11 @@ html {
 }
 </style>
 
-<!-- AUDIO ELEMENT: POGLEDAJ DOM SVOJ ANĐELE -->
-<audio id="bcBackgroundAudio" loop preload="auto">
-    <source src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Riblja_Corba_Pogledaj_dom_svoj_andjele_sample.ogg" type="audio/ogg">
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/16/audio_db6591201e.mp3" type="audio/mpeg">
-</audio>
-<button type="button" id="bcAudioToggle" aria-label="Звук песме">
-    <span id="bcAudioIcon">🔊</span> <span id="bcAudioText">Музика: Укључено</span>
-</button>
-
 <!-- =========================================================
-     HERO SEKCIJA (ISTO POZICIONIRANJE I SLIKA KAO O MENI)
      HERO SEKCIJA
 ========================================================= -->
 <section id="bc-home">
     <div class="bc-hero">
-        <!-- ZAMENJENA SLIKA: SADA JE ISTA KAO U O MENI -->
         <img class="bc-banner-image" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/ChatGPT-Image-Sep-6-2026-10_39_24-AM.png" alt="Благоје Ћурчић">
         <div class="bc-hero-overlay"></div>
 
@@ -827,7 +815,7 @@ html {
                     <div class="bc-kicker">За праведнију Србију</div>
                     <h1 class="bc-title">Држава у којој се<br>питају грађани.</h1>
                     <p class="bc-description">Одговорна држава. Снажнија домаћа производња. Институције које раде у интересу народа и отаџбине.</p>
-
+                    
                     <div class="bc-actions">
                         <a href="#bc-principles" class="bc-button bc-button-primary">Погледај програм <span>→</span></a>
                         <a href="#bc-about" class="bc-button bc-button-secondary">О Благоју</a>
@@ -906,7 +894,6 @@ html {
 
 <!-- =========================================================
      ŠVAJCARSKI SISTEM (KRATKI PREGLED)
-========================================================= */ -->
 ========================================================= -->
 <style>
 #bc-direct-short {
@@ -988,7 +975,7 @@ html {
 #bc-principles .bc-principle-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
 #bc-principles .bc-icon { width: 36px; height: 36px; color: var(--blue); }
 #bc-principles .bc-icon svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.5; }
-#bc-principles .bc-number { color: rgba(7,24,45,.2); font-family: Georgia, serif; font-size: 18px; }
+#bc-number { color: rgba(7,24,45,.2); font-family: Georgia, serif; font-size: 18px; }
 #bc-principles .bc-title { margin: 0; color: var(--navy); font-family: Georgia, serif; font-size: 19px; font-weight: 500; }
 #bc-principles .bc-text { margin: 8px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
 
@@ -1052,7 +1039,6 @@ html {
 }
 #bc-policy-index *, #bc-policy-index *::before, #bc-policy-index *::after{ box-sizing:border-box; }
 #bc-policy-index .bc-index-inner{ position:relative; width:min(1180px,calc(100% - 40px)); margin:0 auto; padding:80px 0 95px; }
-#bc-index-inner{ position:relative; width:min(1180px,calc(100% - 40px)); margin:0 auto; padding:80px 0 95px; }
 #bc-policy-index .bc-index-intro{ display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:60px; align-items:end; padding-bottom:45px; border-bottom:1px solid var(--line); }
 #bc-policy-index .bc-index-label{ display:flex; align-items:center; gap:10px; margin-bottom:16px; color:var(--blue); font-size:9px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
 #bc-policy-index .bc-index-label::before{ content:""; width:38px; height:2px; background:var(--blue); }
@@ -1238,7 +1224,6 @@ html {
 </section>
 
 <!-- =========================================================
-     ISTORIJSKO NASLEĐE
      ISTORIJSKO NASLEĐE (PRECI: MAJČINA I OČEVA STRANA)
 ========================================================= -->
 <section id="bc-heritage">
@@ -1371,6 +1356,16 @@ html {
     </div>
 </footer>
 
+<!-- AUDIO ELEMENT: STABILAN BRZI STREAM -->
+<audio id="bcBackgroundAudio" loop preload="auto">
+    <source src="pesma.mp3" type="audio/mpeg">
+    <source src="https://ia800501.us.archive.org/11/items/riblja-corba-pogledaj-dom-svoj-andjele/Riblja%20Corba%20-%20Pogledaj%20dom%20svoj%20andjele.mp3" type="audio/mpeg">
+</audio>
+
+<button type="button" id="bcAudioToggle" aria-label="Звук песме">
+    <span id="bcAudioIcon">🔊</span> <span id="bcAudioText">Музика: Укључено</span>
+</button>
+
 <script>
 (function () {
     const year = document.getElementById("bcFooterYear");
@@ -1411,7 +1406,9 @@ html {
         });
     }
 
-    // Automatski obilazak
+    // =========================================================
+    // AUTOMATSKI OBILAZAK: TRAJE TAČNO 45 SEKUNDI
+    // =========================================================
     const tourBtn = document.getElementById("bcStartTourBtn");
     let isTourRunning = false;
 
@@ -1421,13 +1418,13 @@ html {
             if (isTourRunning) return;
             isTourRunning = true;
 
-            const startY = window.pageYOffset;
+            const startY = window.pageYOffset || document.documentElement.scrollTop;
             const targetY = Math.max(
                 document.body.scrollHeight,
                 document.documentElement.scrollHeight
             ) - window.innerHeight;
             const distance = targetY - startY;
-            const duration = 18000;
+            const duration = 45000; // Tačno 45 sekundi laganog kretanja
             let startTime = null;
 
             function stopAnimation() {
@@ -1459,44 +1456,71 @@ html {
     }
 
     // =========================================================
-    // AUTOMATSKA MUZIKA: POGLEDAJ DOM SVOJ ANĐELE
+    // AUTOMATSKA MUZIKA: KREĆE DIREKTNO OD REFRENA (86. SEKUNDA)
     // =========================================================
     const audio = document.getElementById("bcBackgroundAudio");
     const audioToggle = document.getElementById("bcAudioToggle");
     const audioIcon = document.getElementById("bcAudioIcon");
     const audioText = document.getElementById("bcAudioText");
+    const chorusStartTime = 86; // 1m 26s - početak refrena
+    let isAudioPlaying = false;
 
-    function playAudio() {
-        if (!audio) return;
+    function startChorus() {
+        if (!audio || isAudioPlaying) return;
+
+        try {
+            if (audio.currentTime < chorusStartTime - 5) {
+                audio.currentTime = chorusStartTime;
+            }
+        } catch (err) {}
+
         audio.play().then(() => {
+            isAudioPlaying = true;
             if (audioIcon) audioIcon.textContent = "🔊";
             if (audioText) audioText.textContent = "Музика: Укључено";
+            removeAudioTriggers();
         }).catch(() => {
-            // Ako pregledač čeka interakciju, aktivira se na prvi dodir
-            const unlock = () => {
-                audio.play();
-                if (audioIcon) audioIcon.textContent = "🔊";
-                if (audioText) audioText.textContent = "Музика: Укључено";
-                document.removeEventListener("click", unlock);
-                document.removeEventListener("touchstart", unlock);
-            };
-            document.addEventListener("click", unlock, { once: true });
-            document.addEventListener("touchstart", unlock, { once: true });
+            // Pretraživač čeka interakciju korisnika
         });
     }
 
-    playAudio();
+    function triggerAudioOnInteraction() {
+        startChorus();
+    }
+
+    function removeAudioTriggers() {
+        document.removeEventListener("click", triggerAudioOnInteraction);
+        document.removeEventListener("touchstart", triggerAudioOnInteraction);
+        document.removeEventListener("scroll", triggerAudioOnInteraction);
+        window.removeEventListener("scroll", triggerAudioOnInteraction);
+    }
+
+    // 1. Pokušaj odmah po ulasku
+    startChorus();
+
+    // 2. Pokreni na prvi dodir/klik/skrol ako telefon blokira
+    document.addEventListener("click", triggerAudioOnInteraction, { passive: true });
+    document.addEventListener("touchstart", triggerAudioOnInteraction, { passive: true });
+    document.addEventListener("scroll", triggerAudioOnInteraction, { passive: true, once: true });
+    window.addEventListener("scroll", triggerAudioOnInteraction, { passive: true, once: true });
 
     if (audioToggle && audio) {
-        audioToggle.addEventListener("click", function() {
-            if (audio.paused) {
-                audio.play();
-                audioIcon.textContent = "🔊";
-                audioText.textContent = "Музика: Укључено";
-            } else {
+        audioToggle.addEventListener("click", function (e) {
+            e.stopPropagation();
+            if (!audio.paused) {
                 audio.pause();
-                audioIcon.textContent = "🔇";
-                audioText.textContent = "Музика: Искључено";
+                isAudioPlaying = false;
+                if (audioIcon) audioIcon.textContent = "🔇";
+                if (audioText) audioText.textContent = "Музика: Искључено";
+            } else {
+                if (audio.currentTime < chorusStartTime - 5) {
+                    audio.currentTime = chorusStartTime;
+                }
+                audio.play().then(() => {
+                    isAudioPlaying = true;
+                    if (audioIcon) audioIcon.textContent = "🔊";
+                    if (audioText) audioText.textContent = "Музика: Укључено";
+                });
             }
         });
     }
