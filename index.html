@@ -1452,45 +1452,164 @@ html {
         });
     }
 
+    <!-- AUDIO ELEMENT: BRZI DIREKTNI IZVOR -->
+<audio id="bcBackgroundAudio" loop preload="auto">
+    <!-- Prvi i najbrži izvor: tvoj lokalni fajl iz GitHub repozitorijuma -->
+    <source src="pesma.mp3" type="audio/mpeg">
+    <!-- Rezervni brzi direktni izvor -->
+    <source src="https://ia800501.us.archive.org/11/items/riblja-corba-pogledaj-dom-svoj-andjele/Riblja%20Corba%20-%20Pogledaj%20dom%20svoj%20andjele.mp3" type="audio/mpeg">
+</audio>
+
+<button type="button" id="bcAudioToggle" aria-label="Звук песме">
+    <span id="bcAudioIcon">🔊</span> <span id="bcAudioText">Музика: Укључено</span>
+</button>
+
+<script>
+(function () {
+    const year = document.getElementById("bcFooterYear");
+    if (year) year.textContent = new Date().getFullYear();
+
+    // Modal prozor
+    const openCard = document.getElementById("bcCredoOpenCard");
+    const modal = document.getElementById("bcCredoModal");
+    const closeBtn = document.getElementById("bcCredoCloseBtn");
+
+    if (openCard && modal && closeBtn) {
+        openCard.addEventListener("click", () => {
+            modal.classList.add("bc-modal-active");
+            document.body.style.overflow = "hidden";
+        });
+        const close = () => {
+            modal.classList.remove("bc-modal-active");
+            document.body.style.overflow = "";
+        };
+        closeBtn.addEventListener("click", close);
+        modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+    }
+
+    // Mobilni meni
+    const button = document.getElementById("bcMenuButton");
+    const nav = document.getElementById("bcNav");
+    if (button && nav) {
+        button.addEventListener("click", function () {
+            const open = nav.classList.toggle("bc-open");
+            button.classList.toggle("bc-active", open);
+        });
+        nav.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener("click", () => {
+                nav.classList.remove("bc-open");
+                button.classList.remove("bc-active");
+            });
+        });
+    }
+
+    // Automatski obilazak
+    const tourBtn = document.getElementById("bcStartTourBtn");
+    let isTourRunning = false;
+
+    if (tourBtn) {
+        tourBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            if (isTourRunning) return;
+            isTourRunning = true;
+
+            const startY = window.pageYOffset;
+            const targetY = Math.max(
+                document.body.scrollHeight,
+                document.documentElement.scrollHeight
+            ) - window.innerHeight;
+            const distance = targetY - startY;
+            const duration = 18000;
+            let startTime = null;
+
+            function stopAnimation() {
+                isTourRunning = false;
+                window.removeEventListener("wheel", stopAnimation);
+                window.removeEventListener("touchstart", stopAnimation);
+            }
+
+            window.addEventListener("wheel", stopAnimation, { passive: true });
+            window.addEventListener("touchstart", stopAnimation, { passive: true });
+
+            function step(timestamp) {
+                if (!isTourRunning) return;
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                window.scrollTo(0, startY + distance * progress);
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    stopAnimation();
+                }
+            }
+
+            window.requestAnimationFrame(step);
+        });
+    }
+
     // =========================================================
-    // AUTOMATSKA MUZIKA: POGLEDAJ DOM SVOJ ANĐELE
+    // BRZO I POUZDANO PUŠTANJE MUZIKE (BYPASS ZA TELEFONE)
     // =========================================================
     const audio = document.getElementById("bcBackgroundAudio");
     const audioToggle = document.getElementById("bcAudioToggle");
     const audioIcon = document.getElementById("bcAudioIcon");
     const audioText = document.getElementById("bcAudioText");
 
-    function playAudio() {
-        if (!audio) return;
+    let isAudioPlaying = false;
+
+    function playMusic() {
+        if (!audio || isAudioPlaying) return;
+
         audio.play().then(() => {
+            isAudioPlaying = true;
             if (audioIcon) audioIcon.textContent = "🔊";
             if (audioText) audioText.textContent = "Музика: Укључено";
+            // Uklanjamo slušaoce čim krene zvuk
+            removeAudioTriggers();
         }).catch(() => {
-            // Ako pregledač čeka interakciju, aktivira se na prvi dodir
-            const unlock = () => {
-                audio.play();
-                if (audioIcon) audioIcon.textContent = "🔊";
-                if (audioText) audioText.textContent = "Музика: Укључено";
-                document.removeEventListener("click", unlock);
-                document.removeEventListener("touchstart", unlock);
-            };
-            document.addEventListener("click", unlock, { once: true });
-            document.addEventListener("touchstart", unlock, { once: true });
+            // Čeka prvu korisničku interakciju
         });
     }
 
-    playAudio();
+    function triggerAudioOnInteraction() {
+        playMusic();
+    }
 
+    function removeAudioTriggers() {
+        document.removeEventListener("click", triggerAudioOnInteraction);
+        document.removeEventListener("touchstart", triggerAudioOnInteraction);
+        document.removeEventListener("scroll", triggerAudioOnInteraction);
+        window.removeEventListener("scroll", triggerAudioOnInteraction);
+    }
+
+    // 1. Pokušaj automatski čim uđe na sajt
+    playMusic();
+
+    // 2. Ako telefon blokira, pokreni čim korisnik dodirne ekran ili krene da skroluje
+    document.addEventListener("click", triggerAudioOnInteraction, { passive: true });
+    document.addEventListener("touchstart", triggerAudioOnInteraction, { passive: true });
+    document.addEventListener("scroll", triggerAudioOnInteraction, { passive: true, once: true });
+    window.addEventListener("scroll", triggerAudioOnInteraction, { passive: true, once: true });
+
+    // Dugme za ručno gašenje/paljenje
     if (audioToggle && audio) {
-        audioToggle.addEventListener("click", function() {
-            if (audio.paused) {
-                audio.play();
-                audioIcon.textContent = "🔊";
-                audioText.textContent = "Музика: Укључено";
-            } else {
+        audioToggle.addEventListener("click", function (e) {
+            e.stopPropagation();
+            if (!audio.paused) {
                 audio.pause();
-                audioIcon.textContent = "🔇";
-                audioText.textContent = "Музика: Искључено";
+                isAudioPlaying = false;
+                if (audioIcon) audioIcon.textContent = "🔇";
+                if (audioText) audioText.textContent = "Музика: Искључено";
+            } else {
+                audio.play().then(() => {
+                    isAudioPlaying = true;
+                    if (audioIcon) audioIcon.textContent = "🔊";
+                    if (audioText) audioText.textContent = "Музика: Укључено";
+                });
             }
         });
     }
