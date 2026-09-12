@@ -87,3 +87,112 @@ body {
 body.bc-page-transition {
     opacity: 0;
 }
+
+/* Minimalna audio kontrola dostupna na svim stranicama */
+#bcAudioToggle {
+    position: fixed;
+    left: max(18px, env(safe-area-inset-left));
+    bottom: max(18px, env(safe-area-inset-bottom));
+    z-index: 99990;
+    min-height: 42px;
+    max-width: calc(100vw - 36px);
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border: 1px solid rgba(223, 177, 91, 0.48);
+    border-radius: 999px;
+    background: rgba(7, 24, 45, 0.92);
+    color: #f3d08a;
+    box-shadow: 0 12px 34px rgba(7, 24, 45, 0.26);
+    cursor: pointer;
+    font: 800 10px/1 Arial, Helvetica, sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+#bcAudioToggle .bc-audio-dot {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+    border-radius: 50%;
+    background: #f3d08a;
+    box-shadow: 0 0 0 4px rgba(243, 208, 138, 0.13);
+}
+
+#bcAudioToggle .bc-audio-label,
+#bcAudioToggle .bc-audio-state {
+    white-space: nowrap;
+}
+
+#bcAudioToggle.bc-audio-muted,
+#bcAudioToggle.bc-audio-blocked {
+    color: rgba(255,255,255,.76);
+    border-color: rgba(255,255,255,.22);
+}
+
+#bcAudioToggle.bc-audio-muted .bc-audio-dot,
+#bcAudioToggle.bc-audio-blocked .bc-audio-dot {
+    background: rgba(255,255,255,.48);
+    box-shadow: none;
+}
+
+#bcAudioToggle:hover,
+#bcAudioToggle:focus-visible {
+    background: #124d8b;
+    border-color: #2466a3;
+    color: #ffffff;
+    outline: none;
+}
+
+/* Malo vise prostora na mobilnim ekranima, bez promene desktop rasporeda */
+@media (max-width: 760px) {
+    #bc-home .bc-content-inner,
+    #bc-about .bc-content-inner,
+    #bc-heritage .bc-heritage-inner,
+    #bc-direct-short .bc-inner,
+    #bc-principles .bc-principles-inner,
+    #bc-policy-index .bc-index-inner,
+    #bc-domaca .bc-domaca-inner,
+    #bc-vocarstvo-program .bc-fr-inner,
+    #bc-stocarstvo-program .bc-stp-inner,
+    #bc-solar-program .bc-fr-inner,
+    #bc-institucije .bc-inst-inner,
+    #bc-svajcarski .bc-swiss-inner,
+    #bc-properties .bc-prop-inner,
+    #bc-contact .bc-content-inner,
+    #bc-footer .bc-footer-inner {
+        padding-left: max(20px, env(safe-area-inset-left)) !important;
+        padding-right: max(20px, env(safe-area-inset-right)) !important;
+    }
+
+    #bc-home .bc-actions,
+    #bc-contact .bc-contact-list,
+    #bc-policy-index .bc-index-grid,
+    #bc-properties .bc-prop-grid {
+        gap: 18px !important;
+    }
+
+    #bcAudioToggle {
+        left: max(14px, env(safe-area-inset-left));
+        bottom: max(14px, env(safe-area-inset-bottom));
+        min-height: 40px;
+        padding: 0 12px;
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 420px) {
+    #bcAudioToggle .bc-audio-label,
+    #bcAudioToggle .bc-audio-state {
+        display: none;
+    }
+
+    #bcAudioToggle {
+        width: 42px;
+        padding: 0;
+    }
+}
