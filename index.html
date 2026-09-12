@@ -744,36 +744,6 @@ html {
     }
 }
 
-/* =========================================================
-   AUDIO KONTROLA
-========================================================= */
-#bcAudioToggle {
-    position: fixed;
-    bottom: 22px;
-    left: 22px;
-    z-index: 99990;
-    min-height: 44px;
-    padding: 0 16px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(7, 24, 45, 0.95);
-    border: 1px solid rgba(223, 177, 91, 0.6);
-    color: #dfb15b;
-    border-radius: 30px;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    transition: all .2s ease;
-}
-#bcAudioToggle:hover {
-    background: #124d8b;
-    color: #fff;
-    border-color: #fff;
-}
 </style>
 
 <!-- =========================================================
@@ -781,7 +751,7 @@ html {
 ========================================================= -->
 <section id="bc-home">
     <div class="bc-hero">
-        <img class="bc-banner-image" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/ChatGPT-Image-Sep-6-2026-10_39_24-AM.png" alt="Благоје Ћурчић">
+        <img fetchpriority="high" decoding="async" class="bc-banner-image" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/ChatGPT-Image-Sep-6-2026-10_39_24-AM.png" alt="Благоје Ћурчић">
         <div class="bc-hero-overlay"></div>
 
         <header class="bc-header">
@@ -1196,7 +1166,7 @@ html {
 ========================================================= -->
 <section id="bc-about">
     <div class="bc-about-hero">
-        <img class="bc-about-image" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/ChatGPT-Image-Sep-6-2026-10_39_24-AM.png" alt="Благоје Ћурчић">
+        <img loading="lazy" decoding="async" class="bc-about-image" src="https://blagojecurcic.rf.gd/wp-content/uploads/2026/09/ChatGPT-Image-Sep-6-2026-10_39_24-AM.png" alt="Благоје Ћурчић">
         <div class="bc-about-overlay"></div>
 
         <div class="bc-content-wrap">
@@ -1356,14 +1326,15 @@ html {
     </div>
 </footer>
 
-<!-- AUDIO ELEMENT: STABILAN BRZI STREAM -->
-<audio id="bcBackgroundAudio" loop preload="auto">
+<!-- AUDIO ELEMENT: lokalna pesma za ceo sajt -->
+<audio id="bcBackgroundAudio" loop preload="auto" playsinline>
     <source src="pesma.mp3" type="audio/mpeg">
-    <source src="https://ia800501.us.archive.org/11/items/riblja-corba-pogledaj-dom-svoj-andjele/Riblja%20Corba%20-%20Pogledaj%20dom%20svoj%20andjele.mp3" type="audio/mpeg">
 </audio>
 
-<button type="button" id="bcAudioToggle" aria-label="Звук песме">
-    <span id="bcAudioIcon">🔊</span> <span id="bcAudioText">Музика: Укључено</span>
+<button type="button" id="bcAudioToggle" aria-label="Kontrola zvuka pesme" aria-pressed="false">
+    <span class="bc-audio-dot" aria-hidden="true"></span>
+    <span class="bc-audio-label">Звук</span>
+    <span class="bc-audio-state" id="bcAudioText">укљ.</span>
 </button>
 
 <script>
@@ -1407,7 +1378,7 @@ html {
     }
 
     // =========================================================
-    // AUTOMATSKI OBILAZAK: TRAJE TAČNO 45 SEKUNDI
+    // AUTOMATSKI OBILAZAK: prolazi pocetnu za oko 48 sekundi
     // =========================================================
     const tourBtn = document.getElementById("bcStartTourBtn");
     let isTourRunning = false;
@@ -1424,7 +1395,7 @@ html {
                 document.documentElement.scrollHeight
             ) - window.innerHeight;
             const distance = targetY - startY;
-            const duration = 45000; // Tačno 45 sekundi laganog kretanja
+            const duration = 48000; // 45-50 sekundi laganog kretanja
             let startTime = null;
 
             function stopAnimation() {
@@ -1455,75 +1426,6 @@ html {
         });
     }
 
-    // =========================================================
-    // AUTOMATSKA MUZIKA: KREĆE DIREKTNO OD REFRENA (86. SEKUNDA)
-    // =========================================================
-    const audio = document.getElementById("bcBackgroundAudio");
-    const audioToggle = document.getElementById("bcAudioToggle");
-    const audioIcon = document.getElementById("bcAudioIcon");
-    const audioText = document.getElementById("bcAudioText");
-    const chorusStartTime = 86; // 1m 26s - početak refrena
-    let isAudioPlaying = false;
-
-    function startChorus() {
-        if (!audio || isAudioPlaying) return;
-
-        try {
-            if (audio.currentTime < chorusStartTime - 5) {
-                audio.currentTime = chorusStartTime;
-            }
-        } catch (err) {}
-
-        audio.play().then(() => {
-            isAudioPlaying = true;
-            if (audioIcon) audioIcon.textContent = "🔊";
-            if (audioText) audioText.textContent = "Музика: Укључено";
-            removeAudioTriggers();
-        }).catch(() => {
-            // Pretraživač čeka interakciju korisnika
-        });
-    }
-
-    function triggerAudioOnInteraction() {
-        startChorus();
-    }
-
-    function removeAudioTriggers() {
-        document.removeEventListener("click", triggerAudioOnInteraction);
-        document.removeEventListener("touchstart", triggerAudioOnInteraction);
-        document.removeEventListener("scroll", triggerAudioOnInteraction);
-        window.removeEventListener("scroll", triggerAudioOnInteraction);
-    }
-
-    // 1. Pokušaj odmah po ulasku
-    startChorus();
-
-    // 2. Pokreni na prvi dodir/klik/skrol ako telefon blokira
-    document.addEventListener("click", triggerAudioOnInteraction, { passive: true });
-    document.addEventListener("touchstart", triggerAudioOnInteraction, { passive: true });
-    document.addEventListener("scroll", triggerAudioOnInteraction, { passive: true, once: true });
-    window.addEventListener("scroll", triggerAudioOnInteraction, { passive: true, once: true });
-
-    if (audioToggle && audio) {
-        audioToggle.addEventListener("click", function (e) {
-            e.stopPropagation();
-            if (!audio.paused) {
-                audio.pause();
-                isAudioPlaying = false;
-                if (audioIcon) audioIcon.textContent = "🔇";
-                if (audioText) audioText.textContent = "Музика: Искључено";
-            } else {
-                if (audio.currentTime < chorusStartTime - 5) {
-                    audio.currentTime = chorusStartTime;
-                }
-                audio.play().then(() => {
-                    isAudioPlaying = true;
-                    if (audioIcon) audioIcon.textContent = "🔊";
-                    if (audioText) audioText.textContent = "Музика: Укључено";
-                });
-            }
-        });
-    }
 })();
 </script>
 <script src="bc-engine.js"></script>
