@@ -10,6 +10,7 @@
 html,body{margin:0;padding:0;width:100%;min-height:100%;overflow-x:hidden;}
 body{background:#f8fafc;}
 </style>
+<link rel="stylesheet" href="bc-core.css">
 </head>
 <body>
 
@@ -297,26 +298,26 @@ html {
 <div id="bc-header-wrap">
     <header class="bc-header">
         <div class="bc-header-inner">
-            <a class="bc-brand" href="pocetna.html">
+            <a class="bc-brand" href="index.html">
                 <div class="bc-monogram">BĆ</div>
                 <div>
-                    <div class="bc-brand-name">BLAGOJE ĆURČIĆ</div>
-                    <div class="bc-brand-subtitle">Za pravedniju Srbiju</div>
+                    <div class="bc-brand-name">БЛАГОЈЕ ЋУРЧИЋ</div>
+                    <div class="bc-brand-subtitle">За праведнију Србију</div>
                 </div>
             </a>
 
             <nav class="bc-nav" id="bcNav" aria-label="Glavna navigacija">
-                <a href="pocetna.html">Početak</a>
-                <a href="pocetna.html#bc-about">O meni</a>
-                <a href="pocetna.html#bc-principles" class="bc-current">Program</a>
-                <a href="kontakt.html">Kontakt</a>
+                <a href="index.html">Почетак</a>
+                <a href="index.html#bc-about">О мени</a>
+                <a href="index.html#bc-principles" class="bc-current">Програм</a>
+                <a href="index.html#bc-heritage">Наслеђе</a>
+                <a href="nekretnine.html">Некретнине</a>
+                <a href="kontakt.html">Контакт</a>
             </nav>
 
-            <a class="bc-header-button" href="kontakt.html">
-                Kontakt <span>→</span>
-            </a>
+            <a class="bc-header-button" href="kontakt.html">Контакт <span>→</span></a>
 
-            <button id="bcMenuButton" class="bc-menu-button" type="button" aria-label="Otvori navigaciju" aria-expanded="false" aria-controls="bcNav">
+            <button id="bcMenuButton" class="bc-menu-button" type="button" aria-label="Отвори навигацију" aria-expanded="false" aria-controls="bcNav">
                 <span class="bc-menu-icon">
                     <span></span>
                     <span></span>
@@ -955,11 +956,10 @@ html {
     <!-- POVRATAK NA GLAVNU STRANICU -->
     <a
         class="bc-back-home"
-        href="pocetna.html"
-        aria-label="Vrati se na početnu stranicu"
+        href="index.html"
+        aria-label="Врати се на почетну страницу"
     >
-        <span>←</span>
-        Početna
+        <span>←</span> Почетна
     </a>
 
     <div class="bc-domaca-inner">
@@ -1003,7 +1003,7 @@ html {
 
             <!-- IMAGE -->
             <div class="bc-domaca-visual">
-                <img
+                <img decoding="async"
                     class="bc-domaca-image"
                     src="https://images.unsplash.com/photo-1654143487566-d5487d255562?auto=format&fit=crop&w=1800&q=90"
                     alt="Poljoprivredna proizvodnja i prerada"
@@ -1478,9 +1478,9 @@ html {
                 <div class="bc-footer-tagline">Za pravedniju Srbiju</div>
 
                 <nav class="bc-footer-nav" aria-label="Navigacija u podnožju">
-                    <a href="pocetna.html">Početak</a>
-                    <a href="pocetna.html#bc-about">O meni</a>
-                    <a href="pocetna.html#bc-principles">Program</a>
+                    <a href="index.html">Početak</a>
+                    <a href="index.html#bc-about">O meni</a>
+                    <a href="index.html#bc-principles">Program</a>
                     <a href="kontakt.html">Kontakt</a>
                 </nav>
             </div>
@@ -1523,6 +1523,6 @@ html {
     }
 })();
 </script>
-
+<script src="bc-engine.js"></script>
 </body>
 </html>
